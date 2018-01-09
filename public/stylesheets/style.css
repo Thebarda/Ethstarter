@@ -1,0 +1,61 @@
+#menu{
+    background-color: black;
+    opacity: 0.92;
+    z-index: 999;
+}
+
+#logoMenu{
+    width: 80%;
+    margin-left: 1rem;
+}
+
+#bbfs{
+    background-color: black;
+}
+
+#bbfs>li>a{
+    color: #673ab7;
+}
+
+#bbfs>li{
+    z-index: 999;
+}
+
+#pratique>li>a{
+    color: #673ab7;
+}
+
+#Maincarousel{
+    margin-top: 5rem;
+}
+#imgCarousel{
+    width: 320%;
+    margin-top: -19rem;
+    margin-left: -15rem;
+}
+
+#menu{
+    z-index: 999 !important;
+}
+#menu-content{
+    width: 80%;
+    margin-left: 2rem;
+}
+
+footer{
+    margin-top: 2rem;
+}
+
+/*Test zoom in*/
+.image-card img {
+    -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+}
+
+.zoom-effect-container:hover .image-card img {
+    -webkit-transform: scale(1.08);
+    transform: scale(1.08);
+}
+.zoom-effect-container {
+    overflow: hidden;
+}
