@@ -2,421 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3e62e71-5691-40ad-8242-e51320a966d6" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/lib/web3.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/web3.min.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/controllers/ExampleController.js" afterPath="$PROJECT_DIR$/controllers/ExampleController.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/acorn" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/acorn.cmd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/cleancss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/cleancss.cmd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/jade" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/jade.cmd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-globals/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-globals/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-globals/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-globals/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/.editorconfig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/.gitattributes" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/.tern-project" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/AUTHORS" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/bin/acorn" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/bin/build-acorn.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/bin/generate-identifier-regex.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/bin/update_authors.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/dist/.keep" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/dist/acorn.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/dist/acorn_loose.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/dist/walk.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/bin/acorn.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/expression.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/identifier.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/location.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/locutil.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/loose/acorn_loose.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/loose/expression.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/loose/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/loose/parseutil.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/loose/state.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/loose/statement.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/loose/tokenize.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/lval.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/node.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/options.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/parseutil.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/state.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/statement.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/tokencontext.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/tokenize.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/tokentype.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/util.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/walk/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/src/whitespace.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/async/CHANGELOG.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/LICENSE" afterPath="$PROJECT_DIR$/node_modules/async/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/README.md" afterPath="$PROJECT_DIR$/node_modules/async/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/dist/async.js" afterPath="$PROJECT_DIR$/node_modules/async/dist/async.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/dist/async.min.js" afterPath="$PROJECT_DIR$/node_modules/async/dist/async.min.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/lib/async.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/package.json" afterPath="$PROJECT_DIR$/node_modules/async/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/character-parser/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/character-parser/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/character-parser/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/character-parser/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/character-parser/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/History.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/bin/cleancss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/clean.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/colors/hex-name-shortener.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/colors/hsl.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/colors/rgb.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/imports/inliner.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/break-up.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/can-override.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/clone.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/compactable.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/every-combination.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/has-inherit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/invalid-property-error.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/optimizer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/override-compactor.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/populate-components.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/remove-unused.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/restore-from-optimizing.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/restore.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/shorthand-compactor.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/validator.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/vendor-prefixes.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/properties/wrap-for-optimizing.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/advanced.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/clean-up.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/extractor.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/is-special.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/merge-adjacent.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/merge-media-queries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/merge-non-adjacent-by-body.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/merge-non-adjacent-by-selector.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/reduce-non-adjacent.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/remove-duplicate-media-queries.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/remove-duplicates.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/reorderable.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/restructure.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/selectors/simple.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/source-maps/track.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/stringifier/helpers.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/stringifier/one-time.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/stringifier/simple.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/stringifier/source-maps.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/text/comments-processor.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/text/escape-store.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/text/expressions-processor.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/text/free-text-processor.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/text/urls-processor.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/tokenizer/extract-properties.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/tokenizer/extract-selectors.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/tokenizer/tokenize.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/urls/rebase.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/urls/reduce.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/urls/rewrite.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/utils/clone-array.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/utils/compatibility.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/utils/input-source-map-tracker.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/utils/object.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/utils/quote-scanner.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/utils/source-reader.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/utils/source-tracker.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/lib/utils/split.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/node_modules/commander/History.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/node_modules/commander/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/node_modules/commander/Readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/node_modules/commander/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/node_modules/commander/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/clean-css/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/commander/History.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/commander/Readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/commander/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/commander/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/constantinople/.gitattributes" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/constantinople/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/constantinople/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/constantinople/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/constantinople/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/constantinople/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/constantinople/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/constantinople/test/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-parse/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-parse/History.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-parse/Makefile" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-parse/Readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-parse/component.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-parse/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-parse/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-stringify/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-stringify/History.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-stringify/Makefile" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-stringify/Readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-stringify/component.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-stringify/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css-stringify/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css/History.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css/Makefile" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css/Readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css/benchmark.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css/component.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/css/test.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-readlink/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-readlink/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-readlink/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-readlink/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-readlink/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-readlink/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/is-promise/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/is-promise/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/is-promise/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/is-promise/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/is-promise/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/is-promise/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/.release.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/History.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/Readme_zh-cn.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/bin/jade.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/block-code.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/component.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/jade.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/compiler.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/doctypes.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/filters-client.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/filters.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/inline-tags.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/lexer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/attrs.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/block-comment.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/block.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/case.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/code.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/comment.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/doctype.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/each.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/filter.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/literal.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/mixin-block.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/mixin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/node.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/tag.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/text.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/parser.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/runtime.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/lib/utils.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/release.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jade/runtime.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jstransformer/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jstransformer/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jstransformer/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jstransformer/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/package.json" afterPath="$PROJECT_DIR$/node_modules/mkdirp/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/history.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/lib/shared.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/lib/transformers.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/.bin/uglifyjs" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/.bin/uglifyjs.cmd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/is-promise/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/is-promise/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/is-promise/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/is-promise/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/is-promise/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/is-promise/readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/promise/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/promise/Readme.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/promise/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/promise/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/CHANGELOG.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/Makefile.dryice.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/build/assert-shim.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/build/mini-require.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/build/prefix-source-map.jsm" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/build/prefix-utils.jsm" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/build/suffix-browser.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/build/suffix-source-map.jsm" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/build/suffix-utils.jsm" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/build/test-prefix.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/build/test-suffix.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/lib/source-map.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/lib/source-map/array-set.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/lib/source-map/base64-vlq.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/lib/source-map/base64.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/lib/source-map/binary-search.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/lib/source-map/mapping-list.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/lib/source-map/source-map-consumer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/lib/source-map/source-map-generator.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/lib/source-map/source-node.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/lib/source-map/util.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/test/run-tests.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/test/source-map/test-api.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/test/source-map/test-array-set.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/test/source-map/test-base64-vlq.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/test/source-map/test-base64.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/test/source-map/test-binary-search.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/test/source-map/test-dog-fooding.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/test/source-map/test-source-map-consumer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/test/source-map/test-source-map-generator.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/test/source-map/test-source-node.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/test/source-map/test-util.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/source-map/test/source-map/util.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/bin/uglifyjs" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/lib/ast.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/lib/compress.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/lib/mozilla-ast.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/lib/output.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/lib/parse.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/lib/scope.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/lib/sourcemap.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/lib/transform.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/lib/utils.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/arrays.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/blocks.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/conditionals.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/dead-code.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/debugger.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/drop-unused.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/issue-105.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/issue-12.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/issue-22.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/issue-44.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/issue-59.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/labels.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/loops.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/properties.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/sequences.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/compress/switch.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/test/run-tests.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/node_modules/uglify-js/tools/node.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/transformers/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/void-elements/.gitattributes" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/void-elements/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/void-elements/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/void-elements/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/void-elements/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/void-elements/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/void-elements/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/void-elements/pre-publish.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/void-elements/test/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/.bin/acorn" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/.bin/acorn.cmd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/.editorconfig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/.gitattributes" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/.tern-project" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/AUTHORS" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/bin/acorn" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/bin/build-acorn.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/bin/generate-identifier-regex.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/bin/prepublish.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/bin/update_authors.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/bin/without_eval" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/dist/.keep" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/dist/acorn.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/dist/acorn_csp.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/dist/acorn_loose.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/dist/walk.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/expression.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/identifier.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/location.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/loose/acorn_loose.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/loose/expression.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/loose/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/loose/parseutil.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/loose/state.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/loose/statement.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/loose/tokenize.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/lval.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/node.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/options.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/parseutil.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/state.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/statement.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/tokencontext.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/tokenize.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/tokentype.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/util.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/walk/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/node_modules/acorn/src/whitespace.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/with/package.json" afterPath="" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
       <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/public/images/BBFLinerSmall.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Blackv2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Buis2017.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Concerts.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Grange.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Jessie-Lee-The-Alchemists.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Monts-du-Limousin.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Noir-1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Noir-1a.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Noir-2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Noir-3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Noir-4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Noir-5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Noir-6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Noir-8.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/Zica2172black.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/fb.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/Bayou-Blue-Radio.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/ELAN.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/F-Bleu-Limousin-V_copie-22e28.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/Logo-Le-Buis.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/Logo-Thouron.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/Logo_Mairie.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/Région-Europe-Leader-PALOMA.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/TS_guitare_MP_exe.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/Tampon-Monts-du-Limousin.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/bandeau_stjouvent.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/logo-leo-vertical.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/logo_ITI.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/logo_hv_2015_cmjn.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/logo_national-0fad6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/partenairesOff/logo_sacem_300dpi.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/images/twitter.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/carousel.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/main.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/views/accueil.handlebars" afterPath="$PROJECT_DIR$/views/accueil.handlebars" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/main.handlebars" afterPath="$PROJECT_DIR$/views/layouts/main.handlebars" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -429,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="accueil.handlebars" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/accueil.handlebars">
           <provider selected="true" editor-type-id="text-editor">
@@ -520,6 +108,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -568,7 +157,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -610,7 +198,8 @@
       <option name="presentableId" value="Default" />
       <updated>1515526688235</updated>
       <workItem from="1515526703113" duration="2078000" />
-      <workItem from="1515540927963" duration="1638000" />
+      <workItem from="1515540927963" duration="1818000" />
+      <workItem from="1515573782612" duration="55000" />
     </task>
     <task id="LOCAL-00001" summary="init + fichiers d'exemple">
       <created>1515527726820</created>
@@ -619,11 +208,18 @@
       <option name="project" value="LOCAL" />
       <updated>1515527726820</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit du windows c'est de la merde">
+      <created>1515543221060</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1515543221060</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3716000" />
+    <option name="totallyTimeSpent" value="3951000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -659,13 +255,38 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init + fichiers d'exemple" />
-    <option name="LAST_COMMIT_MESSAGE" value="init + fichiers d'exemple" />
+    <MESSAGE value="commit du windows c'est de la merde" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit du windows c'est de la merde" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/views/accueil.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/main.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/ExampleController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="24" lean-forward="false" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/configDb.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -713,7 +334,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="140357" lean-forward="false" selection-start-line="0" selection-start-column="140356" selection-end-line="0" selection-end-column="140357" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -721,7 +341,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
