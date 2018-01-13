@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3e62e71-5691-40ad-8242-e51320a966d6" name="Default" comment="toutes les dependencies">
-      <change beforePath="" afterPath="$PROJECT_DIR$/smartContract/ethstarter.sol" />
+    <list default="true" id="f3e62e71-5691-40ad-8242-e51320a966d6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/views/accueil.handlebars" afterPath="$PROJECT_DIR$/views/accueil.handlebars" />
+      <change beforePath="$PROJECT_DIR$/smartContract/ethstarter.sol" afterPath="$PROJECT_DIR$/smartContract/ethstarter.sol" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/smartContract/ethstarter.sol">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+              <caret line="5" column="56" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -51,6 +48,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -177,7 +179,7 @@
       <workItem from="1515744222551" duration="194000" />
       <workItem from="1515745439038" duration="897000" />
       <workItem from="1515877611066" duration="154000" />
-      <workItem from="1515877787978" duration="55000" />
+      <workItem from="1515877787978" duration="748000" />
     </task>
     <task id="LOCAL-00001" summary="init + fichiers d'exemple">
       <created>1515527726820</created>
@@ -200,11 +202,18 @@
       <option name="project" value="LOCAL" />
       <updated>1515573863430</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ajout du smart contract">
+      <created>1515877886979</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1515877886980</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9412000" />
+    <option name="totallyTimeSpent" value="10105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -243,7 +252,8 @@
     <MESSAGE value="init + fichiers d'exemple" />
     <MESSAGE value="commit du windows c'est de la merde" />
     <MESSAGE value="toutes les dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="toutes les dependencies" />
+    <MESSAGE value="Ajout du smart contract" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout du smart contract" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -444,7 +454,7 @@
     <entry file="file://$PROJECT_DIR$/smartContract/ethstarter.sol">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <caret line="5" column="56" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
           <folding />
         </state>
       </provider>
