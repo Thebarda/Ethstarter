@@ -15,7 +15,7 @@ contract Ethstarter {
         bool estEnCours;
         mapping(uint => Contributor) contributors;
     }
-    //Intances du contract
+    //Instances du contract
      mapping(uint => Crowfunding) public crowfundings;
      uint public nbCrowfundings;
 
