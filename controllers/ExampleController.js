@@ -9,6 +9,7 @@ module.exports.example = function(request, response) {
         response.render("accueil", response);
     });*/
     console.log(""+ethstarterContract.addCrowfunding());
+    console.log(""+ethstarterContract.getBalance());
     console.log("nbCrowfundings : "+ethstarterContract.getNbCrowfundings());
     response.render("accueil", response);
 };
