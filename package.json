@@ -21,7 +21,12 @@
     "scrypt": "^6.0.3",
     "selenium-webdriver": "^3.6.0",
     "serve-favicon": "~2.4.5",
+    "sleep": "^5.1.1",
     "web3": "^0.20.3",
     "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
   }
 }
