@@ -7,10 +7,62 @@
     <link rel="stylesheet" href="/stylesheets/materialize.css">
   </head>
   <body>
+      <header>
+          <!--start header band-->
+          <nav>
+              <div class="nav-wrapper grey darken-4">
+                  <a href="/" class="brand-logo rightOuter">Logo</a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                      <li><a href="#" id="btnConnexion">Connexion</a></li>
+                      <li><a href="#" id="btnInscription">Inscription</a></li>
+                  </ul>
+              </div>
+          </nav>
+          <!--stop header band-->
+          <!--start menu-->
+          <ul id="slide-out" class="side-nav fixed">
+              <li><div class="user-view">
+                  <!--User détails like firstname, surname, mail, account balance-->
+              </div></li>
+              <!--start if user is connected-->
+              <!--<li><a href="/account/idAccount" class="waves-effect waves-light">Compte</a></li>-->
+              <!--end if user is connected-->
+              <!--start switch account type is connected-->
+              <!--<li><a href="/account/startCrowfunding" class="waves-effect waves-light">Compte</a></li>-->
+              <!--end switch account type is connected-->
+              <li><a href="/crowfundings" class="waves-effect waves-light">Campagnes de financement</a></li>
+              <li><a href="/howitworks" class="waves-effect waves-light">Comment ça fonctionne ?</a></li>
+          </ul>
+          <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+          <!--stop menu-->
+      </header>
       <script src="/javascripts/jquery3-2-1.js"></script>
-      <script src="/javascripts/jquery-ui.min.js"></script>
+      <!--<script src="/javascripts/jquery-ui.min.js"></script>-->
       <script src="/javascripts/web3.min.js"></script>
-    {{{body}}}
+      {{{body}}}
+      <footer class="page-footer grey darken-4">
+          <div class="container">
+              <div class="row">
+                  <div class="col l6 s12">
+                      <h5 class="white-text">Ethstarter</h5>
+                      <p class="grey-text text-lighten-4">Ethstarter est une application web de financement participatif utlisant de l'<a href="https://www.ethereum-france.com/" class="blue-text lighten-1">Ethereum</a></p>
+                  </div>
+                  <div class="col l4 offset-l2 s12">
+                      <h5 class="white-text">Liens utiles</h5>
+                      <ul>
+                          <li><a class="blue-text lighten-1" href="https://www.ethereum.org/">Ethereum Project</a></li>
+                          <li><a class="blue-text lighten-1" href="https://www.ethereum-france.com/">Ethereum France</a></li>
+                          <li><a class="blue-text lighten-1" href="https://www.coinbase.com/">Acheter/Vendre de l'ether</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div class="footer-copyright">
+              <div class="container">
+                  ©2018 Application web développé par l'équipe 'Club Dorothée'.
+              </div>
+          </div>
+      </footer>
       <script src="/javascripts/materialize.min.js"></script>
       <script src="/javascripts/main.js"></script>
   </body>
