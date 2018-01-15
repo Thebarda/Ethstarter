@@ -3,7 +3,7 @@
   <head>
     <title>{{title}}</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="icon" href="/images/logo-eth.png"/>
+    <link rel="icon" type="image/png" href="/images/logo-eth.png"/>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" href="/stylesheets/materialize.css">
   </head>
@@ -14,8 +14,8 @@
               <div class="nav-wrapper grey darken-4">
                   <a href="/" class="brand-logo rightOuter"><img src="/images/logo-ethstarter.png" alt="Logo Ethstrater"/></a>
                   <ul id="nav-mobile" class="right hide-on-med-and-down">
-                      <li><a href="#" id="btnConnexion">Connexion</a></li>
-                      <li><a href="#" id="btnInscription">Inscription</a></li>
+                      <li><a href="#" id="btnConnexion" class="btnActive">Connexion</a></li>
+                      <li><a href="#" id="btnInscription" class="btnActive">Inscription</a></li>
                   </ul>
               </div>
           </nav>
@@ -42,27 +42,29 @@
       <script src="/javascripts/web3.min.js"></script>
       {{{body}}}
       <footer class="page-footer grey darken-4">
-          <div class="container">
-              <div class="row">
-                  <div class="col l6 s12">
-                      <h5 class="white-text">Ethstarter</h5>
-                      <p class="grey-text text-lighten-4">Ethstarter est une application web de financement participatif utlisant de l'<a href="https://www.ethereum-france.com/" class="blue-text lighten-1">Ethereum</a></p>
-                      <br/>
-                      <img src="/images/logo-eth-powered.png" alt="powered by Ethereum">
-                  </div>
-                  <div class="col l4 offset-l2 s12">
-                      <h5 class="white-text">Liens utiles</h5>
-                      <ul>
-                          <li><a class="blue-text lighten-1" href="https://www.ethereum.org/">Ethereum Project</a></li>
-                          <li><a class="blue-text lighten-1" href="https://www.ethereum-france.com/">Ethereum France</a></li>
-                          <li><a class="blue-text lighten-1" href="https://www.coinbase.com/">Acheter/Vendre de l'ether</a></li>
-                      </ul>
+          <div class="rightOuter">
+              <div class="container">
+                  <div class="row">
+                      <div class="col l6 s12">
+                          <h5 class="white-text">Ethstarter</h5>
+                          <p class="grey-text text-lighten-4">Ethstarter est une application web de financement participatif utlisant de l'<a href="https://www.ethereum-france.com/" class="blue-text lighten-1">Ethereum</a></p>
+                          <br/>
+                          <img src="/images/logo-eth-powered.png" alt="powered by Ethereum">
+                      </div>
+                      <div class="col l4 offset-l2 s12">
+                          <h5 class="white-text">Liens utiles</h5>
+                          <ul>
+                              <li><a class="blue-text lighten-1" href="https://www.ethereum.org/">Ethereum Project</a></li>
+                              <li><a class="blue-text lighten-1" href="https://www.ethereum-france.com/">Ethereum France</a></li>
+                              <li><a class="blue-text lighten-1" href="https://www.coinbase.com/">Acheter/Vendre de l'ether</a></li>
+                          </ul>
+                      </div>
                   </div>
               </div>
-          </div>
-          <div class="footer-copyright">
-              <div class="container">
-                  ©2018 Application web développé par l'équipe 'Club Dorothée'.
+              <div class="footer-copyright">
+                  <div class="container">
+                      ©2018 Application web développé par l'équipe 'Club Dorothée'.
+                  </div>
               </div>
           </div>
       </footer>
