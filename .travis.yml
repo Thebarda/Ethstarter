@@ -10,4 +10,4 @@ install:
     - npm install web3
     - npm install xmlhttprequest
 script:
-    - mocha
+    - ./node_modules/mocha/mocha.js
