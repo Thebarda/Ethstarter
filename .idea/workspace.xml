@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3e62e71-5691-40ad-8242-e51320a966d6" name="Default" comment="Ajout du début des modals de connexion et d'inscription">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/test.js" />
+    <list default="true" id="f3e62e71-5691-40ad-8242-e51320a966d6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,8 +20,8 @@
       <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+            <state relative-caret-position="0">
+              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -192,7 +191,7 @@
       <workItem from="1516090515480" duration="635000" />
       <workItem from="1516111484003" duration="106000" />
       <workItem from="1516114079972" duration="837000" />
-      <workItem from="1516134876640" duration="673000" />
+      <workItem from="1516134876640" duration="838000" />
     </task>
     <task id="LOCAL-00001" summary="init + fichiers d'exemple">
       <created>1515527726820</created>
@@ -292,11 +291,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516114281833</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="ajout de travis et d'un test">
+      <created>1516135571333</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1516135571333</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34206000" />
+    <option name="totallyTimeSpent" value="34371000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -345,7 +351,9 @@
     <MESSAGE value="fixe de bug graphique + modification du css de materialize (juste une ligne)" />
     <MESSAGE value="Ajout des images" />
     <MESSAGE value="Ajout du début des modals de connexion et d'inscription" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout du début des modals de connexion et d'inscription" />
+    <MESSAGE value="ajout de travis et d'un test" />
+    <MESSAGE value="debug travis 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug travis 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -692,8 +700,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
           <folding />
         </state>
       </provider>
