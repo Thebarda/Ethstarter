@@ -6,8 +6,6 @@ cache:
   directories:
     - "node_modules"
 before_install:
- - chmod +x ./node_modules/mocha/index.js
- - chmod +x ./node_modules/mocha/mocha.js
  - chmod +x ./node_modules/.bin/mocha
 install:
     - npm install
