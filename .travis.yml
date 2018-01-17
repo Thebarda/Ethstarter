@@ -1,0 +1,15 @@
+sudo: enabled
+language: node_js
+node_js:
+  - "9"
+cache:
+  directories:
+    - "node_modules"
+before_install:
+ - chmod +x ./node_modules/.bin/mocha
+install:
+    - npm install
+    - npm install web3
+    - npm install xmlhttprequest
+script:
+    - mocha
