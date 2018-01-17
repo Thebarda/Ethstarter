@@ -1,15 +1,18 @@
-var mysql = require('mysql');
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('database', 'username', 'password', {
+    host: 'localhost',
+    dialect: 'mysql',
 
-var pool = mysql.createPool({
-    host: '127.0.0.1',
-    user: '',
-    password: '',
-    database: '',
-    port: '3306'
+    pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    }
 });
 
-module.exports.getConnection = function(callback) {
-    pool.getConnection(function(err, connection) {
-        callback(err, connection);
-    });
-};
+module.exports.testConnection = sequelize.authenticate().then(function(){
+    console.log('Connection has been established successfully.');
+}).catch(function(err){
+    console.error('Unable to connect to the database:', err);
+});
