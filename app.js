@@ -46,7 +46,7 @@ app.engine('handlebars', handlebars.engine);
 // chargement du routeur
 require('./router/router')(app);
 
-db.testConnection();
+//db.testConnection();
 ethstarterContract.minerContrat();
 
 http.createServer(app).listen(app.get('port'), function() {
