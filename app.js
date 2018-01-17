@@ -10,7 +10,7 @@ var fs = require('fs');
 var app = express();
 var ethstarterContract = require("./smartContract/ethstarterContract");
 var db = require("./models/configDb");
-db.testConnection();
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('port', 1047);
 app.set('views', path.join(__dirname, 'views'));
@@ -45,6 +45,8 @@ app.engine('handlebars', handlebars.engine);
 
 // chargement du routeur
 require('./router/router')(app);
+
+db.testConnection();
 ethstarterContract.minerContrat();
 
 http.createServer(app).listen(app.get('port'), function() {
