@@ -1,8 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('database', 'username', 'password', {
-    host: 'localhost',
+    host: 'vps409515.ovh.net',
     dialect: 'mysql',
-
     pool: {
         max: 5,
         min: 0,
