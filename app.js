@@ -9,7 +9,6 @@ var readline = require('readline');
 var fs = require('fs');
 var app = express();
 var ethstarterContract = require("./smartContract/ethstarterContract");
-var db = require("./models/configDb");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('port', 1047);
@@ -45,9 +44,7 @@ app.engine('handlebars', handlebars.engine);
 
 // chargement du routeur
 require('./router/router')(app);
-
-db.testConnection();
-ethstarterContract.minerContrat();
+//ethstarterContract.minerContrat();
 
 http.createServer(app).listen(app.get('port'), function() {
     console.log('Serveur Ethstarter test en attente sur le port ' + app.get('port'));

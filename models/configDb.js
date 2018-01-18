@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('ethstarterDB', 'ethstarter_admin', 'ethstarter_admin8587',{
+const sequelize = new Sequelize('ethstarterDB', 'ethremotedb', 'leblancpresident2020',{
     host: 'vps409515.ovh.net',
     dialect: 'mysql',
     pool: {
@@ -8,14 +8,10 @@ const sequelize = new Sequelize('ethstarterDB', 'ethstarter_admin', 'ethstarter_
         acquire: 30000,
         idle: 60000
     },
-    dialectOptions: {
-        socketPath: "/var/run/mysqld/mysqld.sock"
-    },
     define: {
-        paranoid: true
+        timestamps: false
     }
 });
-
 exports.sequelize = sequelize;
 
 module.exports.testConnection = function() {
