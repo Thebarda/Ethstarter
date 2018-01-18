@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node app",
+    "test": "nyc mocha",
+    "build": "mocha"
   },
   "dependencies": {
     "async": "latest",
@@ -17,9 +19,11 @@
     "moment": "^2.20.1",
     "morgan": "~1.9.0",
     "mysql": "^2.15.0",
+    "mysql2": "^1.5.1",
     "node-gyp": "^3.6.2",
     "scrypt": "^6.0.3",
     "selenium-webdriver": "^3.6.0",
+    "sequelize": "^4.31.2",
     "serve-favicon": "~2.4.5",
     "sleep": "^5.1.1",
     "web3": "^0.20.3",
@@ -27,6 +31,7 @@
   },
   "devDependencies": {
     "chai": "*",
-    "mocha": "*"
+    "mocha": "*",
+    "nyc": "^11.4.1"
   }
 }
