@@ -30,3 +30,13 @@ module.exports.addCrowfunding = function(){
     var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
     return ethstarter.addCrowfunding(1, 10, 12, {from: web3.eth.accounts[0], gas: 3000000});
 };
+
+module.exports.sendToContributors = function(id){
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    return ethstarter.sendToContributors(id, {from: web3.eth.accounts[0], gas: 3000000});
+};
+
+module.exports.sendToContractor = function(id){
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    return ethstarter.sendToContractor(id, {from: web3.eth.accounts[0], gas: 3000000});
+};
