@@ -20,4 +20,6 @@ install:
     - sudo chmod +x /usr/local/share/chromedriver
     - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 script:
+    - whereis google-chrome-stable
+    - whereis chromedriver
     - mocha
