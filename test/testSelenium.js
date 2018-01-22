@@ -4,13 +4,11 @@ describe("test selenium", function(){
     let driver = new Builder()
         .forBrowser('chrome')
         .build();
-    it('should faire de la merde', function(done){
+    it('should faire de la merde', async function(){
         this.timeout(20000);
        driver.get('http://localhost:1047/');
-       driver.findElement(By.tagName("h3")).getText().then(function(data){
-           assert.equal(data, "Salut");
-           done();
-       });
+       var salut = await driver.findElement(By.tagName("h3")).getText();
+        assert.equal(salut, "Salut");
        driver.quit();
    });
 });
