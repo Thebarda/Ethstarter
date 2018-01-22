@@ -7,8 +7,8 @@ describe("test selenium", function(){
     it('should faire de la merde', async function(){
         this.timeout(20000);
        driver.get('http://localhost:1047/');
-       var salut = await driver.findElement(By.tagName("h3")).getText();
-        assert.equal(salut, "Salut");
+       var salut = await driver.findElement(By.id("btnConnexion")).getText();
+        assert.equal(salut, "Connexion");
        driver.quit();
    });
 });
