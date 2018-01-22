@@ -5,7 +5,7 @@ describe("test selenium", function(){
         .build();
     it('should faire de la merde', function(){
        driver.get('http://localhost:1047/');
-       driver.findElement(By.tagName("h3"));
+       driver.findElement(By.tagName("h4"));
        driver.quit();
    });
 });
