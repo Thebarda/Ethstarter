@@ -20,7 +20,6 @@ install:
     - sudo chmod +x /usr/local/share/chromedriver
     - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 script:
-    - echo $PATH
-    - whereis google-chrome-stable
-    - whereis chromedriver
+    - node app &
+    - sleep 10
     - mocha
