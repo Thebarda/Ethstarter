@@ -22,4 +22,4 @@ install:
 script:
     - node app &
     - sleep 10
-    - mocha
+    - mocha test/database/ test/unittest/ test/selenium/
