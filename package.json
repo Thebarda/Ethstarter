@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app",
-    "test": "nyc mocha",
+    "test": "jest",
     "build": "mocha"
   },
   "dependencies": {
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "chai": "*",
+    "jest": "^22.1.4",
     "mocha": "^5.0.0",
     "nyc": "^11.4.1"
   }
