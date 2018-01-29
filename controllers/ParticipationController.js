@@ -2,5 +2,6 @@
 var modelCampagnes = require ('../models/campagnes.js');
 
 module.exports.validationParticipation = function(request, response){
-    response.title = 
+    response.title = "Ethstarter - campagne";
+    
 }
