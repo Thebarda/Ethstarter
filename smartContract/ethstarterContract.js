@@ -32,7 +32,10 @@ module.exports.addCrowfunding = function(idCrowfund, addrContractor, goal){
 };
 
 module.exports.addContributorToCrowfund = function(idCrowfund, addrContributor, montant){
-  return ethstarter.addContributor(idCrowfund, {from:addrContributor, gas:3000000, value:montant});
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    var montantWei = web3.utils.toWei(montant, "ether");
+    montantWei = parseInt(montantWei);
+  return ethstarter.addContributor(idCrowfund, {from:addrContributor, gas:3000000, value:montantWei});
 };
 
 module.exports.setEstEnCours = function(idCrowfund, estEnCours){
