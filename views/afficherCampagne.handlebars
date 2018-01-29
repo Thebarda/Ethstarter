@@ -29,9 +29,11 @@
                 {{#ifCond joursRestants '<' 0}}
                     <p>La campagne est terminé</p>
                     <br/>
-                    <a class="waves-effect waves-light btn-large modal-trigger blue" href="#contribuez">Contribuez</a>
+                    <a class="waves-effect waves-light btn-large modal-trigger disabled" href="#contribuez">Contribuez</a>
                 {{else}}
                     <p>{{joursRestants}} restants</p>
+                    <br/>
+                    <a class="waves-effect waves-light btn-large modal-trigger blue" href="#contribuez">Contribuez</a>
                 {{/ifCond}}
             </div>
         </div>
