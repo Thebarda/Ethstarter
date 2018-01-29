@@ -26,4 +26,4 @@ module.exports.validationParticipation = function(request, response){
         }
     });
     response.render("campagne", response);
-};
+}

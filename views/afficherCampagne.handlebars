@@ -1,0 +1,46 @@
+<div id="campagneContainer" class="center-align rightBuffer">
+    <div class="row">
+        <div class="card col s8">
+            <div class="card-content">
+                <h3 class="center-align">{{campagne.nomCampagne}}</h3>
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s6"><a class="active" href="#description">Description</a></li>
+                            <li class="tab col s6"><a href="#contribs">Contributeurs</a></li>
+                        </ul>
+                    </div>
+                    <div id="description" class="col s12 left-align">{{campagne.description}}</div>
+                    <div id="contribs" class="col s12">Contributeurs</div>
+                </div>
+            </div>
+        </div>
+        <div class="col s1"></div>
+        <div class="card col s3">
+            <div class="card-content left-align">
+                <br/>
+                <div class="bar">
+                    <div class="percentage has-tip"  style="width: {{pourcentageAffiche}}%" data-perc="{{pourcentage}}%">
+                    </div>
+                    <br/>
+                </div>
+                <h5><b>{{campagne.montantActuel}}</b> ETH collectés sur {{campagne.but}} ETH demandés</h5>
+                <br/>
+                {{#ifCond joursRestants '<' 0}}
+                    <p>La campagne est terminé</p>
+                    <br/>
+                    <a class="waves-effect waves-light btn-large modal-trigger blue" href="#contribuez">Contribuez</a>
+                {{else}}
+                    <p>{{joursRestants}} restants</p>
+                {{/ifCond}}
+            </div>
+        </div>
+    </div>
+</div>
+<div id="contribuez" class="modal">
+    <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+    </div>
+</div>
+<script src="/javascripts/afficherDescription.js"></script>

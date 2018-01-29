@@ -9,6 +9,7 @@ module.exports.checkCrowfunds = function(){
            }else{
                ethstarterContract.sendToContractor(result[i].idCampagne);
            }
+           ethstarterContract.setEstEnCours(result[i].idCampagne, false);
        }
     });
 }

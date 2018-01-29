@@ -39,4 +39,23 @@ describe("Campagnes", function(){
          });
       });
    });
+
+   describe("get campagne by id", function(){
+      it("should return 1 campaign", function(done){
+          var data = {idEntrepreneur:1,
+              nomCampagne:"campaign",
+              but:10,
+              montantActuel:2,
+              dateLimite:new Date(),
+              description:"une description",
+              estEnCours:true};
+          campagnes.insertCampaign(data, function(err, result){
+              campagnes.getCampaignById(result.insertId, function(err, result){
+                  assert.equal(err, null);
+                  assert.equal(result.length, 1);
+                  done();
+              });
+          });
+      });
+   });
 });
