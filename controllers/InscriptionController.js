@@ -1,5 +1,5 @@
 var modelInscription = require('../models/inscription.js');
-//var sha256 = require('js-sha256').sha256;
+var sha256 = require('js-sha256').sha256;
 
 module.exports.inscriptionContributeur=function(request, response){
     response.title="Ethstarter - inscription contributeur";
@@ -8,9 +8,8 @@ module.exports.inscriptionContributeur=function(request, response){
 
 module.exports.validationInscriptionContributeur=function(request, response){
     response.title="Validation inscription";
-    var login = request.body.login;
     var body = request.body;
-    modelInscription.nonExisteLogin(login, function(err, result){
+    modelInscription.valide(body, function(err, result){
         if(err){
             console.log(err);
             return;

@@ -1,6 +1,7 @@
 var db = require('../configDB.js');
 
-module.exports.nonExisteLogin = function(login, callback){
+module.exports.valide = function(body, callback){
+    //vérifie que le login n'est pas déjà prit
     db.getConnection(function(err, connexion){
         if(!err){
             var sql = "SELECT login FROM utilisateur WHERE login='"+login+"';";
