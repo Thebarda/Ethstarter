@@ -7,3 +7,10 @@ module.exports.getAllCrowfundsThatFinishToday = function(callback){
     connection.release();
   });
 };
+
+module.exports.insertCampaign=function(data, callback){
+  db.getConnection(function(err, connection){
+    if(err) throw err;
+    connection.query("INSERT INTO campagnes SET ?", data, callback);
+  });
+};
