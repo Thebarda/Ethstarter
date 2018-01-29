@@ -1,24 +1,25 @@
 
-var modelCampagne = require ('../models/campagnes.js');
-var modelCampagne = require ('../models/participation.js');
+var modelCampagnes = require ('../models/campagnes.js');
+var modelParticipation = require ('../models/participation.js');
 
 module.exports.validationParticipation = function(request, response){
     response.title = "Ethstarter - campagne";
     var montant = request.body.montant;
     var data = {idContributeur, montant};
-    modelCampagne.addParticipation(data, function(err, result){
+    modelParticipation.addParticipation(data, function(err, result){
         if(err){
             console.log(err);
             return;
         }
     });
-    modelCampagne.addContributeursXCampagne(data, function(err, result){
+    var data = {idCampagne, idContributeur};
+    modelCampagnes.addContributeursXCampagne(data, function(err, result){
         if(err){
             console.log(err);
             return;
         }
     });
-    modelCampagne.updateMontant(idCampagne, montant, function(err, result){
+    modelCampagnes.updateMontant(idCampagne, montant, function(err, result){
         if(err){
             console.log(err);
             return;
