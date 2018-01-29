@@ -8,12 +8,6 @@ module.exports.inscriptionContributeur=function(request, response){
 
 module.exports.validationInscriptionContributeur=function(request, response){
     response.title="Validation inscription";
-    /*var firstname = request.body.firstname;
-    var lastname = request.body.lastname;
-
-    var mdp = request.body.password;
-    var email = request.body.e  mail;
-    var EthAdress = request.body.adress;*/
     var login = request.body.login;
     var body = request.body;
     modelInscription.nonExisteLogin(login, function(err, result){
@@ -24,17 +18,7 @@ module.exports.validationInscriptionContributeur=function(request, response){
         if(result.length==0){
             response.erreurLogin="Login incorrect";
         }
-        //mdp = sha256(mdp);
-        modelInscription.inscrire(body, function(err, result){
-            /*if(result.length==0){
-                response.erreurMdp="Mot de passe incorrect";
-                response.render("connexion", response);
-            }else{
-                request.session.login=login;
-                request.session.isConnected="oui";
-                response.render("accueil", response);
-            }*/
-        });
+        modelInscription.inscrire(body);
     });
     response.render("accueil", response);
 }
