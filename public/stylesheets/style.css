@@ -65,3 +65,7 @@
     opacity: 1;
     transform: translateX(50%) translateY(100%) translateY(10px);
 }
+
+#erreurConnexion{
+    text-align: center !important;
+}
