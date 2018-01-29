@@ -38,3 +38,13 @@ module.exports.getCampaignById = function(idCampagne, callback){
     connection.release();
   });
 };
+
+module.exports.getInfosEntrepreneur = function(idCampagne, callback){
+    db.getConnection(function(err, connection){
+        connection.query("SELECT nom, prenom, nomEntreprise FROM utilisateur u " +
+            "INNER JOIN campagnes c ON u.id = c.idEntrepreneur " +
+            "INNER JOIN entrepreneur e ON e.idUtilisateur = u.id " +
+            "WHERE c.idCampagne = "+idCampagne, callback);
+        connection.release();
+    });
+};
