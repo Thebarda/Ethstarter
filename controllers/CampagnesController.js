@@ -1,4 +1,5 @@
 var campagnesModel = require("../models/campagnes");
+var utils = require("../utils/utils");
 
 module.exports.afficherCampagne = function(request, response){
     var idCampagne = request.params.idCampagne;
@@ -8,8 +9,7 @@ module.exports.afficherCampagne = function(request, response){
         response.campagne = result[0];
         response.pourcentage = (response.campagne.montantActuel/response.campagne.but)*100;
         response.pourcentageAffiche = ((response.campagne.montantActuel/response.campagne.but)*100)>100?100:response.pourcentage;
-        var dayResteTmp = new Date(response.campagne.dateLimite).getTime() - new Date().getTime();
-        response.joursRestants = (dayResteTmp / (1000*60*60*24)).toFixed(0);
+        response.joursRestants = utils.calculJourRestant(response.campagne.dateLimite);
         response.render("afficherCampagne", response);
     });
 };
