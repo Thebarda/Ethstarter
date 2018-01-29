@@ -2,7 +2,6 @@ var ExampleController = require("../controllers/ExampleController.js");
 var ConnexionController = require('./../controllers/ConnexionController.js');
 var CampagnesController = require('../controllers/CampagnesController.js');
 var ParticipationController = require('../controllers/ParticipationController.js');
-
 // Routes
 module.exports = function(app) {
 
