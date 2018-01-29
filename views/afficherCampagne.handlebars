@@ -41,8 +41,21 @@
 </div>
 <div id="contribuez" class="modal">
     <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
+        <h3>Contribuer à la campagne {{campagne.nomCampagne}}</h3>
+        <form method="post" action="/validationParticipation" class="row">
+            <div class="input-field col s6">
+                <label for="montant">Contribuez pour (exemple : 0.25 ether)</label>
+                <input name="montant" type="text" id="montantJS" class="validate">
+            </div>
+            <br/>
+            <p>Ether</p>
+            <br/>
+            <p id="error" class="red-text"></p>
+            <div class="col s12">
+                <input class="btn waves-effect waves-light orange" type="reset" value="Annuler">
+                <input class="btn waves-effect waves-light orange" type="submit" id="submitParticipation" value="Confirmer la contribution">
+            </div>
+        </form>
     </div>
 </div>
 <script src="/javascripts/afficherDescription.js"></script>
