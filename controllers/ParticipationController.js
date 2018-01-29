@@ -2,7 +2,7 @@
 var modelCampagnes = require ('../models/campagnes.js');
 var modelParticipation = require ('../models/participation.js');
 
-module.exports.validationParticipation = function(request, response){
+module.exports.participation = function(request, response){
     response.title = "Ethstarter - campagne";
     var montant = request.body.montant;
     var data = {idContributeur, montant};
