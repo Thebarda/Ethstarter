@@ -1,6 +1,6 @@
 
-var modelConnexion = require ('../models/connexion.js');
+var modelCampagnes = require ('../models/campagnes.js');
 
 module.exports.validationParticipation = function(request, response){
-    
+    response.title = 
 }
