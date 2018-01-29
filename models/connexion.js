@@ -1,4 +1,4 @@
-var db = require('../configDB.js');
+var db = require('./configDb.js');
 
 module.exports.existeLogin = function(login, callback){
     db.getConnection(function(err, connexion){
