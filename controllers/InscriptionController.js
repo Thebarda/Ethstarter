@@ -1,5 +1,4 @@
 var modelInscription = require('../models/inscription.js');
-var sha256 = require('js-sha256').sha256;
 
 module.exports.inscriptionContributeur=function(request, response){
     response.title="Ethstarter - inscription contributeur";
