@@ -1,4 +1,6 @@
 var campagnesModel = require("../models/campagnes");
+var modelParticipation = require ('../models/participation.js');
+var utils = require("../utils/utils");
 
 module.exports.afficherCampagne = function(request, response){
     var idCampagne = request.params.idCampagne;
@@ -8,8 +10,22 @@ module.exports.afficherCampagne = function(request, response){
         response.campagne = result[0];
         response.pourcentage = (response.campagne.montantActuel/response.campagne.but)*100;
         response.pourcentageAffiche = ((response.campagne.montantActuel/response.campagne.but)*100)>100?100:response.pourcentage;
-        var dayResteTmp = new Date(response.campagne.dateLimite).getTime() - new Date().getTime();
-        response.joursRestants = (dayResteTmp / (1000*60*60*24)).toFixed(0);
-        response.render("afficherCampagne", response);
+        response.joursRestants = utils.calculJourRestant(response.campagne.dateLimite);
+        request.session.isLookingCampaign = idCampagne;
+        modelParticipation.getContributeurs(idCampagne, function(err, result){
+           if(err) throw err;
+            response.contributeurs = result;
+            modelParticipation.getNbContributions(idCampagne, function(err, result){
+                if(err) throw err;
+                response.nbContributeurs = result[0].nbContributeurs;
+                campagnesModel.getInfosEntrepreneur(idCampagne, function(err, result){
+                    if(err) throw err;
+                    response.nomEntrepreneur = result[0].nom;
+                    response.prenomEntrepreneur = result[0].prenom;
+                    response.entreprise = result[0].nomEntreprise;
+                    response.render("afficherCampagne", response);
+                });
+            });
+        });
     });
 };

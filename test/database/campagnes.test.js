@@ -58,4 +58,14 @@ describe("Campagnes", function(){
           });
       });
    });
+
+   describe("get info entrepreneur by campaign", function(){
+      it("should return array length 1", function(done){
+        campagnes.getInfosEntrepreneur(1, function(err, result){
+          assert.equal(err, null);
+          assert.equal(result.length, 1);
+          done();
+        });
+      });
+   });
 });

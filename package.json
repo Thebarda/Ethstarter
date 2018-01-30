@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app",
-    "test": "jest",
+    "test": "mocha test/database/ test/unittest/ test/selenium/",
     "build": "mocha"
   },
   "dependencies": {

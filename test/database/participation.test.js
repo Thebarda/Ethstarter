@@ -22,4 +22,23 @@ describe("Participations", function(){
           });
       });
    });
+   describe("get contributeurs", function(){
+      it("should return array length greater than 0", function(done){
+         participation.getContributeurs(1, function(err, result){
+            assert.equal(err, null);
+            assert.equal((result.length > 0), true);
+            done();
+         });
+      });
+   });
+
+    describe("get nb contributeurs", function(){
+        it("should return array length greater than 0", function(done){
+            participation.getNbContributions(1, function(err, result){
+                assert.equal(err, null);
+                assert.equal((result[0].nbContributeurs > 0), true);
+                done();
+            });
+        });
+    });
 });

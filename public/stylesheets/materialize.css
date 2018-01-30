@@ -6518,7 +6518,7 @@ textarea.materialize-textarea.validate + label:not(.label-icon).active {
 }
 
 .autocomplete-content li .highlight {
-  color: #444;
+  color: #333;
 }
 
 .autocomplete-content li img {
