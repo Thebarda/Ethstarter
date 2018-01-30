@@ -2,11 +2,11 @@ var db = require('../configDb.js');
 var utils = require("../utils/utils");
 var sha256 = require('js-sha256').sha256;
 
-module.exports.valide = function(body){
+module.exports.existeLogin = function(login){
     //vérifie que le login n'est pas déjà prit
     db.getConnection(function(err, connexion){
         if(!err){
-            var sql = "SELECT login FROM utilisateur WHERE login='"+body.login+"';";
+            var sql = "SELECT login FROM utilisateur WHERE login='"+login+"';";
             connexion.query(sql, function(err, results) {
                 if (err) throw err
                 if(typeof results[0] !== 'undefined') return false;
@@ -14,11 +14,14 @@ module.exports.valide = function(body){
             connexion.release();
         }
     });
+    return true;
+}
 
+module.exports.existeMail = function(email){
     //vérifie que le mail n'est pas déjà prit
     db.getConnection(function(err, connexion){
         if(!err){
-            var sql = "SELECT mail FROM utilisateur WHERE mail='"+body.email+"';";
+            var sql = "SELECT mail FROM utilisateur WHERE mail='"+email+"';";
             connexion.query(sql, function(err, results) {
                 if (err) throw err
                 if(typeof results[0] !== 'undefined') return false;
