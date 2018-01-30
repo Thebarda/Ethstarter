@@ -13,9 +13,14 @@ module.exports = function(app) {
     // Connexion
     app.get('/Connexion', ConnexionController.connexion);
     app.post('/validationConnexion', ConnexionController.validationConnexion);
+
     // Inscription
     app.get('/Inscription', InscriptionController.inscription);
     app.post('/validationInscriptionContributeur', InscriptionController.validationInscriptionContributeur);
+
+    //Affichage campagnes
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
     app.post('/participation', ParticipationController.participation);
+
+    app.get('/campaigns/', CampagnesController.afficherLesCampagnes);
 };

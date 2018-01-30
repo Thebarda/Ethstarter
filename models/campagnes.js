@@ -39,7 +39,7 @@ module.exports.getCampaignById = function(idCampagne, callback){
   });
 };
 
-module.exports.getAllCampaigns = function(idCampagne, callback){
+module.exports.getAllCampaigns = function(callback){
   db.getConnection(function(err, connection){
     connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
         "`but`, `montantActuel`, `dateLimite`, `description`, `estEnCours` " +
