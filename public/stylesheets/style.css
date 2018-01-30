@@ -1,3 +1,30 @@
 #btn_menu{
     display: initial !important;
 }
+
+.rightBuffer{
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+/*Barre de chargement
+ */
+.bar {
+    /* font-size: 10px */
+    height: 1em;
+    border-radius: 0.5em;
+    position: relative;
+    background: #f2f2f2;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+.bar .percentage {
+    position: relative;
+    font-size: 1em;
+    background: orange;
+    height: 1em;
+    border-radius: 0.5em;
+
+#erreurConnexion{
+    text-align: center !important;
+}

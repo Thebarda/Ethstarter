@@ -1,19 +1,12 @@
-var db = require('../configDB.js');
+var db = require('./configDb.js');
 
-module.exports.existeLogin = function(login, callback){
+module.exports.verifConnexion=function(login, password, callback){
     db.getConnection(function(err, connexion){
         if(!err){
-            var sql = "SELECT login FROM utilisateur WHERE login='"+login+"';";
-            connexion.query(sql, callback);
-            connexion.release();
-        }
-    });
-}
-
-module.exports.existePasswd=function(mdp, callback){
-    db.getConnection(function(err, connexion){
-        if(!err){
-            var sql = "SELECT password FROM utilisateur WHERE password='"+mdp+"';";
+            var sql = "SELECT login, password FROM utilisateur WHERE login='" + login + "' AND password='" + password + "';";
+            console.log("---------  SQL  ---------");
+            console.log(sql);
+            console.log("-------------------------");
             connexion.query(sql, callback);
             connexion.release();
         }

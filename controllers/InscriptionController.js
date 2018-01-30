@@ -1,8 +1,8 @@
 var modelInscription = require('../models/inscription.js');
 
-module.exports.inscriptionContributeur=function(request, response){
+module.exports.inscription=function(request, response){
     response.title="Ethstarter - inscription contributeur";
-    response.render('inscriptionContributeur', response);
+    response.render('inscription', response);
 }
 
 module.exports.validationInscriptionContributeur=function(request, response){
