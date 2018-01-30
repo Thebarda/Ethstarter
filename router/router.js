@@ -1,8 +1,6 @@
 var ExampleController = require("../controllers/ExampleController.js");
 var ConnexionController = require('./../controllers/ConnexionController.js');
 var CreateController =  require("../controllers/CreateController.js");
-
-
 // Routes
 module.exports = function(app) {
 
@@ -14,5 +12,5 @@ module.exports = function(app) {
     app.post('/validationConnexion', ConnexionController.validationConnexion);
     //Creation campagne
     app.get('/create', CreateController.example);
-
+    app.post('/validationCampagne',CreateController.validationCampagne);
 };

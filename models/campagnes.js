@@ -8,14 +8,20 @@ module.exports.getAllCrowfundsThatFinishToday = function(callback){
   });
 };
 
-module.exports.insertCampaign=function(data, callback){
+module.exports.insertCampaign=function(body, callback){
   db.getConnection(function(err, connection){
+      var data = {idEntrepreneur:1,
+              nomCampagne:body.titreCampagne,
+              but:body.objectif,
+              montantActuel:0,
+              dateLimite:body.datepicker,
+              description:body.presentation,
+              estEnCours:true};
     if(err) throw err;
     connection.query("INSERT INTO campagnes SET ?", data, callback);
     connection.release();
   });
 };
-
 /*module.exports.getCrowfundById=function(id, callback){
   db.getConnection(function(err, connection){
 
