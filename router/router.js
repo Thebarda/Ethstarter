@@ -3,6 +3,7 @@ var ConnexionController = require('./../controllers/ConnexionController.js');
 var InscriptionController = require('./../controllers/InscriptionController.js');
 var CampagnesController = require('../controllers/CampagnesController.js');
 var ParticipationController = require('../controllers/ParticipationController.js');
+var ProfileController = require('./../controllers/ProfileController.js');
 
 // Routes
 module.exports = function(app) {
@@ -18,4 +19,6 @@ module.exports = function(app) {
     app.post('/validationInscriptionContributeur', InscriptionController.validationInscriptionContributeur);
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
     app.post('/participation', ParticipationController.participation);
+
+    app.get('/profile/:id=1', ProfileController.afficherProfile);
 };
