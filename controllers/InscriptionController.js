@@ -8,15 +8,13 @@ module.exports.inscription=function(request, response){
 module.exports.validationInscriptionContributeur=function(request, response){
     response.title="Validation inscription";
     var body = request.body;
-    modelInscription.valide(body, function(err, result){
-        if(err){
-            console.log(err);
-            return;
-        }
-        if(result.length==0){
-            response.erreurLogin="Login incorrect";
-        }
-        modelInscription.inscrire(body);
-    });
+    if(!modelInscription.valide(body)){
+        alert('oui 1');
+    }
+
+    if(!modelInscription.inscrire(body)){
+        alert('oui 2');
+    }
+
     response.render("accueil", response);
 }
