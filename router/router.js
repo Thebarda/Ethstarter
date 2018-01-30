@@ -16,6 +16,7 @@ module.exports = function(app) {
     // Inscription
     app.get('/Inscription', InscriptionController.inscription);
     app.post('/validationInscriptionContributeur', InscriptionController.validationInscriptionContributeur);
+    app.post('/validationInscriptionEntrepreneur', InscriptionController.validationInscriptionEntrepreneur);
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
     app.post('/participation', ParticipationController.participation);
 };
