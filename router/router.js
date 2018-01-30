@@ -13,6 +13,8 @@ module.exports = function(app) {
     // Connexion
     app.get('/Connexion', ConnexionController.connexion);
     app.post('/validationConnexion', ConnexionController.validationConnexion);
+    app.get('/Deconnexion', ConnexionController.deconnexion);
+
     // Inscription
     app.get('/Inscription', InscriptionController.inscription);
     app.post('/validationInscriptionContributeur', InscriptionController.validationInscriptionContributeur);
