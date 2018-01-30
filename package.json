@@ -25,6 +25,7 @@
     "selenium-webdriver": "^3.6.0",
     "sequelize": "^4.31.2",
     "serve-favicon": "~2.4.5",
+    "sha256": "^0.2.0",
     "sleep": "^5.1.1",
     "web3": "^0.20.4",
     "xmlhttprequest": "^1.8.0"

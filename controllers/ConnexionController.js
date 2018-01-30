@@ -7,7 +7,6 @@ module.exports.connexion=function(request, response){
     response.render('connexion', response);
 }
 
-
 module.exports.validationConnexion = function(request, response){
     response.title="Validation connexion";
     if(request.session.isConnected){
