@@ -11,17 +11,15 @@ module.exports.example = function(request, response) {
 module.exports.validationCampagne = function(request, response)
 {
     response.title = "Ethstarter - Création campagne";
-    var nomCampagne = request.body.titreCampagne
-    var body = request.body
+    var body = request.body;
+    body.idEntrepreneur=1;
     createModels.insertCampaign(body, function(err, result){
              if(err){
                 console.log(err);
                 return;
             }
             else{
-                ethstarterContract.addCrowfunding(result.insertid, "0x7619a3873", body.objectif);
-                
-               
+                ethstarterContract.addCrowfunding(result.insertId, "0x66529fff2c91c83434f8415894711b279448463d", parseInt(body.but));
                 response.render("accueil",response);
             }
     
