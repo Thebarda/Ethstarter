@@ -1,10 +1,9 @@
 var mysql = require('mysql');
 
 var pool = mysql.createPool({
-    host: 'vps409515.ovh.net',
-    user: 'ethremotedb',
-    password: 'leblancpresident2020',
-    database: 'ethstarterDB',
+    host: 'localhost',
+    user: 'root',
+    database: 'ethstarterdb',
     port: '3306'
 });
 

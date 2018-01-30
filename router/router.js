@@ -20,5 +20,6 @@ module.exports = function(app) {
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
     app.post('/participation', ParticipationController.participation);
 
-    app.get('/profile/:id=1', ProfileController.afficherProfile);
+    // Profile
+    app.get('/profile', ProfileController.afficherProfile);
 };
