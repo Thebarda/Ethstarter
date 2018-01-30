@@ -3,7 +3,7 @@ $(document).ready(function() {
     var d=new Date();
     
     $('.datepicker').pickadate({
-    min: new Date(),
+    min: new Date(new Date().getTime() + 24 * 60 *60*1000),
     format: "yyyy-mm-dd",
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15, // Creates a dropdown of 15 years to control year,
@@ -13,7 +13,11 @@ $(document).ready(function() {
     closeOnSelect: false // Close upon selecting a date,
     });
     //BBcode Jquery
-    $("#presentation").wysibb();
+    
+    var BBbuttons={
+        buttons:"bold,italic,underline,sup,sub,|,img,video,link,|,bullist,numlist,|,fontcolor,fontsize,fontfamily,|, justifyleft, justifycenter,justifyright,|, quote,table"
+    }
+    $("#presentation").wysibb(BBbuttons);
     
     
     $("#submit").on("click",function(){
