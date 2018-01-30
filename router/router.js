@@ -16,6 +16,7 @@ module.exports = function(app) {
     // Connexion
     app.get('/Connexion', ConnexionController.connexion);
     app.post('/validationConnexion', ConnexionController.validationConnexion);
+    app.get('/Deconnexion', ConnexionController.deconnexion);
 
     //Creation campagne
     app.get('/create', CreateController.example);
