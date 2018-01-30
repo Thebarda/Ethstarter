@@ -27,11 +27,12 @@ $(document).ready(function(){
            ether = ether + parseFloat($("#montantActuel").text());
            var but = parseFloat($("#but").text());
            var newPerc = (ether/but)*100;
-           $("#montantActuel").text(ether);
+           $("#montantActuel").text(ether.toFixed(2));
            $("#perc").text("(soit "+newPerc+"% achevé)");
            newPerc = (newPerc>100)?100:newPerc;
            $("#barChargement").attr("style", "width:"+newPerc+"%");
            $('#contribuez').modal('close');
+           $("#nbContributeurs").text(parseInt($("#nbContributeurs").text())+1);
        });
     });
 });
