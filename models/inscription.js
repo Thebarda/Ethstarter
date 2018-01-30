@@ -1,4 +1,4 @@
-var db = require('../configDB.js');
+var db = require('./configDb.js');
 
 module.exports.valide = function(body, callback){
     //vérifie que le login n'est pas déjà prit
