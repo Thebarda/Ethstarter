@@ -36,6 +36,9 @@ module.exports.validationConnexion = function(request, response){
             }else{
                 console.log("Connecté !");
                 request.session.login=login;
+                request.session.addrPubliqueEth=result[0].addrPubliqueEth;
+                request.session.typeCompte = result[0].type;
+                request.session.idCompte = result[0].id;
                 request.session.isConnected=true;
                 response.render("accueil", response);
             }
@@ -51,7 +54,7 @@ module.exports.deconnexion=function(request, response){
             console.log(err);
             return;
         }
-        response.render('accueil', response);
+        response.render('deconnexion', response);
         console.log("Déconnecté !");
     });
 }
