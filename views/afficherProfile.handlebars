@@ -1,0 +1,38 @@
+<div id="profileContainer" class="center-align rightBuffer">
+    <div class="row">
+        <div class="card col s8">
+            <div class="card-content">
+                <h3 class="center-align">{{profile.nom}} {{profile.prenom}}</h3>
+            </div>
+        </div>
+        <div class="col s1"></div>
+        <div class="card col s3">
+            <div class="card-content left-align">
+                <br/>
+                <div class="bar">
+                    <div class="percentage has-tip"  style="width: {{pourcentageAffiche}}%" data-perc="{{pourcentage}}%">
+                    </div>
+                    <br/>
+                </div>
+                <h5><b>{{campagne.montantActuel}}</b> ETH collectés sur {{campagne.but}} ETH demandés</h5>
+                <br/>
+                {{#ifCond joursRestants '<' 0}}
+                    <p>La campagne est terminé</p>
+                    <br/>
+                    <a class="waves-effect waves-light btn-large modal-trigger disabled" href="#contribuez">Contribuez</a>
+                {{else}}
+                    <p>{{joursRestants}} restants</p>
+                    <br/>
+                    <a class="waves-effect waves-light btn-large modal-trigger blue" href="#contribuez">Contribuez</a>
+                {{/ifCond}}
+            </div>
+        </div>
+    </div>
+</div>
+<div id="contribuez" class="modal">
+    <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+    </div>
+</div>
+<script src="/javascripts/afficherDescription.js"></script>
