@@ -13,6 +13,6 @@ module.exports = function(app) {
     app.post('/validationConnexion', ConnexionController.validationConnexion);
 
     // Inscription
-    app.get('/inscriptionContributeur', InscriptionController.inscriptionContributeur);
+    app.get('/Inscription', InscriptionController.inscription);
     app.post('/validationInscriptionContributeur', InscriptionController.validationInscriptionContributeur);
 };

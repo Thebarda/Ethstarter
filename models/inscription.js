@@ -16,7 +16,7 @@ module.exports.inscrire = function(body, callback){
         if(err) throw err;
 
         var sql = "INSERT INTO utilisateur (nom, prenom, mail, login, password, addrPubliqueEth, type) VALUES(?,?,?,?,?,?,?);";
-        connexion.query(sql,[body.lastname,body.firstname,body.email,body.login,body.password,body.adress,'1'],function(err, results) {
+        connexion.query(sql,[body.lastname,body.firstname,body.email,body.login,body.password,body.address,'1'],function(err, results) {
             if (err) throw err;
         });
         connexion.release();
