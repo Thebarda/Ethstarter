@@ -39,6 +39,24 @@ module.exports.getCampaignById = function(idCampagne, callback){
   });
 };
 
+module.exports.getAllCampaigns = function(idCampagne, callback){
+  db.getConnection(function(err, connection){
+    connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
+        "`but`, `montantActuel`, `dateLimite`, `description`, `estEnCours` " +
+        "FROM campagnes", callback);
+    connection.release();
+  });
+};
+
+module.exports.getCampaignsInProgress = function(idCampagne, callback){
+  db.getConnection(function(err, connection){
+    connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
+        "`but`, `montantActuel`, `dateLimite`, `description`, `estEnCours` " +
+        "FROM campagnes WHERE estEnCours=1", callback);
+    connection.release();
+  });
+};
+
 module.exports.getInfosEntrepreneur = function(idCampagne, callback){
     db.getConnection(function(err, connection){
         connection.query("SELECT nom, prenom, nomEntreprise FROM utilisateur u " +
