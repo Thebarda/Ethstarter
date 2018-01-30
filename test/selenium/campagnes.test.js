@@ -12,6 +12,7 @@ describe("Campagnes", function(){
            assert.equal(monCasqueVR, "Mon casque VR");
        });
        it("id 'description' should exists", async function(){
+           this.timeout(20000);
            var existed = await driver.findElement(By.id('description')).then(function() {
                return true;
            }, function(err) {
@@ -22,6 +23,7 @@ describe("Campagnes", function(){
            assert.equal(existed, true);
        });
        it("id 'contribs' should exists", async function(){
+           this.timeout(20000);
            var existed = await driver.findElement(By.id('contribs')).then(function() {
                return true;
            }, function(err) {
