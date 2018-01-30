@@ -7,28 +7,33 @@
     <div id="tab-swipe-contributeur" class="col s12">
         <form method="post" action="/validationInscriptionContributeur">
             <div class="input-field col s2 offset-s4">
-                <input name="lastname" type="text" class="validate">
+                <input name="lastname" type="text" class="validate" {{#if nom}}value="{{nom}}"{{/if}}>
                 <label for="lastname">Nom</label>
             </div>
             <div class="input-field col s2">
-                <input name="firstname" type="text" class="validate">
+                <input name="firstname" type="text" class="validate" {{#if prenom}}value="{{prenom}}"{{/if}}>
                 <label for="firstname">Prénom</label>
             </div>
             <div class="input-field col s2 offset-s4">
-                <input name="login" type="text" class="validate">
+                <input name="login" type="text" class="validate" {{#if login}}value="{{login}}"{{/if}}>
                 <label for="login">Login</label>
             </div>
             <div class="input-field col s2">
-                <input name="password" type="password" class="validate">
+                <input name="password" type="password" class="validate" {{#if password}}value="{{password}}"{{/if}}>
                 <label for="password">Mot de passe</label>
             </div>
             <div class="input-field col s2 offset-s4">
-                <input name="email" type="email" class="validate">
+                <input name="email" type="email" class="validate" {{#if email}}value="{{email}}"{{/if}}>
                 <label for="email">E-mail</label>
             </div>
             <div class="input-field col s2">
-                <input name="address" type="text" class="validate">
+                <input name="address" type="text" class="validate" {{#if address}}value="{{address}}"{{/if}}>
                 <label for="address">Adresse Ethereum</label>
+            </div>
+            <div id="erreurInscription" class="col s2 offset-s5">
+                {{#if erreurInscription}}
+                    <span>{{erreurInscription}}</span>
+                {{/if}}
             </div>
             <div class="col s12">
                 <input class="btn waves-effect waves-light" type="reset" value="Annuler">
