@@ -45,14 +45,22 @@
                     <h5><b id="montantActuel">{{campagne.montantActuel}}</b> ETH collectés sur <b id="but">{{campagne.but}}</b> ETH demandés</h5>
                     <p id="perc">(soit {{pourcentage}}% achevé)</p>
                     <br/>
-                    {{#ifCond joursRestants '<' 0}}
-                        <p>La campagne est terminé</p>
-                        <br/>
-                        <a class="waves-effect waves-light btn-large modal-trigger disabled" href="#contribuez">Contribuez</a>
+                    {{#ifCond session.isConnected '==' true}}
+                        {{#ifCond joursRestants '<' 0}}
+                            <p>La campagne est terminé</p>
+                            <br/>
+                            <a class="waves-effect waves-light btn-large modal-trigger disabled" href="#contribuez">Contribuez</a>
+                        {{else}}
+                            <p>{{joursRestants}} jours restants</p>
+                            <br/>
+                            <a class="waves-effect waves-light btn-large modal-trigger blue" href="#contribuez">Contribuez</a>
+                        {{/ifCond}}
                     {{else}}
                         <p>{{joursRestants}} jours restants</p>
-                        <br/>
-                        <a class="waves-effect waves-light btn-large modal-trigger blue" href="#contribuez">Contribuez</a>
+                        <p></p>
+                        <a class="waves-effect waves-light btn-large blue col s12" href="/Connexion">Connectez-vous</a>
+                        <p class="center-align">---OU---</p>
+                        <a class="waves-effect waves-light btn-large blue" href="/Inscription">Inscrivez-vous</a>
                     {{/ifCond}}
                 </div>
             </div>
