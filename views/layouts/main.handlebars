@@ -17,10 +17,17 @@
               <div class="nav-wrapper grey darken-4">
                   <a href="#" data-activates="slide-out" class="button-collapse" id="btn_menu"><i class="material-icons">menu</i></a>
                   <a href="/" class="brand-logo white-text rightOuter"><img src="/images/logo-ethstarter.png" alt="Logo Ethstrater"/></a>
-                  <ul id="nav-mobile" class="right">
-                      <li><a href="/Connexion" id="btnConnexion" class="btnActive">Connexion</a></li>
-                      <li><a href="/Inscription" id="btnInscription" class="btnActive">Inscription</a></li>
-                  </ul>
+                  {{#if session.login}}
+                      <ul id="nav-mobile" class="right">
+                          <li><span id="cadreDeconnexion">Bonjour {{session.login}} &nbsp</span></li>
+                          <li><a href="/Deconnexion" id="btnDeconnexion" class="btnActive orange">Déconnexion</a></li>
+                      </ul>
+                  {{else}}
+                      <ul id="nav-mobile" class="right">
+                          <li><a href="/Connexion" id="btnConnexion" class="btnActive">Connexion</a></li>
+                          <li><a href="/Inscription" id="btnInscription" class="btnActive">Inscription</a></li>
+                      </ul>
+                  {{/if}}
               </div>
           </nav>
           <!--stop header band-->
