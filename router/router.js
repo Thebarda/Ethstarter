@@ -23,7 +23,7 @@ module.exports = function(app) {
     app.post('/validationCampagne',CreateController.validationCampagne);
     // Inscription
     app.get('/Inscription', InscriptionController.inscription);
-    app.post('/validationInscriptionContributeur', InscriptionController.validationInscriptionContributeur);
+    app.post("/validationInscriptionEntrepreneur", InscriptionController.validationInscriptionEntrepreneur);
 
     //Affichage campagnes
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
