@@ -9,6 +9,7 @@ addons: # get google-chrome-stable
   chrome: stable
 before_install:
     - chmod +x ./node_modules/.bin/mocha
+    - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 install:
     - npm install
     - npm install web3
