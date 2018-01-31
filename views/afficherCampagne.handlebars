@@ -14,17 +14,17 @@
                     <div id="contribs" class="col s12">
                         <table class="striped highlight responsive-table">
                             <thead>
-                            <tr>
-                                <th>Nom</th>
-                                <th>Prénom</th>
-                            </tr>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                </tr>
                             </thead>
                             <tbody>
                                 {{#each contributeurs}}
-                                    <tr>
-                                        <td>{{this.nom}}</td>
-                                        <td>{{this.prenom}}</td>
-                                    </tr>
+                                <tr>
+                                    <td>{{this.nom}}</td>
+                                    <td>{{this.prenom}}</td>
+                                </tr>
                                 {{/each}}
                             </tbody>
                         </table>
@@ -38,15 +38,14 @@
                 <div class="card-content left-align">
                     <br/>
                     <div class="bar">
-                        <div class="percentage has-tip"  style="width: {{pourcentageAffiche}}%" id="barChargement">
+                        <div class="percentage has-tip" style="width: {{pourcentageAffiche}}%" id="barChargement">
                         </div>
                         <br/>
                     </div>
-                    <h5><b id="montantActuel">{{campagne.montantActuel}}</b> ETH collectés sur <b id="but">{{campagne.but}}</b> ETH demandés</h5>
+                    <h5><b id="montantActuel">{{campagne.montantActuel}}</b> ETH collectés sur <b id="but">{{campagne.but}}</b>                        ETH demandés</h5>
                     <p id="perc">(soit {{pourcentage}}% achevé)</p>
-                    <br/>
-                    {{#ifCond session.isConnected '==' true}}
-                        {{#ifCond joursRestants '<' 0}}
+                    <br/> {{#ifCond session.isConnected '==' true}} {{#ifCond joursRestants '
+                    < ' 0}}
                             <p>La campagne est terminé</p>
                             <br/>
                             <a class="waves-effect waves-light btn-large modal-trigger disabled" href="#contribuez">Contribuez</a>
@@ -90,10 +89,13 @@
             <br/>
             <p id="error" class="red-text"></p>
             <div class="col s12">
-                <input class="btn waves-effect waves-light orange" type="reset" value="Annuler" onclick="$('#contribuez').modal('close')">
+                <input class="btn waves-effect waves-light orange" type="reset" value="Annuler" onclick="$('#contribuez
+                        ').modal('close ')">
                 <a class="btn waves-effect waves-light orange" id="submitParticipation">Confirmer la contribution</a>
             </div>
         </form>
     </div>
 </div>
+
 <script src="/javascripts/afficherDescription.js"></script>
+<link rel="stylesheet" href="/stylesheets/afficherCampagne.css">

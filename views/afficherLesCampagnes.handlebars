@@ -1,28 +1,23 @@
-
-<div id="campagnesContainer">
-    {{#each campagnes}}
-        <div class="row">
+<div class="campagnesContainer">
+    <div class="row">
+        {{#each campagnes}}
             <div class="col s4">
-                <div class="card">
+                <div class="card hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="/images/placeholder.jpg" />
+                        <img class="activator cardImg" src="/images/placeholder2.jpg" />
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{nomCampagne}}<i class="material-icons right">more_vert</i></span>
-                        <p><a href="#">This is a link</a></p>
+                        <span class="card-title activator grey-text text-darken-4">{{nomCampagne}}<i class="material-icons right">expand_less</i></span>
+                        <p><a href="/campaign/{{idCampagne}}">Découvrir</a></p>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{nomCampagne}}<i class="material-icons right">close</i></span>
+                        <span class="card-title grey-text text-darken-4 activator">{{nomCampagne}}<i class="material-icons right">expand_more</i></span>
                         <p>{{description}}</p>
                     </div>
                 </div>
             </div>
-        </div>    
-    {{/each}}
+        {{/each}}
+    </div>
 </div>
 
 <link rel="stylesheet" href="/stylesheets/afficherLesCampagnes.css">
-
-
-
-
