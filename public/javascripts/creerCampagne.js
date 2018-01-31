@@ -13,13 +13,22 @@ $(document).ready(function () {
         closeOnSelect: false // Close upon selecting a date,
     });
     //BBcode Jquery
-
     var BBbuttons = {
         buttons: "bold,italic,underline,sup,sub,|,img,video,link,|,bullist,numlist,|,fontcolor,fontsize,fontfamily,|, justifyleft, justifycenter,justifyright,|, quote,table"
     }
     $("#presentation").wysibb(BBbuttons);
-
-
+    
+    
+    //Compteur caractere
+    $("#description").keyup(function(){
+        var nbreCaracteres = $(this).val().length;
+        nbreCaracteres = 200 - nbreCaracteres ;
+        var msg =  nbreCaracteres + "/200";
+        $("#compteur").text(msg);   
+    });
+    
+    
+    // requete Ajax envoie des données du formulaire dans la BDD
     $("#submit").on("click", function () {
         var titreCampagne = $("#titreCampagne").val();
         var presentation = $(".wysibb-text-editor").html();
@@ -37,7 +46,7 @@ $(document).ready(function () {
                 montantActuel: 0
             }
         }).done(function (html) {
-            Materialize.toast("Votre Campagne est en cours de validation :)", 3200);
+            Materialize.toast("Félicitation! Votre Campagne est en cours de validation :)", 3200);
             setTimeout(function () {
                 location.href = "/";
             }, 3200);
