@@ -10,16 +10,17 @@ addons: # get google-chrome-stable
 before_install:
  - chmod +x ./node_modules/.bin/mocha
 install:
+    - apt-get update
     - npm install
     - npm install web3
     - npm install xmlhttprequest
     - wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -P ~/
     - unzip ~/chromedriver_linux64.zip -d ~/
     - rm ~/chromedriver_linux64.zip
-    - sudo mv -f ~/chromedriver /usr/local/share/
-    - sudo chmod +x /usr/local/share/chromedriver
-    - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+    - mv -f ~/chromedriver /usr/local/share/
+    - chmod +x /usr/local/share/chromedriver
+    - ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 script:
     - node app &
     - sleep 10
-    - mocha test/unittest/
+    - mocha test/selenium/
