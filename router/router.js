@@ -18,8 +18,9 @@ module.exports = function(app) {
     app.post('/validationConnexion', ConnexionController.validationConnexion);
 
     //Creation campagne
-    app.get('/create', CreateController.example);
+    app.get('/creerCampagne', CreateController.example);
     app.post('/validationCampagne',CreateController.validationCampagne);
+    
     // Inscription
     app.get('/Inscription', InscriptionController.inscription);
     app.post('/validationInscriptionContributeur', InscriptionController.validationInscriptionContributeur);

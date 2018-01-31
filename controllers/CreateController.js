@@ -4,7 +4,7 @@ const ethstarterContract = require("../smartContract/ethstarterContract");
 
 module.exports.example = function(request, response) {
     response.title = "Ethstarter - Projet";
-    response.render("creercampagne", response);
+    response.render("creerCampagne", response);
 };
 
 
