@@ -15,6 +15,11 @@ module.exports.insertCampaign=function(data, callback){
     connection.release();
   });
 };
+/*module.exports.getCrowfundById=function(id, callback){
+  db.getConnection(function(err, connection){
+
+  });
+};*/
 
 module.exports.addContributeursXCampagne=function(data, callback){
   db.getConnection(function(err, connection){

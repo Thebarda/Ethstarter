@@ -1,6 +1,6 @@
 var modelCampagnes = require ('../models/campagnes.js');
 var modelParticipation = require ('../models/participation.js');
-//var ethstarterContract = require("../smartContract/ethstarterContract")
+var ethstarterContract = require("../smartContract/ethstarterContract");
 
 module.exports.participation = function(request, response){
     response.title = "Ethstarter - afficherCampagne";
@@ -13,7 +13,7 @@ module.exports.participation = function(request, response){
             if(err) throw err;
             modelCampagnes.updateMontant(request.session.isLookingCampaign, _montant, function(err, result){
                 if(err) throw err;
-                //ethstarterContract.addContributorToCrowfund(request.session.isLookingCampaign, "0x74A28E135996627BB8768C63e9983A1Bf9F29645", _montant);
+                ethstarterContract.addContributorToCrowfund(request.session.isLookingCampaign, "0x04333e770677fd8fe33a340cc58c61831c2f31c6", _montant);
                 response.render("emptyView", response);
             });
         });
