@@ -8,7 +8,6 @@ cache:
 addons: # get google-chrome-stable
   chrome: stable
 before_install:
-    - apt-get update
     - chmod +x ./node_modules/.bin/mocha
 install:
     - npm install
