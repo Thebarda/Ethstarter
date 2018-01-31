@@ -21,4 +21,5 @@ install:
     - sudo chmod +x /usr/local/share/chromedriver
     - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 script:
+    - sleep 10
     - mocha test/selenium/
