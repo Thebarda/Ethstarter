@@ -1,0 +1,10 @@
+before_script:
+  - apt-get update
+  - apt-get install nodejs npm
+  - npm install
+  - npm install web3
+  - npm install xmlhttprequest
+
+rspec:
+  script:
+    - mocha test/unittest/
