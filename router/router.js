@@ -1,14 +1,14 @@
 var ExampleController = require("../controllers/ExampleController.js");
 var ConnexionController = require('./../controllers/ConnexionController.js');
 
-var CreateController =  require("../controllers/CreateController.js");
+var CreateController = require("../controllers/CreateController.js");
 var InscriptionController = require('./../controllers/InscriptionController.js');
 var CampagnesController = require('../controllers/CampagnesController.js');
 var ParticipationController = require('../controllers/ParticipationController.js');
 
 
 // Routes
-module.exports = function(app) {
+module.exports = function (app) {
 
     // Exemple
     app.get('/', ExampleController.example);
@@ -20,10 +20,10 @@ module.exports = function(app) {
 
     //Creation campagne
     app.get('/create', CreateController.example);
-    app.post('/validationCampagne',CreateController.validationCampagne);
+    app.post('/validationCampagne', CreateController.validationCampagne);
     // Inscription
     app.get('/Inscription', InscriptionController.inscription);
-    app.post("/validationInscriptionEntrepreneur", InscriptionController.validationInscriptionEntrepreneur);
+    app.post('/validationInscriptionContributeur', InscriptionController.validationInscriptionContributeur);
 
     //Affichage campagnes
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);

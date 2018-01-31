@@ -30,14 +30,14 @@ app.use(session({
 
 /* ces lignes permettent d'utiliser directement les variables de session dans handlebars
  UTILISATION : {{session.MaVariable}}  */
-app.use(function(request, response, next) {
+app.use(function (request, response, next) {
     response.locals.session = request.session;
     next();
 });
 
 var exphbs = require('express-handlebars');
 app.set('view engine', 'handlebars'); //nom de l'extension des fichiers
-var handlebars  = require('./helpers/handlebars.js')(exphbs); //emplacement des helpers
+var handlebars = require('./helpers/handlebars.js')(exphbs); //emplacement des helpers
 // helpers : extensions d'handlebars
 
 
@@ -49,6 +49,6 @@ require('./router/router')(app);
 ethstarterContract.minerContrat();
 
 
-http.createServer(app).listen(app.get('port'), function() {
+http.createServer(app).listen(app.get('port'), function () {
     console.log('Serveur Ethstarter test en attente sur le port ' + app.get('port'));
 });
