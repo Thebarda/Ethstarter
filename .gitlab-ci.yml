@@ -8,4 +8,4 @@ before_script:
 
 test:
   script:
-    - mocha test/unittest/
+    - mocha test/unittest/ test/selenium/
