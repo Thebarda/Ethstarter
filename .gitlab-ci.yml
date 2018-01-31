@@ -4,6 +4,7 @@ before_script:
   - npm install
   - npm install web3
   - npm install xmlhttprequest
+  - npm install -g mocha
 
 test:
   script:
