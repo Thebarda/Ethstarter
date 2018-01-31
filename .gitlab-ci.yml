@@ -1,3 +1,4 @@
+image: node:latest
 before_script:
   - apt-get update
   - apt-get install nodejs npm
@@ -5,6 +6,6 @@ before_script:
   - npm install web3
   - npm install xmlhttprequest
 
-rspec:
+test:
   script:
     - mocha test/unittest/
