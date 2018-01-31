@@ -16,9 +16,9 @@ install:
     - wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -P ~/
     - unzip ~/chromedriver_linux64.zip -d ~/
     - rm ~/chromedriver_linux64.zip
-    - mv -f ~/chromedriver /usr/local/share/
-    - chmod +x /usr/local/share/chromedriver
-    - ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+    - sudo mv -f ~/chromedriver /usr/local/share/
+    - sudo chmod +x /usr/local/share/chromedriver
+    - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 script:
     - npm start &
     - sleep 10
