@@ -1,4 +1,4 @@
-var db = require('../../models/configDb');
+var db = require('../models/configDb');
 var assert = require('assert');
 describe("connect to database", function(){
    it("should connect to database", async function(){

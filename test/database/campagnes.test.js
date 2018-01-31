@@ -1,5 +1,5 @@
 var assert = require("assert");
-var campagnes = require("../../models/campagnes");
+var campagnes = require("../models/campagnes");
 
 describe("Campagnes", function(){
    describe("check crowfunds that finish today", function(){
