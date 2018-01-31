@@ -1,3 +1,4 @@
 #campagnesContainer {
-    background-color: yellow;
+    max-width: 1400px;
+    margin: auto;
 }
