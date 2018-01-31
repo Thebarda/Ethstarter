@@ -8,7 +8,6 @@ var async = require('async');
 var readline = require('readline');
 var fs = require('fs');
 var app = express();
-var sleep = require("sleep");
 var ethstarterContract = require("./smartContract/ethstarterContract");
 
 app.use(bodyParser.urlencoded({ extended: true }));
