@@ -21,6 +21,6 @@ install:
     - chmod +x /usr/local/share/chromedriver
     - ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 script:
-    - node app &
+    - npm start &
     - sleep 10
     - mocha test/selenium/
