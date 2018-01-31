@@ -46,7 +46,7 @@ module.exports.getCampaignById = function (idCampagne, callback) {
 
 module.exports.getAllCampaigns = function (callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
+        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
             "`but`, `montantActuel`, `dateLimite`, `description`, `image`, `estEnCours` " +
             "FROM campagnes", callback);
         connection.release();
@@ -55,7 +55,7 @@ module.exports.getAllCampaigns = function (callback) {
 
 module.exports.getCampaignsInProgress = function (callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
+        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
             "`but`, `montantActuel`, `dateLimite`, `description`, `image`, `estEnCours` " +
             "FROM campagnes WHERE estEnCours=1", callback);
         connection.release();
