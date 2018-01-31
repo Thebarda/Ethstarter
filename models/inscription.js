@@ -15,13 +15,20 @@ module.exports.valide = function(body, callback){
 
 module.exports.inscrire = function(body, callback){
     var mdp = sha256(body.password);
-    if (utils.isAddress(body.address) != "true") return false;
     db.getConnection(function (err, connexion) {
         if (err) throw err;
         var sql = "INSERT INTO utilisateur (nom, prenom, mail, login, password, addrPubliqueEth, type) VALUES(?,?,?,?,?,?,?);";
-        connexion.query(sql, [body.lastname, body.firstname, body.email, body.login, mdp, body.address, '1'], function (err, results) {
-            if (err) throw err;
-        });
+        connexion.query(sql, [body.lastname, body.firstname, body.email, body.login, mdp, body.address, body.type], callback);
         connexion.release();
+    });
+}
+
+module.exports.inscrireEntrepreneur = function(idUtilisateur, nomEntreprise, pieceIdentide, callback){
+    db.getConnection(function(err, connexion){
+        if(!err){
+            var sql = "INSERT INTO entrepreneur(idUtilisateur, nomEntreprise, pieceIdentide) VALUES(?,?,?);";
+            connexion.query(sql, [idUtilisateur, nomEntreprise, pieceIdentide], callback);
+            connexion.release();
+        }
     });
 }
