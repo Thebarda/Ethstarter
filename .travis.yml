@@ -5,36 +5,13 @@ node_js:
 cache:
   directories:
     - "node_modules"
-env:
-  global:
-    - DISPLAY=:99.0
-  matrix:
-    - BROWSER=chrome  BVER=stable
-    - BROWSER=chrome  BVER=beta
-    - BROWSER=chrome  BVER=unstable
-    - BROWSER=firefox BVER=stable
-    - BROWSER=firefox BVER=beta
-    - BROWSER=firefox BVER=nightly
 
-matrix:
-  fast_finish: true
-
-  allow_failures:
-    - env: BROWSER=chrome  BVER=unstable
-    - env: BROWSER=firefox BVER=nightly
-
+before_install:
+    - chmod +x ./node_modules/.bin/mocha
 install:
     - npm install
     - npm install web3
     - npm install xmlhttprequest
-    - npm start &
-    - - wget -N http://chromedriver.storage.googleapis.com/2.30/chromedriver_linux64.zip -P ~/
-    - unzip ~/chromedriver_linux64.zip -d ~/
-    - rm ~/chromedriver_linux64.zip
-    - sudo mv -f ~/chromedriver /usr/local/share/
-    - sudo chmod +x /usr/local/share/chromedriver
-    - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
-    - export DISPLAY=:99.0
 script:
     - sleep 10
-    - mocha test/selenium/
+    - mocha test/unittest/
