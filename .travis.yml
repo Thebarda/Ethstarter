@@ -22,8 +22,7 @@ matrix:
   allow_failures:
     - env: BROWSER=chrome  BVER=unstable
     - env: BROWSER=firefox BVER=nightly
-before_install:
-    - chmod +x ./node_modules/.bin/mocha
+
 install:
     - npm install
     - npm install web3
