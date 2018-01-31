@@ -33,6 +33,7 @@ $(document).ready(function(){
            $("#barChargement").attr("style", "width:"+newPerc+"%");
            $('#contribuez').modal('close');
            $("#nbContributeurs").text(parseInt($("#nbContributeurs").text())+1);
+           $("#nbContribsss").text(parseInt($("#nbContribsss").text())+1);
        });
     });
 });

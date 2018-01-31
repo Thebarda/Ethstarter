@@ -20,8 +20,26 @@ module.exports.getContributeurs = function(idCampaign, callback){
 
 module.exports.getNbContributions = function(idCampaign, callback){
     db.getConnection(function(err, connection){
-        connection.query("SELECT COUNT(idContributeur) as nbContributeurs FROM contributeursxcampagne "+
-        "WHERE idCampagne = "+idCampaign, callback);
+        connection.query("SELECT COUNT(c.idContributeur) as nbContributeurs FROM participation p "+
+        "INNER JOIN contributeursxcampagne c ON c.idContributeur = p.idContributeur "+
+        "WHERE c.idCampagne = "+idCampaign, callback);
         connection.release();
     });
 };
+
+module.exports.checkIfContributorContribute = function(idCampagne, idContributor, callback){
+    db.getConnection(function(err, connection){
+        connection.query("SELECT idCampagne, idContributeur FROM contributeursxcampagne WHERE idCampagne="+idCampagne+" AND idContributeur="+idContributor, callback);
+        connection.release();
+    });
+}
+
+module.exports.getNbContributionsUserConnected = function(idCampagne, idContributeur, callback){
+    db.getConnection(function(err, connection){
+       if(err) throw err;
+       connection.query("SELECT COUNT(idParticipation) as nbContribsss FROM contributeursxcampagne c\n" +
+           "INNER JOIN participation p ON p.idContributeur = c.idContributeur\n" +
+           "WHERE c.idCampagne="+idCampagne+" AND c.idContributeur="+idContributeur, callback);
+       connection.release();
+    });
+}

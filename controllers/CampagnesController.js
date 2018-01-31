@@ -23,7 +23,11 @@ module.exports.afficherCampagne = function(request, response){
                     response.nomEntrepreneur = result[0].nom;
                     response.prenomEntrepreneur = result[0].prenom;
                     response.entreprise = result[0].nomEntreprise;
-                    response.render("afficherCampagne", response);
+                    modelParticipation.getNbContributionsUserConnected(idCampagne, request.session.idCompte, function(err, result){
+                        if(err) throw err;
+                        response.nbContribsss = result[0].nbContribsss;
+                        response.render("afficherCampagne", response);
+                    });
                 });
             });
         });
