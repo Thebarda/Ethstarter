@@ -8,9 +8,9 @@ cache:
 addons: # get google-chrome-stable
   chrome: stable
 before_install:
- - chmod +x ./node_modules/.bin/mocha
-install:
     - apt-get update
+    - chmod +x ./node_modules/.bin/mocha
+install:
     - npm install
     - npm install web3
     - npm install xmlhttprequest
