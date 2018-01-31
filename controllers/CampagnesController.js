@@ -23,9 +23,28 @@ module.exports.afficherCampagne = function(request, response){
                     response.nomEntrepreneur = result[0].nom;
                     response.prenomEntrepreneur = result[0].prenom;
                     response.entreprise = result[0].nomEntreprise;
-                    response.render("afficherCampagne", response);
+                    if(request.session.isConnected) {
+                        modelParticipation.getNbContributionsUserConnected(idCampagne, request.session.idCompte, function (err, result) {
+                            if (err) throw err;
+                            response.nbContribsss = result[0].nbContribsss;
+                            response.render("afficherCampagne", response);
+                        });
+                    }else{
+                        response.nbContribsss = 0;
+                        response.render("afficherCampagne", response);
+                    }
                 });
             });
         });
     });
 };
+
+module.exports.afficherLesCampagnes = (req, resp)=>{
+    campagnesModel.getAllCampaigns((err, res)=>{
+        if (err) throw err;
+        resp.title = "Les campagnes";
+        resp.campagnes = res;
+        resp.render("afficherLesCampagnes", resp);
+    });
+};
+
