@@ -1,7 +1,7 @@
 const exampleModels = require("../models/exampleModels");
 const ethstarterContract = require("../smartContract/ethstarterContract");
 
-module.exports.example = function (request, response) {
+module.exports.example = function(request, response) {
     response.title = "Ethstarter - accueil";
     /*exampleModels.getEditions(function (err, result) {
         if(err) throw err;

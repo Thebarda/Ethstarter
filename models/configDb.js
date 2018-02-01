@@ -8,8 +8,8 @@ var pool = mysql.createPool({
     port: '3306'
 });
 
-module.exports.getConnection = function (callback) {
-    pool.getConnection(function (err, connection) {
+module.exports.getConnection = function(callback) {
+    pool.getConnection(function(err, connection) {
         callback(err, connection);
     });
 };
