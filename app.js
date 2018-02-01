@@ -7,10 +7,10 @@ var express = require('express'),
 var async = require('async');
 var readline = require('readline');
 var fs = require('fs');
+var CronJob = require('cron').CronJob;
+var checkCrowfunds = require("./smartContract/checkCrowfunds");
 var app = express();
-var sleep = require("sleep");
 var ethstarterContract = require("./smartContract/ethstarterContract");
-var utils = require("./utils/utils");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('port', 1047);
@@ -30,14 +30,14 @@ app.use(session({
 
 /* ces lignes permettent d'utiliser directement les variables de session dans handlebars
  UTILISATION : {{session.MaVariable}}  */
-app.use(function (request, response, next) {
+app.use(function(request, response, next) {
     response.locals.session = request.session;
     next();
 });
 
 var exphbs = require('express-handlebars');
 app.set('view engine', 'handlebars'); //nom de l'extension des fichiers
-var handlebars = require('./helpers/handlebars.js')(exphbs); //emplacement des helpers
+var handlebars  = require('./helpers/handlebars.js')(exphbs); //emplacement des helpers
 // helpers : extensions d'handlebars
 
 
@@ -47,8 +47,16 @@ app.engine('handlebars', handlebars.engine);
 // chargement du routeur
 require('./router/router')(app);
 ethstarterContract.minerContrat();
-
-
-http.createServer(app).listen(app.get('port'), function () {
+var job = new CronJob({
+    cronTime: '00 00 03 * * *',
+    onTick: function() {
+        checkCrowfunds.checkCrowfunds();
+    },
+    start: false,
+    timeZone: 'Europe/Paris'
+});
+job.start();
+console.log("is job running ? "+job.running);
+http.createServer(app).listen(app.get('port'), function() {
     console.log('Serveur Ethstarter test en attente sur le port ' + app.get('port'));
 });
