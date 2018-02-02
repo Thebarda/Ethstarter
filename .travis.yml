@@ -25,8 +25,8 @@ install:
     - npm install web3
     - npm install xmlhttprequest
     - sudo apt-get install -y python python-pip
-    - pip install robotframework
-    - pip install --upgrade robotframework-seleniumlibrary
+    - sudo pip install robotframework
+    - sudo pip install --upgrade robotframework-seleniumlibrary
 script:
     - npm start &
     - sleep 10
