@@ -31,3 +31,4 @@ script:
     - npm start &
     - sleep 10
     - robot test/robotframework/Connexion.robot
+    - cat /home/travis/build/Thebarda/Ethstarter/log.html
