@@ -11,6 +11,7 @@ module.exports.inscription=function(request, response){
     response.render('inscription', response);
 }
 
+
 module.exports.validationInscriptionContributeur=function(request, response){
     var body = request.body;
     body.type = 1;
