@@ -32,4 +32,5 @@ module.exports = function (app) {
     app.get('/campaigns/', CampagnesController.afficherLesCampagnes);
     // Profile
     app.get('/Profile', ProfileController.afficherProfile);
+    app.get('/modifierProfile', ProfileController.modifierProfile);
 };
