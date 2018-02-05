@@ -12,7 +12,7 @@ module.exports.validationCampagne = function(request, response)
 {
     response.title = "Ethstarter - Création campagne";
     var body = request.body;
-    body.idEntrepreneur=1;
+    body.idEntrepreneur=request.session.idCompte;
     createModels.insertCampaign(body, function(err, result){
              if(err){
                 console.log(err);
@@ -22,7 +22,5 @@ module.exports.validationCampagne = function(request, response)
                 ethstarterContract.addCrowfunding(result.insertId, "0x66529fff2c91c83434f8415894711b279448463d", parseInt(body.but));
                 response.render("accueil",response);
             }
-    
     });
-    
 }

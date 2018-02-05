@@ -1,4 +1,4 @@
-var db = require('./configDb');
+var db = require("./configDb");
 
 module.exports.getAllCrowfundsThatFinishToday = function(callback){
   db.getConnection(function(err, connection){

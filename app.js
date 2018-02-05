@@ -7,8 +7,9 @@ var express = require('express'),
 var async = require('async');
 var readline = require('readline');
 var fs = require('fs');
+var CronJob = require('cron').CronJob;
+var checkCrowfunds = require("./smartContract/checkCrowfunds");
 var app = express();
-var sleep = require("sleep");
 var ethstarterContract = require("./smartContract/ethstarterContract");
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -46,7 +47,16 @@ app.engine('handlebars', handlebars.engine);
 // chargement du routeur
 require('./router/router')(app);
 ethstarterContract.minerContrat();
-
+var job = new CronJob({
+    cronTime: '00 00 03 * * *',
+    onTick: function() {
+        checkCrowfunds.checkCrowfunds();
+    },
+    start: false,
+    timeZone: 'Europe/Paris'
+});
+job.start();
+console.log("is job running ? "+job.running);
 http.createServer(app).listen(app.get('port'), function() {
     console.log('Serveur Ethstarter test en attente sur le port ' + app.get('port'));
 });

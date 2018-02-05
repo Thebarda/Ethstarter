@@ -17,16 +17,23 @@ module.exports = function(app) {
     // Connexion
     app.get('/Connexion', ConnexionController.connexion);
     app.post('/validationConnexion', ConnexionController.validationConnexion);
+    app.get('/Deconnexion', ConnexionController.deconnexion);
 
     //Creation campagne
     app.get('/create', CreateController.example);
     app.post('/validationCampagne',CreateController.validationCampagne);
     // Inscription
     app.get('/Inscription', InscriptionController.inscription);
-    app.post('/validationInscriptionContributeur', InscriptionController.validationInscriptionContributeur);
+    app.post("/validationInscriptionEntrepreneur", InscriptionController.validationInscriptionEntrepreneur);
+
+    //Affichage campagnes
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
     app.post('/participation', ParticipationController.participation);
+<<<<<<< HEAD
 
     // Profile
     app.get('/profile', ProfileController.afficherProfile);
+=======
+    app.get('/campaigns/', CampagnesController.afficherLesCampagnes);
+>>>>>>> master
 };
