@@ -40,7 +40,7 @@ $(document).ready(function () {
             data: {
                 nomCampagne: titreCampagne,
                 description: description,
-                presentation: presentation,
+                descriptionCourte: descriptionCourte,
                 dateLimite: datepicker,
                 but: objectif,
                 estEnCours: 1,
