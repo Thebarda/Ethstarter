@@ -20,9 +20,8 @@ module.exports = function (app) {
     app.get('/Deconnexion', ConnexionController.deconnexion);
 
     //Creation campagne
-    app.get('/create', CreateController.example);
-    app.post('/validationCampagne', CreateController.validationCampagne);
-    // Inscription
+    app.get('/creerCampagne', CreateController.example);
+    app.post('/validationCampagne',CreateController.validationCampagne);
     app.get('/Inscription', InscriptionController.inscription);
     app.post('/validationInscriptionContributeur', InscriptionController.validationInscriptionContributeur);
     app.post("/validationInscriptionEntrepreneur", InscriptionController.validationInscriptionEntrepreneur);
@@ -31,7 +30,6 @@ module.exports = function (app) {
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
     app.post('/participation', ParticipationController.participation);
     app.get('/campaigns/', CampagnesController.afficherLesCampagnes);
-
     // Profile
     app.get('/Profile', ProfileController.afficherProfile);
     app.get('/modifierProfile', ProfileController.modifierProfile);

@@ -42,7 +42,7 @@ module.exports.afficherCampagne = function(request, response){
 module.exports.afficherLesCampagnes = (req, resp)=>{
     campagnesModel.getAllCampaigns((err, res)=>{
         if (err) throw err;
-        resp.title = "Les campagnes";
+        resp.title = "Toute les campagnes";
         resp.campagnes = res;
         resp.render("afficherLesCampagnes", resp);
     });

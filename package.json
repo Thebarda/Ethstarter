@@ -32,7 +32,8 @@
     "serve-favicon": "~2.4.5",
     "sleep": "^5.1.1",
     "web3": "^0.20.4",
-    "xmlhttprequest": "^1.8.0"
+    "xmlhttprequest": "^1.8.0",
+    "fs-extra": "^5.0.0"
   },
   "devDependencies": {
     "chai": "*",
