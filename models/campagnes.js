@@ -1,3 +1,4 @@
+
 var db = require('./configDb');
 
 module.exports.getAllCrowfundsThatFinishToday = function (callback) {
@@ -15,6 +16,7 @@ module.exports.insertCampaign = function (data, callback) {
         connection.release();
     });
 };
+
 /*module.exports.getCrowfundById=function(id, callback){
   db.getConnection(function(err, connection){
 
@@ -70,4 +72,5 @@ module.exports.getInfosEntrepreneur = function (idCampagne, callback) {
             "WHERE c.idCampagne = " + idCampagne, callback);
         connection.release();
     });
+
 };
