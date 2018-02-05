@@ -1,3 +1,4 @@
+
 var modelCampagnes = require ('../models/campagnes.js');
 var modelParticipation = require ('../models/participation.js');
 var ethstarterContract = require("../smartContract/ethstarterContract");
@@ -28,4 +29,5 @@ module.exports.participation = function(request, response){
            }
         });
     });
+
 };

@@ -1,3 +1,4 @@
+
 var db = require('./configDb.js');
 
 module.exports.verifConnexion=function(login, password, callback){
@@ -9,3 +10,4 @@ module.exports.verifConnexion=function(login, password, callback){
         }
     });
 }
+

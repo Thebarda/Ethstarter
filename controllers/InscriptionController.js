@@ -1,3 +1,4 @@
+
 var modelInscription = require('../models/inscription.js');
 var utils = require("../utils/utils");
 var fs = require('fs');
@@ -28,9 +29,7 @@ module.exports.validationInscriptionContributeur=function(request, response){
                 modelInscription.inscrire(body,function(err, result){
                     if(err) throw err;
                     response.render("connexion", response);
-                });
-            }
-        });
+                }); });
     }else{
         response.title="Ethstarter - inscription";
         response.erreurAddr = "Adresse publique incorrecte";
@@ -67,3 +66,4 @@ module.exports.validationInscriptionEntrepreneur=function(request, response){
         });
     });
 }
+

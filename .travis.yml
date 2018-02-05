@@ -5,11 +5,13 @@ node_js:
 cache:
   directories:
     - "node_modules"
+
 addons:
   apt:
     packages:
       - chromium-browser
       - chromium-chromedriver
+
 before_install:
     - chmod +x ./node_modules/.bin/mocha
 install:
@@ -25,6 +27,6 @@ install:
     - npm install web3
     - npm install xmlhttprequest
 script:
-    - npm start &
+
     - sleep 10
     - npm test

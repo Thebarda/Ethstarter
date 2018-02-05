@@ -1,3 +1,4 @@
+
 var modelConnexion = require('../models/connexion.js');
 //var sha256 = require('js-sha256').sha256;
 
@@ -57,4 +58,5 @@ module.exports.deconnexion=function(request, response){
         response.render('deconnexion', response);
         console.log("Déconnecté !");
     });
+
 }
