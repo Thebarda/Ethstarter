@@ -20,7 +20,7 @@ module.exports.validationCampagne = function(request, response)
                 return;
             }
             else{
-                ethstarterContract.addCrowfunding(result.insertId, request.session.idCompte, parseInt(body.but));
+                ethstarterContract.addCrowfunding(result.insertId, request.session.addrPubliqueEth, parseInt(body.but));
                 response.render("accueil",response);
             }
     });

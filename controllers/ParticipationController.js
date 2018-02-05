@@ -14,7 +14,7 @@ module.exports.participation = function(request, response){
            if(result.length>0){
                modelCampagnes.updateMontant(request.session.isLookingCampaign, _montant, function(err, result){
                    if(err) throw err;
-                   ethstarterContract.addContributorToCrowfund(request.session.isLookingCampaign, request.session.idCompte, _montant);
+                   ethstarterContract.addContributorToCrowfund(request.session.isLookingCampaign, request.session.addrPubliqueEth, _montant);
                    response.render("emptyView", response);
                });
            }else{
@@ -22,7 +22,7 @@ module.exports.participation = function(request, response){
                    if(err) throw err;
                    modelCampagnes.updateMontant(request.session.isLookingCampaign, _montant, function(err, result){
                        if(err) throw err;
-                       ethstarterContract.addContributorToCrowfund(request.session.isLookingCampaign, request.session.idCompte, _montant);
+                       ethstarterContract.addContributorToCrowfund(request.session.isLookingCampaign, request.session.addrPubliqueEth, _montant);
                        response.render("emptyView", response);
                    });
                });
