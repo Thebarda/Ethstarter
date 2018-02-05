@@ -16,11 +16,11 @@ $(document).ready(function () {
     var BBbuttons = {
         buttons: "bold,italic,underline,sup,sub,|,img,video,link,|,bullist,numlist,|,fontcolor,fontsize,fontfamily,|, justifyleft, justifycenter,justifyright,|, quote,table"
     }
-    $("#presentation").wysibb(BBbuttons);
+    $("#description").wysibb(BBbuttons);
     
     
     //Compteur caractere
-    $("#description").keyup(function(){
+    $("#descriptionCourte").keyup(function(){
         var nbreCaracteres = $(this).val().length;
         nbreCaracteres = 200 - nbreCaracteres ;
         var msg =  nbreCaracteres + "/200";
@@ -31,7 +31,8 @@ $(document).ready(function () {
     // requete Ajax envoie des données du formulaire dans la BDD
     $("#submit").on("click", function () {
         var titreCampagne = $("#titreCampagne").val();
-        var presentation = $(".wysibb-text-editor").html();
+        var description = $(".wysibb-text-editor").html();
+        var descriptionCourte = $("#descriptionCourte").html();
         var datepicker = $("#datepicker").val();
         var objectif = $("#objectif").val();
         $.ajax({
