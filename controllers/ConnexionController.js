@@ -1,6 +1,6 @@
 
 var modelConnexion = require('../models/connexion.js');
-//var sha256 = require('js-sha256').sha256;
+var sha256 = require('js-sha256').sha256;
 
 // Méthode permettant d'afficher la page de connexion
 module.exports.connexion=function(request, response){
@@ -22,7 +22,7 @@ module.exports.validationConnexion = function(request, response){
         console.log("Login : " + login + "\nMDP : " + password);
         console.log("++++++++++++++++++++++++");
 
-        // password = sha256(password);
+        password = sha256(password);
 
         // Vérification du login et du mot de passe dans la base de données
         modelConnexion.verifConnexion(login, password, function(err, result){
