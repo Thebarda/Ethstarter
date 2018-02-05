@@ -32,7 +32,7 @@ module.exports = function(app) {
 
 
     // Profile
-    app.get('/profile/:idUtilisateur', ProfileController.afficherProfile);
+    app.get('/Profile', ProfileController.afficherProfile);
 
     app.get('/campaigns/', CampagnesController.afficherLesCampagnes);
 
