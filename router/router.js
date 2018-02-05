@@ -29,11 +29,11 @@ module.exports = function(app) {
     //Affichage campagnes
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
     app.post('/participation', ParticipationController.participation);
-<<<<<<< HEAD
+
 
     // Profile
-    app.get('/profile', ProfileController.afficherProfile);
-=======
+    app.get('/profile/:idUtilisateur', ProfileController.afficherProfile);
+
     app.get('/campaigns/', CampagnesController.afficherLesCampagnes);
->>>>>>> master
+
 };
