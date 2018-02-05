@@ -4,7 +4,7 @@
     <title>{{title}}</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="image/png" href="/images/logo-eth-icon.png"/>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/main.css' />
     <link rel="stylesheet" href="/stylesheets/materialize.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="http://cdn.wysibb.com/js/jquery.wysibb.min.js"></script>
@@ -20,6 +20,7 @@
                   {{#if session.login}}
                       <ul id="nav-mobile" class="right">
                           <li><span id="cadreDeconnexion">Bonjour {{session.login}} &nbsp</span></li>
+                          <li><a href="/Profile" id="btnProfile" class="material-icons">account_circle</a></li>
                           <li><a href="/Deconnexion" id="btnDeconnexion" class="btnActive orange">Déconnexion</a></li>
                       </ul>
                   {{else}}
@@ -45,7 +46,7 @@
               {{#ifCond session.typeCompte '==' 2}}
                 <li><a href="/create" class="waves-effect waves-light"><i class="material-icons">add</i>Proposer un projet</a></li>
               {{/ifCond}}
-              <li><a href="/crowfundings" class="waves-effect waves-light">Campagnes de financement</a></li>
+              <li><a href="/campaigns" class="waves-effect waves-light">Campagnes de financement</a></li>
               <li><a href="/howitworks" class="waves-effect waves-light">Comment ça fonctionne ?</a></li>
           </ul>
           <!--stop menu-->

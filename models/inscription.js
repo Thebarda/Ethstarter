@@ -1,3 +1,4 @@
+
 var db = require('./configDb.js');
 var utils = require("../utils/utils");
 var sha256 = require('js-sha256').sha256;
@@ -31,4 +32,5 @@ module.exports.inscrireEntrepreneur = function(idUtilisateur, nomEntreprise, pie
             connexion.release();
         }
     });
+
 }
