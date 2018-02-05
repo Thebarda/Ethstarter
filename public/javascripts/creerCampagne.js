@@ -39,7 +39,8 @@ $(document).ready(function () {
             method: "post",
             data: {
                 nomCampagne: titreCampagne,
-                description: presentation,
+                description: description,
+                presentation: presentation,
                 dateLimite: datepicker,
                 but: objectif,
                 estEnCours: 1,

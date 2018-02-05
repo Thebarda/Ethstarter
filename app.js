@@ -8,6 +8,7 @@ var async = require('async');
 var readline = require('readline');
 var fs = require('fs');
 var app = express();
+var multer = require('multer');
 var sleep = require("sleep");
 var ethstarterContract = require("./smartContract/ethstarterContract");
 var utils = require("./utils/utils");
