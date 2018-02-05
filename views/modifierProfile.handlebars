@@ -1,30 +1,30 @@
-<div id="profileForm" class="row">
+<div id="profileForm" class="row" style="margin-left: 25%; margin-right: 25%;">
     <form class="col s12">
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="input_nom" value="{{profile.nom}}" type="text" class="validate">
+                <input id="input_nom" name="nom" value="{{profile.nom}}" type="text" class="validate">
                 <label for="input_nom">Nom</label>
             </div>
             <div class="input-field col s6">
-                <input id="input_prenom" value="{{profile.prenom}}" type="tel" class="validate">
+                <input id="input_prenom" name="prenom" value="{{profile.prenom}}" type="tel" class="validate">
                 <label for="input_prenom">Prénom</label>
             </div>
         </div>
         <div id="mail" class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">mail</i>
-                <input id="input_mail" value="{{profile.mail}}" type="email" class="validate">
+                <input id="input_mail" name="mail" value="{{profile.mail}}" type="email" class="validate">
                 <label for="input_mail">Mail</label>
             </div>
             <div class="input-field col s6">
-                <input id="input_mailConfirm" value="{{profile.mail}}" type="email" class="validate">
+                <input id="input_mailConfirm" name="mailConfirm" value="{{profile.mail}}" type="email" class="validate">
                 <label for="input_mailConfirm">Confirmer le mail</label>
             </div>
         </div>
         <div id="password" class="row">
             <div class="input-field col s6">
-                <input disabled id="input_password" name="password" value="{{profile.password}}" type="password" class="validate">
+                <input disabled id="input_password" name="password" value="*********" type="password" class="validate">
                 <label for="input_password">Password</label>
             </div>
             <a class="btn-floating btn-large waves-effect waves-light black right" onclick=""><i class="material-icons">edit</i></a>
@@ -50,7 +50,7 @@
         <div id="addrPubliqueEth" class="row">
             <div class="input-field col s6">
                 <input id="input_addrPubliqueEth" name="addrPubliqueEth" value="{{profile.addrPubliqueEth}}" type="text" class="validate">
-                <label for="input_addrPubliqueEth">Ancien Password</label>
+                <label for="input_addrPubliqueEth">Adresse public Ethereum</label>
             </div>
         </div>
     </form>

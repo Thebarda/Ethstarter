@@ -1,4 +1,4 @@
-var db = require('../../models/configDb.js');
+var db = require('./configDb.js');
 
 module.exports.getProfile = function(idCompte, callback){
   db.getConnection(function(err, connection){
