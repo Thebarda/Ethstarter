@@ -1,3 +1,4 @@
+
 var express = require('express'),
     session = require('express-session'),
     cookieParser = require('cookie-parser'),
@@ -60,3 +61,4 @@ console.log("is job running ? "+job.running);
 http.createServer(app).listen(app.get('port'), function() {
     console.log('Serveur Ethstarter test en attente sur le port ' + app.get('port'));
 });
+>>>>>>> f45409a7774658002ed1f03090a8b502b5338976
