@@ -24,11 +24,7 @@ install:
     - npm install
     - npm install web3
     - npm install xmlhttprequest
-    - sudo apt-get install -y python python-pip
-    - sudo pip install robotframework
-    - sudo pip install --upgrade robotframework-seleniumlibrary
 script:
     - npm start &
     - sleep 10
-    - robot test/robotframework/Connexion.robot
-    - cat /home/travis/build/Thebarda/Ethstarter/log.html
+    - npm test
