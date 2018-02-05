@@ -5,6 +5,7 @@ var CreateController =  require("../controllers/CreateController.js");
 var InscriptionController = require('./../controllers/InscriptionController.js');
 var CampagnesController = require('../controllers/CampagnesController.js');
 var ParticipationController = require('../controllers/ParticipationController.js');
+var ProfileController = require('./../controllers/ProfileController.js');
 
 
 // Routes
@@ -28,5 +29,11 @@ module.exports = function(app) {
     //Affichage campagnes
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
     app.post('/participation', ParticipationController.participation);
+
+
+    // Profile
+    app.get('/profile/:idUtilisateur', ProfileController.afficherProfile);
+
     app.get('/campaigns/', CampagnesController.afficherLesCampagnes);
+
 };
