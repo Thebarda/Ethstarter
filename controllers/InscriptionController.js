@@ -23,7 +23,7 @@ module.exports.validationInscriptionContributeur=function(request, response){
                 return;
             }
             if (result.length != 0) {
-                response.erreurLogin = "Login incorrect";
+                response.error = "Login incorrect";
                 response.render("inscription", response);
             } else {
                 modelInscription.inscrire(body, function (err, result) {
@@ -34,7 +34,7 @@ module.exports.validationInscriptionContributeur=function(request, response){
         });
     }else{
         response.title="Ethstarter - inscription";
-        response.erreurAddr = "Adresse publique incorrecte";
+        response.error = "Adresse publique incorrecte";
         response.render("inscription", response);
     }
 }
@@ -53,6 +53,7 @@ module.exports.validationInscriptionEntrepreneur=function(request, response){
             fs.copy(files.image.path, path, function (err) {
                 if (err) {
                     console.error(err);
+                    response.error = "Upload de l'image impossible";
                     response.render('inscription', response);
                 } else {
                     console.log("success!");
@@ -69,7 +70,7 @@ module.exports.validationInscriptionEntrepreneur=function(request, response){
             });
         }else{
             response.title="Ethstarter - inscription";
-            response.erreurAddr = "Adresse publique incorrecte";
+            response.error = "Adresse publique incorrecte";
             response.render("inscription", response);
         }
     });
