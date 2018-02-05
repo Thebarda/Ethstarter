@@ -25,11 +25,13 @@ module.exports.validationInscriptionContributeur=function(request, response){
             if (result.length != 0) {
                 response.erreurLogin = "Login incorrect";
                 response.render("inscription", response);
-            }else{
-                modelInscription.inscrire(body,function(err, result){
-                    if(err) throw err;
+            } else {
+                modelInscription.inscrire(body, function (err, result) {
+                    if (err) throw err;
                     response.render("connexion", response);
-                }); });
+                });
+            }
+        });
     }else{
         response.title="Ethstarter - inscription";
         response.erreurAddr = "Adresse publique incorrecte";
