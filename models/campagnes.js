@@ -15,6 +15,11 @@ module.exports.insertCampaign=function(data, callback){
     connection.release();
   });
 };
+/*module.exports.getCrowfundById=function(id, callback){
+  db.getConnection(function(err, connection){
+
+  });
+};*/
 
 module.exports.addContributeursXCampagne=function(data, callback){
   db.getConnection(function(err, connection){
@@ -35,6 +40,24 @@ module.exports.getCampaignById = function(idCampagne, callback){
     connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
         "`but`, `montantActuel`, `dateLimite`, `description`, `estEnCours` " +
         "FROM campagnes WHERE idCampagne="+idCampagne, callback);
+    connection.release();
+  });
+};
+
+module.exports.getAllCampaigns = function(callback){
+  db.getConnection(function(err, connection){
+    connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
+        "`but`, `montantActuel`, `dateLimite`, `description`, `estEnCours` " +
+        "FROM campagnes", callback);
+    connection.release();
+  });
+};
+
+module.exports.getCampaignsInProgress = function(idCampagne, callback){
+  db.getConnection(function(err, connection){
+    connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
+        "`but`, `montantActuel`, `dateLimite`, `description`, `estEnCours` " +
+        "FROM campagnes WHERE estEnCours=1", callback);
     connection.release();
   });
 };

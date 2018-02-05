@@ -7,33 +7,29 @@
     <div id="tab-swipe-contributeur" class="col s12">
         <form method="post" action="/validationInscriptionContributeur">
             <div class="input-field col s2 offset-s4">
-                <input name="lastnameC" type="text" class="validate" {{#if nomC}}value="{{nomC}}"{{/if}}>
-                <label for="lastnameC">Nom</label>
+                <input name="lastname" type="text" class="validate">
+                <label for="lastname">Last name</label>
             </div>
             <div class="input-field col s2">
-                <input name="firstnameC" type="text" class="validate" {{#if prenomC}}value="{{prenomC}}"{{/if}}>
-                <label for="firstnameC">Prénom</label>
+                <input name="firstname" type="text" class="validate">
+                <label for="firstname">First name</label>
             </div>
             <div class="input-field col s2 offset-s4">
-                <input name="loginC" type="text" class="validate" {{#if loginC}}value="{{loginC}}"{{/if}}>
-                <label for="loginC">Login</label>
+                <input name="login" type="text" class="validate">
+                <label for="login">Login</label>
             </div>
             <div class="input-field col s2">
-                <input name="passwordC" type="password" class="validate" {{#if passwordC}}value="{{passwordC}}"{{/if}}>
-                <label for="passwordC">Mot de passe</label>
+                <input name="password" type="password" class="validate">
+                <label for="password">Password</label>
             </div>
             <div class="input-field col s2 offset-s4">
-                <input name="emailC" type="email" class="validate" {{#if emailC}}value="{{emailC}}"{{/if}}>
-                <label for="emailC">E-mail</label>
+                <input name="email" type="email" class="validate">
+                <label for="email">E-mail</label>
             </div>
             <div class="input-field col s2">
-                <input name="addressC" type="text" class="validate" {{#if addressC}}value="{{addressC}}"{{/if}}>
-                <label for="addressC">Adresse Ethereum</label>
-            </div>
-            <div id="erreurInscription" class="col s2 offset-s5">
-                {{#if erreurInscriptionC}}
-                    <span>{{erreurInscriptionC}}</span>
-                {{/if}}
+                <input name="address" type="text" class="validate">
+                <label for="address">Ethereum address</label>
+                <p class="red-text">{{erreurAddr}}</p>
             </div>
             <div class="col s12">
                 <input class="btn waves-effect waves-light" type="reset" value="Annuler">
@@ -42,47 +38,44 @@
         </form>
     </div>
     <div id="tab-swipe-entrepreneur" class="col s12">
-        <form method="post" action="/validationInscriptionEntrepreneur">
+        <form method="post" action="/validationInscriptionEntrepreneur" enctype="multipart/form-data">
             <div class="input-field col s2 offset-s4">
-                <input name="lastnameE" type="text" class="validate" {{#if nomE}}value="{{nomE}}"{{/if}}>
-                <label for="lastnameE">Nom</label>
+                <input name="lastname" type="text" class="validate" required>
+                <label for="lastname">Last name</label>
             </div>
             <div class="input-field col s2">
-                <input name="firstnameE" type="text" class="validate" {{#if prenomE}}value="{{prenomE}}"{{/if}}>
-                <label for="firstnameE">Prénom</label>
+                <input name="firstname" type="text" class="validate" required>
+                <label for="firstname">First name</label>
             </div>
             <div class="input-field col s2 offset-s4">
-                <input name="loginE" type="text" class="validate" {{#if loginE}}value="{{loginE}}"{{/if}}>
-                <label for="loginE">Login</label>
+                <input name="login" type="text" class="validate" required>
+                <label for="login">Login</label>
             </div>
             <div class="input-field col s2">
-                <input name="passwordE" type="password" class="validate" {{#if passwordE}}value="{{passwordE}}"{{/if}}>
-                <label for="passwordE">Mot de passe</label>
+                <input name="password" type="password" class="validate" required>
+                <label for="password">Password</label>
             </div>
             <div class="input-field col s2 offset-s4">
-                <input name="emailE" type="email" class="validate" {{#if emailE}}value="{{emailE}}"{{/if}}>
-                <label for="emailE">E-mail</label>
+                <input name="email" type="email" class="validate" required>
+                <label for="email">E-mail</label>
             </div>
             <div class="input-field col s2">
-                <input name="nomEntrepriseE" type="text" class="validate" {{#if nomEntrepriseE}}value="{{nomEntrepriseE}}"{{/if}}>
-                <label for="nomEntrepriseE">Nom de la société</label>
+                <input name="nomEntreprise" type="text" class="validate" required>
+                <label for="nomEntreprise">Nom de la société</label>
             </div>
             <div class="input-field col s4 offset-s4">
-                <input name="addressE" type="text" class="validate" {{#if addressE}}value="{{addressE}}"{{/if}}>
-                <label for="addressE">Adress Ethereum</label>
+                <input name="address" type="text" class="validate" required>
+                <label for="address">Ethereum address</label>
             </div>
             <div class="file-field input-field col s4 offset-s4">
                 <div class="btn">
                     <span>Pièce d'identité</span>
-                    <input name="piece1" type="file">
+                    <input type="file" name="image">
                 </div>
                 <div class="file-path-wrapper">
-                    <input name="piece2" class="file-path validate" type="text">
+                    <input class="file-path validate" type="text" required>
                 </div>
             </div>
-            {{#if erreurInscriptionE}}
-                <span>{{erreurInscriptionE}}</span>
-            {{/if}}
             <div class="col s12">
                 <input class="btn waves-effect waves-light" type="reset" value="Annuler">
                 <input class="btn waves-effect waves-light" type="submit" value="inscription">

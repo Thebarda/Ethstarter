@@ -1,104 +1,70 @@
 var modelInscription = require('../models/inscription.js');
 var utils = require("../utils/utils");
+var fs = require('fs');
+var formidable = require('formidable');
+var util = require('util');
+var fs = require('fs-extra');
 
 module.exports.inscription=function(request, response){
-    response.title="Ethstarter - inscription contributeur";
+    response.title="Ethstarter - inscription";
     response.render('inscription', response);
 }
 
 module.exports.validationInscriptionContributeur=function(request, response){
-    response.title="Validation inscription";
     var body = request.body;
-    response.loginC=body.loginC;
-    response.emailC=body.emailC;
-    response.nomC=body.lastnameC;
-    response.prenomC=body.firstnameC;
-    response.addressC=body.addressC;
-    response.passwordC=body.passwordC;
-    if(!body.passwordC||!body.addressC||!body.firstnameC||!body.lastnameC||!body.emailC||!body.loginC){
-        response.erreurInscriptionC="Un des champs est manquant";
-        response.render("inscription", response);
-        return;
-    }
-    modelInscription.existeLogin(body.loginC, function(err1, result1){
-        if(err1){
-            console.log(err);
-            return;
-        }
-        modelInscription.existeMail(body.emailC, function(err2, result2){
-            if(err2){
+    body.type = 1;
+    console.log(body);
+    if(utils.isAddress(body.address)) {
+        response.title="Validation inscription";
+        modelInscription.valide(body, function (err, result) {
+            if (err) {
                 console.log(err);
                 return;
             }
-            console.log('eere');
-            if(result1.length != 0){
-                console.log("Login déjà utilisé");
-                response.erreurInscriptionC="Ce login est déjà utilisé";
-                response.render("inscription", response);
-            }else if(result2.length != 0){
-                console.log("E-mail déjà utilisé");
-                response.erreurInscriptionC="Cet e-mail est déjà utilisé";
+            if (result.length != 0) {
+                response.erreurLogin = "Login incorrect";
                 response.render("inscription", response);
             }else{
-                if(utils.isAddress(body.addressC)){
-                    modelInscription.inscrireContributeur(body);
-                    response.inscrit="Vous êtes maintenant inscrit sur le site";
-                    console.log("Inscrit !");
-                    response.render("accueil", response);
-                }else{
-                    console.log("Adresse Ethereum invalide");
-                    response.erreurInscriptionC="Adresse Ethereum invalide";
-                    response.render("inscription", response);
-                }
+                modelInscription.inscrire(body,function(err, result){
+                    if(err) throw err;
+                    response.render("connexion", response);
+                });
             }
         });
-    });
-}
-module.exports.validationInscriptionEntrepreneur=function(request, response){
-    response.title="Validation inscription";
-    var body = request.body;
-    console.log(body.piece1 +"    "+ body.piece2);
-    response.loginE=body.loginE;
-    response.nomEntrepriseE=body.nomEntrepriseE;
-    response.emailE=body.emailE;
-    response.nomE=body.lastnameE;
-    response.prenomE=body.firstnameE;
-    response.addressE=body.addressE;
-    response.passwordE=body.passwordE;
-    if(!body.passwordE||!body.addressE||!body.firstnameE||!body.nomEntrepriseE||!body.lastnameE||!body.emailE||!body.loginE){
-        response.erreurInscriptionE="Un des champs est manquant";
+    }else{
+        response.title="Ethstarter - inscription";
+        response.erreurAddr = "Adresse publique incorrecte";
         response.render("inscription", response);
-        return;
     }
-    modelInscription.existeLogin(body.loginE, function(err1, result1){
-        if(err1){
-            console.log(err);
-            return;
-        }
-        modelInscription.existeMail(body.emailE, function(err2, result2){
-            if(err2){
-                console.log(err);
-                return;
-            }
-            if(result1.length != 0){
-                console.log("Login déjà utilisé");
-                response.erreurInscriptionE="Ce login est déjà utilisé";
-                response.render("inscription", response);
-            }else if(result2.length != 0){
-                console.log("E-mail déjà utilisé");
-                response.erreurInscriptionE="Cet e-mail est déjà utilisé";
-                response.render("inscription", response);
-            }else{
-                if(utils.isAddress(body.addressE)){
-                    modelInscription.inscrireEntrepreneur(body);
-                    response.inscrit="Vous êtes maintenant inscrit sur le site";
-                    console.log("Inscrit !");
-                    response.render("accueil", response);
-                }else{
-                    console.log("Adresse Ethereum invalide");
-                    response.erreurInscriptionE="Adresse Ethereum invalide";
-                    response.render("inscription", response);
-                }
+}
+
+module.exports.validationInscriptionEntrepreneur=function(request, response){
+    var form = new formidable.IncomingForm();
+    form.parse(request, function (err, fields, files) {
+        var body = util.inspect({fields: fields});
+        var lastname = fields.lastname;
+        var firstname = fields.firstname;
+        var login = fields.login;
+        var password = fields.password;
+        var nomEntreprise = fields.nomEntreprise;
+        var address = fields.address;
+        fields.type=2;
+        var path = "./public/PIpics/"+lastname+firstname+nomEntreprise+files.image.name;
+        fs.copy(files.image.path, path, function (err) {
+            if (err) {
+                console.error(err);
+                response.render('inscription', response);
+            } else {
+                console.log("success!");
+                modelInscription.valide(fields, function(err, result){
+                    if(err) throw err;
+                    modelInscription.inscrire(fields, function(err, result){
+                        modelInscription.inscrireEntrepreneur(result.insertId, nomEntreprise, path, function(err, result){
+                           if(err) throw err;
+                            response.render("connexion", response);
+                        });
+                    });
+                });
             }
         });
     });
