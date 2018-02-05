@@ -1,3 +1,4 @@
+
 var db = require('./configDb');
 
 module.exports.getAllCrowfundsThatFinishToday = function (callback) {
@@ -71,4 +72,5 @@ module.exports.getInfosEntrepreneur = function (idCampagne, callback) {
             "WHERE c.idCampagne = " + idCampagne, callback);
         connection.release();
     });
+
 };
