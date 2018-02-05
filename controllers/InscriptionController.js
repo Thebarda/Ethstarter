@@ -11,6 +11,7 @@ module.exports.inscription=function(request, response){
     response.render('inscription', response);
 }
 
+
 module.exports.validationInscriptionContributeur=function(request, response){
     var body = request.body;
     body.type = 1;
@@ -29,7 +30,9 @@ module.exports.validationInscriptionContributeur=function(request, response){
                 modelInscription.inscrire(body,function(err, result){
                     if(err) throw err;
                     response.render("connexion", response);
-                }); });
+                });
+            }
+        });
     }else{
         response.title="Ethstarter - inscription";
         response.erreurAddr = "Adresse publique incorrecte";

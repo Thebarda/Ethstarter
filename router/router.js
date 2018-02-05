@@ -34,4 +34,5 @@ module.exports = function (app) {
 
     // Profile
     app.get('/Profile', ProfileController.afficherProfile);
+    app.get('/modifierProfile', ProfileController.modifierProfile);
 };
