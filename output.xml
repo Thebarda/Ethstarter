@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20180206 11:23:56.307" generator="Robot 3.0.2 (Python 2.7 on win32)">
-<suite source="C:\wamp64\www\workspacePhp\Ethstarter\test\robotframework\InscriptionContributeur.robot" id="s1" name="InscriptionContributeur">
+<robot generated="20180206 13:12:41.407" generator="Robot 3.0.2 (Python 2.7 on win32)">
+<suite source="C:\wamp64\www\workspacePhp\Ethstarter\test\robotframework\InscriptionEntrepreneur.robot" id="s1" name="InscriptionEntrepreneur">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the given ``url``.</doc>
 <arguments>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180206 11:23:57.300" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<status status="PASS" endtime="20180206 11:24:03.865" starttime="20180206 11:23:57.299"></status>
+<msg timestamp="20180206 13:12:41.542" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180206 13:12:47.290" starttime="20180206 13:12:41.542"></status>
 </kw>
 <test id="s1-t1" name="Test Case">
 <kw name="Click Link" library="SeleniumLibrary">
@@ -16,200 +16,122 @@
 <arguments>
 <arg>id=btnInscription</arg>
 </arguments>
-<msg timestamp="20180206 11:24:03.873" level="INFO">Clicking link 'id=btnInscription'.</msg>
-<status status="PASS" endtime="20180206 11:24:04.330" starttime="20180206 11:24:03.873"></status>
+<msg timestamp="20180206 13:12:47.293" level="INFO">Clicking link 'id=btnInscription'.</msg>
+<status status="PASS" endtime="20180206 13:12:47.608" starttime="20180206 13:12:47.292"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>id=entrepreneur</arg>
+</arguments>
+<msg timestamp="20180206 13:12:47.609" level="INFO">Clicking element 'id=entrepreneur'.</msg>
+<status status="PASS" endtime="20180206 13:12:47.739" starttime="20180206 13:12:47.609"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
 <arguments>
-<arg>name=lastname</arg>
+<arg>name=lastnameE</arg>
 <arg>Clavaud</arg>
 </arguments>
-<msg timestamp="20180206 11:24:04.332" level="INFO">Typing text 'Clavaud' into text field 'name=lastname'.</msg>
-<status status="PASS" endtime="20180206 11:24:04.558" starttime="20180206 11:24:04.331"></status>
+<msg timestamp="20180206 13:12:47.741" level="INFO">Typing text 'Clavaud' into text field 'name=lastnameE'.</msg>
+<status status="PASS" endtime="20180206 13:12:47.846" starttime="20180206 13:12:47.740"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
 <arguments>
-<arg>name=firstname</arg>
+<arg>name=firstnameE</arg>
 <arg>Romain</arg>
 </arguments>
-<msg timestamp="20180206 11:24:04.558" level="INFO">Typing text 'Romain' into text field 'name=firstname'.</msg>
-<status status="PASS" endtime="20180206 11:24:04.662" starttime="20180206 11:24:04.558"></status>
+<msg timestamp="20180206 13:12:47.847" level="INFO">Typing text 'Romain' into text field 'name=firstnameE'.</msg>
+<status status="PASS" endtime="20180206 13:12:47.951" starttime="20180206 13:12:47.847"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
 <arguments>
-<arg>name=login</arg>
+<arg>name=loginE</arg>
 <arg>login1</arg>
 </arguments>
-<msg timestamp="20180206 11:24:04.663" level="INFO">Typing text 'login1' into text field 'name=login'.</msg>
-<status status="PASS" endtime="20180206 11:24:04.770" starttime="20180206 11:24:04.663"></status>
+<msg timestamp="20180206 13:12:47.952" level="INFO">Typing text 'login1' into text field 'name=loginE'.</msg>
+<status status="PASS" endtime="20180206 13:12:48.056" starttime="20180206 13:12:47.952"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
 <arguments>
-<arg>name=email</arg>
+<arg>name=emailE</arg>
 <arg>bjr@gmail.com</arg>
 </arguments>
-<msg timestamp="20180206 11:24:04.772" level="INFO">Typing text 'bjr@gmail.com' into text field 'name=email'.</msg>
-<status status="PASS" endtime="20180206 11:24:04.908" starttime="20180206 11:24:04.772"></status>
+<msg timestamp="20180206 13:12:48.057" level="INFO">Typing text 'bjr@gmail.com' into text field 'name=emailE'.</msg>
+<status status="PASS" endtime="20180206 13:12:48.190" starttime="20180206 13:12:48.056"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
 <arguments>
-<arg>name=address</arg>
+<arg>name=nomEntrepriseE</arg>
+<arg>Société1</arg>
+</arguments>
+<msg timestamp="20180206 13:12:48.192" level="INFO">Typing text 'Société1' into text field 'name=nomEntrepriseE'.</msg>
+<status status="PASS" endtime="20180206 13:12:48.295" starttime="20180206 13:12:48.192"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=addressE</arg>
 <arg>0x41543C111A682eAf78Acd04722b5Ef824001d9Aa</arg>
 </arguments>
-<msg timestamp="20180206 11:24:04.909" level="INFO">Typing text '0x41543C111A682eAf78Acd04722b5Ef824001d9Aa' into text field 'name=address'.</msg>
-<status status="PASS" endtime="20180206 11:24:05.238" starttime="20180206 11:24:04.909"></status>
+<msg timestamp="20180206 13:12:48.296" level="INFO">Typing text '0x41543C111A682eAf78Acd04722b5Ef824001d9Aa' into text field 'name=addressE'.</msg>
+<status status="PASS" endtime="20180206 13:12:48.624" starttime="20180206 13:12:48.296"></status>
 </kw>
 <kw name="Input Password" library="SeleniumLibrary">
 <doc>Types the given password into text field identified by ``locator``.</doc>
 <arguments>
-<arg>name=password</arg>
+<arg>name=passwordE</arg>
 <arg>password1</arg>
 </arguments>
-<msg timestamp="20180206 11:24:05.239" level="INFO">Typing password into text field 'name=password'.</msg>
-<status status="PASS" endtime="20180206 11:24:05.350" starttime="20180206 11:24:05.239"></status>
+<msg timestamp="20180206 13:12:48.625" level="INFO">Typing password into text field 'name=passwordE'.</msg>
+<status status="PASS" endtime="20180206 13:12:48.729" starttime="20180206 13:12:48.625"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=pathPhoto</arg>
+<arg>../../public/PIpics/test.PNG</arg>
+</arguments>
+<msg timestamp="20180206 13:12:48.730" level="INFO">Typing text '../../public/PIpics/test.PNG' into text field 'name=pathPhoto'.</msg>
+<status status="PASS" endtime="20180206 13:12:48.929" starttime="20180206 13:12:48.730"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks button identified by ``locator``.</doc>
 <arguments>
-<arg>xpath=//input[@value='inscription']</arg>
+<arg>id=inscription</arg>
 </arguments>
-<msg timestamp="20180206 11:24:05.353" level="INFO">Clicking button 'xpath=//input[@value='inscription']'.</msg>
-<status status="PASS" endtime="20180206 11:24:05.967" starttime="20180206 11:24:05.353"></status>
+<msg timestamp="20180206 13:12:48.929" level="INFO">Clicking button 'id=inscription'.</msg>
+<status status="PASS" endtime="20180206 13:12:49.107" starttime="20180206 13:12:48.929"></status>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <doc>Verifies that current page contains ``text``.</doc>
 <arguments>
-<arg>Bonjour login1</arg>
+<arg>Connexion</arg>
 </arguments>
-<msg timestamp="20180206 11:24:06.022" level="INFO">&lt;!DOCTYPE html&gt;&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;head&gt;
-    &lt;title&gt;Validation inscription&lt;/title&gt;
-    &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /&gt;
-    &lt;link rel="icon" type="image/png" href="/images/logo-eth-icon.png" /&gt;
-    &lt;link rel="stylesheet" href="/stylesheets/main.css" /&gt;
-    &lt;link rel="stylesheet" href="/stylesheets/materialize.css" /&gt;
-    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"&gt;&lt;/script&gt;
-    &lt;script src="http://cdn.wysibb.com/js/jquery.wysibb.min.js"&gt;&lt;/script&gt;
-    &lt;link rel="stylesheet" href="http://cdn.wysibb.com/css/default/wbbtheme.css" /&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-      &lt;header&gt;
-          &lt;!--start header band--&gt;
-          &lt;nav&gt;
-              &lt;div class="nav-wrapper grey darken-4"&gt;
-                  &lt;a href="#" data-activates="slide-out" class="button-collapse" id="btn_menu"&gt;&lt;i class="material-icons"&gt;menu&lt;/i&gt;&lt;/a&gt;
-                  &lt;a href="/" class="brand-logo white-text rightOuter"&gt;&lt;img src="/images/logo-ethstarter.png" alt="Logo Ethstrater" /&gt;&lt;/a&gt;
-                      &lt;ul id="nav-mobile" class="right"&gt;
-                          &lt;li&gt;&lt;a href="/Connexion" id="btnConnexion" class="btnActive"&gt;Connexion&lt;/a&gt;&lt;/li&gt;
-                          &lt;li&gt;&lt;a href="/Inscription" id="btnInscription" class="btnActive"&gt;Inscription&lt;/a&gt;&lt;/li&gt;
-                      &lt;/ul&gt;
-              &lt;/div&gt;
-          &lt;/nav&gt;
-          &lt;!--stop header band--&gt;
-          &lt;!--start menu--&gt;
-          &lt;ul id="slide-out" class="side-nav" style="width: 250px; transform: translateX(-100%);"&gt;
-              &lt;li&gt;&lt;div class="user-view"&gt;
-                  &lt;!--User détails like firstname, surname, mail, account balance--&gt;
-              &lt;/div&gt;&lt;/li&gt;
-              &lt;!--start if user is connected--&gt;
-              &lt;!--&lt;li&gt;&lt;a href="/account/idAccount" class="waves-effect waves-light"&gt;Compte&lt;/a&gt;&lt;/li&gt;--&gt;
-              &lt;!--end if user is connected--&gt;
-              &lt;!--start switch account type is connected--&gt;
-              &lt;!--&lt;li&gt;&lt;a href="/account/startCrowfunding" class="waves-effect waves-light"&gt;Compte&lt;/a&gt;&lt;/li&gt;--&gt;
-              &lt;!--end switch account type is connected--&gt;
-              &lt;li&gt;&lt;a href="/campaigns" class="waves-effect waves-light"&gt;Campagnes de financement&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href="/howitworks" class="waves-effect waves-light"&gt;Comment ça fonctionne ?&lt;/a&gt;&lt;/li&gt;
-          &lt;/ul&gt;
-          &lt;!--stop menu--&gt;
-
-      &lt;/header&gt;
-      &lt;script src="/javascripts/jquery3-2-1.js"&gt;&lt;/script&gt;
-      &lt;!--&lt;script src="/javascripts/jquery-ui.min.js"&gt;&lt;/script&gt;--&gt;
-      &lt;script src="/javascripts/web3.min.js"&gt;&lt;/script&gt;
-      &lt;div class="row center-align"&gt;
-    &lt;h1&gt;Connexion&lt;/h1&gt;
-    &lt;form method="post" action="/validationConnexion"&gt;
-        &lt;div class="input-field col s2 offset-s5"&gt;
-            &lt;input name="login" type="text" class="validate" /&gt;
-            &lt;label for="login"&gt;Login&lt;/label&gt;
-        &lt;/div&gt;
-
-        &lt;div class="input-field col s2 offset-s5"&gt;
-            &lt;input name="password" type="password" class="validate" /&gt;
-            &lt;label for="password"&gt;Password&lt;/label&gt;
-        &lt;/div&gt;
-
-        &lt;div id="erreurConnexion" class="col s2 offset-s5 red-text"&gt;
-
-        &lt;/div&gt;
-
-        &lt;div class="col s12"&gt;
-            &lt;i class="btn waves-effect waves-light waves-input-wrapper" style=""&gt;&lt;input class="waves-button-input" type="reset" value="Annuler" /&gt;&lt;/i&gt;
-            &lt;i class="btn waves-effect waves-light waves-input-wrapper" style=""&gt;&lt;input class="waves-button-input" type="submit" value="connexion" /&gt;&lt;/i&gt;
-        &lt;/div&gt;
-    &lt;/form&gt;
-&lt;/div&gt;
-
-&lt;link rel="stylesheet" href="/stylesheets/connexion.css" /&gt;
-      &lt;footer class="page-footer grey darken-4"&gt;
-          &lt;div class="container"&gt;
-              &lt;div class="row"&gt;
-                  &lt;div class="col s7"&gt;
-                      &lt;h5 class="white-text"&gt;Ethstarter&lt;/h5&gt;
-                      &lt;p class="grey-text text-lighten-4"&gt;Ethstarter est une application web de financement participatif utlisant de l'&lt;a href="https://www.ethereum-france.com/" class="blue-text lighten-1"&gt;Ethereum&lt;/a&gt;&lt;/p&gt;
-                      &lt;br /&gt;
-                      &lt;img src="/images/logo-eth-powered.png" alt="powered by Ethereum" /&gt;
-                  &lt;/div&gt;
-                  &lt;div class="col s4 offset-s1"&gt;
-                      &lt;h5 class="white-text"&gt;Liens utiles&lt;/h5&gt;
-                      &lt;ul&gt;
-                          &lt;li&gt;&lt;a class="blue-text lighten-1" href="https://www.ethereum.org/"&gt;Ethereum Project&lt;/a&gt;&lt;/li&gt;
-                          &lt;li&gt;&lt;a class="blue-text lighten-1" href="https://www.ethereum-france.com/"&gt;Ethereum France&lt;/a&gt;&lt;/li&gt;
-                          &lt;li&gt;&lt;a class="blue-text lighten-1" href="https://www.coinbase.com/"&gt;Acheter/Vendre de l'ether&lt;/a&gt;&lt;/li&gt;
-                      &lt;/ul&gt;
-                  &lt;/div&gt;
-              &lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div class="footer-copyright"&gt;
-              &lt;div class="container"&gt;
-                      ©2018 Application web développé par l'équipe 'Club Dorothée'.
-              &lt;/div&gt;
-          &lt;/div&gt;
-      &lt;/footer&gt;
-      &lt;script src="/javascripts/materialize.min.js"&gt;&lt;/script&gt;
-      &lt;script src="/javascripts/main.js"&gt;&lt;/script&gt;
-  
-
-&lt;div class="hiddendiv common"&gt;&lt;/div&gt;&lt;div class="drag-target" data-sidenav="slide-out" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180206 11:24:06.291" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" endtime="20180206 11:24:06.291" starttime="20180206 11:24:06.023"></status>
+<msg timestamp="20180206 13:12:49.141" level="INFO">Current page contains text 'Connexion'.</msg>
+<status status="PASS" endtime="20180206 13:12:49.141" starttime="20180206 13:12:49.108"></status>
 </kw>
-<msg timestamp="20180206 11:24:06.293" level="FAIL">Page should have contained text 'Bonjour login1' but did not.</msg>
-<status status="FAIL" endtime="20180206 11:24:06.293" starttime="20180206 11:24:05.971"></status>
-</kw>
-<status status="FAIL" endtime="20180206 11:24:06.294" critical="yes" starttime="20180206 11:24:03.865">Page should have contained text 'Bonjour login1' but did not.</status>
+<status status="PASS" endtime="20180206 13:12:49.142" critical="yes" starttime="20180206 13:12:47.291"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180206 11:24:09.468" starttime="20180206 11:24:06.297"></status>
+<status status="PASS" endtime="20180206 13:12:52.278" starttime="20180206 13:12:49.145"></status>
 </kw>
-<status status="FAIL" endtime="20180206 11:24:09.469" starttime="20180206 11:23:56.311"></status>
+<status status="PASS" endtime="20180206 13:12:52.278" starttime="20180206 13:12:41.412"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="1" pass="0">Critical Tests</stat>
-<stat fail="1" pass="0">All Tests</stat>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="1" id="s1" name="InscriptionContributeur" pass="0">InscriptionContributeur</stat>
+<stat fail="0" id="s1" name="InscriptionEntrepreneur" pass="1">InscriptionEntrepreneur</stat>
 </suite>
 </statistics>
 <errors>
