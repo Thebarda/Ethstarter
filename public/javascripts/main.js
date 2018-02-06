@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     //Sidenav always open
     $(".button-collapse").sideNav({menuWidth: 250});
@@ -8,4 +9,5 @@ $(document).ready(function () {
         });
         $(this).parent().addClass("active");
     });
+
 });

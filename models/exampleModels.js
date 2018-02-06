@@ -1,3 +1,4 @@
+
 var db = require('./configDb.js');
 
 module.exports.getEditions = function (callback) {
@@ -9,4 +10,5 @@ module.exports.getEditions = function (callback) {
           console.log(err);
       }
   })
+
 };

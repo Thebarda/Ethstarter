@@ -1,3 +1,4 @@
+
 var db = require("./configDb");
 
 module.exports.addParticipation = function(data, callback){
@@ -43,3 +44,4 @@ module.exports.getNbContributionsUserConnected = function(idCampagne, idContribu
        connection.release();
     });
 }
+

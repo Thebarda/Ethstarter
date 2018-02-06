@@ -1,25 +1,26 @@
 <div class="row center-align">
     <h1>Connexion</h1>
-        <form method="post" action="/validationConnexion">
-            <div class="input-field col s2 offset-s5">
-                <input name="login" type="text" class="validate">
-                <label for="login">Login</label>
-            </div>
+    <form method="post" action="/validationConnexion">
+        <div class="input-field col s2 offset-s5">
+            <input name="login" type="text" class="validate">
+            <label for="login">Login</label>
+        </div>
 
-            <div class="input-field col s2 offset-s5">
-                <input name="password" type="password" class="validate">
-                <label for="password">Password</label>
-            </div>
+        <div class="input-field col s2 offset-s5">
+            <input name="password" type="password" class="validate">
+            <label for="password">Password</label>
+        </div>
 
-            <div id="erreurConnexion" class="col s2 offset-s5">
-                {{#if erreurConnexion}}
-                    <span>{{erreurConnexion}}</span>
-                {{/if}}
-            </div>
+        <div id="erreurConnexion" class="col s2 offset-s5">
+            {{#if erreurConnexion}}
+            <span>{{erreurConnexion}}</span> {{/if}}
+        </div>
 
-            <div class="col s12">
-                <input class="btn waves-effect waves-light" type="reset" value="Annuler">
-                <input class="btn waves-effect waves-light" type="submit" value="connexion">
-            </div>
-        </form>
+        <div class="col s12">
+            <input class="btn waves-effect waves-light" type="reset" value="Annuler">
+            <input class="btn waves-effect waves-light" type="submit" value="connexion">
+        </div>
+    </form>
 </div>
+
+<link rel="stylesheet" href="/stylesheets/connexion.css">

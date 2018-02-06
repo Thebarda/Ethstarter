@@ -1,3 +1,4 @@
+
 var mysql = require('mysql');
 
 var pool = mysql.createPool({
@@ -13,3 +14,4 @@ module.exports.getConnection = function(callback) {
         callback(err, connection);
     });
 };
+

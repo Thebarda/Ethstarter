@@ -1,3 +1,4 @@
+
 var modelInscription = require('../models/inscription.js');
 var utils = require("../utils/utils");
 var fs = require('fs');
@@ -24,9 +25,9 @@ module.exports.validationInscriptionContributeur=function(request, response){
             if (result.length != 0) {
                 response.erreurLogin = "Login incorrect";
                 response.render("inscription", response);
-            }else{
-                modelInscription.inscrire(body,function(err, result){
-                    if(err) throw err;
+            } else {
+                modelInscription.inscrire(body, function (err, result) {
+                    if (err) throw err;
                     response.render("connexion", response);
                 });
             }
@@ -41,14 +42,12 @@ module.exports.validationInscriptionContributeur=function(request, response){
 module.exports.validationInscriptionEntrepreneur=function(request, response){
     var form = new formidable.IncomingForm();
     form.parse(request, function (err, fields, files) {
-        var body = util.inspect({fields: fields});
         var lastname = fields.lastname;
         var firstname = fields.firstname;
-        var login = fields.login;
-        var password = fields.password;
         var nomEntreprise = fields.nomEntreprise;
-        var address = fields.address;
         fields.type=2;
+        var tmp = files.image.name.split('.');
+        console.log(tmp[tmp.length-1]);
         var path = "./public/PIpics/"+lastname+firstname+nomEntreprise+files.image.name;
         fs.copy(files.image.path, path, function (err) {
             if (err) {
@@ -69,3 +68,4 @@ module.exports.validationInscriptionEntrepreneur=function(request, response){
         });
     });
 }
+
