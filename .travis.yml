@@ -30,3 +30,6 @@ script:
 
     - sleep 10
     - npm test
+
+notifications:
+  email: false
