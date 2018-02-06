@@ -17,5 +17,8 @@ Test Case
     Input Text    name=nomEntreprise    Société1
     Input Text    name=address    0x41543C111A682eAf78Acd04722b5Ef824001d9Aa
     Input Password    name=password    password1
+    Click Element     name=image
+    Type              name=image        C:\fakepath\document.pdf
     Click Button    xpath=//input[@value='inscription']
     Page should contain    Connexion
+
