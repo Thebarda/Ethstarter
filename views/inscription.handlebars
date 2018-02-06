@@ -2,17 +2,17 @@
     <h1>Inscription</h1>
     <ul id="tabs-swipe" class="tabs">
         <li class="tab col s2 offset-s4"><a class="active" href="#tab-swipe-contributeur">Contributeur</a></li>
-        <li class="tab col s2"><a href="#tab-swipe-entrepreneur">Entrepreneur</a></li>
+        <li class="tab col s2"><a id="entrepreneur" href="#tab-swipe-entrepreneur">Entrepreneur</a></li>
     </ul>
     <div id="tab-swipe-contributeur" class="col s12">
         <form method="post" action="/validationInscriptionContributeur">
             <div class="input-field col s2 offset-s4">
                 <input name="lastname" type="text" class="validate">
-                <label for="lastname">Last name</label>
+                <label for="lastname">Nom</label>
             </div>
             <div class="input-field col s2">
                 <input name="firstname" type="text" class="validate">
-                <label for="firstname">First name</label>
+                <label for="firstname">Prénom</label>
             </div>
             <div class="input-field col s2 offset-s4">
                 <input name="login" type="text" class="validate">
@@ -20,32 +20,33 @@
             </div>
             <div class="input-field col s2">
                 <input name="password" type="password" class="validate">
-                <label for="password">Password</label>
+                <label for="password">Mot de passe</label>
             </div>
             <div class="input-field col s2 offset-s4">
                 <input name="email" type="email" class="validate">
                 <label for="email">E-mail</label>
             </div>
             <div class="input-field col s2">
-                <input name="address" type="text" class="validate">
-                <label for="address">Ethereum address</label>
-                <p class="red-text">{{erreurAddr}}</p>
+                <input name="address" type="text" class="validate" class="addrInputContrib" data-length="42">
+                <label for="address">Adresse publique Ethereum</label>
             </div>
+
             <div class="col s12">
                 <input class="btn waves-effect waves-light" type="reset" value="Annuler">
                 <input class="btn waves-effect waves-light" type="submit" value="inscription">
             </div>
+            <p class="red-text">{{error}}</p>
         </form>
     </div>
     <div id="tab-swipe-entrepreneur" class="col s12">
         <form method="post" action="/validationInscriptionEntrepreneur" enctype="multipart/form-data">
             <div class="input-field col s2 offset-s4">
                 <input name="lastname" type="text" class="validate" required>
-                <label for="lastname">Last name</label>
+                <label for="lastname">Nom</label>
             </div>
             <div class="input-field col s2">
                 <input name="firstname" type="text" class="validate" required>
-                <label for="firstname">First name</label>
+                <label for="firstname">Prénom</label>
             </div>
             <div class="input-field col s2 offset-s4">
                 <input name="login" type="text" class="validate" required>
@@ -53,7 +54,7 @@
             </div>
             <div class="input-field col s2">
                 <input name="password" type="password" class="validate" required>
-                <label for="password">Password</label>
+                <label for="password">Mot de passe</label>
             </div>
             <div class="input-field col s2 offset-s4">
                 <input name="email" type="email" class="validate" required>
@@ -64,8 +65,8 @@
                 <label for="nomEntreprise">Nom de la société</label>
             </div>
             <div class="input-field col s4 offset-s4">
-                <input name="address" type="text" class="validate" required>
-                <label for="address">Ethereum address</label>
+                <input name="address" type="text" class="validate" class="addrInputContrib" data-length="42" required>
+                <label for="address">Adresse publique Ethereum</label>
             </div>
             <div class="file-field input-field col s4 offset-s4">
                 <div class="btn">
@@ -76,6 +77,7 @@
                     <input class="file-path validate" type="text" required>
                 </div>
             </div>
+            <p class="red-text">{{error}}</p>
             <div class="col s12">
                 <input class="btn waves-effect waves-light" type="reset" value="Annuler">
                 <input class="btn waves-effect waves-light" type="submit" value="inscription">
@@ -83,5 +85,9 @@
         </form>
     </div>
 </div>
-
+<script>
+    $(document).ready(function(){
+        $(".addrInputContrib").characterCounter();
+    });
+</script>
 <link rel="stylesheet" href="/stylesheets/inscription.css">
