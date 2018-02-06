@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $('select').material_select();
     var d = new Date();
-
     $('.datepicker').pickadate({
         min: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
         format: "yyyy-mm-dd",
@@ -12,6 +11,7 @@ $(document).ready(function () {
         close: 'Ok',
         closeOnSelect: false // Close upon selecting a date,
     });
+    $("#datepicker").removeAttr("readOnly");
     //BBcode Jquery
     var BBbuttons = {
         buttons: "bold,italic,underline,sup,sub,|,img,video,link,|,bullist,numlist,|,fontcolor,fontsize,fontfamily,|, justifyleft, justifycenter,justifyright,|, quote,table"
