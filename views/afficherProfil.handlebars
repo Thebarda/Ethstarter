@@ -1,0 +1,42 @@
+    <div class="row center-align">
+        <h1>Votre profil</h1>
+        <a class="btn waves-effect waves-light btnModifierProfil btnEditerProfil">Modifier le profil</a>
+        <div id="editionProfilContributeur" class="col s12">
+            <form method="post" action="/validationModificationContributeur">
+                <div class="input-field col s2 offset-s4">
+                    <input name="lastname" type="text" class="validate inputModifierProfil" value="{{profil.nom}}" disabled>
+                    <label for="lastname">Nom</label>
+                </div>
+                <div class="input-field col s2">
+                    <input name="firstname" type="text" class="validate inputModifierProfil" value="{{profil.prenom}}" disabled>
+                    <label for="firstname">Prénom</label>
+                </div>
+                <div class="input-field col s2 offset-s4">
+                    <input name="login" type="text" class="validate inputModifierProfil" value="{{profil.login}}" disabled>
+                    <label for="login">Login</label>
+                </div>
+                <div class="input-field col s2">
+                    <input name="email" type="email" class="validate inputModifierProfil" value="{{profil.mail}}" disabled>
+                    <label for="email">E-mail</label>
+                </div>
+                <div class="input-field col s2 offset-s4">
+                    <input name="oldPassword" type="password" class="validate inputModifierProfil" disabled>
+                    <label for="oldPassword">Ancien mot de passe</label>
+                </div>
+                <div class="input-field col s2">
+                    <input name="newPassword" type="password" class="validate inputModifierProfil" disabled>
+                    <label for="newPassword">Nouveau mot de passe</label>
+                </div>
+                <div class="input-field col s4 offset-s4">
+                    <input name="address" type="text" class="validate inputModifierProfil" value="{{profil.addrPubliqueEth}}" data-length="42" disabled>
+                    <label for="address">Adresse publique Ethereum</label>
+                </div>
+                <div class="col s12">
+                    <input class="btn waves-effect waves-light btnModifierProfil btnEditerProfil hide" type="reset" value="Annuler">
+                    <input class="btn waves-effect waves-light btnModifierProfil btnEditerProfil hide" type="submit" value="Valider">
+                </div>
+                <p class="red-text">{{error}}</p>
+            </form>
+        </div>
+    </div>
+    <script src="/javascripts/modifierProfil.js"></script>
