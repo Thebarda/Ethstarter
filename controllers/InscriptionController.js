@@ -3,7 +3,6 @@ var modelInscription = require('../models/inscription.js');
 var utils = require("../utils/utils");
 var fs = require('fs');
 var formidable = require('formidable');
-var util = require('util');
 var fs = require('fs-extra');
 
 module.exports.inscription=function(request, response){
@@ -73,7 +72,7 @@ module.exports.validationInscriptionEntrepreneur=function(request, response){
             response.title="Ethstarter - inscription";
             response.error = "Adresse publique incorrecte";
             response.render("inscription", response);
-        }
+        }  
     });
-}
+}   
 
