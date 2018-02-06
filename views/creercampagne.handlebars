@@ -1,6 +1,8 @@
 <div class="rightOuter">
+    {{#ifCond session.typeCompte '==' 2}}
     <div class="container">
         <div class="row">
+            <p id="error" class="red-text"></p>
             <form class="col s12 " id="form">
                 <div class="row">
                     <div class="input-field col s6 offset-s3">
@@ -8,7 +10,10 @@
                         <label for="Titre">Titre du projet</label>
                     </div>
                 </div>
+
                 <div class="row">
+                <div class="row">
+                </div>
                     <div class="col s3">
                         Description Rapide :
                     </div>
@@ -19,12 +24,25 @@
                         <p id="compteur"></p>
                     </div>   
                 </div>
+
+                
+                <div class="row file-field input-field col s9 offset-s3">
+                    <div class="btn">
+                        <span>Image de présentation</span>
+                        <input type="file" name="image" accept="image/*">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" required>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                </div>
                 <div class="row">
                     <div class="col s3">
                         Présentation Détaillée:
                     </div>
-                </div>
-                <div class="row">
                     <div class="input-field col s12">
                         <textarea id="description" name="description" class="required"></textarea>
                     </div>
@@ -49,7 +67,7 @@
                 <div class="row">
                     <div class="col s3">Objectif de financement :</div>
                     <div class="input-field col s6">
-                        <input type="number" id="objectif" name="objectif" min="0" required>
+                        <input type="text" id="objectif" name="objectif" min="0" required>
                         <label for="objectif" data-error="wrong" data-success="right">Objectif</label>
                     </div>
                     <div class="col s2">
@@ -58,12 +76,15 @@
                 </div>
                 <div class="row">
                     <div class=" col s6 offset-s4">
-                        <a class="btn waves-effect waves-light" id="submit">Enregistrer<i class="material-icons right">send</i></a>
+                        <a class="btn waves-effect waves-light" id="submit">Enregistrer</a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+    {{else}}
+        <h3>Vous devez être connecté en tant qu'entrepreneur</h3>
+    {{/ifCond}}
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
