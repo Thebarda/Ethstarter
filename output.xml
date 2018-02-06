@@ -1,23 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.0.2 (Python 3.6.4 on linux)" generated="20180206 12:11:18.177">
-<suite id="s1" name="CreateCampaignConnectedInvalidEther" source="/home/mojann/WebstormProjects/ethstarter/test/robotframework/CreateCampaignConnectedInvalidEther.robot">
+<robot generator="Robot 3.0.2 (Python 3.6.4 on linux)" generated="20180206 12:20:17.913">
+<suite id="s1" name="Robotframework" source="/home/mojann/WebstormProjects/ethstarter/test/robotframework">
+<suite id="s1-s1" name="AfficherCampagneConnected" source="/home/mojann/WebstormProjects/ethstarter/test/robotframework/AfficherCampagneConnected.robot">
 <kw name="Open Browser" library="SeleniumLibrary" type="setup">
 <doc>Opens a new browser instance to the given ``url``.</doc>
 <arguments>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180206 12:11:18.281" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<status status="PASS" starttime="20180206 12:11:18.280" endtime="20180206 12:11:19.383"></status>
+<msg timestamp="20180206 12:20:18.018" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" starttime="20180206 12:20:18.017" endtime="20180206 12:20:19.983"></status>
 </kw>
-<test id="s1-t1" name="Test Case">
+<test id="s1-s1-t1" name="Test Case">
 <kw name="Click Link" library="SeleniumLibrary">
 <doc>Clicks a link identified by ``locator``.</doc>
 <arguments>
 <arg>id=btnConnexion</arg>
 </arguments>
-<msg timestamp="20180206 12:11:19.385" level="INFO">Clicking link 'id=btnConnexion'.</msg>
-<status status="PASS" starttime="20180206 12:11:19.385" endtime="20180206 12:11:19.638"></status>
+<msg timestamp="20180206 12:20:19.986" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" starttime="20180206 12:20:19.985" endtime="20180206 12:20:20.227"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>Clavaud</arg>
+</arguments>
+<msg timestamp="20180206 12:20:20.228" level="INFO">Typing text 'Clavaud' into text field 'name=password'.</msg>
+<status status="PASS" starttime="20180206 12:20:20.227" endtime="20180206 12:20:20.330"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>Romain</arg>
+</arguments>
+<msg timestamp="20180206 12:20:20.331" level="INFO">Typing password into text field 'name=login'.</msg>
+<status status="PASS" starttime="20180206 12:20:20.330" endtime="20180206 12:20:20.413"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180206 12:20:20.414" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" starttime="20180206 12:20:20.414" endtime="20180206 12:20:20.632"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Bonjour Romain</arg>
+</arguments>
+<msg timestamp="20180206 12:20:20.648" level="INFO">Current page contains text 'Bonjour Romain'.</msg>
+<status status="PASS" starttime="20180206 12:20:20.632" endtime="20180206 12:20:20.649"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180206 12:20:20.649" level="INFO">Opening url 'http://localhost:1047/campaign/144'</msg>
+<status status="PASS" starttime="20180206 12:20:20.649" endtime="20180206 12:20:21.866"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Mon casque VR</arg>
+</arguments>
+<msg timestamp="20180206 12:20:21.882" level="INFO">Current page contains text 'Mon casque VR'.</msg>
+<status status="PASS" starttime="20180206 12:20:21.866" endtime="20180206 12:20:21.883"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>id=contribute</arg>
+</arguments>
+<msg timestamp="20180206 12:20:21.912" level="INFO">Element 'id=contribute' is displayed.</msg>
+<status status="PASS" starttime="20180206 12:20:21.883" endtime="20180206 12:20:21.912"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:19.984" endtime="20180206 12:20:21.912" critical="yes"></status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20180206 12:20:21.913" endtime="20180206 12:20:21.988"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:17.931" endtime="20180206 12:20:21.988"></status>
+</suite>
+<suite id="s1-s2" name="AfficherCampagneNoConnected" source="/home/mojann/WebstormProjects/ethstarter/test/robotframework/AfficherCampagneNoConnected.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180206 12:20:21.997" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" starttime="20180206 12:20:21.996" endtime="20180206 12:20:23.966"></status>
+</kw>
+<test id="s1-s2-t1" name="Test Case">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180206 12:20:23.968" level="INFO">Opening url 'http://localhost:1047/campaign/144'</msg>
+<status status="PASS" starttime="20180206 12:20:23.967" endtime="20180206 12:20:25.134"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Mon casque VR</arg>
+</arguments>
+<msg timestamp="20180206 12:20:25.166" level="INFO">Current page contains text 'Mon casque VR'.</msg>
+<status status="PASS" starttime="20180206 12:20:25.135" endtime="20180206 12:20:25.166"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>id=login</arg>
+</arguments>
+<msg timestamp="20180206 12:20:25.191" level="INFO">Element 'id=login' is displayed.</msg>
+<status status="PASS" starttime="20180206 12:20:25.166" endtime="20180206 12:20:25.191"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>id=signup</arg>
+</arguments>
+<msg timestamp="20180206 12:20:25.215" level="INFO">Element 'id=signup' is displayed.</msg>
+<status status="PASS" starttime="20180206 12:20:25.191" endtime="20180206 12:20:25.215"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:23.966" endtime="20180206 12:20:25.216" critical="yes"></status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20180206 12:20:25.216" endtime="20180206 12:20:25.297"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:21.990" endtime="20180206 12:20:25.297"></status>
+</suite>
+<suite id="s1-s3" name="Connexion" source="/home/mojann/WebstormProjects/ethstarter/test/robotframework/Connexion.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180206 12:20:25.306" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" starttime="20180206 12:20:25.306" endtime="20180206 12:20:27.460"></status>
+</kw>
+<test id="s1-s3-t1" name="Test Case">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180206 12:20:27.462" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" starttime="20180206 12:20:27.462" endtime="20180206 12:20:27.727"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into text field identified by ``locator``.</doc>
@@ -25,8 +162,8 @@
 <arg>name=login</arg>
 <arg>Romain</arg>
 </arguments>
-<msg timestamp="20180206 12:11:19.639" level="INFO">Typing text 'Romain' into text field 'name=login'.</msg>
-<status status="PASS" starttime="20180206 12:11:19.638" endtime="20180206 12:11:19.739"></status>
+<msg timestamp="20180206 12:20:27.728" level="INFO">Typing text 'Romain' into text field 'name=login'.</msg>
+<status status="PASS" starttime="20180206 12:20:27.728" endtime="20180206 12:20:27.825"></status>
 </kw>
 <kw name="Input Password" library="SeleniumLibrary">
 <doc>Types the given password into text field identified by ``locator``.</doc>
@@ -34,98 +171,792 @@
 <arg>name=password</arg>
 <arg>Clavaud</arg>
 </arguments>
-<msg timestamp="20180206 12:11:19.739" level="INFO">Typing password into text field 'name=password'.</msg>
-<status status="PASS" starttime="20180206 12:11:19.739" endtime="20180206 12:11:19.823"></status>
+<msg timestamp="20180206 12:20:27.825" level="INFO">Typing password into text field 'name=password'.</msg>
+<status status="PASS" starttime="20180206 12:20:27.825" endtime="20180206 12:20:27.911"></status>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <doc>Clicks button identified by ``locator``.</doc>
 <arguments>
 <arg>xpath=//input[@value='connexion']</arg>
 </arguments>
-<msg timestamp="20180206 12:11:19.823" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
-<status status="PASS" starttime="20180206 12:11:19.823" endtime="20180206 12:11:20.024"></status>
+<msg timestamp="20180206 12:20:27.911" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" starttime="20180206 12:20:27.911" endtime="20180206 12:20:28.142"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Bonjour Romain</arg>
+</arguments>
+<msg timestamp="20180206 12:20:28.165" level="INFO">Current page contains text 'Bonjour Romain'.</msg>
+<status status="PASS" starttime="20180206 12:20:28.143" endtime="20180206 12:20:28.165"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnDeconnexion</arg>
+</arguments>
+<msg timestamp="20180206 12:20:28.165" level="INFO">Clicking link 'id=btnDeconnexion'.</msg>
+<status status="PASS" starttime="20180206 12:20:28.165" endtime="20180206 12:20:28.289"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:27.461" endtime="20180206 12:20:28.289" critical="yes"></status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20180206 12:20:28.291" endtime="20180206 12:20:28.369"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:25.300" endtime="20180206 12:20:28.370"></status>
+</suite>
+<suite id="s1-s4" name="ConnexionErreur" source="/home/mojann/WebstormProjects/ethstarter/test/robotframework/ConnexionErreur.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180206 12:20:28.376" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" starttime="20180206 12:20:28.376" endtime="20180206 12:20:30.390"></status>
+</kw>
+<test id="s1-s4-t1" name="Test Case">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180206 12:20:30.391" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" starttime="20180206 12:20:30.391" endtime="20180206 12:20:30.631"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>dsdsdsds</arg>
+</arguments>
+<msg timestamp="20180206 12:20:30.632" level="INFO">Typing text 'dsdsdsds' into text field 'name=login'.</msg>
+<status status="PASS" starttime="20180206 12:20:30.632" endtime="20180206 12:20:30.724"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>dsdssdds</arg>
+</arguments>
+<msg timestamp="20180206 12:20:30.724" level="INFO">Typing password into text field 'name=password'.</msg>
+<status status="PASS" starttime="20180206 12:20:30.724" endtime="20180206 12:20:30.805"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180206 12:20:30.805" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" starttime="20180206 12:20:30.805" endtime="20180206 12:20:31.012"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Login ou password incorrect !</arg>
+</arguments>
+<msg timestamp="20180206 12:20:31.036" level="INFO">Current page contains text 'Login ou password incorrect !'.</msg>
+<status status="PASS" starttime="20180206 12:20:31.012" endtime="20180206 12:20:31.036"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:30.390" endtime="20180206 12:20:31.036" critical="yes"></status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20180206 12:20:31.037" endtime="20180206 12:20:31.142"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:28.372" endtime="20180206 12:20:31.142"></status>
+</suite>
+<suite id="s1-s5" name="ContributionMontant0KO" source="/home/mojann/WebstormProjects/ethstarter/test/robotframework/ContributionMontant0KO.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180206 12:20:31.148" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" starttime="20180206 12:20:31.148" endtime="20180206 12:20:33.215"></status>
+</kw>
+<test id="s1-s5-t1" name="Test Case">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180206 12:20:33.217" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" starttime="20180206 12:20:33.216" endtime="20180206 12:20:33.457"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>Clavaud</arg>
+</arguments>
+<msg timestamp="20180206 12:20:33.458" level="INFO">Typing text 'Clavaud' into text field 'name=password'.</msg>
+<status status="PASS" starttime="20180206 12:20:33.458" endtime="20180206 12:20:33.631"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>Romain</arg>
+</arguments>
+<msg timestamp="20180206 12:20:33.632" level="INFO">Typing password into text field 'name=login'.</msg>
+<status status="PASS" starttime="20180206 12:20:33.631" endtime="20180206 12:20:33.723"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180206 12:20:33.724" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" starttime="20180206 12:20:33.723" endtime="20180206 12:20:33.957"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Bonjour Romain</arg>
+</arguments>
+<msg timestamp="20180206 12:20:33.983" level="INFO">Current page contains text 'Bonjour Romain'.</msg>
+<status status="PASS" starttime="20180206 12:20:33.958" endtime="20180206 12:20:33.983"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180206 12:20:33.984" level="INFO">Opening url 'http://localhost:1047/campaign/144'</msg>
+<status status="PASS" starttime="20180206 12:20:33.984" endtime="20180206 12:20:35.174"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=contribute</arg>
+</arguments>
+<msg timestamp="20180206 12:20:35.175" level="INFO">Clicking link 'id=contribute'.</msg>
+<status status="PASS" starttime="20180206 12:20:35.174" endtime="20180206 12:20:35.252"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20180206 12:20:35.253" level="INFO">Typing text '0' into text field 'id=montantJS'.</msg>
+<status status="PASS" starttime="20180206 12:20:35.252" endtime="20180206 12:20:35.325"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>\\9</arg>
+</arguments>
+<status status="PASS" starttime="20180206 12:20:35.325" endtime="20180206 12:20:35.368"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Veuillez saisir un montant supérieur à 0 ether</arg>
+</arguments>
+<msg timestamp="20180206 12:20:35.385" level="INFO">Current page contains text 'Veuillez saisir un montant supérieur à 0 ether'.</msg>
+<status status="PASS" starttime="20180206 12:20:35.369" endtime="20180206 12:20:35.385"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>\\27</arg>
+</arguments>
+<status status="PASS" starttime="20180206 12:20:35.386" endtime="20180206 12:20:35.421"></status>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180206 12:20:35.430" level="INFO">Current location is 'http://localhost:1047/campaign/144'.</msg>
+<status status="PASS" starttime="20180206 12:20:35.422" endtime="20180206 12:20:35.430"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:33.215" endtime="20180206 12:20:35.430" critical="yes"></status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20180206 12:20:35.431" endtime="20180206 12:20:35.520"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:31.144" endtime="20180206 12:20:35.520"></status>
+</suite>
+<suite id="s1-s6" name="ContributionMontentLettreKO" source="/home/mojann/WebstormProjects/ethstarter/test/robotframework/ContributionMontentLettreKO.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180206 12:20:35.527" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" starttime="20180206 12:20:35.526" endtime="20180206 12:20:37.547"></status>
+</kw>
+<test id="s1-s6-t1" name="Test Case">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180206 12:20:37.549" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" starttime="20180206 12:20:37.548" endtime="20180206 12:20:37.797"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>Clavaud</arg>
+</arguments>
+<msg timestamp="20180206 12:20:37.797" level="INFO">Typing text 'Clavaud' into text field 'name=password'.</msg>
+<status status="PASS" starttime="20180206 12:20:37.797" endtime="20180206 12:20:37.899"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>Romain</arg>
+</arguments>
+<msg timestamp="20180206 12:20:37.899" level="INFO">Typing password into text field 'name=login'.</msg>
+<status status="PASS" starttime="20180206 12:20:37.899" endtime="20180206 12:20:37.976"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180206 12:20:37.977" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" starttime="20180206 12:20:37.976" endtime="20180206 12:20:38.221"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Bonjour Romain</arg>
+</arguments>
+<msg timestamp="20180206 12:20:38.238" level="INFO">Current page contains text 'Bonjour Romain'.</msg>
+<status status="PASS" starttime="20180206 12:20:38.221" endtime="20180206 12:20:38.238"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180206 12:20:38.238" level="INFO">Opening url 'http://localhost:1047/campaign/144'</msg>
+<status status="PASS" starttime="20180206 12:20:38.238" endtime="20180206 12:20:38.684"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=contribute</arg>
+</arguments>
+<msg timestamp="20180206 12:20:38.685" level="INFO">Clicking link 'id=contribute'.</msg>
+<status status="PASS" starttime="20180206 12:20:38.684" endtime="20180206 12:20:39.781"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>dsdssdsd</arg>
+</arguments>
+<msg timestamp="20180206 12:20:39.781" level="INFO">Typing text 'dsdssdsd' into text field 'id=montantJS'.</msg>
+<status status="PASS" starttime="20180206 12:20:39.781" endtime="20180206 12:20:39.880"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>\\9</arg>
+</arguments>
+<status status="PASS" starttime="20180206 12:20:39.880" endtime="20180206 12:20:39.918"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Veuillez saisir un montant supérieur à 0 ether</arg>
+</arguments>
+<msg timestamp="20180206 12:20:39.935" level="INFO">Current page contains text 'Veuillez saisir un montant supérieur à 0 ether'.</msg>
+<status status="PASS" starttime="20180206 12:20:39.919" endtime="20180206 12:20:39.936"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>\\27</arg>
+</arguments>
+<status status="PASS" starttime="20180206 12:20:39.936" endtime="20180206 12:20:39.970"></status>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180206 12:20:39.974" level="INFO">Current location is 'http://localhost:1047/campaign/144'.</msg>
+<status status="PASS" starttime="20180206 12:20:39.970" endtime="20180206 12:20:39.974"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:37.547" endtime="20180206 12:20:39.975" critical="yes"></status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20180206 12:20:39.976" endtime="20180206 12:20:40.058"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:35.522" endtime="20180206 12:20:40.058"></status>
+</suite>
+<suite id="s1-s7" name="ContributionOK" source="/home/mojann/WebstormProjects/ethstarter/test/robotframework/ContributionOK.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180206 12:20:40.064" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" starttime="20180206 12:20:40.064" endtime="20180206 12:20:42.071"></status>
+</kw>
+<test id="s1-s7-t1" name="Test Case">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180206 12:20:42.074" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" starttime="20180206 12:20:42.073" endtime="20180206 12:20:42.316"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>Clavaud</arg>
+</arguments>
+<msg timestamp="20180206 12:20:42.317" level="INFO">Typing text 'Clavaud' into text field 'name=password'.</msg>
+<status status="PASS" starttime="20180206 12:20:42.316" endtime="20180206 12:20:42.417"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>Romain</arg>
+</arguments>
+<msg timestamp="20180206 12:20:42.417" level="INFO">Typing password into text field 'name=login'.</msg>
+<status status="PASS" starttime="20180206 12:20:42.417" endtime="20180206 12:20:42.498"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180206 12:20:42.498" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" starttime="20180206 12:20:42.498" endtime="20180206 12:20:42.760"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Bonjour Romain</arg>
+</arguments>
+<msg timestamp="20180206 12:20:42.778" level="INFO">Current page contains text 'Bonjour Romain'.</msg>
+<status status="PASS" starttime="20180206 12:20:42.760" endtime="20180206 12:20:42.779"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180206 12:20:42.779" level="INFO">Opening url 'http://localhost:1047/campaign/144'</msg>
+<status status="PASS" starttime="20180206 12:20:42.779" endtime="20180206 12:20:44.044"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=contribute</arg>
+</arguments>
+<msg timestamp="20180206 12:20:44.045" level="INFO">Clicking link 'id=contribute'.</msg>
+<status status="PASS" starttime="20180206 12:20:44.045" endtime="20180206 12:20:44.130"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>0.25</arg>
+</arguments>
+<msg timestamp="20180206 12:20:44.131" level="INFO">Typing text '0.25' into text field 'id=montantJS'.</msg>
+<status status="PASS" starttime="20180206 12:20:44.131" endtime="20180206 12:20:44.216"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>\\9</arg>
+</arguments>
+<status status="PASS" starttime="20180206 12:20:44.216" endtime="20180206 12:20:44.254"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=submitParticipation</arg>
+</arguments>
+<msg timestamp="20180206 12:20:44.254" level="INFO">Clicking link 'id=submitParticipation'.</msg>
+<status status="PASS" starttime="20180206 12:20:44.254" endtime="20180206 12:20:44.341"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>\\27</arg>
+</arguments>
+<status status="PASS" starttime="20180206 12:20:44.342" endtime="20180206 12:20:44.388"></status>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180206 12:20:44.401" level="INFO">Current location is 'http://localhost:1047/campaign/144'.</msg>
+<status status="PASS" starttime="20180206 12:20:44.388" endtime="20180206 12:20:44.401"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:42.072" endtime="20180206 12:20:44.401" critical="yes"></status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20180206 12:20:44.403" endtime="20180206 12:20:44.575"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:40.060" endtime="20180206 12:20:44.575"></status>
+</suite>
+<suite id="s1-s8" name="CreatCampaigneDisconnected" source="/home/mojann/WebstormProjects/ethstarter/test/robotframework/CreatCampaigneDisconnected.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180206 12:20:44.581" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" starttime="20180206 12:20:44.581" endtime="20180206 12:20:46.621"></status>
+</kw>
+<test id="s1-s8-t1" name="Test Case">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/creerCampagne</arg>
+</arguments>
+<msg timestamp="20180206 12:20:46.624" level="INFO">Opening url 'http://localhost:1047/creerCampagne'</msg>
+<status status="PASS" starttime="20180206 12:20:46.624" endtime="20180206 12:20:46.874"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Vous devez être connecté en tant qu'entrepreneur</arg>
+</arguments>
+<msg timestamp="20180206 12:20:46.896" level="INFO">Current page contains text 'Vous devez être connecté en tant qu'entrepreneur'.</msg>
+<status status="PASS" starttime="20180206 12:20:46.875" endtime="20180206 12:20:46.896"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:46.621" endtime="20180206 12:20:46.897" critical="yes"></status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20180206 12:20:46.897" endtime="20180206 12:20:46.974"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:44.577" endtime="20180206 12:20:46.974"></status>
+</suite>
+<suite id="s1-s9" name="CreateCampaignConnectedEmptyFieds" source="/home/mojann/WebstormProjects/ethstarter/test/robotframework/CreateCampaignConnectedEmptyFieds.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180206 12:20:46.979" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" starttime="20180206 12:20:46.979" endtime="20180206 12:20:54.159"></status>
+</kw>
+<test id="s1-s9-t1" name="Test Case">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180206 12:20:54.161" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" starttime="20180206 12:20:54.160" endtime="20180206 12:20:54.375"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>Romain</arg>
+</arguments>
+<msg timestamp="20180206 12:20:54.377" level="INFO">Typing text 'Romain' into text field 'name=login'.</msg>
+<status status="PASS" starttime="20180206 12:20:54.376" endtime="20180206 12:20:54.469"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>Clavaud</arg>
+</arguments>
+<msg timestamp="20180206 12:20:54.470" level="INFO">Typing password into text field 'name=password'.</msg>
+<status status="PASS" starttime="20180206 12:20:54.470" endtime="20180206 12:20:54.553"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180206 12:20:54.553" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" starttime="20180206 12:20:54.553" endtime="20180206 12:20:54.830"></status>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <doc>Navigates the active browser instance to the provided ``url``.</doc>
 <arguments>
 <arg>http://localhost:1047/creerCampagne</arg>
 </arguments>
-<msg timestamp="20180206 12:11:20.024" level="INFO">Opening url 'http://localhost:1047/creerCampagne'</msg>
-<status status="PASS" starttime="20180206 12:11:20.024" endtime="20180206 12:11:20.367"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
-<arguments>
-<arg>name=titreCampagne</arg>
-<arg>un projet robotframework</arg>
-</arguments>
-<msg timestamp="20180206 12:11:20.368" level="INFO">Typing text 'un projet robotframework' into text field 'name=titreCampagne'.</msg>
-<status status="PASS" starttime="20180206 12:11:20.367" endtime="20180206 12:11:20.554"></status>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
-<arguments>
-<arg>name=descriptionCourte</arg>
-<arg>une description rapide robotframework</arg>
-</arguments>
-<msg timestamp="20180206 12:11:20.554" level="INFO">Typing text 'une description rapide robotframework' into text field 'name=descriptionCourte'.</msg>
-<status status="PASS" starttime="20180206 12:11:20.554" endtime="20180206 12:11:20.874"></status>
+<msg timestamp="20180206 12:20:54.830" level="INFO">Opening url 'http://localhost:1047/creerCampagne'</msg>
+<status status="PASS" starttime="20180206 12:20:54.830" endtime="20180206 12:20:55.153"></status>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <doc>Navigates the active browser instance to the provided ``url``.</doc>
 <arguments>
 <arg>http://localhost:1047/creerCampagne/#submit</arg>
 </arguments>
-<msg timestamp="20180206 12:11:20.875" level="INFO">Opening url 'http://localhost:1047/creerCampagne/#submit'</msg>
-<status status="PASS" starttime="20180206 12:11:20.875" endtime="20180206 12:11:21.065"></status>
+<msg timestamp="20180206 12:20:55.154" level="INFO">Opening url 'http://localhost:1047/creerCampagne/#submit'</msg>
+<status status="PASS" starttime="20180206 12:20:55.154" endtime="20180206 12:20:55.341"></status>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
 <arguments>
-<arg>css=.wysibb-text-editor</arg>
-<arg>une description robotframework</arg>
+<arg>id=submit</arg>
 </arguments>
-<msg timestamp="20180206 12:11:21.066" level="INFO">Typing text 'une description robotframework' into text field 'css=.wysibb-text-editor'.</msg>
-<status status="PASS" starttime="20180206 12:11:21.066" endtime="20180206 12:11:21.304"></status>
+<msg timestamp="20180206 12:20:55.342" level="INFO">Clicking link 'id=submit'.</msg>
+<status status="PASS" starttime="20180206 12:20:55.341" endtime="20180206 12:20:55.413"></status>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
 <arguments>
-<arg>name=datepicker</arg>
-<arg>2019-02-27</arg>
+<arg>Tous les champs doivent être remplis</arg>
 </arguments>
-<msg timestamp="20180206 12:11:21.305" level="INFO">Typing text '2019-02-27' into text field 'name=datepicker'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180206 12:11:21.393" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20180206 12:11:21.337" endtime="20180206 12:11:21.394"></status>
+<msg timestamp="20180206 12:20:55.432" level="INFO">Current page contains text 'Tous les champs doivent être remplis'.</msg>
+<status status="PASS" starttime="20180206 12:20:55.414" endtime="20180206 12:20:55.432"></status>
 </kw>
-<msg timestamp="20180206 12:11:21.395" level="FAIL">InvalidElementStateException: Message: invalid element state: Element must be user-editable in order to clear it.
-  (Session info: chrome=64.0.3282.140)
-  (Driver info: chromedriver=2.30.477691 (6ee44a7247c639c0703f291d320bdf05c1531b57),platform=Linux 4.14.15-1-ARCH x86_64)
-</msg>
-<status status="FAIL" starttime="20180206 12:11:21.304" endtime="20180206 12:11:21.395"></status>
-</kw>
-<status status="FAIL" starttime="20180206 12:11:19.384" endtime="20180206 12:11:21.395" critical="yes">InvalidElementStateException: Message: invalid element state: Element must be user-editable in order to clear it.
-  (Session info: chrome=64.0.3282.140)
-  (Driver info: chromedriver=2.30.477691 (6ee44a7247c639c0703f291d320bdf05c1531b57),platform=Linux 4.14.15-1-ARCH x86_64)
-</status>
+<status status="PASS" starttime="20180206 12:20:54.159" endtime="20180206 12:20:55.432" critical="yes"></status>
 </test>
 <kw name="Close Browser" library="SeleniumLibrary" type="teardown">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20180206 12:11:21.396" endtime="20180206 12:11:21.468"></status>
+<status status="PASS" starttime="20180206 12:20:55.433" endtime="20180206 12:20:55.512"></status>
 </kw>
-<status status="FAIL" starttime="20180206 12:11:18.178" endtime="20180206 12:11:21.468"></status>
+<status status="PASS" starttime="20180206 12:20:46.975" endtime="20180206 12:20:55.513"></status>
+</suite>
+<suite id="s1-s10" name="InscriptionContributeurErrAddr" source="/home/mojann/WebstormProjects/ethstarter/test/robotframework/InscriptionContributeurErrAddr.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180206 12:20:55.523" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" starttime="20180206 12:20:55.523" endtime="20180206 12:20:57.497"></status>
+</kw>
+<test id="s1-s10-t1" name="Test Case">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnInscription</arg>
+</arguments>
+<msg timestamp="20180206 12:20:57.499" level="INFO">Clicking link 'id=btnInscription'.</msg>
+<status status="PASS" starttime="20180206 12:20:57.499" endtime="20180206 12:20:57.754"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=lastname</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180206 12:20:57.754" level="INFO">Typing text 'test' into text field 'name=lastname'.</msg>
+<status status="PASS" starttime="20180206 12:20:57.754" endtime="20180206 12:20:57.855"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=firstname</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180206 12:20:57.856" level="INFO">Typing text 'test' into text field 'name=firstname'.</msg>
+<status status="PASS" starttime="20180206 12:20:57.856" endtime="20180206 12:20:57.934"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180206 12:20:57.934" level="INFO">Typing text 'test' into text field 'name=login'.</msg>
+<status status="PASS" starttime="20180206 12:20:57.934" endtime="20180206 12:20:58.011"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180206 12:20:58.011" level="INFO">Typing password into text field 'name=password'.</msg>
+<status status="PASS" starttime="20180206 12:20:58.011" endtime="20180206 12:20:58.088"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=email</arg>
+<arg>test@test.fe</arg>
+</arguments>
+<msg timestamp="20180206 12:20:58.089" level="INFO">Typing text 'test@test.fe' into text field 'name=email'.</msg>
+<status status="PASS" starttime="20180206 12:20:58.089" endtime="20180206 12:20:58.186"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=address</arg>
+<arg>testAddr</arg>
+</arguments>
+<msg timestamp="20180206 12:20:58.187" level="INFO">Typing text 'testAddr' into text field 'name=address'.</msg>
+<status status="PASS" starttime="20180206 12:20:58.186" endtime="20180206 12:20:58.288"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='inscription']</arg>
+</arguments>
+<msg timestamp="20180206 12:20:58.288" level="INFO">Clicking button 'xpath=//input[@value='inscription']'.</msg>
+<status status="PASS" starttime="20180206 12:20:58.288" endtime="20180206 12:20:58.472"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Adresse publique incorrecte</arg>
+</arguments>
+<msg timestamp="20180206 12:20:58.503" level="INFO">Current page contains text 'Adresse publique incorrecte'.</msg>
+<status status="PASS" starttime="20180206 12:20:58.472" endtime="20180206 12:20:58.503"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:57.497" endtime="20180206 12:20:58.503" critical="yes"></status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20180206 12:20:58.504" endtime="20180206 12:20:58.587"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:55.516" endtime="20180206 12:20:58.587"></status>
+</suite>
+<suite id="s1-s11" name="InscriptionContributeurErrLogin" source="/home/mojann/WebstormProjects/ethstarter/test/robotframework/InscriptionContributeurErrLogin.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="setup">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180206 12:20:58.596" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" starttime="20180206 12:20:58.595" endtime="20180206 12:21:00.737"></status>
+</kw>
+<test id="s1-s11-t1" name="Test Case">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnInscription</arg>
+</arguments>
+<msg timestamp="20180206 12:21:00.738" level="INFO">Clicking link 'id=btnInscription'.</msg>
+<status status="PASS" starttime="20180206 12:21:00.738" endtime="20180206 12:21:00.968"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=lastname</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180206 12:21:00.969" level="INFO">Typing text 'test' into text field 'name=lastname'.</msg>
+<status status="PASS" starttime="20180206 12:21:00.968" endtime="20180206 12:21:01.070"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=firstname</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180206 12:21:01.071" level="INFO">Typing text 'test' into text field 'name=firstname'.</msg>
+<status status="PASS" starttime="20180206 12:21:01.071" endtime="20180206 12:21:01.148"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180206 12:21:01.149" level="INFO">Typing text 'test' into text field 'name=login'.</msg>
+<status status="PASS" starttime="20180206 12:21:01.148" endtime="20180206 12:21:01.221"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180206 12:21:01.222" level="INFO">Typing password into text field 'name=password'.</msg>
+<status status="PASS" starttime="20180206 12:21:01.222" endtime="20180206 12:21:01.294"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=email</arg>
+<arg>test@test.fe</arg>
+</arguments>
+<msg timestamp="20180206 12:21:01.295" level="INFO">Typing text 'test@test.fe' into text field 'name=email'.</msg>
+<status status="PASS" starttime="20180206 12:21:01.295" endtime="20180206 12:21:01.397"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=address</arg>
+<arg>0x5a0413244bb1ef169dcffa7d0e7e3a6ecb230285</arg>
+</arguments>
+<msg timestamp="20180206 12:21:01.397" level="INFO">Typing text '0x5a0413244bb1ef169dcffa7d0e7e3a6ecb230285' into text field 'name=address'.</msg>
+<status status="PASS" starttime="20180206 12:21:01.397" endtime="20180206 12:21:01.656"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='inscription']</arg>
+</arguments>
+<msg timestamp="20180206 12:21:01.656" level="INFO">Clicking button 'xpath=//input[@value='inscription']'.</msg>
+<status status="PASS" starttime="20180206 12:21:01.656" endtime="20180206 12:21:01.913"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Login incorrect</arg>
+</arguments>
+<msg timestamp="20180206 12:21:01.949" level="INFO">Current page contains text 'Login incorrect'.</msg>
+<status status="PASS" starttime="20180206 12:21:01.913" endtime="20180206 12:21:01.949"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:21:00.737" endtime="20180206 12:21:01.949" critical="yes"></status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20180206 12:21:01.950" endtime="20180206 12:21:02.034"></status>
+</kw>
+<status status="PASS" starttime="20180206 12:20:58.590" endtime="20180206 12:21:02.034"></status>
+</suite>
+<status status="PASS" starttime="20180206 12:20:17.914" endtime="20180206 12:21:02.036"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1">Critical Tests</stat>
-<stat pass="0" fail="1">All Tests</stat>
+<stat pass="11" fail="0">Critical Tests</stat>
+<stat pass="11" fail="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" id="s1" name="CreateCampaignConnectedInvalidEther">CreateCampaignConnectedInvalidEther</stat>
+<stat pass="11" fail="0" id="s1" name="Robotframework">Robotframework</stat>
+<stat pass="1" fail="0" id="s1-s1" name="AfficherCampagneConnected">Robotframework.AfficherCampagneConnected</stat>
+<stat pass="1" fail="0" id="s1-s2" name="AfficherCampagneNoConnected">Robotframework.AfficherCampagneNoConnected</stat>
+<stat pass="1" fail="0" id="s1-s3" name="Connexion">Robotframework.Connexion</stat>
+<stat pass="1" fail="0" id="s1-s4" name="ConnexionErreur">Robotframework.ConnexionErreur</stat>
+<stat pass="1" fail="0" id="s1-s5" name="ContributionMontant0KO">Robotframework.ContributionMontant0KO</stat>
+<stat pass="1" fail="0" id="s1-s6" name="ContributionMontentLettreKO">Robotframework.ContributionMontentLettreKO</stat>
+<stat pass="1" fail="0" id="s1-s7" name="ContributionOK">Robotframework.ContributionOK</stat>
+<stat pass="1" fail="0" id="s1-s8" name="CreatCampaigneDisconnected">Robotframework.CreatCampaigneDisconnected</stat>
+<stat pass="1" fail="0" id="s1-s9" name="CreateCampaignConnectedEmptyFieds">Robotframework.CreateCampaignConnectedEmptyFieds</stat>
+<stat pass="1" fail="0" id="s1-s10" name="InscriptionContributeurErrAddr">Robotframework.InscriptionContributeurErrAddr</stat>
+<stat pass="1" fail="0" id="s1-s11" name="InscriptionContributeurErrLogin">Robotframework.InscriptionContributeurErrLogin</stat>
 </suite>
 </statistics>
 <errors>
