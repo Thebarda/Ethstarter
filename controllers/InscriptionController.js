@@ -1,7 +1,6 @@
 
 var modelInscription = require('../models/inscription.js');
 var utils = require("../utils/utils");
-var fs = require('fs');
 var formidable = require('formidable');
 var fs = require('fs-extra');
 
