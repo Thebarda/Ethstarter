@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $('select').material_select();
     var d = new Date();
-
     $('.datepicker').pickadate({
         min: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
         format: "yyyy-mm-dd",
@@ -12,6 +11,7 @@ $(document).ready(function () {
         close: 'Ok',
         closeOnSelect: false // Close upon selecting a date,
     });
+    $("#datepicker").removeAttr("readOnly");
     //BBcode Jquery
     var BBbuttons = {
         buttons: "bold,italic,underline,sup,sub,|,img,video,link,|,bullist,numlist,|,fontcolor,fontsize,fontfamily,|, justifyleft, justifycenter,justifyright,|, quote,table"
@@ -32,28 +32,37 @@ $(document).ready(function () {
     $("#submit").on("click", function () {
         var titreCampagne = $("#titreCampagne").val();
         var description = $(".wysibb-text-editor").html();
-        var descriptionCourte = $("#descriptionCourte").html();
+        var descriptionCourte = $("#descriptionCourte").val();
         var datepicker = $("#datepicker").val();
         var objectif = $("#objectif").val();
-        $.ajax({
-            url: "/validationCampagne",
-            method: "post",
-            data: {
-                nomCampagne: titreCampagne,
-                description: description,
-                descriptionCourte: descriptionCourte,
-                dateLimite: datepicker,
-                but: objectif,
-                estEnCours: 1,
-                montantActuel: 0
-            }
-        }).done(function (html) {
-            Materialize.toast("Félicitation! Votre Campagne est en cours de validation :)", 3200);
-            setTimeout(function () {
-                location.href = "/";
-            }, 3200);
+        if(titreCampagne.trim()!=="" && description.trim()!=="" && descriptionCourte.trim()!=="" && datepicker.trim()!=="" && objectif.trim()!==""){
+            var objTmp = parseFloat(objectif);
+            if(!isNaN(objTmp) || objTmp > 0.0){
+                $.ajax({
+                    url: "/validationCampagne",
+                    method: "post",
+                    data: {
+                        nomCampagne: titreCampagne,
+                        description: description,
+                        descriptionCourte: descriptionCourte,
+                        dateLimite: datepicker,
+                        but: objectif,
+                        estEnCours: 1,
+                        montantActuel: 0
+                    }
+                }).done(function (html) {
+                    Materialize.toast("Félicitation! Votre Campagne est en cours de validation :)", 3200);
+                    setTimeout(function () {
+                        location.href = "/";
+                    }, 3200);
 
-        });
+                });
+            }else{
+                $("#error").text("Le montant doit être supérieur à 0");
+            }
+        }else{
+            $("#error").text("Tous les champs doivent être remplis");
+        }
     });
 
 });
