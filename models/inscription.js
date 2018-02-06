@@ -5,6 +5,7 @@ var sha256 = require('js-sha256').sha256;
 
 module.exports.valide = function(body, callback){
     //vérifie que le login n'est pas déjà prit
+
     db.getConnection(function(err, connexion){
         if(!err){
             var sql = "SELECT login FROM utilisateur WHERE login='"+body.login+"';";
