@@ -1,6 +1,6 @@
 var db = require('./configDb.js');
 
-module.exports.getProfile = function(idCompte, callback){
+module.exports.getProfil = function(idCompte, callback){
   db.getConnection(function(err, connection){
     if(err) throw err;
     connection.query("SELECT nom, prenom, mail, login, password, addrPubliqueEth, type FROM utilisateur WHERE id="+idCompte, callback);
@@ -8,7 +8,7 @@ module.exports.getProfile = function(idCompte, callback){
   });
 };
 
-module.exports.updateProfile = function(idCompte, body, callback){
+module.exports.updateProfil = function(idCompte, body, callback){
     db.getConnection(function(err, connection){
         if(err) throw err;
         var sql = "UPDATE INTO utilisateur set nom=?, prenom=?, mail=?, password=?, addrPubliqueEth=?  WHERE id=?;";
