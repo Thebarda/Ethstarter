@@ -1,4 +1,4 @@
-var ExampleController = require("../controllers/ExampleController.js");
+var AccueilController = require("../controllers/AccueilController.js");
 var ConnexionController = require('./../controllers/ConnexionController.js');
 
 var CreateController = require("../controllers/CreateController.js");
@@ -12,7 +12,7 @@ var ProfilController = require('../controllers/ProfilController.js');
 module.exports = function (app) {
 
     // Exemple
-    app.get('/', ExampleController.example);
+    app.get('/', AccueilController.example);
 
     // Connexion
     app.get('/Connexion', ConnexionController.connexion);
