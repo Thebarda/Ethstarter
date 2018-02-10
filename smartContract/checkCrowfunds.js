@@ -2,7 +2,7 @@ var Web3 = require("web3");
 var campagneModel = require("../models/campagnes");
 var fs = require("fs");
 
-module.exports.checkCrowfunds = function(){
+//module.exports.checkCrowfunds = function(){
     var logObject = {
         starting: "Start checking campaigns that finish today...",
         ending: "Stopping checking campaigns that finish today...",
@@ -22,19 +22,19 @@ module.exports.checkCrowfunds = function(){
        for(var i=0;i<result.length;i++){
            var campaignCheck = {startCheckingCampaign: "Starting for campaign "+result[i].idCampagne};
            if(result[i].montantActuel >= result[i].but){
-               ethstarter.sendToContributors(result[i].idCampagne);
+               //ethstarter.sendToContributors(result[i].idCampagne);
                campaignCheck.status = "Sended to contributors";
            }else{
-               ethstarter.sendToContractor(result[i].idCampagne);
+               //ethstarter.sendToContractor(result[i].idCampagne);
                campaignCheck.status = "Sended to contrator";
            }
-           ethstarter.setEstEnCours(result[i].idCampagne, false);
+           //ethstarter.setEstEnCours(result[i].idCampagne, false);
            campaignCheck.endCheckCampaign = "Ending for campaign "+result[i].idCampagne;
            logObject.checks.push(campaignCheck);
        }
        var logString = JSON.stringify(logObject);
-       var logWriteStream =  fs.createWriteStream("./checkCampaings_"+new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDate()+".log.json");
+       var logWriteStream =  fs.createWriteStream("./smartContract/logs/checkCampaings_"+new Date().getFullYear()+"-"+new Date().getMonth()+"-"+new Date().getDate()+".log.json");
        logWriteStream.write(logString);
        logWriteStream.end();
     });
-};
+//};
