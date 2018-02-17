@@ -30,7 +30,7 @@ install:
 script:
     - npm start &
     - sleep 5
-    - robot test/robotframework/Connexion.robot
+    - robot test/robotframework/
 
 notifications:
   email: false
