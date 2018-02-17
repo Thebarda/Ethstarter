@@ -22,7 +22,7 @@ install:
     - npm install
     - npm install web3
     - npm install xmlhttprequest
-    - sudo apt install python2.7 pip
+    - sudo apt install python2.7 python-pip
     - pip install robotframework
     - pip install robotframework-seleniumLibrary
     - sleep 3
