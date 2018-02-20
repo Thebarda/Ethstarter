@@ -24,3 +24,8 @@ Qui permet aux contributeurs de participer a une campagne de financement et aux 
 A la difference de Kickstarter ou Ulule
 
 Permet l'utilisation, uniquement de la cryptomonnaie, Etherum
+
+# Docker
+docker build -t ethstarter-alpine:latest .
+docker run -p 1047:1047 -t ethstarter-alpine
+
