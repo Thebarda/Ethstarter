@@ -1,5 +1,6 @@
 # Ethstarter
-web app de financement participatif
+
+Application web de financement participatif utilisant la crypto-monnaie Ethereum
 
 
 # DOD
@@ -11,7 +12,7 @@ web app de financement participatif
   - Les tests nécessaires ont été exécutés
   - Le Product Owner a vu une démonstration ou fait les tests nécessaires
   
-  # Vision
+# Vision
 
 Pour les entrepreneurs et les contributeurs
 
@@ -23,7 +24,7 @@ Qui permet aux contributeurs de participer a une campagne de financement et aux 
 
 A la difference de Kickstarter ou Ulule
 
-Permet l'utilisation, uniquement de la cryptomonnaie, Etherum
+Permet l'utilisation, uniquement de la cryptomonnaie, Ethereum
 
 # How to use it ?
 
