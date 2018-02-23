@@ -25,8 +25,11 @@ A la difference de Kickstarter ou Ulule
 
 Permet l'utilisation, uniquement de la cryptomonnaie, Etherum
 
-# Docker
-docker build -t ethstarter-alpine:latest .
+# How to use it ?
 
-docker run -p 1047:1047 -t ethstarter-alpine
+git clone the project
+
+build the image : docker build -t ethstarter-alpine:latest .
+
+then run it : docker run -p 1047:1047 -t ethstarter-alpine
 
