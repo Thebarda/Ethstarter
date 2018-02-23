@@ -43,4 +43,4 @@ If you want to run functionals tests, please install robotframework and the sele
 
 Run the project : npm start
 
-Lauch tests : robot test/robotframework
+Launch tests : robot test/robotframework
