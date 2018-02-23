@@ -28,9 +28,11 @@ Permet l'utilisation, uniquement de la cryptomonnaie, Ethereum
 
 # How to run it with docker ?
 
+NOTE : This part will change soon
+
 git clone the project
 
-build the image : docker build -t ethstarter-alpine:latest .
+build the image : docker build -t ethstarter-alpine:latest . 
 
 then run it : docker run -p 1047:1047 -t ethstarter-alpine
 
