@@ -8,7 +8,7 @@ Library           SeleniumLibrary
 
 *** Variables ***
 ${monCasqueVR}    Mon casque VR
-${title}          Toute les campagnes
+${title}          Toutes les campagnes
 
 *** Test Cases ***
 Test Case

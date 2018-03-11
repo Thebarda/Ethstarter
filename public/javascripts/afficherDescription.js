@@ -36,4 +36,23 @@ $(document).ready(function(){
            $("#nbContribsss").text(parseInt($("#nbContribsss").text())+1);
        });
     });
+
+    $("#approve").on('click', () => {
+      $.ajax({
+        url: '/updateValidationCampaign',
+        method: 'post',
+        data: {validationNumber: 1}
+      }).done((data) => {
+        location.href="/campaingsWaiting"
+      })
+    });
+    $("#unapprove").on('click', () => {
+      $.ajax({
+        url: '/updateValidationCampaign',
+        method: 'post',
+        data: {validationNumber: 2}
+      }).done((data) => {
+        location.href="/campaingsWaiting"
+      })
+    });
 });

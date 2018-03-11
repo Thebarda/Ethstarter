@@ -17,4 +17,3 @@ Test Case
     Click Button    xpath=//input[@value='connexion']
     Page should contain    Bonjour Romain
     Click Link    id=btnDeconnexion
-    

@@ -30,6 +30,10 @@ module.exports = function (app) {
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
     app.post('/participation', ParticipationController.participation);
     app.get('/campaigns/', CampagnesController.afficherLesCampagnes);
+    app.get('/fetchNbCampagnesWaitingForValidation', CampagnesController.fetchNbCampagnesWaitingForValidation);
+    app.get('/campaingsWaiting', CampagnesController.campaingsWaiting);
+    app.get('/campaignWaiting/:idCampagne', CampagnesController.campaignWaitign);
+    app.post('/updateValidationCampaign', CampagnesController.updateValidationCampaign);
 
     // Profil
     app.get('/Profil', ProfilController.afficherProfil);
