@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20180214 17:46:37.385" generator="Robot 3.0.2 (Python 2.7.14 on linux2)">
+<robot generated="20180311 16:09:47.105" generator="Robot 3.0.2 (Python 2.7.14+ on linux2)">
 <suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework" id="s1" name="Robotframework">
 <suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AfficherCampagneConnected.robot" id="s1-s1" name="AfficherCampagneConnected">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
@@ -8,25 +8,83 @@
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180214 17:46:37.472" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180214 17:46:37.478" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" endtime="20180214 17:46:37.478" starttime="20180214 17:46:37.478"></status>
-</kw>
-<msg timestamp="20180214 17:46:37.479" level="FAIL">OSError: [Errno 20] Not a directory</msg>
-<status status="FAIL" endtime="20180214 17:46:37.479" starttime="20180214 17:46:37.472"></status>
+<msg timestamp="20180311 16:09:47.207" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180311 16:09:50.079" starttime="20180311 16:09:47.207"></status>
 </kw>
 <test id="s1-s1-t1" name="Test Case">
-<status status="FAIL" endtime="20180214 17:46:37.480" critical="yes" starttime="20180214 17:46:37.479">Parent suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180311 16:09:50.082" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" endtime="20180311 16:09:50.459" starttime="20180311 16:09:50.082"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>Clavaud</arg>
+</arguments>
+<msg timestamp="20180311 16:09:50.460" level="INFO">Typing text 'Clavaud' into text field 'name=password'.</msg>
+<status status="PASS" endtime="20180311 16:09:50.603" starttime="20180311 16:09:50.459"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>Romain</arg>
+</arguments>
+<msg timestamp="20180311 16:09:50.604" level="INFO">Typing password into text field 'name=login'.</msg>
+<status status="PASS" endtime="20180311 16:09:50.740" starttime="20180311 16:09:50.604"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180311 16:09:50.741" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" endtime="20180311 16:09:51.052" starttime="20180311 16:09:50.740"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Bonjour Romain</arg>
+</arguments>
+<msg timestamp="20180311 16:09:51.078" level="INFO">Current page contains text 'Bonjour Romain'.</msg>
+<status status="PASS" endtime="20180311 16:09:51.079" starttime="20180311 16:09:51.052"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180311 16:09:51.079" level="INFO">Opening url 'http://localhost:1047/campaign/144'</msg>
+<status status="PASS" endtime="20180311 16:09:51.874" starttime="20180311 16:09:51.079"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Mon casque VR</arg>
+</arguments>
+<msg timestamp="20180311 16:09:51.909" level="INFO">Current page contains text 'Mon casque VR'.</msg>
+<status status="PASS" endtime="20180311 16:09:51.909" starttime="20180311 16:09:51.874"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>id=contribute</arg>
+</arguments>
+<msg timestamp="20180311 16:09:51.954" level="INFO">Element 'id=contribute' is displayed.</msg>
+<status status="PASS" endtime="20180311 16:09:51.954" starttime="20180311 16:09:51.911"></status>
+</kw>
+<status status="PASS" endtime="20180311 16:09:51.954" critical="yes" starttime="20180311 16:09:50.079"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180214 17:46:37.481" starttime="20180214 17:46:37.481"></status>
+<status status="PASS" endtime="20180311 16:09:52.017" starttime="20180311 16:09:51.956"></status>
 </kw>
-<status status="FAIL" endtime="20180214 17:46:37.481" starttime="20180214 17:46:37.402">Suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<status status="PASS" endtime="20180311 16:09:52.017" starttime="20180311 16:09:47.130"></status>
 </suite>
 <suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AfficherCampagneNoConnected.robot" id="s1-s2" name="AfficherCampagneNoConnected">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
@@ -35,25 +93,49 @@ OSError: [Errno 20] Not a directory</status>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180214 17:46:37.484" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180214 17:46:37.491" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" endtime="20180214 17:46:37.491" starttime="20180214 17:46:37.490"></status>
-</kw>
-<msg timestamp="20180214 17:46:37.491" level="FAIL">OSError: [Errno 20] Not a directory</msg>
-<status status="FAIL" endtime="20180214 17:46:37.491" starttime="20180214 17:46:37.484"></status>
+<msg timestamp="20180311 16:09:52.027" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180311 16:09:54.495" starttime="20180311 16:09:52.026"></status>
 </kw>
 <test id="s1-s2-t1" name="Test Case">
-<status status="FAIL" endtime="20180214 17:46:37.492" critical="yes" starttime="20180214 17:46:37.491">Parent suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180311 16:09:54.498" level="INFO">Opening url 'http://localhost:1047/campaign/144'</msg>
+<status status="PASS" endtime="20180311 16:09:55.756" starttime="20180311 16:09:54.498"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Mon casque VR</arg>
+</arguments>
+<msg timestamp="20180311 16:09:55.802" level="INFO">Current page contains text 'Mon casque VR'.</msg>
+<status status="PASS" endtime="20180311 16:09:55.802" starttime="20180311 16:09:55.756"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>id=login</arg>
+</arguments>
+<msg timestamp="20180311 16:09:55.854" level="INFO">Element 'id=login' is displayed.</msg>
+<status status="PASS" endtime="20180311 16:09:55.855" starttime="20180311 16:09:55.802"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>id=signup</arg>
+</arguments>
+<msg timestamp="20180311 16:09:55.906" level="INFO">Element 'id=signup' is displayed.</msg>
+<status status="PASS" endtime="20180311 16:09:55.906" starttime="20180311 16:09:55.855"></status>
+</kw>
+<status status="PASS" endtime="20180311 16:09:55.906" critical="yes" starttime="20180311 16:09:54.495"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180214 17:46:37.493" starttime="20180214 17:46:37.493"></status>
+<status status="PASS" endtime="20180311 16:09:55.973" starttime="20180311 16:09:55.907"></status>
 </kw>
-<status status="FAIL" endtime="20180214 17:46:37.493" starttime="20180214 17:46:37.482">Suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<status status="PASS" endtime="20180311 16:09:55.974" starttime="20180311 16:09:52.020"></status>
 </suite>
 <suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/Campaigns.robot" id="s1-s3" name="Campaigns">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
@@ -62,25 +144,41 @@ OSError: [Errno 20] Not a directory</status>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180214 17:46:37.496" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180214 17:46:37.502" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" endtime="20180214 17:46:37.502" starttime="20180214 17:46:37.501"></status>
-</kw>
-<msg timestamp="20180214 17:46:37.503" level="FAIL">OSError: [Errno 20] Not a directory</msg>
-<status status="FAIL" endtime="20180214 17:46:37.503" starttime="20180214 17:46:37.496"></status>
+<msg timestamp="20180311 16:09:55.983" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180311 16:09:58.422" starttime="20180311 16:09:55.983"></status>
 </kw>
 <test id="s1-s3-t1" name="Test Case">
-<status status="FAIL" endtime="20180214 17:46:37.504" critical="yes" starttime="20180214 17:46:37.503">Parent suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaigns</arg>
+</arguments>
+<msg timestamp="20180311 16:09:58.423" level="INFO">Opening url 'http://localhost:1047/campaigns'</msg>
+<status status="PASS" endtime="20180311 16:09:58.885" starttime="20180311 16:09:58.423"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>${monCasqueVR}</arg>
+</arguments>
+<msg timestamp="20180311 16:09:58.919" level="INFO">Current page contains text 'Mon casque VR'.</msg>
+<status status="PASS" endtime="20180311 16:09:58.920" starttime="20180311 16:09:58.886"></status>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>${title}</arg>
+</arguments>
+<msg timestamp="20180311 16:09:58.925" level="INFO">Page title is 'Toutes les campagnes'.</msg>
+<status status="PASS" endtime="20180311 16:09:58.925" starttime="20180311 16:09:58.920"></status>
+</kw>
+<status status="PASS" endtime="20180311 16:09:58.926" critical="yes" starttime="20180311 16:09:58.422"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180214 17:46:37.506" starttime="20180214 17:46:37.506"></status>
+<status status="PASS" endtime="20180311 16:09:58.991" starttime="20180311 16:09:58.926"></status>
 </kw>
-<status status="FAIL" endtime="20180214 17:46:37.506" starttime="20180214 17:46:37.494">Suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<status status="PASS" endtime="20180311 16:09:58.992" starttime="20180311 16:09:55.977"></status>
 </suite>
 <suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/Connexion.robot" id="s1-s4" name="Connexion">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
@@ -89,25 +187,67 @@ OSError: [Errno 20] Not a directory</status>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180214 17:46:37.512" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180214 17:46:37.517" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" endtime="20180214 17:46:37.517" starttime="20180214 17:46:37.516"></status>
-</kw>
-<msg timestamp="20180214 17:46:37.517" level="FAIL">OSError: [Errno 20] Not a directory</msg>
-<status status="FAIL" endtime="20180214 17:46:37.517" starttime="20180214 17:46:37.512"></status>
+<msg timestamp="20180311 16:09:58.998" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180311 16:10:01.408" starttime="20180311 16:09:58.998"></status>
 </kw>
 <test id="s1-s4-t1" name="Test Case">
-<status status="FAIL" endtime="20180214 17:46:37.518" critical="yes" starttime="20180214 17:46:37.517">Parent suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180311 16:10:01.411" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" endtime="20180311 16:10:01.754" starttime="20180311 16:10:01.410"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>Romain</arg>
+</arguments>
+<msg timestamp="20180311 16:10:01.755" level="INFO">Typing text 'Romain' into text field 'name=login'.</msg>
+<status status="PASS" endtime="20180311 16:10:01.901" starttime="20180311 16:10:01.755"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>Clavaud</arg>
+</arguments>
+<msg timestamp="20180311 16:10:01.902" level="INFO">Typing password into text field 'name=password'.</msg>
+<status status="PASS" endtime="20180311 16:10:02.026" starttime="20180311 16:10:01.901"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180311 16:10:02.026" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" endtime="20180311 16:10:02.441" starttime="20180311 16:10:02.026"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Bonjour Romain</arg>
+</arguments>
+<msg timestamp="20180311 16:10:02.474" level="INFO">Current page contains text 'Bonjour Romain'.</msg>
+<status status="PASS" endtime="20180311 16:10:02.474" starttime="20180311 16:10:02.441"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnDeconnexion</arg>
+</arguments>
+<msg timestamp="20180311 16:10:02.475" level="INFO">Clicking link 'id=btnDeconnexion'.</msg>
+<status status="PASS" endtime="20180311 16:10:02.662" starttime="20180311 16:10:02.474"></status>
+</kw>
+<status status="PASS" endtime="20180311 16:10:02.663" critical="yes" starttime="20180311 16:10:01.409"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180214 17:46:37.519" starttime="20180214 17:46:37.518"></status>
+<status status="PASS" endtime="20180311 16:10:02.724" starttime="20180311 16:10:02.665"></status>
 </kw>
-<status status="FAIL" endtime="20180214 17:46:37.519" starttime="20180214 17:46:37.507">Suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<status status="PASS" endtime="20180311 16:10:02.724" starttime="20180311 16:09:58.993"></status>
 </suite>
 <suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ConnexionErreur.robot" id="s1-s5" name="ConnexionErreur">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
@@ -116,25 +256,59 @@ OSError: [Errno 20] Not a directory</status>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180214 17:46:37.522" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180214 17:46:37.527" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" endtime="20180214 17:46:37.527" starttime="20180214 17:46:37.526"></status>
-</kw>
-<msg timestamp="20180214 17:46:37.527" level="FAIL">OSError: [Errno 20] Not a directory</msg>
-<status status="FAIL" endtime="20180214 17:46:37.527" starttime="20180214 17:46:37.522"></status>
+<msg timestamp="20180311 16:10:02.731" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180311 16:10:05.494" starttime="20180311 16:10:02.730"></status>
 </kw>
 <test id="s1-s5-t1" name="Test Case">
-<status status="FAIL" endtime="20180214 17:46:37.528" critical="yes" starttime="20180214 17:46:37.528">Parent suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180311 16:10:05.497" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" endtime="20180311 16:10:05.888" starttime="20180311 16:10:05.497"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>dsdsdsds</arg>
+</arguments>
+<msg timestamp="20180311 16:10:05.889" level="INFO">Typing text 'dsdsdsds' into text field 'name=login'.</msg>
+<status status="PASS" endtime="20180311 16:10:06.055" starttime="20180311 16:10:05.888"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>dsdssdds</arg>
+</arguments>
+<msg timestamp="20180311 16:10:06.056" level="INFO">Typing password into text field 'name=password'.</msg>
+<status status="PASS" endtime="20180311 16:10:06.202" starttime="20180311 16:10:06.056"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180311 16:10:06.203" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" endtime="20180311 16:10:06.533" starttime="20180311 16:10:06.202"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Login ou password incorrect !</arg>
+</arguments>
+<msg timestamp="20180311 16:10:06.570" level="INFO">Current page contains text 'Login ou password incorrect !'.</msg>
+<status status="PASS" endtime="20180311 16:10:06.571" starttime="20180311 16:10:06.534"></status>
+</kw>
+<status status="PASS" endtime="20180311 16:10:06.571" critical="yes" starttime="20180311 16:10:05.495"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180214 17:46:37.529" starttime="20180214 17:46:37.529"></status>
+<status status="PASS" endtime="20180311 16:10:06.629" starttime="20180311 16:10:06.572"></status>
 </kw>
-<status status="FAIL" endtime="20180214 17:46:37.529" starttime="20180214 17:46:37.520">Suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<status status="PASS" endtime="20180311 16:10:06.630" starttime="20180311 16:10:02.726"></status>
 </suite>
 <suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ContributionMontant0KO.robot" id="s1-s6" name="ContributionMontant0KO">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
@@ -143,25 +317,116 @@ OSError: [Errno 20] Not a directory</status>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180214 17:46:37.532" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180214 17:46:37.539" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" endtime="20180214 17:46:37.540" starttime="20180214 17:46:37.538"></status>
-</kw>
-<msg timestamp="20180214 17:46:37.541" level="FAIL">OSError: [Errno 20] Not a directory</msg>
-<status status="FAIL" endtime="20180214 17:46:37.541" starttime="20180214 17:46:37.532"></status>
+<msg timestamp="20180311 16:10:06.644" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180311 16:10:09.375" starttime="20180311 16:10:06.644"></status>
 </kw>
 <test id="s1-s6-t1" name="Test Case">
-<status status="FAIL" endtime="20180214 17:46:37.542" critical="yes" starttime="20180214 17:46:37.541">Parent suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180311 16:10:09.378" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" endtime="20180311 16:10:09.749" starttime="20180311 16:10:09.378"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>Clavaud</arg>
+</arguments>
+<msg timestamp="20180311 16:10:09.750" level="INFO">Typing text 'Clavaud' into text field 'name=password'.</msg>
+<status status="PASS" endtime="20180311 16:10:09.887" starttime="20180311 16:10:09.750"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>Romain</arg>
+</arguments>
+<msg timestamp="20180311 16:10:09.887" level="INFO">Typing password into text field 'name=login'.</msg>
+<status status="PASS" endtime="20180311 16:10:10.009" starttime="20180311 16:10:09.887"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180311 16:10:10.009" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" endtime="20180311 16:10:10.304" starttime="20180311 16:10:10.009"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Bonjour Romain</arg>
+</arguments>
+<msg timestamp="20180311 16:10:10.345" level="INFO">Current page contains text 'Bonjour Romain'.</msg>
+<status status="PASS" endtime="20180311 16:10:10.345" starttime="20180311 16:10:10.304"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180311 16:10:10.346" level="INFO">Opening url 'http://localhost:1047/campaign/144'</msg>
+<status status="PASS" endtime="20180311 16:10:13.160" starttime="20180311 16:10:10.345"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=contribute</arg>
+</arguments>
+<msg timestamp="20180311 16:10:13.161" level="INFO">Clicking link 'id=contribute'.</msg>
+<status status="PASS" endtime="20180311 16:10:13.320" starttime="20180311 16:10:13.161"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20180311 16:10:13.320" level="INFO">Typing text '0' into text field 'id=montantJS'.</msg>
+<status status="PASS" endtime="20180311 16:10:13.462" starttime="20180311 16:10:13.320"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>\\9</arg>
+</arguments>
+<status status="PASS" endtime="20180311 16:10:13.512" starttime="20180311 16:10:13.463"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Veuillez saisir un montant supérieur à 0 ether</arg>
+</arguments>
+<msg timestamp="20180311 16:10:13.562" level="INFO">Current page contains text 'Veuillez saisir un montant supérieur à 0 ether'.</msg>
+<status status="PASS" endtime="20180311 16:10:13.562" starttime="20180311 16:10:13.512"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>\\27</arg>
+</arguments>
+<status status="PASS" endtime="20180311 16:10:13.612" starttime="20180311 16:10:13.562"></status>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180311 16:10:13.631" level="INFO">Current location is 'http://localhost:1047/campaign/144'.</msg>
+<status status="PASS" endtime="20180311 16:10:13.632" starttime="20180311 16:10:13.613"></status>
+</kw>
+<status status="PASS" endtime="20180311 16:10:13.633" critical="yes" starttime="20180311 16:10:09.376"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180214 17:46:37.544" starttime="20180214 17:46:37.544"></status>
+<status status="PASS" endtime="20180311 16:10:13.698" starttime="20180311 16:10:13.636"></status>
 </kw>
-<status status="FAIL" endtime="20180214 17:46:37.544" starttime="20180214 17:46:37.530">Suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<status status="PASS" endtime="20180311 16:10:13.698" starttime="20180311 16:10:06.637"></status>
 </suite>
 <suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ContributionMontentLettreKO.robot" id="s1-s7" name="ContributionMontentLettreKO">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
@@ -170,25 +435,116 @@ OSError: [Errno 20] Not a directory</status>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180214 17:46:37.549" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180214 17:46:37.553" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" endtime="20180214 17:46:37.553" starttime="20180214 17:46:37.553"></status>
-</kw>
-<msg timestamp="20180214 17:46:37.554" level="FAIL">OSError: [Errno 20] Not a directory</msg>
-<status status="FAIL" endtime="20180214 17:46:37.554" starttime="20180214 17:46:37.548"></status>
+<msg timestamp="20180311 16:10:13.704" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180311 16:10:17.696" starttime="20180311 16:10:13.703"></status>
 </kw>
 <test id="s1-s7-t1" name="Test Case">
-<status status="FAIL" endtime="20180214 17:46:37.555" critical="yes" starttime="20180214 17:46:37.554">Parent suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180311 16:10:17.700" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" endtime="20180311 16:10:18.103" starttime="20180311 16:10:17.699"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>Clavaud</arg>
+</arguments>
+<msg timestamp="20180311 16:10:18.104" level="INFO">Typing text 'Clavaud' into text field 'name=password'.</msg>
+<status status="PASS" endtime="20180311 16:10:18.280" starttime="20180311 16:10:18.104"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>Romain</arg>
+</arguments>
+<msg timestamp="20180311 16:10:18.281" level="INFO">Typing password into text field 'name=login'.</msg>
+<status status="PASS" endtime="20180311 16:10:18.409" starttime="20180311 16:10:18.280"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180311 16:10:18.410" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" endtime="20180311 16:10:18.837" starttime="20180311 16:10:18.409"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Bonjour Romain</arg>
+</arguments>
+<msg timestamp="20180311 16:10:18.880" level="INFO">Current page contains text 'Bonjour Romain'.</msg>
+<status status="PASS" endtime="20180311 16:10:18.881" starttime="20180311 16:10:18.838"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180311 16:10:18.884" level="INFO">Opening url 'http://localhost:1047/campaign/144'</msg>
+<status status="PASS" endtime="20180311 16:10:19.660" starttime="20180311 16:10:18.882"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=contribute</arg>
+</arguments>
+<msg timestamp="20180311 16:10:19.661" level="INFO">Clicking link 'id=contribute'.</msg>
+<status status="PASS" endtime="20180311 16:10:19.849" starttime="20180311 16:10:19.660"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>dsdssdsd</arg>
+</arguments>
+<msg timestamp="20180311 16:10:19.851" level="INFO">Typing text 'dsdssdsd' into text field 'id=montantJS'.</msg>
+<status status="PASS" endtime="20180311 16:10:20.006" starttime="20180311 16:10:19.850"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>\\9</arg>
+</arguments>
+<status status="PASS" endtime="20180311 16:10:20.061" starttime="20180311 16:10:20.007"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Veuillez saisir un montant supérieur à 0 ether</arg>
+</arguments>
+<msg timestamp="20180311 16:10:20.101" level="INFO">Current page contains text 'Veuillez saisir un montant supérieur à 0 ether'.</msg>
+<status status="PASS" endtime="20180311 16:10:20.102" starttime="20180311 16:10:20.062"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>\\27</arg>
+</arguments>
+<status status="PASS" endtime="20180311 16:10:20.155" starttime="20180311 16:10:20.102"></status>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180311 16:10:20.161" level="INFO">Current location is 'http://localhost:1047/campaign/144'.</msg>
+<status status="PASS" endtime="20180311 16:10:20.162" starttime="20180311 16:10:20.156"></status>
+</kw>
+<status status="PASS" endtime="20180311 16:10:20.163" critical="yes" starttime="20180311 16:10:17.697"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180214 17:46:37.555" starttime="20180214 17:46:37.555"></status>
+<status status="PASS" endtime="20180311 16:10:20.224" starttime="20180311 16:10:20.164"></status>
 </kw>
-<status status="FAIL" endtime="20180214 17:46:37.555" starttime="20180214 17:46:37.545">Suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<status status="PASS" endtime="20180311 16:10:20.224" starttime="20180311 16:10:13.700"></status>
 </suite>
 <suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ContributionOK.robot" id="s1-s8" name="ContributionOK">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
@@ -197,25 +553,116 @@ OSError: [Errno 20] Not a directory</status>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180214 17:46:37.559" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180214 17:46:37.563" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" endtime="20180214 17:46:37.563" starttime="20180214 17:46:37.562"></status>
-</kw>
-<msg timestamp="20180214 17:46:37.564" level="FAIL">OSError: [Errno 20] Not a directory</msg>
-<status status="FAIL" endtime="20180214 17:46:37.564" starttime="20180214 17:46:37.559"></status>
+<msg timestamp="20180311 16:10:20.233" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180311 16:10:23.211" starttime="20180311 16:10:20.233"></status>
 </kw>
 <test id="s1-s8-t1" name="Test Case">
-<status status="FAIL" endtime="20180214 17:46:37.564" critical="yes" starttime="20180214 17:46:37.564">Parent suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180311 16:10:23.214" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" endtime="20180311 16:10:23.552" starttime="20180311 16:10:23.213"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>Clavaud</arg>
+</arguments>
+<msg timestamp="20180311 16:10:23.553" level="INFO">Typing text 'Clavaud' into text field 'name=password'.</msg>
+<status status="PASS" endtime="20180311 16:10:23.693" starttime="20180311 16:10:23.552"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>Romain</arg>
+</arguments>
+<msg timestamp="20180311 16:10:23.693" level="INFO">Typing password into text field 'name=login'.</msg>
+<status status="PASS" endtime="20180311 16:10:23.819" starttime="20180311 16:10:23.693"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180311 16:10:23.820" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" endtime="20180311 16:10:24.109" starttime="20180311 16:10:23.819"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Bonjour Romain</arg>
+</arguments>
+<msg timestamp="20180311 16:10:24.144" level="INFO">Current page contains text 'Bonjour Romain'.</msg>
+<status status="PASS" endtime="20180311 16:10:24.144" starttime="20180311 16:10:24.110"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180311 16:10:24.145" level="INFO">Opening url 'http://localhost:1047/campaign/144'</msg>
+<status status="PASS" endtime="20180311 16:10:26.538" starttime="20180311 16:10:24.145"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=contribute</arg>
+</arguments>
+<msg timestamp="20180311 16:10:26.539" level="INFO">Clicking link 'id=contribute'.</msg>
+<status status="PASS" endtime="20180311 16:10:26.675" starttime="20180311 16:10:26.539"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>0.25</arg>
+</arguments>
+<msg timestamp="20180311 16:10:26.676" level="INFO">Typing text '0.25' into text field 'id=montantJS'.</msg>
+<status status="PASS" endtime="20180311 16:10:26.824" starttime="20180311 16:10:26.676"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>\\9</arg>
+</arguments>
+<status status="PASS" endtime="20180311 16:10:26.882" starttime="20180311 16:10:26.824"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=submitParticipation</arg>
+</arguments>
+<msg timestamp="20180311 16:10:26.882" level="INFO">Clicking link 'id=submitParticipation'.</msg>
+<status status="PASS" endtime="20180311 16:10:27.005" starttime="20180311 16:10:26.882"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<arguments>
+<arg>id=montantJS</arg>
+<arg>\\27</arg>
+</arguments>
+<status status="PASS" endtime="20180311 16:10:27.055" starttime="20180311 16:10:27.005"></status>
+</kw>
+<kw name="Location Should Be" library="SeleniumLibrary">
+<doc>Verifies that current URL is exactly ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/campaign/144</arg>
+</arguments>
+<msg timestamp="20180311 16:10:27.094" level="INFO">Current location is 'http://localhost:1047/campaign/144'.</msg>
+<status status="PASS" endtime="20180311 16:10:27.095" starttime="20180311 16:10:27.055"></status>
+</kw>
+<status status="PASS" endtime="20180311 16:10:27.096" critical="yes" starttime="20180311 16:10:23.211"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180214 17:46:37.565" starttime="20180214 17:46:37.565"></status>
+<status status="PASS" endtime="20180311 16:10:27.167" starttime="20180311 16:10:27.098"></status>
 </kw>
-<status status="FAIL" endtime="20180214 17:46:37.565" starttime="20180214 17:46:37.556">Suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<status status="PASS" endtime="20180311 16:10:27.167" starttime="20180311 16:10:20.226"></status>
 </suite>
 <suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/CreatCampaigneDisconnected.robot" id="s1-s9" name="CreatCampaigneDisconnected">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
@@ -224,25 +671,33 @@ OSError: [Errno 20] Not a directory</status>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180214 17:46:37.568" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180214 17:46:37.576" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" endtime="20180214 17:46:37.577" starttime="20180214 17:46:37.576"></status>
-</kw>
-<msg timestamp="20180214 17:46:37.577" level="FAIL">OSError: [Errno 20] Not a directory</msg>
-<status status="FAIL" endtime="20180214 17:46:37.577" starttime="20180214 17:46:37.568"></status>
+<msg timestamp="20180311 16:10:27.173" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180311 16:10:30.069" starttime="20180311 16:10:27.173"></status>
 </kw>
 <test id="s1-s9-t1" name="Test Case">
-<status status="FAIL" endtime="20180214 17:46:37.579" critical="yes" starttime="20180214 17:46:37.578">Parent suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/creerCampagne</arg>
+</arguments>
+<msg timestamp="20180311 16:10:30.079" level="INFO">Opening url 'http://localhost:1047/creerCampagne'</msg>
+<status status="PASS" endtime="20180311 16:10:30.483" starttime="20180311 16:10:30.076"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Vous devez être connecté en tant qu'entrepreneur</arg>
+</arguments>
+<msg timestamp="20180311 16:10:30.506" level="INFO">Current page contains text 'Vous devez être connecté en tant qu'entrepreneur'.</msg>
+<status status="PASS" endtime="20180311 16:10:30.506" starttime="20180311 16:10:30.483"></status>
+</kw>
+<status status="PASS" endtime="20180311 16:10:30.506" critical="yes" starttime="20180311 16:10:30.070"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180214 17:46:37.581" starttime="20180214 17:46:37.580"></status>
+<status status="PASS" endtime="20180311 16:10:30.566" starttime="20180311 16:10:30.507"></status>
 </kw>
-<status status="FAIL" endtime="20180214 17:46:37.581" starttime="20180214 17:46:37.566">Suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<status status="PASS" endtime="20180311 16:10:30.566" starttime="20180311 16:10:27.169"></status>
 </suite>
 <suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/CreateCampaignConnectedEmptyFieds.robot" id="s1-s10" name="CreateCampaignConnectedEmptyFieds">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
@@ -251,25 +706,83 @@ OSError: [Errno 20] Not a directory</status>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180214 17:46:37.584" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180214 17:46:37.589" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" endtime="20180214 17:46:37.589" starttime="20180214 17:46:37.588"></status>
-</kw>
-<msg timestamp="20180214 17:46:37.589" level="FAIL">OSError: [Errno 20] Not a directory</msg>
-<status status="FAIL" endtime="20180214 17:46:37.590" starttime="20180214 17:46:37.584"></status>
+<msg timestamp="20180311 16:10:30.574" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180311 16:10:33.291" starttime="20180311 16:10:30.574"></status>
 </kw>
 <test id="s1-s10-t1" name="Test Case">
-<status status="FAIL" endtime="20180214 17:46:37.590" critical="yes" starttime="20180214 17:46:37.590">Parent suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180311 16:10:33.293" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" endtime="20180311 16:10:33.693" starttime="20180311 16:10:33.293"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>Romain</arg>
+</arguments>
+<msg timestamp="20180311 16:10:33.694" level="INFO">Typing text 'Romain' into text field 'name=login'.</msg>
+<status status="PASS" endtime="20180311 16:10:33.844" starttime="20180311 16:10:33.694"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>Clavaud</arg>
+</arguments>
+<msg timestamp="20180311 16:10:33.845" level="INFO">Typing password into text field 'name=password'.</msg>
+<status status="PASS" endtime="20180311 16:10:33.985" starttime="20180311 16:10:33.845"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180311 16:10:33.988" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" endtime="20180311 16:10:34.376" starttime="20180311 16:10:33.986"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/creerCampagne</arg>
+</arguments>
+<msg timestamp="20180311 16:10:34.377" level="INFO">Opening url 'http://localhost:1047/creerCampagne'</msg>
+<status status="PASS" endtime="20180311 16:10:34.845" starttime="20180311 16:10:34.376"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/creerCampagne/#submit</arg>
+</arguments>
+<msg timestamp="20180311 16:10:34.846" level="INFO">Opening url 'http://localhost:1047/creerCampagne/#submit'</msg>
+<status status="PASS" endtime="20180311 16:10:35.186" starttime="20180311 16:10:34.846"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=submit</arg>
+</arguments>
+<msg timestamp="20180311 16:10:35.187" level="INFO">Clicking link 'id=submit'.</msg>
+<status status="PASS" endtime="20180311 16:10:35.315" starttime="20180311 16:10:35.186"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Tous les champs doivent être remplis</arg>
+</arguments>
+<msg timestamp="20180311 16:10:35.352" level="INFO">Current page contains text 'Tous les champs doivent être remplis'.</msg>
+<status status="PASS" endtime="20180311 16:10:35.352" starttime="20180311 16:10:35.315"></status>
+</kw>
+<status status="PASS" endtime="20180311 16:10:35.352" critical="yes" starttime="20180311 16:10:33.292"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180214 17:46:37.591" starttime="20180214 17:46:37.591"></status>
+<status status="PASS" endtime="20180311 16:10:35.424" starttime="20180311 16:10:35.355"></status>
 </kw>
-<status status="FAIL" endtime="20180214 17:46:37.591" starttime="20180214 17:46:37.582">Suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<status status="PASS" endtime="20180311 16:10:35.424" starttime="20180311 16:10:30.567"></status>
 </suite>
 <suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/InscriptionContributeurErrAddr.robot" id="s1-s11" name="InscriptionContributeurErrAddr">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
@@ -278,25 +791,95 @@ OSError: [Errno 20] Not a directory</status>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180214 17:46:37.595" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180214 17:46:37.600" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" endtime="20180214 17:46:37.600" starttime="20180214 17:46:37.599"></status>
-</kw>
-<msg timestamp="20180214 17:46:37.600" level="FAIL">OSError: [Errno 20] Not a directory</msg>
-<status status="FAIL" endtime="20180214 17:46:37.600" starttime="20180214 17:46:37.594"></status>
+<msg timestamp="20180311 16:10:35.440" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180311 16:10:37.946" starttime="20180311 16:10:35.440"></status>
 </kw>
 <test id="s1-s11-t1" name="Test Case">
-<status status="FAIL" endtime="20180214 17:46:37.601" critical="yes" starttime="20180214 17:46:37.600">Parent suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnInscription</arg>
+</arguments>
+<msg timestamp="20180311 16:10:37.949" level="INFO">Clicking link 'id=btnInscription'.</msg>
+<status status="PASS" endtime="20180311 16:10:38.368" starttime="20180311 16:10:37.948"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=lastname</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180311 16:10:38.368" level="INFO">Typing text 'test' into text field 'name=lastname'.</msg>
+<status status="PASS" endtime="20180311 16:10:38.581" starttime="20180311 16:10:38.368"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=firstname</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180311 16:10:38.582" level="INFO">Typing text 'test' into text field 'name=firstname'.</msg>
+<status status="PASS" endtime="20180311 16:10:38.744" starttime="20180311 16:10:38.582"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180311 16:10:38.745" level="INFO">Typing text 'test' into text field 'name=login'.</msg>
+<status status="PASS" endtime="20180311 16:10:38.894" starttime="20180311 16:10:38.745"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180311 16:10:38.895" level="INFO">Typing password into text field 'name=password'.</msg>
+<status status="PASS" endtime="20180311 16:10:39.054" starttime="20180311 16:10:38.894"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=email</arg>
+<arg>test@test.fe</arg>
+</arguments>
+<msg timestamp="20180311 16:10:39.054" level="INFO">Typing text 'test@test.fe' into text field 'name=email'.</msg>
+<status status="PASS" endtime="20180311 16:10:39.236" starttime="20180311 16:10:39.054"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=address</arg>
+<arg>testAddr</arg>
+</arguments>
+<msg timestamp="20180311 16:10:39.237" level="INFO">Typing text 'testAddr' into text field 'name=address'.</msg>
+<status status="PASS" endtime="20180311 16:10:39.441" starttime="20180311 16:10:39.237"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='inscription']</arg>
+</arguments>
+<msg timestamp="20180311 16:10:39.442" level="INFO">Clicking button 'xpath=//input[@value='inscription']'.</msg>
+<status status="PASS" endtime="20180311 16:10:39.802" starttime="20180311 16:10:39.442"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Adresse publique incorrecte</arg>
+</arguments>
+<msg timestamp="20180311 16:10:39.860" level="INFO">Current page contains text 'Adresse publique incorrecte'.</msg>
+<status status="PASS" endtime="20180311 16:10:39.860" starttime="20180311 16:10:39.804"></status>
+</kw>
+<status status="PASS" endtime="20180311 16:10:39.861" critical="yes" starttime="20180311 16:10:37.947"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180214 17:46:37.602" starttime="20180214 17:46:37.601"></status>
+<status status="PASS" endtime="20180311 16:10:39.922" starttime="20180311 16:10:39.861"></status>
 </kw>
-<status status="FAIL" endtime="20180214 17:46:37.602" starttime="20180214 17:46:37.592">Suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<status status="PASS" endtime="20180311 16:10:39.922" starttime="20180311 16:10:35.428"></status>
 </suite>
 <suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/InscriptionContributeurErrLogin.robot" id="s1-s12" name="InscriptionContributeurErrLogin">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
@@ -305,51 +888,157 @@ OSError: [Errno 20] Not a directory</status>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180214 17:46:37.606" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<msg timestamp="20180214 17:46:37.614" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" endtime="20180214 17:46:37.615" starttime="20180214 17:46:37.613"></status>
-</kw>
-<msg timestamp="20180214 17:46:37.616" level="FAIL">OSError: [Errno 20] Not a directory</msg>
-<status status="FAIL" endtime="20180214 17:46:37.616" starttime="20180214 17:46:37.606"></status>
+<msg timestamp="20180311 16:10:39.929" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180311 16:10:42.496" starttime="20180311 16:10:39.929"></status>
 </kw>
 <test id="s1-s12-t1" name="Test Case">
-<status status="FAIL" endtime="20180214 17:46:37.617" critical="yes" starttime="20180214 17:46:37.616">Parent suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnInscription</arg>
+</arguments>
+<msg timestamp="20180311 16:10:42.499" level="INFO">Clicking link 'id=btnInscription'.</msg>
+<status status="PASS" endtime="20180311 16:10:42.883" starttime="20180311 16:10:42.498"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=lastname</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180311 16:10:42.885" level="INFO">Typing text 'test' into text field 'name=lastname'.</msg>
+<status status="PASS" endtime="20180311 16:10:43.046" starttime="20180311 16:10:42.884"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=firstname</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180311 16:10:43.046" level="INFO">Typing text 'test' into text field 'name=firstname'.</msg>
+<status status="PASS" endtime="20180311 16:10:43.166" starttime="20180311 16:10:43.046"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>Romain</arg>
+</arguments>
+<msg timestamp="20180311 16:10:43.167" level="INFO">Typing text 'Romain' into text field 'name=login'.</msg>
+<status status="PASS" endtime="20180311 16:10:43.289" starttime="20180311 16:10:43.166"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20180311 16:10:43.289" level="INFO">Typing password into text field 'name=password'.</msg>
+<status status="PASS" endtime="20180311 16:10:43.426" starttime="20180311 16:10:43.289"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=email</arg>
+<arg>test@test.fe</arg>
+</arguments>
+<msg timestamp="20180311 16:10:43.427" level="INFO">Typing text 'test@test.fe' into text field 'name=email'.</msg>
+<status status="PASS" endtime="20180311 16:10:43.640" starttime="20180311 16:10:43.426"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=address</arg>
+<arg>0x5a0413244bb1ef169dcffa7d0e7e3a6ecb230285</arg>
+</arguments>
+<msg timestamp="20180311 16:10:43.640" level="INFO">Typing text '0x5a0413244bb1ef169dcffa7d0e7e3a6ecb230285' into text field 'name=address'.</msg>
+<status status="PASS" endtime="20180311 16:10:44.013" starttime="20180311 16:10:43.640"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='inscription']</arg>
+</arguments>
+<msg timestamp="20180311 16:10:44.014" level="INFO">Clicking button 'xpath=//input[@value='inscription']'.</msg>
+<status status="PASS" endtime="20180311 16:10:44.377" starttime="20180311 16:10:44.014"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Login incorrect</arg>
+</arguments>
+<msg timestamp="20180311 16:10:44.417" level="INFO">Current page contains text 'Login incorrect'.</msg>
+<status status="PASS" endtime="20180311 16:10:44.417" starttime="20180311 16:10:44.377"></status>
+</kw>
+<status status="PASS" endtime="20180311 16:10:44.418" critical="yes" starttime="20180311 16:10:42.496"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180214 17:46:37.618" starttime="20180214 17:46:37.618"></status>
+<status status="PASS" endtime="20180311 16:10:44.483" starttime="20180311 16:10:44.419"></status>
 </kw>
-<status status="FAIL" endtime="20180214 17:46:37.618" starttime="20180214 17:46:37.602">Suite setup failed:
-OSError: [Errno 20] Not a directory</status>
+<status status="PASS" endtime="20180311 16:10:44.483" starttime="20180311 16:10:39.925"></status>
 </suite>
-<status status="FAIL" endtime="20180214 17:46:37.619" starttime="20180214 17:46:37.386"></status>
+<status status="PASS" endtime="20180311 16:10:44.487" starttime="20180311 16:09:47.107"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="12" pass="0">Critical Tests</stat>
-<stat fail="12" pass="0">All Tests</stat>
+<stat fail="0" pass="12">Critical Tests</stat>
+<stat fail="0" pass="12">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="12" id="s1" name="Robotframework" pass="0">Robotframework</stat>
-<stat fail="1" id="s1-s1" name="AfficherCampagneConnected" pass="0">Robotframework.AfficherCampagneConnected</stat>
-<stat fail="1" id="s1-s2" name="AfficherCampagneNoConnected" pass="0">Robotframework.AfficherCampagneNoConnected</stat>
-<stat fail="1" id="s1-s3" name="Campaigns" pass="0">Robotframework.Campaigns</stat>
-<stat fail="1" id="s1-s4" name="Connexion" pass="0">Robotframework.Connexion</stat>
-<stat fail="1" id="s1-s5" name="ConnexionErreur" pass="0">Robotframework.ConnexionErreur</stat>
-<stat fail="1" id="s1-s6" name="ContributionMontant0KO" pass="0">Robotframework.ContributionMontant0KO</stat>
-<stat fail="1" id="s1-s7" name="ContributionMontentLettreKO" pass="0">Robotframework.ContributionMontentLettreKO</stat>
-<stat fail="1" id="s1-s8" name="ContributionOK" pass="0">Robotframework.ContributionOK</stat>
-<stat fail="1" id="s1-s9" name="CreatCampaigneDisconnected" pass="0">Robotframework.CreatCampaigneDisconnected</stat>
-<stat fail="1" id="s1-s10" name="CreateCampaignConnectedEmptyFieds" pass="0">Robotframework.CreateCampaignConnectedEmptyFieds</stat>
-<stat fail="1" id="s1-s11" name="InscriptionContributeurErrAddr" pass="0">Robotframework.InscriptionContributeurErrAddr</stat>
-<stat fail="1" id="s1-s12" name="InscriptionContributeurErrLogin" pass="0">Robotframework.InscriptionContributeurErrLogin</stat>
+<stat fail="0" id="s1" name="Robotframework" pass="12">Robotframework</stat>
+<stat fail="0" id="s1-s1" name="AfficherCampagneConnected" pass="1">Robotframework.AfficherCampagneConnected</stat>
+<stat fail="0" id="s1-s2" name="AfficherCampagneNoConnected" pass="1">Robotframework.AfficherCampagneNoConnected</stat>
+<stat fail="0" id="s1-s3" name="Campaigns" pass="1">Robotframework.Campaigns</stat>
+<stat fail="0" id="s1-s4" name="Connexion" pass="1">Robotframework.Connexion</stat>
+<stat fail="0" id="s1-s5" name="ConnexionErreur" pass="1">Robotframework.ConnexionErreur</stat>
+<stat fail="0" id="s1-s6" name="ContributionMontant0KO" pass="1">Robotframework.ContributionMontant0KO</stat>
+<stat fail="0" id="s1-s7" name="ContributionMontentLettreKO" pass="1">Robotframework.ContributionMontentLettreKO</stat>
+<stat fail="0" id="s1-s8" name="ContributionOK" pass="1">Robotframework.ContributionOK</stat>
+<stat fail="0" id="s1-s9" name="CreatCampaigneDisconnected" pass="1">Robotframework.CreatCampaigneDisconnected</stat>
+<stat fail="0" id="s1-s10" name="CreateCampaignConnectedEmptyFieds" pass="1">Robotframework.CreateCampaignConnectedEmptyFieds</stat>
+<stat fail="0" id="s1-s11" name="InscriptionContributeurErrAddr" pass="1">Robotframework.InscriptionContributeurErrAddr</stat>
+<stat fail="0" id="s1-s12" name="InscriptionContributeurErrLogin" pass="1">Robotframework.InscriptionContributeurErrLogin</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20180311 16:09:47.086" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AfficherCampagneConnected.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180311 16:09:47.086" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AfficherCampagneConnected.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180311 16:09:47.086" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AfficherCampagneConnected.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+<msg timestamp="20180311 16:09:47.087" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AfficherCampagneNoConnected.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180311 16:09:47.087" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AfficherCampagneNoConnected.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180311 16:09:47.087" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AfficherCampagneNoConnected.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+<msg timestamp="20180311 16:09:47.088" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/Campaigns.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180311 16:09:47.088" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/Campaigns.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180311 16:09:47.088" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/Campaigns.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+<msg timestamp="20180311 16:09:47.089" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/Connexion.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180311 16:09:47.089" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/Connexion.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180311 16:09:47.089" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/Connexion.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+<msg timestamp="20180311 16:09:47.090" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ConnexionErreur.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180311 16:09:47.090" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ConnexionErreur.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180311 16:09:47.090" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ConnexionErreur.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+<msg timestamp="20180311 16:09:47.091" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ContributionMontant0KO.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180311 16:09:47.091" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ContributionMontant0KO.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180311 16:09:47.091" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ContributionMontant0KO.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+<msg timestamp="20180311 16:09:47.093" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ContributionMontentLettreKO.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180311 16:09:47.093" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ContributionMontentLettreKO.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180311 16:09:47.093" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ContributionMontentLettreKO.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+<msg timestamp="20180311 16:09:47.094" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ContributionOK.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180311 16:09:47.094" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ContributionOK.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180311 16:09:47.094" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/ContributionOK.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+<msg timestamp="20180311 16:09:47.095" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/CreatCampaigneDisconnected.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180311 16:09:47.095" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/CreatCampaigneDisconnected.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180311 16:09:47.096" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/CreatCampaigneDisconnected.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+<msg timestamp="20180311 16:09:47.096" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/CreateCampaignConnectedEmptyFieds.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180311 16:09:47.096" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/CreateCampaignConnectedEmptyFieds.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180311 16:09:47.096" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/CreateCampaignConnectedEmptyFieds.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+<msg timestamp="20180311 16:09:47.098" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/InscriptionContributeurErrAddr.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180311 16:09:47.098" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/InscriptionContributeurErrAddr.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180311 16:09:47.098" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/InscriptionContributeurErrAddr.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+<msg timestamp="20180311 16:09:47.099" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/InscriptionContributeurErrLogin.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180311 16:09:47.099" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/InscriptionContributeurErrLogin.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180311 16:09:47.099" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/InscriptionContributeurErrLogin.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
 </errors>
 </robot>

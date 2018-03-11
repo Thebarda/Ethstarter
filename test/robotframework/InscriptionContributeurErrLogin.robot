@@ -14,7 +14,7 @@ Test Case
     Click Link    id=btnInscription
     Input Text    name=lastname    test
     Input Text    name=firstname    test
-    Input Text    name=login    test
+    Input Text    name=login    Romain
     Input Password    name=password    test
     Input Text    name=email    test@test.fe
     Input Text    name=address    0x5a0413244bb1ef169dcffa7d0e7e3a6ecb230285
