@@ -1,5 +1,6 @@
 # Ethstarter
-web app de financement participatif
+
+Application web de financement participatif utilisant la crypto-monnaie Ethereum
 
 
 # DOD
@@ -11,7 +12,7 @@ web app de financement participatif
   - Les tests nécessaires ont été exécutés
   - Le Product Owner a vu une démonstration ou fait les tests nécessaires
   
-  # Vision
+# Vision
 
 Pour les entrepreneurs et les contributeurs
 
@@ -23,4 +24,25 @@ Qui permet aux contributeurs de participer a une campagne de financement et aux 
 
 A la difference de Kickstarter ou Ulule
 
-Permet l'utilisation, uniquement de la cryptomonnaie, Etherum
+Permet l'utilisation, uniquement de la cryptomonnaie, Ethereum
+
+# How to run it with docker ?
+
+NOTE : This part will change soon
+
+git clone the project
+
+build the image : docker build -t ethstarter-alpine:latest . 
+
+then run it : docker run -p 1047:1047 -t ethstarter-alpine
+
+
+# How to run it without docker ?
+
+You have to install nodejs, npm, python and pip
+
+If you want to run functionals tests, please install robotframework and the selenium library with pip
+
+Run the project : npm start
+
+Launch tests : robot test/robotframework

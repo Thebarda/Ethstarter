@@ -1,0 +1,45 @@
+{{#ifCond session.typeCompte '==' 0}}
+  <div id="campagneContainer" class="center-align rightBuffer">
+      <div class="row">
+          <div class="card col s8">
+              <div class="card-content">
+                  <h3 class="center-align" id="titre">{{campagne.nomCampagne}}</h3>
+                  <div id="description" class="col s12 left-align">{{campagne.description}}</div>
+              </div>
+          </div>
+          <div class="col s1"></div>
+          <div class="col s3">
+              <div class="card">
+                  <div class="card-content left-align">
+                      <b>Projet propulsé par :</b>
+                      <p>{{nomEntrepreneur}} {{prenomEntrepreneur}}</p>
+                      <p>({{entreprise}})</p>
+                  </div>
+              </div>
+              <br />
+              <div class="card">
+                  <div class="card-content center-align">
+                      <h5>Validation</h5>
+                      <a class="btn waves-light waves-effect orange modal-trigger" href="#modalConfirmation">Valider la campagne</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div id="modalConfirmation" class="modal">
+        <div class="modal-content">
+          <h4>Approbation de la campagne {{campagne.nomCampagne}}</h4>
+          <p>Approuvez-vous cette campagne ?</p>
+        </div>
+        <div class="modal-footer">
+          <a id="unapprove" class="modal-action red darken-2 modal-close waves-effect waves-red btn-flat white-text" href="#">Désapprouvée</a>
+          <a id="approve" class="modal-action green darken-2 modal-close waves-effect waves-green btn-flat white-text" href="#">Approuvée</a>
+        </div>
+      </div>
+  </div>
+
+  <script src="/javascripts/afficherDescription.js"></script>
+  <link rel="stylesheet" href="/stylesheets/afficherCampagne.css">
+{{else}}
+  <h2 class="center-align">Vous n'avez pas accès à cette page</h2>
+{{/ifCond}}

@@ -1,4 +1,3 @@
-
 const createModels = require("../models/campagnes");
 const ethstarterContract = require("../smartContract/ethstarterContract");
 const utils = require("../utils/utils");
@@ -17,6 +16,7 @@ module.exports.validationCampagne = function (request, response) {
     var body = request.body;
     body.idEntrepreneur = request.session.idCompte;
     body.image = "DUMMY PATH";
+    body.validated = 0;
 
     createModels.insertCampaign(body, function (err, result) {
         if (err) {

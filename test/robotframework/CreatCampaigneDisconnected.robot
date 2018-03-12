@@ -11,12 +11,5 @@ ${undefined}    https://www.katalon.com/
 
 *** Test Cases ***
 Test Case
-    Click Link    id=btnInscription
-    Input Text    name=lastname    test
-    Input Text    name=firstname    test
-    Input Text    name=login    test
-    Input Password    name=password    test
-    Input Text    name=email    test@test.fe
-    Input Text    name=address    testAddr
-    Click Button    xpath=//input[@value='inscription']
-    Page should contain   Adresse publique incorrecte
+    Go To   http://localhost:1047/creerCampagne
+    Page should contain     Vous devez être connecté en tant qu'entrepreneur
