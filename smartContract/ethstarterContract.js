@@ -38,9 +38,9 @@ module.exports.getBalance = function () {
 };
 //Fonction qui ajoute une campagne de financement au contrat.
 //Ne surtout pas oublier de mettre le coût en gas, sinon ça met une erreur.
-module.exports.addCrowfunding = function(idCrowfund, addrContractor, goal){
+module.exports.addCrowfunding = function(idCrowfund, addrContractor, goal, montantMax){
     //var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
-   return ethstarter.addCrowfunding(idCrowfund, addrContractor, goal, 0, {from: addrContractor, gas: 3000000});
+   return ethstarter.addCrowfunding(idCrowfund, addrContractor, goal, montantMax, {from: addrContractor, gas: 3000000});
 };
 
 module.exports.addContributorToCrowfund = function(idCrowfund, addrContributor, montant){
@@ -63,3 +63,8 @@ module.exports.sendToContractor = function(id){
     var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
     return ethstarter.sendToContractor(id, {from: web3.eth.accounts[0], gas: 3000000});
 };
+
+module.exports.removeContribution = function(idCampagne, addrContributor) {
+  var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+  return ethstarter.removeContribution(idCampagne, addContributor, {from: addContributor, gas: 3000000});
+}

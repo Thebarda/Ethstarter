@@ -1,0 +1,38 @@
+{{#ifCond session.typeCompte '==' 0}}
+  {{#ifCond contractors.length '>' 0}}
+    <div class="row" class="center-align">
+      <br />
+      <span class="col s1"></span>
+      <table class="col s10 responsive-table striped highlight">
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Mail</th>
+          <th>Login</th>
+          <th>Pièce d'identité</th>
+          <th>Validation</th>
+        </tr>
+        {{#each contractors}}
+          <tr>
+            <td>{{this.nom}}</td>
+            <td>{{this.prenom}}</td>
+            <td>{{this.mail}}</td>
+            <td>{{this.login}}</td>
+            <td><img class="materialboxed" width="400" src="/PIpics/{{this.pieceIdentide}}" alt="{{this.nom}} {{this.prenom}}" /></td>
+            <td class="center-align">
+              <a id="approve" href="#" class="btn waves-effect waves-light green darken-1 white-text" onClick="validationContractorAccount({{this.id}}, 1)">Approuvé</a>
+              <br/>
+              <br/>
+              <a id="unapprove" href="#" class="btn waves-effect waves-light red darken-1 white-text" onClick="validationContractorAccount({{this.id}}, 2)">Désapprouvé</a>
+            </td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+  {{else}}
+    <h4 class="center-align">Il n'y a aucun compte à valider</h4>
+  {{/ifCond}}
+{{else}}
+  <h2 class="center-align">Vous n'avez pas accès à cette page</h2>
+{{/ifCond}}
+<script src="/javascripts/validateContractorAccount.js"></script>

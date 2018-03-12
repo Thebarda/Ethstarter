@@ -16,6 +16,7 @@ $(document).ready(function(){
         }
     });
     $("#submitParticipation").on("click", function(){
+      $("#submitParticipation").addClass("disabled");
        $.ajax({
            url:"/participation",
            method:"post",
