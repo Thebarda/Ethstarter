@@ -1,4 +1,3 @@
-
 var modelInscription = require('../models/inscription.js');
 var utils = require("../utils/utils");
 var fs = require('fs');
@@ -79,5 +78,4 @@ module.exports.validationInscriptionEntrepreneur=function(request, response){
             response.render("inscription", response);
         }  
     });
-}   
-
+}  

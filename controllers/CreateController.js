@@ -1,4 +1,3 @@
-
 const createModels = require("../models/campagnes");
 const ethstarterContract = require("../smartContract/ethstarterContract");
 const utils = require("../utils/utils");
