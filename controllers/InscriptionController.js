@@ -1,9 +1,7 @@
-
 var modelInscription = require('../models/inscription.js');
 var utils = require("../utils/utils");
 var fs = require('fs');
 var formidable = require('formidable');
-var util = require('util');
 var fs = require('fs-extra');
 
 module.exports.inscription=function(request, response){
@@ -60,12 +58,17 @@ module.exports.validationInscriptionEntrepreneur=function(request, response){
                     console.log("success!");
                     modelInscription.valide(fields, function (err, result) {
                         if (err) throw err;
-                        modelInscription.inscrire(fields, function (err, result) {
-                            modelInscription.inscrireEntrepreneur(result.insertId, nomEntreprise, UUID+"."+extension, function (err, result) {
-                                if (err) throw err;
-                                response.render("connexion", response);
+                        if (result.length != 0) {
+                            response.error = "Login incorrect";
+                            response.render("inscription", response);
+                        } else {
+                            modelInscription.inscrire(fields, function (err, result) {
+                                modelInscription.inscrireEntrepreneur(result.insertId, nomEntreprise, UUID + "." + extension, function (err, result) {
+                                    if (err) throw err;
+                                    response.render("connexion", response);
+                                });
                             });
-                        });
+                        }
                     });
                 }
             });
@@ -73,7 +76,6 @@ module.exports.validationInscriptionEntrepreneur=function(request, response){
             response.title="Ethstarter - inscription";
             response.error = "Adresse publique incorrecte";
             response.render("inscription", response);
-        }
+        }  
     });
-}
-
+}  

@@ -7,9 +7,11 @@ Suite Teardown    Close Browser
 Library           SeleniumLibrary
 
 *** Variables ***
-${undefined}    https://www.katalon.com/
+${monCasqueVR}    Mon casque VR
+${title}          Toutes les campagnes
 
 *** Test Cases ***
 Test Case
-    Go To   http://localhost:1047/creerCampagne
-    Page should contain     Vous devez être connecté en tant qu'entrepreneur
+    Go To   http://localhost:1047/campaigns
+    Page should contain     ${monCasqueVR}
+    Title Should Be         ${title}
