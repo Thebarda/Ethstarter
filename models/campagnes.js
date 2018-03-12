@@ -37,6 +37,15 @@ module.exports.updateMontant = function (idCampagne, montant, callback) {
     });
 };
 
+module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
+            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours`, `validated` " +
+            "FROM campagnes WHERE idEntrepreneur=" + idEntrepreneur, callback);
+        connection.release();
+    });
+}; 
+
 module.exports.getCampaignById = function (idCampagne, callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +

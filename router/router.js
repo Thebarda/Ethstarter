@@ -20,6 +20,7 @@ module.exports = function (app) {
     app.get('/Deconnexion', ConnexionController.deconnexion);
 
     //Creation campagne
+    app.get('/mycampaigns', CampagnesController.afficherMesCampagnes);
     app.get('/creerCampagne', CreateController.example);
     app.post('/validationCampagne',CreateController.validationCampagne);
     app.get('/Inscription', InscriptionController.inscription);
