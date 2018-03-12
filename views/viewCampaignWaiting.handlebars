@@ -20,7 +20,7 @@
               <div class="card">
                   <div class="card-content center-align">
                       <h5>Validation</h5>
-                      <a class="btn waves-light waves-effect orange modal-trigger" href="#modalConfirmation">Valider la campagne</a>
+                      <a class="btn waves-light waves-effect orange modal-trigger" href="#modalConfirmation" id="validateCampaign">Valider la campagne</a>
                   </div>
               </div>
           </div>
@@ -30,6 +30,10 @@
         <div class="modal-content">
           <h4>Approbation de la campagne {{campagne.nomCampagne}}</h4>
           <p>Approuvez-vous cette campagne ?</p>
+          <div class="input-field col s12">
+          <textarea id="descriptionValidation" class="materialize-textarea"></textarea>
+          <label for="textarea1">Ajouter une description de validation</label>
+        </div>
         </div>
         <div class="modal-footer">
           <a id="unapprove" class="modal-action red darken-2 modal-close waves-effect waves-red btn-flat white-text" href="#">Désapprouvée</a>

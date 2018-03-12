@@ -41,7 +41,7 @@ $(document).ready(function(){
       $.ajax({
         url: '/updateValidationCampaign',
         method: 'post',
-        data: {validationNumber: 1}
+        data: {validationNumber: 1, descriptionValidation: $("#descriptionValidation").val()}
       }).done((data) => {
         location.href="/campaingsWaiting"
       })
@@ -50,7 +50,7 @@ $(document).ready(function(){
       $.ajax({
         url: '/updateValidationCampaign',
         method: 'post',
-        data: {validationNumber: 2}
+        data: {validationNumber: 2, descriptionValidation: $("#descriptionValidation").val()}
       }).done((data) => {
         location.href="/campaingsWaiting"
       })
