@@ -17,15 +17,12 @@ describe("utils", function(){
        });
    });
 
-   describe("check montant contribution", function(){
-      it("should return true", function(){
-        assert.equal(utilsPublic.checkMontantContribution(1), true);
+   describe("escape single quotes", function(){
+      it("should return j\'approuve", function(){
+        assert.equal(utils.escapeSingleQuotes("j'approuve"), "j\'approuve");
       });
-       it("should return false", function(){
-           assert.equal(utilsPublic.checkMontantContribution("1"), false);
-       });
-       it("should return false", function(){
-           assert.equal(utilsPublic.checkMontantContribution(0), false);
-       });
+      it("should return \'\'\'\'", function(){
+        assert.equal(utils.escapeSingleQuotes("''''"), "\'\'\'\'");
+      });
    });
 });

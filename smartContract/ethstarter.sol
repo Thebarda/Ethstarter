@@ -57,4 +57,16 @@ contract Ethstarter {
         Crowfunding storage c = crowfundings[_id];
         c.estEnCours = _estEnCours;
     }
+
+    function removeContribution(uint _idCampagne, address _addrContributor) public{
+        Crowfunding storage c = crowfundings[_idCampagne];
+        for(uint i=0;i<c.nbContributors;i++){
+            Contributor storage contributor = c.contributors[i];
+            if(contributor.addrContributor == _addrContributor){
+                contributor.addrContributor.transfer(contributor.amountGiven);
+                c.amount = contributor.amountGiven;
+                c.nbContributors--;
+            }
+        }
+    }
 }

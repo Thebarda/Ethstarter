@@ -94,7 +94,7 @@ module.exports.fetchCampaignsWaitingForValidation = (callback) => {
 
 module.exports.updateValidationCampaign = (idCampaign, validationNumber, descriptionValidation, callback) => {
   db.getConnection((err, connection) => {
-    connection.query("UPDATE `campagnes` SET `validated`="+validationNumber+", `descriptionValidation`='"+descriptionValidation+"' WHERE `idCampagne`="+idCampaign, callback);
+    connection.query('UPDATE `campagnes` SET `validated`='+validationNumber+', `descriptionValidation`="'+descriptionValidation+'" WHERE `idCampagne`='+idCampaign, callback);
     connection.release();
   })
 }
