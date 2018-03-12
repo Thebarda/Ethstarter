@@ -2,7 +2,6 @@
     {{#ifCond session.typeCompte '==' 2}}
     <div class="container">
         <div class="row">
-            <p id="error" class="red-text"></p>
             <form class="col s12 " id="form">
                 <div class="row">
                     <div class="input-field col s6 offset-s3">
@@ -18,14 +17,14 @@
                         Description Rapide :
                     </div>
                     <div class="col s9">
-                        <textarea id="descriptionCourte" name="descriptionCourte" maxlength="200" class="materialize-textarea required"></textarea>   
+                        <textarea id="descriptionCourte" name="descriptionCourte" maxlength="200" class="materialize-textarea required"></textarea>
                     </div>
                     <div class="col s12 offset-s11">
                         <p id="compteur"></p>
-                    </div>   
+                    </div>
                 </div>
 
-                
+
                 <div class="row file-field input-field col s9 offset-s3">
                     <div class="btn">
                         <span>Image de présentation</span>
@@ -65,7 +64,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s3">Objectif de financement :</div>
+                    <div class="col s3"><br/>Objectif de financement :</div>
                     <div class="input-field col s6">
                         <input type="text" id="objectif" name="objectif" min="0" required>
                         <label for="objectif" data-error="wrong" data-success="right">Objectif</label>
@@ -73,7 +72,20 @@
                     <div class="col s2">
                         <img src="/images/logo-eth.png" alt="Logo Eths" width="50" />
                     </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="col s3"><br/>Objectif de financement maximum:</div>
+                    <div class="input-field col s6">
+                        <input type="text" id="objectifMax" name="objectif" min="0" required>
+                        <label for="objectif" data-error="wrong" data-success="right">Objectif maximum</label>
+                    </div>
+                    <div class="col s2">
+                        <img src="/images/logo-eth.png" alt="Logo Eths" width="50" />
+                    </div>
                 </div>
+                <h5 id="error" class="red-text"></h5>
                 <div class="row">
                     <div class=" col s6 offset-s4">
                         <a class="btn waves-effect waves-light" id="submit">Enregistrer</a>
@@ -81,6 +93,54 @@
                 </div>
             </form>
         </div>
+    </div>
+
+
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h5 class="center-align">Félicitation! Votre Campagne est en cours de validation :)</h5>
+        <div class="preloader-wrapper big active center-align">
+          <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+
+          <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+
+          <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+
+          <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     {{else}}
         <h3>Vous devez être connecté en tant qu'entrepreneur</h3>
@@ -95,4 +155,3 @@
 <script src="/javascripts/creerCampagne.js"></script>
 
 <link rel="stylesheet" href="/stylesheets/creerCampagne.css">
-

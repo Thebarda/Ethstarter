@@ -16,3 +16,26 @@ module.exports.updateProfil = function(idCompte, body, callback){
         connection.release();
     });
 };
+
+module.exports.fetchNbContractorsWaitingForValidation = function(callback){
+  db.getConnection(function (err, connection) {
+      connection.query("SELECT COUNT(`idUtilisateur`) AS nbContractorWaiting " +
+          "FROM entrepreneur e INNER JOIN utilisateur u ON u.id=e.idUtilisateur WHERE validated=0", callback);
+      connection.release();
+  });
+};
+
+module.exports.fetchContractorsWaitingForValidation = (callback) => {
+  db.getConnection(function (err, connection) {
+      connection.query("SELECT `id`, `nom`, `prenom`, `mail`, `login`, `pieceIdentide` FROM `utilisateur` u "+
+      "INNER JOIN entrepreneur e ON e.idUtilisateur = u.id WHERE e.validated = 0", callback);
+      connection.release();
+  });
+}
+
+module.exports.updateValidationContractorAccount = (id, validated, callback) => {
+  db.getConnection((err, connection) => {
+    connection.query("UPDATE `entrepreneur` SET `validated`="+validated+" WHERE `idUtilisateur`="+id, callback);
+    connection.release();
+  })
+}

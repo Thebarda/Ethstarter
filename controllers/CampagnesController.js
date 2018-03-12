@@ -96,7 +96,9 @@ module.exports.campaignWaitign = function(request, response){
 };
 
 module.exports.updateValidationCampaign = (req, resp) => {
-  campagnesModel.updateValidationCampaign(req.session.isLookingCampaign, req.body.validationNumber, (err, result) => {
+  var tmp = utils.escapeSingleQuotes(req.body.descriptionValidation);
+  console.log(tmp);
+  campagnesModel.updateValidationCampaign(req.session.isLookingCampaign, req.body.validationNumber, tmp, (err, result) => {
     resp.render("emptyView", resp);
   })
 }
