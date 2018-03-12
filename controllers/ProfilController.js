@@ -17,11 +17,6 @@ module.exports.modifierProfil = function(request, response){
         if (err) throw err;
         response.profil=result[0];
     });
-    /*body.nom = profil.nom.toString();
-    body.prenom = profil.prenom.toString();
-    body.mailConfirm = profil.mail.toString();
-    body.mailConfirm = profil.mail.toString();
-    body.addrPubliqueEth = profil.addrPubliqueEth.toString();*/
     response.render("modifierProfil", response);
 };
 
@@ -31,7 +26,6 @@ module.exports.enrgModification = function(request, response) {
         if (err) throw err;
         response.render("afficherProfil", response);
     });
-
     profilModel.getProfil(idCompte, function(err, result){
         if (err) throw err;
         response.profil=result[0];

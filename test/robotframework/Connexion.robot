@@ -1,4 +1,7 @@
 *** Settings ***
+${options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
+${options.add_argument}=  Set Variable  add_argument=--headless
+Create WebDriver Chrome chrome_options=${options}
 Suite Setup    Open Browser    http://localhost:1047/    chrome
 Suite Teardown    Close Browser
 Library           SeleniumLibrary
@@ -14,4 +17,3 @@ Test Case
     Click Button    xpath=//input[@value='connexion']
     Page should contain    Bonjour Romain
     Click Link    id=btnDeconnexion
-    
