@@ -1,0 +1,25 @@
+{{#ifCond session.typeCompte '==' 0}}
+    <div id="container" class="center-align">
+        <h3>Administration</h3>
+        <div class="row center-align tabs-fixed-width">
+            <div style="margin-left: 22.5rem" class="col s9 center-align">
+                <ul class="tabs">
+                    <li class="tab col s3"><a id="contributeursTab" href="#contributeurs">Contributeurs</a></li>
+                    <li class="tab col s3"><a id="entrepreneursTab" href="#entrepreneurs">Entrepreneurs</a></li>
+                    <li class="tab col s3"><a id="campagnesTab" href="#campagnes">Campagnes</a></li>
+                </ul>
+            </div>
+            <div id="contributeurs" class="col s12">
+
+            </div>
+            <div id="entrepreneurs" class="col s12">
+
+            </div>
+            <div id="campagnes" class="col s12">
+
+            </div>
+        </div>
+    <script src="/javascripts/fetchAdministration.js"></script>
+{{else}}
+    <h4 class="center-align">Vous n'avez pas accès à cette page</h4>
+{{/ifCond}}
