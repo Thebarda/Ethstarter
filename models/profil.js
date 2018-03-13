@@ -16,10 +16,10 @@ module.exports.getProfilEntrepreneur = function(idCompte, callback){
     });
 };
 
-module.exports.updateProfilContributeur = function(idCompte, body, callback){
+module.exports.updateProfil = function(idCompte, body, callback){
     db.getConnection(function(err, connection){
         if(err) throw err;
-        var sql = "UPDATE INTO utilisateur set nom=?, prenom=?, mail=?, addrPubliqueEth=?  WHERE id=?;";
+        var sql = "UPDATE INTO utilisateur SET nom=?, prenom=?, mail=?, addrPubliqueEth=? WHERE id=?;";
         connection.query(sql, [body.lastname, body.firstname, body.email, body.address, idCompte], callback);
         connection.release();
     });
@@ -28,8 +28,8 @@ module.exports.updateProfilContributeur = function(idCompte, body, callback){
 module.exports.updateProfilEntrepreneur = function(idCompte, body, callback){
     db.getConnection(function(err, connection){
         if(err) throw err;
-        var sql = "UPDATE INTO (SELECT nom, prenom, mail, login, addrPubliqueEth, `nomEntreprise` FROM utilisateur u INNER JOIN entrepreneur e on u.id=e.idUtilisateur WHERE id=?) set nom=?, prenom=?, login=?, mail=?, addrPubliqueEth=? nomEntreprise=?;";
-        connection.query(sql, [idCompte, body.lastname, body.firstname, body.login, body.email, body.nomEntreprise, body.address], callback);
+        var sql = "UPDATE INTO entrepreneur SET nomEntreprise=? WHERE idUtilisateur=?;";
+        connection.query(sql, [body.nomEntreprise, idCompte], callback);
         connection.release();
     });
 };

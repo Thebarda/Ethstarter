@@ -36,6 +36,6 @@ module.exports = function (app) {
     app.post('/updateValidationCampaign', CampagnesController.updateValidationCampaign);
 
     // Profil
-    app.get('/Profil', ProfilController.afficherProfil);
-    app.get('/validationModificationProfil', ProfilController.modifierProfil);
+    app.get('/Profil', ProfilController.getProfil);
+    app.post('/validationModificationProfil', ProfilController.modifierProfil);
 };

@@ -1,7 +1,7 @@
 var profilModel = require("../models/profil.js");
 var idCompte;
 
-module.exports.afficherProfil = function(request, response){
+module.exports.getProfil = function(request, response){
     response.title="Ethstarter - profil";
     idCompte = request.session.idCompte;
     if (request.session.typeCompte == 1) {
@@ -22,10 +22,19 @@ module.exports.afficherProfil = function(request, response){
 
 module.exports.modifierProfil = function(request, response) {
     var body = request.body;
-    profilModel.updateProfilEntrepreneur(idCompte, body, function(err, result){
+    console.log("----- Body -----");
+    console.log(body);
+    console.log("----------------");
+    profilModel.updateProfil(idCompte, body, function(err, result){
         if (err) throw err;
-        response.afficherProfil(request, response);
+        response.render("afficherProfil", response);
     });
+    if (request.session.typeCompte == 2) {
+        profilModel.updateProfilEntrepreneur(idCompte, body, function(err, result){
+            if (err) throw err;
+            response.render("afficherProfil", response);
+        });
+    }
 };
 
 module.exports.fetchNbContractorsWaitingForValidation = (req, resp)=>{
