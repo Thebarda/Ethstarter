@@ -16,3 +16,7 @@ module.exports.genUUID = () => {
     var x = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
     return x() + x() + '-' + x() + '-' + x() + '-' + x() + '-' + x() + x() + x();
 };
+
+module.exports.escapeSingleQuotes = (value) => {
+  return value.replace("'", "\'");
+}

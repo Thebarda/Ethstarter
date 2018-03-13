@@ -16,6 +16,6 @@ Test Case
     Input Password    name=login    Romain
     Click Button    xpath=//input[@value='connexion']
     Page should contain    Bonjour Romain
-    Go To    http://localhost:1047/campaign/144
-    Page should contain    Mon casque VR
+    Go To    http://localhost:1047/campaign/1249
+    Page should contain    mon projet
     Element Should Be Visible   id=contribute

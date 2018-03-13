@@ -16,10 +16,10 @@ Test Case
     Input Password    name=login    Romain
     Click Button    xpath=//input[@value='connexion']
     Page should contain    Bonjour Romain
-    Go To    http://localhost:1047/campaign/144
+    Go To    http://localhost:1047/campaign/1249
     Click Link    id=contribute
     Input Text    id=montantJS    0.25
     Press Key     id=montantJS    \\9
     Click Link    id=submitParticipation
     Press Key     id=montantJS    \\27
-    Location Should Be  http://localhost:1047/campaign/144
+    Location Should Be  http://localhost:1047/campaign/1249
