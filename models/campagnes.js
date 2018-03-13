@@ -1,10 +1,10 @@
 
 var db = require('./configDb');
 
-module.exports.getAllCrowfundsThatFinishToday = function (callback) {
+module.exports.getAllCrowfundsThatFinishTodayAndMax = function (callback) {
     db.getConnection(function (err, connection) {
         if (err) throw err;
-        connection.query("SELECT idCampagne, but, montantActuel FROM campagnes WHERE dateLimite LIKE DATE(NOW())", callback);
+        connection.query("SELECT idCampagne, but, montantActuel FROM campagnes WHERE dateLimite LIKE DATE(NOW()) OR montantActuel>=montantMax", callback);
         connection.release();
     });
 };
@@ -16,12 +16,6 @@ module.exports.insertCampaign = function (data, callback) {
         connection.release();
     });
 };
-
-/*module.exports.getCrowfundById=function(id, callback){
-  db.getConnection(function(err, connection){
-
-  });
-};*/
 
 module.exports.addContributeursXCampagne = function (data, callback) {
     db.getConnection(function (err, connection) {
@@ -64,6 +58,13 @@ module.exports.getCampaignsInProgress = function (callback) {
     });
 };
 
+module.exports.updateEstEnCoursCampaign = (idCampaign, estEnCours, callback) => {
+  db.getConnection((err, connection) => {
+    connection.query("UPDATE `campagnes` SET `estEnCours`="+estEnCours+" WHERE `idCampagne`="+idCampaign, callback);
+    connection.release();
+  })
+}
+
 module.exports.getInfosEntrepreneur = function (idCampagne, callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT nom, prenom, nomEntreprise FROM utilisateur u " +
@@ -91,9 +92,9 @@ module.exports.fetchCampaignsWaitingForValidation = (callback) => {
   });
 }
 
-module.exports.updateValidationCampaign = (idCampaign, validationNumber, callback) => {
+module.exports.updateValidationCampaign = (idCampaign, validationNumber, descriptionValidation, callback) => {
   db.getConnection((err, connection) => {
-    connection.query("UPDATE `campagnes` SET `validated`="+validationNumber+" WHERE `idCampagne`="+idCampaign, callback);
+    connection.query('UPDATE `campagnes` SET `validated`='+validationNumber+', `descriptionValidation`="'+descriptionValidation+'" WHERE `idCampagne`='+idCampaign, callback);
     connection.release();
   })
 }

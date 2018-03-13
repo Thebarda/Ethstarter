@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     //Sidenav always open
-    $(".button-collapse").sideNav({menuWidth: 250});
+    $(".button-collapse").sideNav({menuWidth: 320});
     $(".modal").modal();
     $(".btnActive").on("click", function(){
         $(".btnActive").each(function(){

@@ -22,6 +22,7 @@ install:
     - npm install
     - npm install web3
     - npm install xmlhttprequest
+    - npm install -g mocha
     - sudo apt install python2.7 python-pip
     - sudo pip install robotframework
     - sudo pip install robotframework-seleniumLibrary
@@ -30,6 +31,7 @@ install:
 script:
     - npm start &
     - sleep 5
+    - mocha test/unittest/
     - robot test/robotframework/
 
 notifications:

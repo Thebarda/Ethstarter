@@ -38,4 +38,7 @@ module.exports = function (app) {
     // Profil
     app.get('/Profil', ProfilController.afficherProfil);
     app.get('/modifierProfil', ProfilController.modifierProfil);
+    app.get('/fetchNbContractorsWaitingForValidation', ProfilController.fetchNbContractorsWaitingForValidation);
+    app.get('/contractorsWaiting', ProfilController.fetchContractorsWaitingForValidation);
+    app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
 };

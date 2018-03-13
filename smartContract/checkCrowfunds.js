@@ -13,7 +13,7 @@ module.exports.checkCrowfunds = function(){
     var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
     var ethstarterContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_id","type":"uint256"},{"name":"_addrContractor","type":"address"},{"name":"_goal","type":"uint256"},{"name":"_maxGoal","type":"uint256"}],"name":"addCrowfunding","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"uint256"},{"name":"_estEnCours","type":"bool"}],"name":"setEstEnCours","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"uint256"}],"name":"sendToContributors","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"nbCrowfundings","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"crowfundings","outputs":[{"name":"addrContractor","type":"address"},{"name":"goal","type":"uint256"},{"name":"maxGoal","type":"uint256"},{"name":"amount","type":"uint256"},{"name":"nbContributors","type":"uint256"},{"name":"estEnCours","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"uint256"}],"name":"sendToContractor","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_idCrowfundig","type":"uint256"}],"name":"addContributor","outputs":[],"payable":true,"stateMutability":"payable","type":"function"}]);
     var ethstarter = ethstarterContract.at(jsonContent.contractAddress);
-    campagneModel.getAllCrowfundsThatFinishToday(function(err, result){
+    campagneModel.getAllCrowfundsThatFinishTodayAndMax(function(err, result){
         if(err)
         {
             logObject.error = err;
@@ -29,6 +29,7 @@ module.exports.checkCrowfunds = function(){
                campaignCheck.status = "Sended to contrator";
            }
            ethstarter.setEstEnCours(result[i].idCampagne, false);
+           campagneModel.updateEstEnCoursCampaign(result[i].idCampagne, false);
            campaignCheck.endCheckCampaign = "Ending for campaign "+result[i].idCampagne;
            logObject.checks.push(campaignCheck);
        }

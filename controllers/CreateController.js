@@ -1,4 +1,3 @@
-
 const createModels = require("../models/campagnes");
 const ethstarterContract = require("../smartContract/ethstarterContract");
 const utils = require("../utils/utils");
@@ -25,7 +24,7 @@ module.exports.validationCampagne = function (request, response) {
             return;
         }
         else {
-            ethstarterContract.addCrowfunding(result.insertId, request.session.addrPubliqueEth, parseInt(body.but));
+            ethstarterContract.addCrowfunding(result.insertId, request.session.addrPubliqueEth, parseInt(body.but), parseInt(body.montantMax));
             response.render("accueil", response);
         }
     });
