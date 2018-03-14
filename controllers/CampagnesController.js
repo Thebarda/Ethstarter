@@ -111,3 +111,14 @@ module.exports.updateValidationCampaign = (req, resp) => {
     resp.render("emptyView", resp);
   })
 }
+
+
+module.exports.searchCampaign = (req, resp) => {
+    var search = utils.escapeSingleQuotes(req.body.search);
+    campagnesModel.searchAnyCampaign(search, (err, res)=>{
+        if (err) throw err;
+        resp.title = "Toutes les campagnes";
+        resp.campagnes = res;
+        resp.render("afficherLesCampagnes", resp);
+    });
+}
