@@ -39,3 +39,17 @@ module.exports.updateValidationContractorAccount = (id, validated, callback) => 
     connection.release();
   })
 }
+
+module.exports.fetchAllContributors = (callback) => {
+    db.getConnection((err, connection) => {
+       connection.query("SELECT id, nom, prenom, mail, login FROM utilisateur WHERE type=1", callback);
+       connection.release();
+    });
+}
+
+module.exports.fetchAllEntrepreneurs = (callback) => {
+    db.getConnection((err, connection) => {
+        connection.query("SELECT id, nom, prenom, mail, login, validated, pieceIdentide FROM utilisateur u INNER JOIN entrepreneur e ON e.idUtilisateur=u.id", callback);
+        connection.release();
+    });
+}
