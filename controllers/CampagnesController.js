@@ -117,7 +117,27 @@ module.exports.searchCampaign = (req, resp) => {
     var search = utils.escapeSingleQuotes(req.body.search);
     campagnesModel.searchAnyCampaign(search, (err, res)=>{
         if (err) throw err;
-        resp.title = "Toutes les campagnes";
+        resp.title = "Recherche pour " + search;
+        resp.campagnes = res;
+        resp.render("afficherLesCampagnes", resp);
+    });
+}
+
+module.exports.favorites = (req, resp) => {
+    var idUtilisateur = 10;
+    campagnesModel.favorites(idUtilisateur, (err, res)=>{
+        if (err) throw err;
+        resp.title = "Campagnes favorites";
+        resp.campagnes = res;
+        resp.render("afficherLesCampagnes", resp);
+    });
+}
+
+module.exports.contributed = (req, resp) => {
+    var idUtilisateur = 10;
+    campagnesModel.contributed(idUtilisateur, (err, res)=>{
+        if (err) throw err;
+        resp.title = "Mes contributions";
         resp.campagnes = res;
         resp.render("afficherLesCampagnes", resp);
     });

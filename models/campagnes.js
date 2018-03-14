@@ -126,3 +126,23 @@ module.exports.searchAnyCampaign = (search, callback) => {
         connection.release();
     })
 }
+
+//Mauvaise requete
+module.exports.favorites = function (idUtilisateur, callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
+            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours`, `validated` " +
+            "FROM campagnes WHERE idEntrepreneur=" + idUtilisateur, callback);
+        connection.release();
+    });
+}; 
+
+//Mauvaise requete
+module.exports.contributed = function (idUtilisateur, callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
+            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours`, `validated` " +
+            "FROM campagnes WHERE idEntrepreneur=" + idUtilisateur, callback);
+        connection.release();
+    });
+}; 

@@ -37,6 +37,9 @@ module.exports = function (app) {
     app.get('/campaignWaiting/:idCampagne', CampagnesController.campaignWaitign);
     app.post('/updateValidationCampaign', CampagnesController.updateValidationCampaign);
 
+    app.get('/myfavorites', CampagnesController.favorites);
+    app.get('/mycontributions', CampagnesController.contributed);
+
     //Recherche
     app.post('/search', CampagnesController.searchCampaign);
 
