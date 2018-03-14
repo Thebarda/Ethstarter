@@ -6,6 +6,7 @@ var InscriptionController = require('./../controllers/InscriptionController.js')
 var CampagnesController = require('../controllers/CampagnesController.js');
 var ParticipationController = require('../controllers/ParticipationController.js');
 var ProfilController = require('../controllers/ProfilController.js');
+var AdministrationController = require("../controllers/AdministrationController.js");
 
 
 // Routes
@@ -36,6 +37,13 @@ module.exports = function (app) {
     app.post('/updateValidationCampaign', CampagnesController.updateValidationCampaign);
 
     // Profil
-    app.get('/Profil', ProfilController.getProfil);
-    app.post('/validationModificationProfil', ProfilController.modifierProfil);
+    app.get('/Profil', ProfilController.afficherProfil);
+    app.get('/modifierProfil', ProfilController.modifierProfil);
+    app.get('/fetchNbContractorsWaitingForValidation', ProfilController.fetchNbContractorsWaitingForValidation);
+    app.get('/contractorsWaiting', ProfilController.fetchContractorsWaitingForValidation);
+    app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
+
+    //Administration
+    app.get('/administration', AdministrationController.administration);
+    app.get('/fetchAdmin/:type', AdministrationController.fetchAdmin);
 };
