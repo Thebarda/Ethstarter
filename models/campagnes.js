@@ -127,22 +127,22 @@ module.exports.searchAnyCampaign = (search, callback) => {
     })
 }
 
-//Mauvaise requete
+
 module.exports.favorites = function (idUtilisateur, callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
-            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours`, `validated` " +
-            "FROM campagnes WHERE idEntrepreneur=" + idUtilisateur, callback);
+        connection.query("SELECT campagnes.idCampagne, `nomCampagne`, " + 
+        "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
+        "FROM campagnes inner join favoris on campagnes.idCampagne=favoris.idCampagne WHERE favoris.idUtilisateur =" + idUtilisateur, callback);
         connection.release();
     });
 }; 
 
-//Mauvaise requete
+
 module.exports.contributed = function (idUtilisateur, callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
-            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours`, `validated` " +
-            "FROM campagnes WHERE idEntrepreneur=" + idUtilisateur, callback);
+        connection.query("SELECT campagnes.idCampagne, `nomCampagne`, " + 
+        "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
+        "FROM campagnes inner join contributeursxcampagne on campagnes.idCampagne=contributeursxcampagne.idCampagne WHERE contributeursxcampagne.idContributeur =" + idUtilisateur, callback);
         connection.release();
     });
 }; 
