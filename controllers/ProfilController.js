@@ -1,42 +1,40 @@
 var profilModel = require("../models/profil.js");
 var idCompte;
 
-module.exports.afficherProfil = function(request, response){
+module.exports.getProfil = function(request, response){
     response.title="Ethstarter - profil";
     idCompte = request.session.idCompte;
-    profilModel.getProfil(idCompte, function(err, result){
-        if (err) throw err;
-        response.profil=result[0];
-        response.render("afficherProfil", response);
-    });
-};
-module.exports.modifierProfil = function(request, response){
-    response.title="Ethstarter - ModifierProfil";
-    var body = request.body;
-    profilModel.getProfil(idCompte, function(err, result){
-        if (err) throw err;
-        response.profil=result[0];
-    });
-    /*body.nom = profil.nom.toString();
-    body.prenom = profil.prenom.toString();
-    body.mailConfirm = profil.mail.toString();
-    body.mailConfirm = profil.mail.toString();
-    body.addrPubliqueEth = profil.addrPubliqueEth.toString();*/
-    response.render("modifierProfil", response);
+    if (request.session.typeCompte == 1) {
+        profilModel.getProfilContributeur(idCompte, function(err, result){
+            if (err) throw err;
+            response.profil = result[0];
+            response.render("afficherProfil", response);
+        });
+    }else{
+        profilModel.getProfilEntrepreneur(idCompte, function (err, result) {
+            if (err) throw err;
+            response.profil = result[0];
+            response.render("afficherProfil", response);
+        });
+    }
 };
 
-module.exports.enrgModification = function(request, response) {
+
+module.exports.modifierProfil = function(request, response) {
     var body = request.body;
+    console.log("----- Body -----");
+    console.log(body);
+    console.log("----------------");
     profilModel.updateProfil(idCompte, body, function(err, result){
         if (err) throw err;
         response.render("afficherProfil", response);
     });
-
-    profilModel.getProfil(idCompte, function(err, result){
-        if (err) throw err;
-        response.profil=result[0];
-        response.render("afficherProfil", response);
-    });
+    if (request.session.typeCompte == 2) {
+        profilModel.updateProfilEntrepreneur(idCompte, body, function(err, result){
+            if (err) throw err;
+            response.render("afficherProfil", response);
+        });
+    }
 };
 
 module.exports.fetchNbContractorsWaitingForValidation = (req, resp)=>{
