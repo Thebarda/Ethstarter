@@ -42,7 +42,7 @@ module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
 
 module.exports.getCampaignById = function (idCampagne, callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
+        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
             "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours`, `validated` " +
             "FROM campagnes WHERE idCampagne=" + idCampagne, callback);
         connection.release();
@@ -150,6 +150,13 @@ module.exports.contributed = function (idUtilisateur, callback) {
 module.exports.addFavorite = (idCamp, idUser, callback) => {
     db.getConnection((err, co) => {
         co.query("INSERT INTO table VALUES ('" + idUser + "', '" + idCamp + "')");
+        co.release();
+    });
+};
+
+module.exports.remFavorite = (idCamp, idUser, callback) => {
+    db.getConnection((err, co) => {
+        //co.query("INSERT INTO table VALUES ('" + idUser + "', '" + idCamp + "')");    Need to write the remove query
         co.release();
     });
 };

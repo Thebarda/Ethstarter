@@ -132,13 +132,21 @@ module.exports.favorites = (req, resp) => {
     });
 };
 
-module.exports.addFavorite = (req, resp) => {
-    var currentCampaign = req.body.idCamp;
+module.exports.gestFavorite = (req, resp) => {
+    var currentCamp= req.body.idCamp;
     var user = req.session.idCompte;
-    campagnesModel.addFavorite(user,currentCampaign, (e)=>{
-        if (e) throw e;
-        resp.render("emptyView", resp);
-    });
+    if (req.body.isFav == 0) {
+        campagnesModel.addFavorite(user,currentCampaign, (e)=>{
+            if (e) throw e;
+            resp.render("emptyView", resp);
+        });
+    }
+    else {
+        campagnesModel.remFavorite(user,currentCampaign, (e)=>{
+            if (e) throw e;
+            resp.render("emptyView", resp);
+        });
+    };
 };
 
 module.exports.contributed = (req, resp) => {
@@ -150,3 +158,5 @@ module.exports.contributed = (req, resp) => {
         resp.render("afficherLesCampagnes", resp);
     });
 };
+
+

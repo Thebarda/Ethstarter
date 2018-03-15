@@ -56,4 +56,20 @@ $(document).ready(function(){
         location.href="/campaingsWaiting"
       })
     });
+
+    $("#favYes").on('click', () => {
+      $.ajax({
+        url: '/gestfavorite',
+        method: 'post',
+        data: {isFav: 1, currentCamp: $("#currentCamp").val()} 
+      })
+    });
+
+    $("#favNo").on('click', () => {
+      $.ajax({
+        url: '/gestfavorite',
+        method: 'post',
+        data: {isFav: 0, currentCamp: $("#currentCamp").val()} 
+      })
+    });
 });
