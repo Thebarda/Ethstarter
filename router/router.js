@@ -38,6 +38,7 @@ module.exports = function (app) {
     app.post('/updateValidationCampaign', CampagnesController.updateValidationCampaign);
 
     app.get('/myfavorites', CampagnesController.favorites);
+    app.post('/addfavorite', CampagnesController.addFavorite);
     app.get('/mycontributions', CampagnesController.contributed);
 
     //Recherche

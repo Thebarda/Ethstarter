@@ -146,3 +146,10 @@ module.exports.contributed = function (idUtilisateur, callback) {
         connection.release();
     });
 }; 
+
+module.exports.addFavorite = (idCamp, idUser, callback) => {
+    db.getConnection((err, co) => {
+        co.query("INSERT INTO table VALUES ('" + idUser + "', '" + idCamp + "')");
+        co.release();
+    });
+};

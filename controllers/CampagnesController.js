@@ -124,13 +124,16 @@ module.exports.searchCampaign = (req, resp) => {
 }
 
 module.exports.favorites = (req, resp) => {
-    var idUtilisateur = 10;
-    campagnesModel.favorites(idUtilisateur, (err, res)=>{
+    campagnesModel.favorites(req.session.idCompte, (err, res)=>{
         if (err) throw err;
         resp.title = "Campagnes favorites";
         resp.campagnes = res;
         resp.render("afficherLesCampagnes", resp);
     });
+}
+
+module.exports.addFavorite = (req, resp) => {
+    resp.render("emptyView", resp);
 }
 
 module.exports.contributed = (req, resp) => {
