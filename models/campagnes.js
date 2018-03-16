@@ -160,3 +160,10 @@ module.exports.remFavorite = (idUser, idCamp, callback) => {
         co.release();
     });
 };
+
+module.exports.isFavorite = (idUser, idCamp, callback) => {
+    db.getConnection((e, c) => {
+        c.query("SELECT idCampagne FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser, callback);
+        c.release();
+    });
+};

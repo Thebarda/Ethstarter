@@ -29,7 +29,12 @@ module.exports.afficherCampagne = function(request, response){
                         modelParticipation.getNbContributionsUserConnected(idCampagne, request.session.idCompte, function (err, result) {
                             if (err) throw err;
                             response.nbContribsss = result[0].nbContribsss;
-                            response.render("afficherCampagne", response);
+                            campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
+                                if (e) throw e;
+                                response.isFav = res[0].idCampagne ? 0 : 1;
+                                console.log("res : " + response.isFav)
+                                response.render("afficherCampagne", response);
+                            });
                         });
                     }else{
                         response.nbContribsss = 0;

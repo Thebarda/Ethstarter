@@ -37,7 +37,6 @@ $(document).ready(function(){
            $("#nbContribsss").text(parseInt($("#nbContribsss").text())+1);
        });
     });
-
     $("#approve").on('click', () => {
       $.ajax({
         url: '/updateValidationCampaign',
