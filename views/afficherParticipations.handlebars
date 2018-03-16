@@ -1,0 +1,23 @@
+    <div class="row center-align">
+        <h1>Vos contributions</h1>
+        <form class="contribute">
+            <table class="striped highlight responsive-table">
+                <thead>
+                    <tr>
+                        <th>Nom de la campagne</th>
+                        <th>Montant</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each participation}}
+                    <tr>
+                        <td>{{this.nomCampagne}}</td>
+                        <td>{{this.montant}}</td>
+                        <td><a class="btn waves-effect waves-light red" id="supprimer">Supprimer</a></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </form>
+    </div>

@@ -16,3 +16,14 @@ module.exports.updateProfil = function(idCompte, body, callback){
         connection.release();
     });
 };
+
+module.exports.getParticipations = function(idCompte, callback){
+    db.getConnection(function(err, connection){
+      if (err) throw err;
+      var sql2 = "SELECT nomCampagne, montant FROM participation, campagnes, contributeursxcampagne"; 
+      sql2 += " WHERE contributeursxcampagne.idContributeur = participation.idContributeur AND contributeursxcampagne.idCampagne = campagnes.idCampagne"; 
+      sql2 += " AND participation.idContributeur="+idCompte;
+      connection.query(sql2, callback);
+      connection.release();
+    });
+};

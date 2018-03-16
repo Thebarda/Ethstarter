@@ -38,4 +38,5 @@ module.exports = function (app) {
     // Profil
     app.get('/Profil', ProfilController.afficherProfil);
     app.get('/modifierProfil', ProfilController.modifierProfil);
+    app.get('/Participations', ProfilController.afficherParticipations);
 };

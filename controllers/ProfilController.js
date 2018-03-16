@@ -25,6 +25,16 @@ module.exports.modifierProfil = function(request, response){
     response.render("modifierProfil", response);
 };
 
+module.exports.afficherParticipations = function(request, response){
+    response.title="Ethstarter - Participations";
+    idCompte = request.session.idCompte;
+    profilModel.getParticipations(idCompte, function(err, result){
+        if (err) throw err;
+        response.participation=result;
+        response.render("afficherParticipations", response);
+    });
+};
+
 module.exports.enrgModification = function(request, response) {
     var body = request.body;
     profilModel.updateProfil(idCompte, body, function(err, result){
