@@ -133,16 +133,16 @@ module.exports.favorites = (req, resp) => {
 };
 
 module.exports.gestFavorite = (req, resp) => {
-    var currentCamp= req.body.idCamp;
+    var currentCamp = req.body.currentCamp;
     var user = req.session.idCompte;
     if (req.body.isFav == 0) {
-        campagnesModel.addFavorite(user,currentCampaign, (e)=>{
+        campagnesModel.addFavorite(user,currentCamp, (e)=>{
             if (e) throw e;
             resp.render("emptyView", resp);
         });
     }
     else {
-        campagnesModel.remFavorite(user,currentCampaign, (e)=>{
+        campagnesModel.remFavorite(user,currentCamp, (e)=>{
             if (e) throw e;
             resp.render("emptyView", resp);
         });

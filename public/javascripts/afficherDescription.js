@@ -61,7 +61,7 @@ $(document).ready(function(){
       $.ajax({
         url: '/gestfavorite',
         method: 'post',
-        data: {isFav: 1, currentCamp: $("#currentCamp").val()} 
+        data: {isFav: 1, currentCamp: $("#currentCamp").text()} 
       })
     });
 
@@ -69,7 +69,7 @@ $(document).ready(function(){
       $.ajax({
         url: '/gestfavorite',
         method: 'post',
-        data: {isFav: 0, currentCamp: $("#currentCamp").val()} 
+        data: {isFav: 0, currentCamp: $("#currentCamp").text()} 
       })
     });
 });
