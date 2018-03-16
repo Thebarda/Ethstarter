@@ -31,6 +31,7 @@ install:
 script:
     - npm start &
     - sleep 5
+    - mocha smartContract/tests/
     - mocha test/unittest/
     - robot test/robotframework/
 
