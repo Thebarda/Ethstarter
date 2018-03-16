@@ -1,6 +1,7 @@
 var campagnesModel = require("../models/campagnes");
 var modelParticipation = require ('../models/participation.js');
 var utils = require("../utils/utils");
+var idCompte;
 
 module.exports.afficherCampagne = function(request, response){
     var idCampagne = request.params.idCampagne;
@@ -39,7 +40,15 @@ module.exports.afficherCampagne = function(request, response){
         });
     });
 };
-
+module.exports.afficherMesCampagnes = function(request, response){
+    idCompte = request.session.idCompte;
+    campagnesModel.getMyCampaigns(idCompte,function(err, result){
+        if(err) throw err;
+        response.title = "Mes campagnes";
+        response.campagnes = result;
+        response.render("afficherMesCampagnes", response);
+    });
+};
 module.exports.afficherLesCampagnes = (req, resp)=>{
     campagnesModel.getAllCampaigns((err, res)=>{
         if (err) throw err;
@@ -96,7 +105,20 @@ module.exports.campaignWaitign = function(request, response){
 };
 
 module.exports.updateValidationCampaign = (req, resp) => {
-  campagnesModel.updateValidationCampaign(req.session.isLookingCampaign, req.body.validationNumber, (err, result) => {
+  var tmp = utils.escapeSingleQuotes(req.body.descriptionValidation);
+  console.log(tmp);
+  campagnesModel.updateValidationCampaign(req.session.isLookingCampaign, req.body.validationNumber, tmp, (err, result) => {
     resp.render("emptyView", resp);
   })
+}
+
+
+module.exports.searchCampaign = (req, resp) => {
+    var search = utils.escapeSingleQuotes(req.body.search);
+    campagnesModel.searchAnyCampaign(search, (err, res)=>{
+        if (err) throw err;
+        resp.title = "Toutes les campagnes";
+        resp.campagnes = res;
+        resp.render("afficherLesCampagnes", resp);
+    });
 }

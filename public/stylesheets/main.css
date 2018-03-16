@@ -30,3 +30,9 @@
 #erreurConnexion{
     text-align: center !important;
 }
+
+.searchbar {
+    background:rgb(85, 85, 85);
+    max-height: 50%;
+    margin-right: 1em;
+}

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>{{title}}</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/images/logo-eth-icon.png"/>
+    <link rel="icon" type="image/png" href="/images/logo-eth-icon.png" />
     <link rel='stylesheet' href='/stylesheets/main.css' />
     <link rel="stylesheet" href="/stylesheets/materialize.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -29,6 +30,13 @@
                           <li><a href="/Inscription" id="btnInscription" class="btnActive">Inscription</a></li>
                       </ul>
                   {{/if}}
+                <ul id="nav-mobile" class="right"><li><form method="POST" action="/search">  
+                    <div class="searchbar input-field">
+                    <input id="search" type="search" name="search" required>
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                    </div>
+                </li></form></ul>
               </div>
           </nav>
           <!--stop header band-->
@@ -44,17 +52,21 @@
               <!--<li><a href="/account/startCrowfunding" class="waves-effect waves-light">Compte</a></li>-->
               <!--end switch account type is connected-->
               {{#ifCond session.typeCompte '==' 2}}
-                <li><a id="proposerCampagne" href="/creerCampagne" class="waves-effect waves-light"><i class="material-icons">add</i>Proposer un projet</a></li>
+               <li><a class="subheader"><span class="orange-text" >Entrepreneur</span></a></li>
+                <li><a id="proposerCampagne" href="/creerCampagne" class="waves-effect waves-light"><i class="material-icons">add</i><span class="orange-text">Proposer un projet</span></a></li>
+                <li><a id="mesCampagnes" href="/mycampaigns" class="waves-effect waves-light"><i class="material-icons">search</i><span class="orange-text">Mes Campagnes</span></a></li>
+                <li><div class="divider"></div></li>
               {{/ifCond}}
               {{#ifCond session.typeCompte '==' 0}}
                 <li><a id="validationCampagne" href="/campaingsWaiting" class="waves-effect waves-light"><span id="nbCampaignsWaiting" class="badge"></span>Vérifier campagnes</a></li>
+                <li><a id="validationEntrepreneur" href="/contractorsWaiting" class="waves-effect waves-light"><span id="nbContractorWaiting" class="badge"></span>Vérifier entrepeneurs</a></li>
+                <li><a id="validation" href="/administration" class="waves-effect waves-light">Administration</a></li>
               {{/ifCond}}
               <li><a href="/campaigns" class="waves-effect waves-light">Campagnes de financement</a></li>
               <li><a href="/howitworks" class="waves-effect waves-light">Comment ça fonctionne ?</a></li>
           </ul>
           <!--stop menu-->
-
-      </header>
+          </header>
       <script src="/javascripts/jquery3-2-1.js"></script>
       <!--<script src="/javascripts/jquery-ui.min.js"></script>-->
       <script src="/javascripts/web3.min.js"></script>

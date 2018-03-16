@@ -11,15 +11,14 @@ ${undefined}    https://www.katalon.com/
 
 *** Test Cases ***
 Test Case
-    Click Link     id=btnConnexion
-    Input Text    name=password    Clavaud
-    Input Password    name=login    Romain
+    Click Link    id=btnConnexion
+    Input Text    name=login    moderator
+    Input Password    name=password    acme
     Click Button    xpath=//input[@value='connexion']
-    Page should contain    Bonjour Romain
-    Go To    http://localhost:1047/campaign/1249
-    Click Link    id=contribute
-    Input Text    id=montantJS    dsdssdsd
-    Press Key     id=montantJS    \\9
-    Page should contain    Veuillez saisir un montant supérieur à 0 ether
-    Press Key     id=montantJS    \\27
-    Location Should Be  http://localhost:1047/campaign/1249
+    Page should contain    Bonjour moderator
+    Go To   http://localhost:1047/administration
+    Page Should Contain     Administration
+    Page Should Contain     Contributeurs
+    Page Should Contain     Entrepreneurs
+    Page Should Contain     Campagnes
+    Title Should Be   Administration

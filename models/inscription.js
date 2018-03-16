@@ -28,7 +28,7 @@ module.exports.inscrire = function(body, callback){
 module.exports.inscrireEntrepreneur = function(idUtilisateur, nomEntreprise, pieceIdentide, callback){
     db.getConnection(function(err, connexion){
         if(!err){
-            var sql = "INSERT INTO entrepreneur(idUtilisateur, nomEntreprise, pieceIdentide) VALUES(?,?,?);";
+            var sql = "INSERT INTO entrepreneur(idUtilisateur, nomEntreprise, pieceIdentide, validated) VALUES(?,?,?,0);";
             connexion.query(sql, [idUtilisateur, nomEntreprise, pieceIdentide], callback);
             connexion.release();
         }

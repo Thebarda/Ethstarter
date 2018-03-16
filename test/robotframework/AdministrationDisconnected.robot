@@ -11,11 +11,6 @@ ${undefined}    https://www.katalon.com/
 
 *** Test Cases ***
 Test Case
-    Click Link     id=btnConnexion
-    Input Text    name=password    Clavaud
-    Input Password    name=login    Romain
-    Click Button    xpath=//input[@value='connexion']
-    Page should contain    Bonjour Romain
-    Go To    http://localhost:1047/campaign/1249
-    Page should contain    mon projet
-    Element Should Be Visible   id=contribute
+    Go To   http://localhost:1047/administration
+    Element Should Contain  //h4  Vous n'avez pas accès à cette page
+    Title Should Be   Administration

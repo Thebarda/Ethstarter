@@ -7,7 +7,7 @@ Suite Teardown    Close Browser
 Library           SeleniumLibrary
 
 *** Variables ***
-${monCasqueVR}    Mon casque VR
+${monCasqueVR}    mon projet
 ${title}          Toutes les campagnes
 
 *** Test Cases ***

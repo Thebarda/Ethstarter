@@ -1,23 +1,27 @@
 
 <div class="campagnesContainer">
     <div class="row">
-        {{#each campagnes}}
-            <div class="col s4">
-                <div class="card hoverable">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator cardImg" src="/images/placeholder2.jpg" />
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{nomCampagne}}<i class="material-icons right">expand_less</i></span>
-                        <p><a href="/campaign/{{idCampagne}}">Découvrir</a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4 activator">{{nomCampagne}}<i class="material-icons right">expand_more</i></span>
-                        <p>{{descriptionCourte}}</p>
+        {{#if campagnes}}
+            {{#each campagnes}}
+                <div class="col s4">
+                    <div class="card hoverable">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator cardImg" src="/images/placeholder2.jpg" />
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">{{nomCampagne}}<i class="material-icons right">expand_less</i></span>
+                            <p><a href="/campaign/{{idCampagne}}">Découvrir</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4 activator">{{nomCampagne}}<i class="material-icons right">expand_more</i></span>
+                            <p>{{descriptionCourte}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {{/each}}
+            {{/each}}
+        {{else}}
+            <div class="center"><h3>Aucun résultat :(</h3></div>
+        {{/if}}
     </div>
 </div>
 
