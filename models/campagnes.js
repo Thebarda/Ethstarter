@@ -147,16 +147,16 @@ module.exports.contributed = function (idUtilisateur, callback) {
     });
 }; 
 
-module.exports.addFavorite = (idCamp, idUser, callback) => {
+module.exports.addFavorite = (idUser, idCamp, callback) => {
     db.getConnection((err, co) => {
-        co.query("INSERT INTO table VALUES ('" + idUser + "', '" + idCamp + "')");
+        co.query("INSERT INTO favoris VALUES ('" + idUser + "', '" + idCamp + "')");
         co.release();
     });
 };
 
 module.exports.remFavorite = (idCamp, idUser, callback) => {
     db.getConnection((err, co) => {
-        //co.query("INSERT INTO table VALUES ('" + idUser + "', '" + idCamp + "')");    Need to write the remove query
+        //co.query("DELETE FROM `favoris` WHERE idCampagne = 1249");
         co.release();
     });
 };
