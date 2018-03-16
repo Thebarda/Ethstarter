@@ -162,6 +162,7 @@ module.exports.remFavorite = (idUser, idCamp, callback) => {
 };
 
 module.exports.isFavorite = (idUser, idCamp, callback) => {
+    console.log("mdl : " + idCamp);
     db.getConnection((e, c) => {
         c.query("SELECT idCampagne FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser, callback);
         c.release();
