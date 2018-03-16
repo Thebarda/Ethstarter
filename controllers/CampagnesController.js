@@ -136,14 +136,12 @@ module.exports.gestFavorite = (req, resp) => {
     var currentCamp = req.body.currentCamp;
     var user = req.session.idCompte;
     if (req.body.isFav == 0) {
-        console.log("req.body.currentCamp : " + currentCamp);
         campagnesModel.addFavorite(user,currentCamp, (e)=>{
             if (e) throw e;
             resp.render("emptyView", resp);
         });
     }
     else {
-        console.log("req.body.currentCamp : " + currentCamp);
         campagnesModel.remFavorite(user,currentCamp, (e)=>{
             if (e) throw e;
             resp.render("emptyView", resp);

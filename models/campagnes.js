@@ -156,7 +156,6 @@ module.exports.addFavorite = (idUser, idCamp, callback) => {
 
 module.exports.remFavorite = (idUser, idCamp, callback) => {
     db.getConnection((err, co) => {
-        console.log("DELETE FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser);
         co.query("DELETE FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser);
         co.release();
     });
