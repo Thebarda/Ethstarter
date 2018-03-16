@@ -136,13 +136,14 @@ module.exports.gestFavorite = (req, resp) => {
     var currentCamp = req.body.currentCamp;
     var user = req.session.idCompte;
     if (req.body.isFav == 0) {
-        console.log("req.body.currentCamp : " + req.body.currentCamp);
+        console.log("req.body.currentCamp : " + currentCamp);
         campagnesModel.addFavorite(user,currentCamp, (e)=>{
             if (e) throw e;
             resp.render("emptyView", resp);
         });
     }
     else {
+        console.log("req.body.currentCamp : " + currentCamp);
         campagnesModel.remFavorite(user,currentCamp, (e)=>{
             if (e) throw e;
             resp.render("emptyView", resp);
@@ -151,8 +152,7 @@ module.exports.gestFavorite = (req, resp) => {
 };
 
 module.exports.contributed = (req, resp) => {
-    var idUtilisateur = 10;
-    campagnesModel.contributed(idUtilisateur, (e, res)=>{
+    campagnesModel.contributed(req.session.idCompte, (e, res)=>{
         if (e) throw e;
         resp.title = "Mes contributions";
         resp.campagnes = res;
