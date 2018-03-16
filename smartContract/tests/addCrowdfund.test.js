@@ -17,7 +17,7 @@ describe("Add crowdfund", () => {
           },
           "(montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) : Cette expression ne passe pas"
       );
-    });
+    }).timeout(10000);
     it('should throws an error when idCrowdfund is undefined', () => {
         assert.throws(
             () => {
@@ -25,7 +25,7 @@ describe("Add crowdfund", () => {
             },
             "(montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) : Cette expression ne passe pas"
         );
-    });
+    }).timeout(10000);
     it('should throws an error when goal is null', () => {
         assert.throws(
             () => {
@@ -33,7 +33,7 @@ describe("Add crowdfund", () => {
             },
             "(montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) : Cette expression ne passe pas"
         );
-    });
+    }).timeout(10000);
     it('should throws an error when montantMax is null', () => {
         assert.throws(
             () => {
@@ -41,7 +41,7 @@ describe("Add crowdfund", () => {
             },
             "(montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) : Cette expression ne passe pas"
         );
-    });
+    }).timeout(10000);
     it('should throws an error when goal is undefined', () => {
         assert.throws(
             () => {
@@ -49,7 +49,7 @@ describe("Add crowdfund", () => {
             },
             "(montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) : Cette expression ne passe pas"
         );
-    });
+    }).timeout(10000);
     it('should throws an error when goal is equal to zero', () => {
         assert.throws(
             () => {
@@ -57,7 +57,7 @@ describe("Add crowdfund", () => {
             },
             "(montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) : Cette expression ne passe pas"
         );
-    });
+    }).timeout(10000);
     it('should throws an error when montantMax is undefined', () => {
         assert.throws(
             () => {
@@ -65,7 +65,7 @@ describe("Add crowdfund", () => {
             },
             "(montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) : Cette expression ne passe pas"
         );
-    });
+    }).timeout(10000);
     it('should throws an error when address is undefined', () => {
         assert.throws(
             () => {
@@ -73,7 +73,7 @@ describe("Add crowdfund", () => {
             },
             "(montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) : Cette expression ne passe pas"
         );
-    });
+    }).timeout(10000);
     it('should throws an error when address is null', () => {
         assert.throws(
             () => {
@@ -81,7 +81,7 @@ describe("Add crowdfund", () => {
             },
             "(montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) : Cette expression ne passe pas"
         );
-    });
+    }).timeout(10000);
     it('should throws an error when it\'s not an address', () =>{
         assert.throws(
             () => {
@@ -89,7 +89,7 @@ describe("Add crowdfund", () => {
             },
             "(montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) : Cette expression ne passe pas"
         );
-    });
+    }).timeout(10000);
     it('should throws an error when montantMax is lower than goal', () =>{
         assert.throws(
             () => {
@@ -97,9 +97,9 @@ describe("Add crowdfund", () => {
             },
             "(montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) : Cette expression ne passe pas"
         );
-    });
+    }).timeout(10000);
     it('should return a valid transaction\'s address', () =>{
         let result = ethstarterSmartContract.addCrowfunding(100, accounts[0], 10, 12);
         assert.equal(typeof web3.eth.getTransaction(result), "object");
-    });
+    }).timeout(10000);
 });

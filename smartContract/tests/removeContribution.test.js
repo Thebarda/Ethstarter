@@ -15,19 +15,19 @@ describe("remove contribution", () => {
             () => {ethstarterSmartContract.removeContribution(null, accounts[1])},
             "(idCampagne && web3.isAddress(addrContributor)) : Cette expression ne passe pas"
         );
-    });
+    }).timeout(10000);
     it("should throws an error when idCrowdfund is undefined", () => {
         assert.throws(
             () => {ethstarterSmartContract.removeContribution(undefined, accounts[1])},
             "(idCampagne && web3.isAddress(addrContributor)) : Cette expression ne passe pas"
         );
-    });
+    }).timeout(10000);
     it("should throws an error when it\'s not an address", () => {
         assert.throws(
             () => {ethstarterSmartContract.removeContribution(100, 'notanaddress')},
             "(idCampagne && web3.isAddress(addrContributor)) : Cette expression ne passe pas"
         );
-    });
+    }).timeout(10000);
     it("should return a valid transaction\'s address", () => {
         ethstarterSmartContract.addCrowfunding(100, accounts[0], 10, 12);
         ethstarterSmartContract.addContributorToCrowfund(100, accounts[1], 1);
@@ -36,5 +36,5 @@ describe("remove contribution", () => {
         ethstarterSmartContract.addContributorToCrowfund(100, accounts[1], 1);
         let result = ethstarterSmartContract.removeContribution(100, accounts[1]);
         assert.equal(typeof web3.eth.getTransaction(result), "object");
-    });
+    }).timeout(10000);
 });

@@ -16,13 +16,13 @@ describe("send to contributors", () => {
             () => {ethstarterSmartContract.sendToContributors(null)},
             "L'id de la campagne est null ou undefined"
         );
-    });
+    }).timeout(10000);
     it("should throws an error when idCrowdfund is undefined", () => {
         assert.throws(
             () => {ethstarterSmartContract.sendToContributors(undefined)},
             "L'id de la campagne est null ou undefined"
         );
-    });
+    }).timeout(10000);
     it("both account their ether get back", () => {
         ethstarterSmartContract.addCrowfunding(100, accounts[0], 10, 12);
         ethstarterSmartContract.addContributorToCrowfund(100, accounts[1], 5);
@@ -32,5 +32,5 @@ describe("send to contributors", () => {
         ethstarterSmartContract.sendToContributors(100);
         assert.equal((web3.eth.getBalance(accounts[1]) - previousBalanceAccount1) > 4, true);
         assert.equal((web3.eth.getBalance(accounts[2]) - previousBalanceAccount2) > 4, true);
-    });
+    }).timeout(10000);
 });
