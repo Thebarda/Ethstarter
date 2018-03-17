@@ -29,7 +29,7 @@ install:
     - sleep 3
 
 script:
-    - mocha mocha test/smartContract/
+    - mocha test/smartContract/
     - mocha test/unittest/
     - npm start &
     - sleep 5
