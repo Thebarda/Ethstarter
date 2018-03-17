@@ -1,5 +1,5 @@
 let Web3 = require("web3");
-let ethstarterSmartContract = require('../ethstarterContract');
+let ethstarterSmartContract = require('../../smartContract/ethstarterContract');
 let assert = require("assert");
 let web3 = null;
 let accounts = null;

@@ -70,7 +70,12 @@ module.exports.addContributorToCrowfund = function(idCrowfund, addrContributor, 
 };
 
 module.exports.setEstEnCours = function(idCrowfund, estEnCours){
-  return ethstarter.setEstEnCours(idCrowfund, estEnCours);
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    if(idCrowfund && estEnCours !== null && typeof estEnCours !== 'undefined') {
+        return ethstarter.setEstEnCours(idCrowfund, estEnCours, {from: web3.eth.accounts[0], gas: 3000000});
+    } else {
+        throw new Error("(idCrowfund && estEnCours) : Cette expression ne passe pas");
+    }
 };
 
 module.exports.sendToContributors = function(id){
