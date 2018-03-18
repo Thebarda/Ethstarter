@@ -58,6 +58,15 @@ module.exports.getAllCampaigns = function (callback) {
     });
 };
 
+module.exports.getLast10Campaigns = function (callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
+            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
+            "FROM campagnes WHERE validated=1 LIMIT 10", callback);
+        connection.release();
+    });
+};
+
 module.exports.getCampaignsInProgress = function (callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +

@@ -5,6 +5,7 @@ Create WebDriver Chrome chrome_options=${options}
 Suite Setup    Open Browser    http://localhost:1047/    chrome
 Suite Teardown    Close Browser
 Library           SeleniumLibrary
+
 *** Variables ***
 ${undefined}    https://www.katalon.com/
 
@@ -14,5 +15,5 @@ Test Case
     Input Text    name=login    Romain
     Input Password    name=password    Clavaud
     Click Button    xpath=//input[@value='connexion']
-    Page should contain    Bonjour Romain
-    Click Link    id=btnDeconnexion
+    Page Should Contain     Campagnes ajoutées récemment
+    Page Should Contain     Notifications

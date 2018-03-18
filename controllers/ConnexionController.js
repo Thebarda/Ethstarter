@@ -1,6 +1,7 @@
 var modelConnexion = require('../models/connexion.js');
 var profilModel = require('../models/profil');
 var notifModel = require('../models/notifications');
+var campagneModel = require("../models/campagnes");
 var sha256 = require('js-sha256').sha256;
 
 // Méthode permettant d'afficher la page de connexion
@@ -52,13 +53,20 @@ module.exports.validationConnexion = function(request, response){
                             if(err) throw err;
                             response.notifLength = result3.length;
                             response.notifications = result3;
-                            response.title = "Ethstarter - accueil";
-                            response.render("accueil", response);
+                            campagneModel.getLast10Campaigns((err, result) => {
+                                response.campagnes = result;
+                                response.title = "Ethstarter - accueil";
+                                response.render("accueil", response);
+                            });
                         });
                     });
                 }else{
                     response.notifLength = -1;
-                    response.render("accueil", response);
+                    campagneModel.getLast10Campaigns((err, result) => {
+                        response.campagnes = result;
+                        response.title = "Ethstarter - accueil";
+                        response.render("accueil", response);
+                    });
                 }
             }
         });
