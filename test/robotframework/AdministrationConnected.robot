@@ -17,8 +17,8 @@ Test Case
     Click Button    xpath=//input[@value='connexion']
     Page should contain    Bonjour moderator
     Go To   http://localhost:1047/administration
-    Page Should Contain     Administration
-    Page Should Contain     Contributeurs
-    Page Should Contain     Entrepreneurs
-    Page Should Contain     Campagnes
+    Wait Until Page Contains    Administration
+    Wait Until Page Contains     Contributeurs
+    Wait Until Page Contains     Entrepreneurs
+    Wait Until Page Contains     Campagnes
     Title Should Be   Administration
