@@ -1,5 +1,6 @@
 var modelInscription = require('../models/inscription.js');
 var utils = require("../utils/utils");
+var notifModel = require('../models/notifications');
 var fs = require('fs');
 var formidable = require('formidable');
 var fs = require('fs-extra');
@@ -63,9 +64,11 @@ module.exports.validationInscriptionEntrepreneur=function(request, response){
                             response.render("inscription", response);
                         } else {
                             modelInscription.inscrire(fields, function (err, result) {
-                                modelInscription.inscrireEntrepreneur(result.insertId, nomEntreprise, UUID + "." + extension, function (err, result) {
+                                modelInscription.inscrireEntrepreneur(result.insertId, nomEntreprise, UUID + "." + extension, function (err, result2) {
                                     if (err) throw err;
-                                    response.render("connexion", response);
+                                    notifModel.addNotification(result.insertId, "Vous êtes en attente de validation ", (err, result2) => {
+                                        response.render("connexion", response);
+                                    });
                                 });
                             });
                         }
