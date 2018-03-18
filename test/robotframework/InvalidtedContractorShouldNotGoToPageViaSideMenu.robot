@@ -12,13 +12,8 @@ ${undefined}    https://www.katalon.com/
 *** Test Cases ***
 Test Case
     Click Link    id=btnConnexion
-    Input Text    name=login    moderator
-    Input Password    name=password    acme
+    Input Text    name=login    Lafarge
+    Input Password    name=password    Lafarge
     Click Button    xpath=//input[@value='connexion']
-    Page should contain    Bonjour moderator
-    Go To   http://localhost:1047/administration
-    Wait Until Page Contains    Administration
-    Wait Until Page Contains     Contributeurs
-    Wait Until Page Contains     Entrepreneurs
-    Wait Until Page Contains     Campagnes
-    Title Should Be   Administration
+    Click Link  btn_menu
+    Page Should Not Contain     Entrepreneur

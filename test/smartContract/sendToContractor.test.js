@@ -1,5 +1,5 @@
 let Web3 = require("web3");
-let ethstarterSmartContract = require('../ethstarterContract');
+let ethstarterSmartContract = require('../../smartContract/ethstarterContract');
 let assert = require("assert");
 let web3 = null;
 let accounts = null;
@@ -13,24 +13,22 @@ describe("send to contributors", () => {
 
     it("should throws an error when idCrowdfund is null", () => {
         assert.throws(
-            () => {ethstarterSmartContract.sendToContributors(null)},
+            () => {ethstarterSmartContract.sendToContractor(null)},
             "L'id de la campagne est null ou undefined"
         );
     }).timeout(10000);
     it("should throws an error when idCrowdfund is undefined", () => {
         assert.throws(
-            () => {ethstarterSmartContract.sendToContributors(undefined)},
+            () => {ethstarterSmartContract.sendToContractor(undefined)},
             "L'id de la campagne est null ou undefined"
         );
     }).timeout(10000);
-    it("both account their ether get back", () => {
+    it("contractor should get 9.9999999 ether", () => {
         ethstarterSmartContract.addCrowfunding(100, accounts[0], 10, 12);
         ethstarterSmartContract.addContributorToCrowfund(100, accounts[1], 5);
         ethstarterSmartContract.addContributorToCrowfund(100, accounts[2], 5);
-        let previousBalanceAccount1 = web3.eth.getBalance(accounts[1]);
-        let previousBalanceAccount2 = web3.eth.getBalance(accounts[2]);
-        ethstarterSmartContract.sendToContributors(100);
-        assert.equal((web3.eth.getBalance(accounts[1]) - previousBalanceAccount1) > 4, true);
-        assert.equal((web3.eth.getBalance(accounts[2]) - previousBalanceAccount2) > 4, true);
+        let previousBalanceAccount0 = web3.eth.getBalance(accounts[0]);
+        ethstarterSmartContract.sendToContractor(100);
+        assert.equal((web3.eth.getBalance(accounts[0]) - previousBalanceAccount0) > 9, true);
     }).timeout(10000);
 });
