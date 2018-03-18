@@ -116,3 +116,13 @@ module.exports.getAllAllCampaigns = function (callback) {
         connection.release();
     });
 };
+
+module.exports.searchAnyCampaign = (search, callback) => {
+    db.getConnection((err, connection) => {
+        connection.query("SELECT `idCampagne`, `nomCampagne`, " +
+        "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " +
+        "FROM campagnes  WHERE validated=1 AND `nomCampagne` LIKE '%" + search + 
+        "%' OR `descriptionCourte` LIKE  '%" + search + "%'", callback);
+        connection.release();
+    })
+}
