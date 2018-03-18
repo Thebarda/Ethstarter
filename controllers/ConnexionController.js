@@ -1,5 +1,5 @@
-
 var modelConnexion = require('../models/connexion.js');
+var profilModel = require('../models/profil');
 var sha256 = require('js-sha256').sha256;
 
 // Méthode permettant d'afficher la page de connexion
@@ -40,8 +40,14 @@ module.exports.validationConnexion = function(request, response){
                 request.session.addrPubliqueEth=result[0].addrPubliqueEth;
                 request.session.typeCompte = result[0].type;
                 request.session.idCompte = result[0].id;
-                request.session.isConnected=true;
-                response.render("accueil", response);
+                profilModel.fetchValidationEntrepeneur(request.session.idCompte, (err2, result2) => {
+                    if(err2) throw err2;
+                    if(result2.length > 0) {
+                       request.session.entrepreneurValidated = result2[0].validated;
+                    }
+                    request.session.isConnected=true;
+                    response.render("accueil", response);
+                });
             }
         });
     }
