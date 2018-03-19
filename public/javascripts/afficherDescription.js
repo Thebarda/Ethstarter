@@ -42,7 +42,7 @@ $(document).ready(function(){
       $.ajax({
         url: '/updateValidationCampaign',
         method: 'post',
-        data: {validationNumber: 1, descriptionValidation: $("#descriptionValidation").val()}
+        data: {validationNumber: 1, descriptionValidation: $("#descriptionValidation").val(), titre:$("#titre").text()}
       }).done((data) => {
         location.href="/campaingsWaiting"
       })
@@ -51,7 +51,7 @@ $(document).ready(function(){
       $.ajax({
         url: '/updateValidationCampaign',
         method: 'post',
-        data: {validationNumber: 2, descriptionValidation: $("#descriptionValidation").val()}
+        data: {validationNumber: 2, descriptionValidation: $("#descriptionValidation").val(), titre:$("#titre").text()}
       }).done((data) => {
         location.href="/campaingsWaiting"
       })

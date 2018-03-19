@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('select').material_select();
+    $(".tooltiped").tooltip({delay: 10});
     var d = new Date();
     $('.datepicker').pickadate({
         min: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
