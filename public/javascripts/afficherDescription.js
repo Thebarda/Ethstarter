@@ -1,4 +1,9 @@
 $(document).ready(function(){
+    //fill favorite state from the hidden field and construct the button
+    var favStatus = $("#isFav").text();
+    var favIcon = favStatus == "0" ? "star" : "star_border";
+    $("#favicon").text(favIcon);
+
     $("#description").html($.parseHTML($("#description").text()));
     $('ul.tabs').tabs();
     $('.modal').modal();
@@ -56,23 +61,16 @@ $(document).ready(function(){
       })
     });
 
-    $("#favYes").on('click', () => {
-      $("#favicon").text('star_border');
+    $("#favbutton").on('click', () => {
       $.ajax({
         url: '/gestfavorite',
         method: 'post',
-        data: {isFav: 1, currentCamp: $("#currentCamp").text()} 
-      }).done(() => { $("#favicon").text('star') });
-    });
+        data: {isFav: favStatus, currentCamp: $("#currentCamp").text()} 
+      });
+      
+      favStatus = favStatus == 0 ? 1 : 0;
 
-    $("#favNo").on('click', () => {
-      $("#favicon").text('star'); 
-      $.ajax({
-        url: '/gestfavorite',
-        method: 'post',
-        data: {isFav: 0, currentCamp: $("#currentCamp").text()} 
-      }).done(() => { $("#favicon").text('star') });
+      favIcon = favStatus == "0" ? "star" : "star_border";
+      $("#favicon").text(favIcon);    
     });
 });
-
-
