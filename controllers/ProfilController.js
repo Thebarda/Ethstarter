@@ -28,14 +28,13 @@ module.exports.modifierProfil = function(request, response) {
     console.log("----------------");
     profilModel.updateProfil(idCompte, body, function(err, result){
         if (err) throw err;
+        if (request.session.typeCompte == 2) {
+            profilModel.updateProfilEntrepreneur(idCompte, body, function(err, result){
+                if (err) throw err;
+            });
+        }
         response.render("afficherProfil", response);
     });
-    if (request.session.typeCompte == 2) {
-        profilModel.updateProfilEntrepreneur(idCompte, body, function(err, result){
-            if (err) throw err;
-            response.render("afficherProfil", response);
-        });
-    }
 };
 
 module.exports.fetchNbContractorsWaitingForValidation = (req, resp)=>{
