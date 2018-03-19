@@ -37,6 +37,10 @@ module.exports = function (app) {
     app.get('/campaignWaiting/:idCampagne', CampagnesController.campaignWaitign);
     app.post('/updateValidationCampaign', CampagnesController.updateValidationCampaign);
 
+    app.get('/myfavorites', CampagnesController.favorites);
+    app.post('/gestfavorite', CampagnesController.gestFavorite);
+    app.get('/mycontributions', CampagnesController.contributed);
+
     //Recherche
     app.post('/search', CampagnesController.searchCampaign);
 
@@ -48,8 +52,11 @@ module.exports = function (app) {
     app.get('/contractorsWaiting', ProfilController.fetchContractorsWaitingForValidation);
     app.get('/delParticipation', ProfilController.supprimerParticipation);
     app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
+    app.get('/notifications', ProfilController.notifications);
 
     //Administration
     app.get('/administration', AdministrationController.administration);
     app.get('/fetchAdmin/:type', AdministrationController.fetchAdmin);
+
+    app.get('*', AccueilController.error404);
 };
