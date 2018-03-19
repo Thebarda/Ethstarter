@@ -55,4 +55,6 @@ module.exports = function (app) {
     //Administration
     app.get('/administration', AdministrationController.administration);
     app.get('/fetchAdmin/:type', AdministrationController.fetchAdmin);
+
+    app.get('*', AccueilController.error404);
 };
