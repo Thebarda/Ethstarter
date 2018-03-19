@@ -28,13 +28,6 @@ module.exports.getNbContributions = function(idCampaign, callback){
     });
 };
 
-module.exports.checkIfContributorContribute = function(idCampagne, idContributor, callback){
-    db.getConnection(function(err, connection){
-        connection.query("SELECT idCampagne, idContributeur FROM contributeursxcampagne WHERE idCampagne="+idCampagne+" AND idContributeur="+idContributor, callback);
-        connection.release();
-    });
-}
-
 module.exports.getNbContributionsUserConnected = function(idCampagne, idContributeur, callback){
     db.getConnection(function(err, connection){
        if(err) throw err;
