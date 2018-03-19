@@ -1,5 +1,6 @@
 var profilModel = require("../models/profil.js");
 var notifModel = require("../models/notifications");
+var ethstarterContract = require("../smartContract/ethstarterContract");
 var idCompte;
 
 module.exports.getProfil = function(request, response){
@@ -30,7 +31,15 @@ module.exports.afficherParticipations = function(request, response){
     });
 };
 
-module.exports.enrgModification = function(request, response) {
+module.exports.supprimerParticipation = function(request, response){
+    var montant = request.body.montant;
+    var nomCampagne = request.body.nomCampagne;
+    var idContributeur = request.session.idCompte;
+    profilModel.delParticipation(nomCampagne, idContributeur, montant, function(err, result){
+        if (err) throw err;
+        response.render("afficherParticipations", response);
+    });
+};
 
 module.exports.modifierProfil = function(request, response) {
     var body = request.body;
@@ -68,9 +77,9 @@ module.exports.fetchContractorsWaitingForValidation = (req, resp) => {
 };
 
 module.exports.updateValidationContractorAccount = (req, resp) => {
-    profilModel.updateValidationContractorAccount(req.body.id, req.body.validated, (err, result) => {
-        notifModel.addNotification(req.body.id, "Votre compte "+(req.body.validated == 1 ? "a été validé" : 'n\'a pas pu être validé'), (err, result2) => {
-            resp.render("emptyView", resp);
-        });
-    })
-  };
+  profilModel.updateValidationContractorAccount(req.body.id, req.body.validated, (err, result) => {
+      notifModel.addNotification(req.body.id, "Votre compte "+(req.body.validated == 1 ? "a été validé" : 'n\'a pas pu être validé'), (err, result2) => {
+          resp.render("emptyView", resp);
+      });
+  })
+};

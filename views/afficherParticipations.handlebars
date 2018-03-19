@@ -12,9 +12,9 @@
                 <tbody>
                 {{#each participation}}
                     <tr>
-                        <td>{{this.nomCampagne}}</td>
-                        <td>{{this.montant}}</td>
-                        <td><a class="btn waves-effect waves-light red" id="supprimer">Supprimer</a></td>
+                        <td><input name="_nomCampagne" type="text" value="{{this.nomCampagne}}" disabled></td>
+                        <td><input name="_montant" type="text" value="{{this.montant}}" disabled></td>
+                        <td><a class="btn waves-effect waves-light red" id="submit">Supprimer la contribution</a></td>
                     </tr>
                 {{/each}}
                 </tbody>
