@@ -163,9 +163,17 @@ module.exports.addFavorite = (idUser, idCamp, callback) => {
     });
 };
 
-module.exports.remFavorite = (idCamp, idUser, callback) => {
+module.exports.remFavorite = (idUser, idCamp, callback) => {
     db.getConnection((err, co) => {
-        //co.query("DELETE FROM `favoris` WHERE idCampagne = 1249");
+        co.query("DELETE FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser);
         co.release();
+    });
+};
+
+module.exports.isFavorite = (idUser, idCamp, callback) => {
+    console.log("mdl : " + idCamp);
+    db.getConnection((e, c) => {
+        c.query("SELECT idCampagne FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser, callback);
+        c.release();
     });
 };
