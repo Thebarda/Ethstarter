@@ -57,22 +57,22 @@ $(document).ready(function(){
     });
 
     $("#favYes").on('click', () => {
+      $("#favicon").text('star_border');
       $.ajax({
         url: '/gestfavorite',
         method: 'post',
         data: {isFav: 1, currentCamp: $("#currentCamp").text()} 
-      });
-      $("#favYes").find("i").text('star_border');
-      this.id = 'favNo'; 
+      }).done(() => { $("#favicon").text('star') });
     });
 
     $("#favNo").on('click', () => {
+      $("#favicon").text('star'); 
       $.ajax({
         url: '/gestfavorite',
         method: 'post',
         data: {isFav: 0, currentCamp: $("#currentCamp").text()} 
-      });
-      $("#favNo").find("i").text('star'); 
-      this.id = 'favYes'; 
+      }).done(() => { $("#favicon").text('star') });
     });
 });
+
+

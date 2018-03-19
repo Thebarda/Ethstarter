@@ -4,9 +4,9 @@
             <div class="card-content">
                 {{#ifCond session.isConnected '==' true}}
                     {{#ifCond isFav '==' 0}}
-                        <a id="favNo" class="btn-floating btn-large waves-effect waves-light orange left"><i class="material-icons">star_border</i></a>
+                        <a id="favNo" class="btn-floating btn-large waves-effect waves-light orange left"><i class="favicon material-icons">star_border</i></a>
                     {{else}}
-                        <a id="favYes" class="btn-floating btn-large waves-effect waves-light orange left"><i class="material-icons">star</i></a>
+                        <a id="favYes" class="btn-floating btn-large waves-effect waves-light orange left"><i class="favicon material-icons">star</i></a>
                     {{/ifCond}}
                 {{/ifCond}}
                 <p hidden id="currentCamp">{{campagne.idCampagne}}</p>
