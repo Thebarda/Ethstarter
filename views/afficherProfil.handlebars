@@ -1,8 +1,8 @@
     <div class="row center-align">
         <h1>Votre profil</h1>
         <a class="btn waves-effect waves-light btnModifierProfil btnEditerProfil">Modifier le profil</a>
-        <div id="editionProfilContributeur" class="col s12">
-            <form method="post" action="/validationModificationContributeur">
+        <div id="editionProfil" class="col s12">
+            <form method="post" action="/validationModificationProfil">
                 <div class="input-field col s2 offset-s4">
                     <input name="lastname" type="text" class="validate inputModifierProfil" value="{{profil.nom}}" disabled>
                     <label for="lastname">Nom</label>
@@ -27,6 +27,12 @@
                     <input name="newPassword" type="password" class="validate inputModifierProfil" disabled>
                     <label for="newPassword">Nouveau mot de passe</label>
                 </div>
+                {{#ifCond session.typeCompte '==' 2}}
+                    <div class="input-field col s4 offset-s4">
+                        <input name="nomEntreprise" type="text" class="validate inputModifierProfil" value="{{profil.nomEntreprise}}" disabled>
+                        <label for="nomEntreprise">Nom de la société</label>
+                    </div>
+                {{/ifCond}}
                 <div class="input-field col s4 offset-s4">
                     <input name="address" type="text" class="validate inputModifierProfil" value="{{profil.addrPubliqueEth}}" data-length="42" disabled>
                     <label for="address">Adresse publique Ethereum</label>

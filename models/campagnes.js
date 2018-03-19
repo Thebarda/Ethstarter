@@ -31,6 +31,15 @@ module.exports.updateMontant = function (idCampagne, montant, callback) {
     });
 };
 
+module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
+            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours`, `validated` " +
+            "FROM campagnes WHERE idEntrepreneur=" + idEntrepreneur, callback);
+        connection.release();
+    });
+}; 
+
 module.exports.getCampaignById = function (idCampagne, callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
@@ -97,4 +106,13 @@ module.exports.updateValidationCampaign = (idCampaign, validationNumber, descrip
     connection.query('UPDATE `campagnes` SET `validated`='+validationNumber+', `descriptionValidation`="'+descriptionValidation+'" WHERE `idCampagne`='+idCampaign, callback);
     connection.release();
   })
-}
+};
+
+module.exports.getAllAllCampaigns = function (callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT `idCampagne`, `nomCampagne`, " +
+            "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " +
+            "FROM campagnes  WHERE validated=1", callback);
+        connection.release();
+    });
+};

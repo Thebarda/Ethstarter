@@ -1,0 +1,75 @@
+<div id="adminTab">
+    <table class="striped highlight">
+        <thead>
+            <tr>
+                {{#each header}}
+                    <th>{{this.n}}</th>
+                {{/each}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each contributors}}
+                <tr>
+                    <td>{{this.nom}}</td>
+                    <td>{{this.prenom}}</td>
+                    <td>{{this.mail}}</td>
+                    <td>{{this.login}}</td>
+                    <td>
+                        <a class="btn waves-effect waves-light red darken-1"><i class="material-icons left">delete</i>Supprimer</a>
+                    </td>
+                </tr>
+            {{/each}}
+            {{#each entrepreneurs}}
+                <tr>
+                    <td>{{this.nom}}</td>
+                    <td>{{this.prenom}}</td>
+                    <td>{{this.mail}}</td>
+                    <td>{{this.login}}</td>
+                    <td><img class="materialboxed" width="400" src="/PIpics/{{this.pieceIdentide}}" alt="{{this.nom}} {{this.prenom}}" /></td>
+                    {{#ifCond this.validated '==' 0}}
+                        <td>En attente</td>
+                    {{else}}
+                        {{#ifCond this.validated '==' 1}}
+                            <td class="green-text">Validé</td>
+                        {{else}}
+                            {{#ifCond this.validated '==' 2}}
+                                <td class="red-text">Désapprouvé</td>
+                            {{/ifCond}}
+                        {{/ifCond}}
+                    {{/ifCond}}
+                    <td>
+                        <a class="btn waves-effect waves-light red darken-1"><i class="material-icons left">delete</i>Supprimer</a>
+                    </td>
+                </tr>
+            {{/each}}
+            {{#each campagnes}}
+                <tr>
+                    <td>{{this.nomCampagne}}</td>
+                    <td>{{this.but}}</td>
+                    <td>{{this.montantActuel}}</td>
+                    <td>{{this.montantMax}}</td>
+                    <td>{{this.dateLimite}}</td>
+                    <td>{{this.descriptionCourte}}</td>
+                    <td>{{this.estEnCours}}</td>
+                    {{#ifCond this.validated '==' 0}}
+                        <td>En attente</td>
+                    {{else}}
+                        {{#ifCond this.validated '==' 1}}
+                            <td class="green-text">Validé</td>
+                        {{else}}
+                            {{#ifCond this.validated '==' 2}}
+                                <td class="red-text">Désapprouvé</td>
+                            {{/ifCond}}
+                        {{/ifCond}}
+                    {{/ifCond}}
+                    <td>
+                        <a href="/campaign/{{this.idCampagne}}" class="btn waves-effect waves-light orange darken-1"><i class="material-icons left">search</i>Voir</a>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <script>
+        $('select').material_select();
+    </script>
+</div>

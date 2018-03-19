@@ -1,6 +1,7 @@
 var campagnesModel = require("../models/campagnes");
 var modelParticipation = require ('../models/participation.js');
 var utils = require("../utils/utils");
+var idCompte;
 
 module.exports.afficherCampagne = function(request, response){
     var idCampagne = request.params.idCampagne;
@@ -39,7 +40,15 @@ module.exports.afficherCampagne = function(request, response){
         });
     });
 };
-
+module.exports.afficherMesCampagnes = function(request, response){
+    idCompte = request.session.idCompte;
+    campagnesModel.getMyCampaigns(idCompte,function(err, result){
+        if(err) throw err;
+        response.title = "Mes campagnes";
+        response.campagnes = result;
+        response.render("afficherMesCampagnes", response);
+    });
+};
 module.exports.afficherLesCampagnes = (req, resp)=>{
     campagnesModel.getAllCampaigns((err, res)=>{
         if (err) throw err;
