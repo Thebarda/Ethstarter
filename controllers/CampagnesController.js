@@ -3,6 +3,7 @@ var modelParticipation = require ('../models/participation.js');
 var utils = require("../utils/utils");
 var idCompte;
 
+
 module.exports.afficherCampagne = function(request, response){
     var idCampagne = request.params.idCampagne;
     campagnesModel.getCampaignById(idCampagne, function(err, result){
@@ -150,6 +151,17 @@ module.exports.gestFavorite = (req, resp) => {
     };
 };
 
+module.exports.postComm = (req,resp) => {
+    var comm = req.body.areaComm;
+    var currentCamp = req.body.currentCamp;
+    var user = req.session.idCompte;
+    console.log("commentaire: "+ comm + "campagne:" +currentCamp + "user:" + user);
+
+    campagnesModel.postComm(user,currentCamp,comm,(e)=>{
+        if(e) throw e;
+        resp.render("emptyView", resp);
+    });
+};
 module.exports.contributed = (req, resp) => {
     var idUtilisateur = 10;
     campagnesModel.contributed(idUtilisateur, (e, res)=>{

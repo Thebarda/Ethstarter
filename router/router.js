@@ -27,7 +27,6 @@ module.exports = function (app) {
     app.get('/Inscription', InscriptionController.inscription);
     app.post('/validationInscriptionContributeur', InscriptionController.validationInscriptionContributeur);
     app.post("/validationInscriptionEntrepreneur", InscriptionController.validationInscriptionEntrepreneur);
-
     //Affichage campagnes
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
     app.post('/participation', ParticipationController.participation);
@@ -41,6 +40,7 @@ module.exports = function (app) {
     app.post('/gestfavorite', CampagnesController.gestFavorite);
     app.get('/mycontributions', CampagnesController.contributed);
 
+    app.post('/postcomm', CampagnesController.postComm);
     //Recherche
     app.post('/search', CampagnesController.searchCampaign);
 

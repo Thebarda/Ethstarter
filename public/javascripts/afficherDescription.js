@@ -72,4 +72,13 @@ $(document).ready(function(){
         data: {isFav: 0, currentCamp: $("#currentCamp").text()} 
       })
     });
+
+    $("#btnComm").on('click', () => {
+      $.ajax({
+        url: '/postcomm',
+        method: 'post',
+        data: {comm: $("#areaComm").val()}
+      })
+    });
+
 });

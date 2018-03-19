@@ -160,3 +160,9 @@ module.exports.remFavorite = (idCamp, idUser, callback) => {
         co.release();
     });
 };
+
+module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
+    db.getConnection((err, co ) => {
+        co.query("INSERT INTO commentaires VALUES ('" + idUser + "', '" + idCamp + "','" + commentaires + "')");
+    });
+};
