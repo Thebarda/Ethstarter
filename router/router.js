@@ -37,6 +37,10 @@ module.exports = function (app) {
     app.get('/campaignWaiting/:idCampagne', CampagnesController.campaignWaitign);
     app.post('/updateValidationCampaign', CampagnesController.updateValidationCampaign);
 
+    app.get('/myfavorites', CampagnesController.favorites);
+    app.post('/gestfavorite', CampagnesController.gestFavorite);
+    app.get('/mycontributions', CampagnesController.contributed);
+
     //Recherche
     app.post('/search', CampagnesController.searchCampaign);
 
@@ -45,7 +49,7 @@ module.exports = function (app) {
     app.get('/modifierProfil', ProfilController.modifierProfil);
     app.get('/fetchNbContractorsWaitingForValidation', ProfilController.fetchNbContractorsWaitingForValidation);
     app.get('/contractorsWaiting', ProfilController.fetchContractorsWaitingForValidation);
-    app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
+    app.get('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
 
     //Administration
     app.get('/administration', AdministrationController.administration);
