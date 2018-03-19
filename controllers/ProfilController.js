@@ -36,14 +36,15 @@ module.exports.supprimerParticipation = function(request, response){
     var montant = request.body.montant;
     var nomCampagne = request.body.nomCampagne;
     var idContributeur = request.session.idCompte;
-    profilModel.delParticipation(nomCampagne, idContributeur, montant, function(err, result){
+    modelCampagnes.getIdCampagne(nomCampagne, function(err, result){
         if (err) throw err;
-        modelCampagnes.updateMontantActuelCampagne(montant, nomCampagne, function(err, result){
+        var idCampagne = result;
+        profilModel.delParticipation(nomCampagne, idContributeur, montant, function(err, result){
             if (err) throw err;
-            modelCampagnes.getIdCampagne(nomCampagne, function(err, result){
+            modelCampagnes.updateMontantActuelCampagne(montant, nomCampagne, function(err, result){
                 if (err) throw err;
-                ethstarterContract.removeContribution(,request.session.addrPubliqueEth);
-                response.render("afficherParticipations", response);
+                    ethstarterContract.removeContribution(idCampagne, request.session.addrPubliqueEth);
+                    response.render("afficherParticipations", response);
             });
         });
     });
