@@ -51,6 +51,8 @@ module.exports = function (app) {
     app.get('/contractorsWaiting', ProfilController.fetchContractorsWaitingForValidation);
     app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
     app.get('/notifications', ProfilController.notifications);
+    app.post('/deleteUser', ProfilController.deleteUser);
+    app.post('/deleteUseModerator', ProfilController.deleteUserModerator);
 
     //Administration
     app.get('/administration', AdministrationController.administration);
