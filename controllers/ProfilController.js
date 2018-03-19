@@ -1,4 +1,5 @@
 var profilModel = require("../models/profil.js");
+var modelCampagnes = require ('../models/campagnes.js');
 var notifModel = require("../models/notifications");
 var ethstarterContract = require("../smartContract/ethstarterContract");
 var idCompte;
@@ -37,7 +38,14 @@ module.exports.supprimerParticipation = function(request, response){
     var idContributeur = request.session.idCompte;
     profilModel.delParticipation(nomCampagne, idContributeur, montant, function(err, result){
         if (err) throw err;
-        response.render("afficherParticipations", response);
+        modelCampagnes.updateMontantActuelCampagne(montant, nomCampagne, function(err, result){
+            if (err) throw err;
+            modelCampagnes.getIdCampagne(nomCampagne, function(err, result){
+                if (err) throw err;
+                ethstarterContract.removeContribution(,request.session.addrPubliqueEth);
+                response.render("afficherParticipations", response);
+            });
+        });
     });
 };
 

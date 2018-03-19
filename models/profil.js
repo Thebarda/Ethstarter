@@ -30,7 +30,7 @@ module.exports.getParticipations = function(idCompte, callback){
       if (err) throw err;
       var sql = "SELECT nomCampagne, SUM(montant) AS montantTot FROM participation, campagnes"; 
       sql += " WHERE participation.idCampagne = campagnes.idCampagne"; 
-      sql += " AND participation.idContributeur="+idCompte;
+      sql += " AND participation.idContributeur="+idCompte+" GROUP BY nomCampagne";
       connection.query(sql, callback);
       connection.release();
     });
@@ -39,7 +39,7 @@ module.exports.getParticipations = function(idCompte, callback){
 module.exports.delParticipation = function(nomCampagne, idContributeur, callback){
     db.getConnection(function(err, connection){
         if (err) throw err;
-        var sql = "DELETE FROM contributeursxcampagne";
+        var sql = "DELETE FROM participation";
         sql += " WHERE idContributeur ="+idContributeur;
         sql += " AND idCampagne IN (SELECT idCampagne FROM campagnes WHERE nomCampagne="+nomCampagne+")";
         connection.query(sql, callback);

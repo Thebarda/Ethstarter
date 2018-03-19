@@ -31,6 +31,24 @@ module.exports.updateMontant = function (idCampagne, montant, callback) {
     });
 };
 
+module.exports.updateMontantActuelCampagne = function(montant, nomCampagne, callback){
+    db.getConnection(function(err, connection){
+        if (err) throw err;
+        var sql = "UPDATE campagnes SET montantActuel=montantActuel-" + montant; 
+        sql += " WHERE idCampagne IN (SELECT idCampagne FROM campagnes WHERE nomCampagne="+nomCampagne+")";
+        connection.query(sql, callback);
+        connection.release(); 
+    });
+};
+
+module.exports.getIdCampagne = function(nomCampagne, callback){
+    db.getConnection(function(err, connection){
+        if (err) throw err;
+        connection.query("SELECT idCampagne FROM campagnes WHERE nomCampagne="+nomCampagne, callback);
+        connection.release();
+    });
+};
+
 module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
