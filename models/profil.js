@@ -28,11 +28,13 @@ module.exports.updateProfil = function(idCompte, body, callback) {
 module.exports.getParticipations = function(idCompte, callback){
     db.getConnection(function(err, connection){
       if (err) throw err;
-      var sql = "SELECT nomCampagne, montant FROM participation, campagnes, contributeursxcampagne"; 
+      var sql = "SELECT nomCampagne, SUM(montant) AS montantTot FROM participation, campagnes, contributeursxcampagne"; 
       sql += " WHERE contributeursxcampagne.idContributeur = participation.idContributeur AND contributeursxcampagne.idCampagne = campagnes.idCampagne"; 
-      sql += " AND participation.idContributeur="+idCompte;
+      sql += " AND participation.idContributeur="+idCompte+"GROUP BY nomCampagne";
       connection.query(sql, callback);
       connection.release();
+    });
+};
       
 module.exports.updateProfilEntrepreneur = function(idCompte, body, callback) {
     db.getConnection(function (err, connection) {
