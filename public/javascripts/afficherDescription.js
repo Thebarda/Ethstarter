@@ -2,8 +2,13 @@ $(document).ready(function(){
     //fill favorite state from the hidden field and construct the button
     var favStatus = $("#isFav").text();
     var favIcon = favStatus == "0" ? "star" : "star_border";
-    $("#favicon").text(favIcon);
+    var favText = favStatus == "0" ? "Ajouter en favoris" : "Retirer des favoris";
 
+    $('.tooltipped').tooltip({delay: 50});
+    $("#favicon").text(favIcon);
+    $("#favbutton").attr("data-tooltip", favText);
+
+    
     $("#description").html($.parseHTML($("#description").text()));
     $('ul.tabs').tabs();
     $('.modal').modal();
@@ -67,10 +72,13 @@ $(document).ready(function(){
         method: 'post',
         data: {isFav: favStatus, currentCamp: $("#currentCamp").text()} 
       });
-      
+
       favStatus = favStatus == 0 ? 1 : 0;
 
       favIcon = favStatus == "0" ? "star" : "star_border";
-      $("#favicon").text(favIcon);    
+      favText = favStatus == "0" ? "Ajouter en favoris" : "Retirer des favoris"; 
+      console.log("ft : " + favText);
+      $("#favbutton").attr("data-tooltip", favText);//attr change doesn't work
+      $("#favicon").text(favIcon);
     });
 });
