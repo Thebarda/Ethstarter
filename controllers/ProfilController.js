@@ -1,4 +1,5 @@
 var profilModel = require("../models/profil.js");
+var notifModel = require("../models/notifications");
 var idCompte;
 
 module.exports.getProfil = function(request, response){
@@ -56,8 +57,9 @@ module.exports.fetchContractorsWaitingForValidation = (req, resp) => {
 };
 
 module.exports.updateValidationContractorAccount = (req, resp) => {
-  console.log('nani')
   profilModel.updateValidationContractorAccount(req.body.id, req.body.validated, (err, result) => {
-    resp.render("emptyView", resp);
+      notifModel.addNotification(req.body.id, "Votre compte "+(req.body.validated == 1 ? "a été validé" : 'n\'a pas pu être validé'), (err, result2) => {
+          resp.render("emptyView", resp);
+      });
   })
-}
+};

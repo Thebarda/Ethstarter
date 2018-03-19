@@ -2,6 +2,7 @@
 var modelCampagnes = require ('../models/campagnes.js');
 var modelParticipation = require ('../models/participation.js');
 var ethstarterContract = require("../smartContract/ethstarterContract");
+var notifModel = require('../models/notifications');
 
 module.exports.participation = function(request, response){
     response.title = "Ethstarter - afficherCampagne";
@@ -23,7 +24,11 @@ module.exports.participation = function(request, response){
                    modelCampagnes.updateMontant(request.session.isLookingCampaign, _montant, function(err, result){
                        if(err) throw err;
                        ethstarterContract.addContributorToCrowfund(request.session.isLookingCampaign, request.session.addrPubliqueEth, _montant);
-                       response.render("emptyView", response);
+                       modelCampagnes.getCampaignById(request.session.isLookingCampaign, (err, result) => {
+                           notifModel.addNotification(result[0].idEntrepreneur, "Nouvelle contribution de "+_montant+" pour votre campagne "+result[0].nompCampagne, (err, result2) => {
+                               response.render("emptyView", response);
+                           });
+                       });
                    });
                });
            }
