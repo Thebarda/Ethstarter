@@ -2,39 +2,39 @@
         <h1>Votre profil</h1>
         <a class="btn waves-effect waves-light btnModifierProfil btnEditerProfil">Modifier le profil</a>
         <div id="editionProfil" class="col s12">
-            <form method="post" action="/validationModificationProfil">
+            <form method="post" action="/modifierProfil">
                 <div class="input-field col s2 offset-s4">
-                    <input name="lastname" type="text" class="validate inputModifierProfil" value="{{profil.nom}}" disabled>
+                    <input name="lastname" type="text" class="validate inputModifierProfil" value="{{profil.nom}}" readonly>
                     <label for="lastname">Nom</label>
                 </div>
                 <div class="input-field col s2">
-                    <input name="firstname" type="text" class="validate inputModifierProfil" value="{{profil.prenom}}" disabled>
+                    <input name="firstname" type="text" class="validate inputModifierProfil" value="{{profil.prenom}}" readonly>
                     <label for="firstname">Prénom</label>
                 </div>
                 <div class="input-field col s2 offset-s4">
-                    <input name="login" type="text" class="validate inputModifierProfil" value="{{profil.login}}" disabled>
+                    <input name="login" type="text" class="validate inputModifierProfil" value="{{profil.login}}" readonly>
                     <label for="login">Login</label>
                 </div>
                 <div class="input-field col s2">
-                    <input name="email" type="email" class="validate inputModifierProfil" value="{{profil.mail}}" disabled>
+                    <input name="email" type="email" class="validate inputModifierProfil" value="{{profil.mail}}" readonly>
                     <label for="email">E-mail</label>
                 </div>
                 <div class="input-field col s2 offset-s4">
-                    <input name="oldPassword" type="password" class="validate inputModifierProfil" disabled>
+                    <input name="oldPassword" type="password" class="validate inputModifierProfil" readonly>
                     <label for="oldPassword">Ancien mot de passe</label>
                 </div>
                 <div class="input-field col s2">
-                    <input name="newPassword" type="password" class="validate inputModifierProfil" disabled>
+                    <input name="newPassword" type="password" class="validate inputModifierProfil" readonly>
                     <label for="newPassword">Nouveau mot de passe</label>
                 </div>
                 {{#ifCond session.typeCompte '==' 2}}
                     <div class="input-field col s4 offset-s4">
-                        <input name="nomEntreprise" type="text" class="validate inputModifierProfil" value="{{profil.nomEntreprise}}" disabled>
+                        <input name="nomEntreprise" type="text" class="validate inputModifierProfil" value="{{profil.nomEntreprise}}" readonly>
                         <label for="nomEntreprise">Nom de la société</label>
                     </div>
                 {{/ifCond}}
                 <div class="input-field col s4 offset-s4">
-                    <input name="address" type="text" class="validate inputModifierProfil" value="{{profil.addrPubliqueEth}}" data-length="42" disabled>
+                    <input name="address" type="text" class="validate inputModifierProfil" value="{{profil.addrPubliqueEth}}" data-length="42" readonly>
                     <label for="address">Adresse publique Ethereum</label>
                 </div>
                 <div class="col s12">
