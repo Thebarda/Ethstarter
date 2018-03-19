@@ -7,31 +7,17 @@ var notifModel = require('../models/notifications');
 module.exports.participation = function(request, response){
     response.title = "Ethstarter - afficherCampagne";
     var _montant = request.body.montant;
-    var data = {idContributeur:request.session.idCompte, montant:_montant};
+    var data = {idContributeur:request.session.idCompte, montant:_montant, idCampagne: request.session.isLookingCampaign};
     modelParticipation.addParticipation(data, function(err, result){
         if(err) throw err;
-        var data2 = {idCampagne:request.session.isLookingCampaign, idContributeur:request.session.idCompte};
-        modelParticipation.checkIfContributorContribute(request.session.isLookingCampaign,request.session.idCompte, function(err, result){
-           if(result.length>0){
-               modelCampagnes.updateMontant(request.session.isLookingCampaign, _montant, function(err, result){
-                   if(err) throw err;
-                   ethstarterContract.addContributorToCrowfund(request.session.isLookingCampaign, request.session.addrPubliqueEth, _montant);
-                   response.render("emptyView", response);
-               });
-           }else{
-               modelCampagnes.addContributeursXCampagne(data2, function(err, result){
-                   if(err) throw err;
-                   modelCampagnes.updateMontant(request.session.isLookingCampaign, _montant, function(err, result){
-                       if(err) throw err;
-                       ethstarterContract.addContributorToCrowfund(request.session.isLookingCampaign, request.session.addrPubliqueEth, _montant);
-                       modelCampagnes.getCampaignById(request.session.isLookingCampaign, (err, result) => {
-                           notifModel.addNotification(result[0].idEntrepreneur, "Nouvelle contribution de "+_montant+" pour votre campagne "+result[0].nompCampagne, (err, result2) => {
-                               response.render("emptyView", response);
-                           });
-                       });
-                   });
-               });
-           }
+        modelCampagnes.updateMontant(request.session.isLookingCampaign, _montant, function(err, result){
+            if(err) throw err;
+            ethstarterContract.addContributorToCrowfund(request.session.isLookingCampaign, request.session.addrPubliqueEth, _montant);
+            modelCampagnes.getCampaignById(request.session.isLookingCampaign, (err, result) => {
+                notifModel.addNotification(result[0].idEntrepreneur, "Nouvelle contribution de "+_montant+" ether pour votre campagne "+result[0].nomCampagne, (err, result2) => {
+                    response.render("emptyView", response);
+                });
+            });
         });
     });
 

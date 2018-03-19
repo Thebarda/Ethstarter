@@ -42,7 +42,7 @@ module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
 
 module.exports.getCampaignById = function (idCampagne, callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
+        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
             "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours`, `validated` " +
             "FROM campagnes WHERE idCampagne=" + idCampagne, callback);
         connection.release();
@@ -135,3 +135,45 @@ module.exports.searchAnyCampaign = (search, callback) => {
         connection.release();
     })
 }
+
+
+module.exports.favorites = function (idUtilisateur, callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT campagnes.idCampagne, `nomCampagne`, " + 
+        "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
+        "FROM campagnes inner join favoris on campagnes.idCampagne=favoris.idCampagne WHERE favoris.idUtilisateur =" + idUtilisateur, callback);
+        connection.release();
+    });
+}; 
+
+
+module.exports.contributed = function (idUtilisateur, callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT campagnes.idCampagne, `nomCampagne`, " + 
+        "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
+        "FROM campagnes inner join contributeursxcampagne on campagnes.idCampagne=contributeursxcampagne.idCampagne WHERE contributeursxcampagne.idContributeur =" + idUtilisateur, callback);
+        connection.release();
+    });
+}; 
+
+module.exports.addFavorite = (idUser, idCamp, callback) => {
+    db.getConnection((err, co) => {
+        co.query("INSERT INTO favoris VALUES ('" + idUser + "', '" + idCamp + "')");
+        co.release();
+    });
+};
+
+module.exports.remFavorite = (idUser, idCamp, callback) => {
+    db.getConnection((err, co) => {
+        co.query("DELETE FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser);
+        co.release();
+    });
+};
+
+module.exports.isFavorite = (idUser, idCamp, callback) => {
+    console.log("mdl : " + idCamp);
+    db.getConnection((e, c) => {
+        c.query("SELECT idCampagne FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser, callback);
+        c.release();
+    });
+};
