@@ -1,6 +1,7 @@
 var campagnesModel = require("../models/campagnes");
 var modelParticipation = require ('../models/participation.js');
 var utils = require("../utils/utils");
+var notifModel = require('../models/notifications');
 var idCompte;
 
 module.exports.afficherCampagne = function(request, response){
@@ -113,11 +114,15 @@ module.exports.campaignWaitign = function(request, response){
 };
 
 module.exports.updateValidationCampaign = (req, resp) => {
-  var tmp = utils.escapeSingleQuotes(req.body.descriptionValidation);
-  console.log(tmp);
-  campagnesModel.updateValidationCampaign(req.session.isLookingCampaign, req.body.validationNumber, tmp, (err, result) => {
-    resp.render("emptyView", resp);
-  })
+    var tmp = utils.escapeSingleQuotes(req.body.descriptionValidation);
+    campagnesModel.updateValidationCampaign(req.session.isLookingCampaign, req.body.validationNumber, tmp, (err, result) => {
+        campagnesModel.getCampaignById(req.session.isLookingCampaign, (err, result) => {
+            var valid = req.body.validationNumber == 1 ? "a été validé" : "n\'a pas pu être validé";
+            notifModel.addNotification(result[0].idEntrepreneur, "Votre campagne "+req.body.titre+" "+valid, (err, result2) => {
+                resp.render("emptyView", resp);
+            });
+        });
+    });
 }
 
 

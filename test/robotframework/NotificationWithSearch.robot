@@ -12,13 +12,12 @@ ${undefined}    https://www.katalon.com/
 *** Test Cases ***
 Test Case
     Click Link    id=btnConnexion
-    Input Text    name=login    moderator
-    Input Password    name=password    acme
+    Input Text    name=login    denied
+    Input Password    name=password    denied
     Click Button    xpath=//input[@value='connexion']
-    Page should contain    Bonjour moderator
-    Go To   http://localhost:1047/administration
-    Wait Until Page Contains    Administration
-    Wait Until Page Contains     Contributeurs
-    Wait Until Page Contains     Entrepreneurs
-    Wait Until Page Contains     Campagnes
-    Title Should Be   Administration
+    Go To   http://localhost:1047/notifications
+    Page Should Contain     Notifications
+    Page Should Contain Element    class:textNotifs  limit=4
+    Input Text  name=searchNotif   campagne
+    Page Should Contain     Votre campagne denied campaign a été validé
+    Page Should Contain     Votre campagne denied campaign est en attente de validation

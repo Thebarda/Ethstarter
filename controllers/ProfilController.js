@@ -1,4 +1,5 @@
 var profilModel = require("../models/profil.js");
+var notifModel = require("../models/notifications");
 var idCompte;
 
 module.exports.getProfil = function(request, response){
@@ -27,14 +28,13 @@ module.exports.modifierProfil = function(request, response) {
     console.log("----------------");
     profilModel.updateProfil(idCompte, body, function(err, result){
         if (err) throw err;
+        if (request.session.typeCompte == 2) {
+            profilModel.updateProfilEntrepreneur(idCompte, body, function(err, result){
+                if (err) throw err;
+            });
+        }
         response.render("afficherProfil", response);
     });
-    if (request.session.typeCompte == 2) {
-        profilModel.updateProfilEntrepreneur(idCompte, body, function(err, result){
-            if (err) throw err;
-            response.render("afficherProfil", response);
-        });
-    }
 };
 
 module.exports.fetchNbContractorsWaitingForValidation = (req, resp)=>{
@@ -56,8 +56,18 @@ module.exports.fetchContractorsWaitingForValidation = (req, resp) => {
 };
 
 module.exports.updateValidationContractorAccount = (req, resp) => {
-  console.log('nani')
   profilModel.updateValidationContractorAccount(req.body.id, req.body.validated, (err, result) => {
-    resp.render("emptyView", resp);
+      notifModel.addNotification(req.body.id, "Votre compte "+(req.body.validated == 1 ? "a été validé" : 'n\'a pas pu être validé'), (err, result2) => {
+          resp.render("emptyView", resp);
+      });
   })
-}
+};
+
+module.exports.notifications = (req, resp) => {
+  resp.title = "Notification";
+  notifModel.fetchNotifications(req.session.idCompte, (err, result) => {
+      resp.notifications = result;
+      resp.notifLength = result.length;
+      resp.render("notifications", resp);
+  });
+};

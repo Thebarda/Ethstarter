@@ -8,8 +8,8 @@ contract Ethstarter {
     //Structure d'une campagne de financement
     struct Crowfunding{
         address addrContractor;
-        uint goal; //en Wei ( 1 ether = 1e18 wei)
-        uint maxGoal; //en Wei ( 1 ether = 1e18 wei)
+        uint goal; //en Ether ( 1 ether = 1e18 wei)
+        uint maxGoal; //en Ether ( 1 ether = 1e18 wei)
         uint amount; //en Wei ( 1 ether = 1e18 wei)
         uint nbContributors;
         bool estEnCours;
@@ -48,7 +48,9 @@ contract Ethstarter {
     //Cas où la compagne réussie, cette fonction avoie les ethers récoltés à l'entrepreneur.
     function sendToContractor(uint _id) public{
         Crowfunding storage c = crowfundings[_id];
-        c.addrContractor.transfer(c.amount);
+        uint amountToContractor = c.amount - 40000000000000000;
+        c.addrContractor.transfer(amountToContractor);
+        msg.sender.transfer(40000000000000000);
         c.amount = 0;
     }
 

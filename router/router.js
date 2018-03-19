@@ -13,7 +13,7 @@ var AdministrationController = require("../controllers/AdministrationController.
 module.exports = function (app) {
 
     // Exemple
-    app.get('/', AccueilController.example);
+    app.get('/', AccueilController.accueil);
 
     // Connexion
     app.get('/Connexion', ConnexionController.connexion);
@@ -45,13 +45,16 @@ module.exports = function (app) {
     app.post('/search', CampagnesController.searchCampaign);
 
     // Profil
-    //app.get('/Profil', ProfilController.afficherProfil);
-    app.get('/modifierProfil', ProfilController.modifierProfil);
+    app.get('/Profil', ProfilController.getProfil);
+    app.post('/modifierProfil', ProfilController.modifierProfil);
     app.get('/fetchNbContractorsWaitingForValidation', ProfilController.fetchNbContractorsWaitingForValidation);
     app.get('/contractorsWaiting', ProfilController.fetchContractorsWaitingForValidation);
-    app.get('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
+    app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
+    app.get('/notifications', ProfilController.notifications);
 
     //Administration
     app.get('/administration', AdministrationController.administration);
     app.get('/fetchAdmin/:type', AdministrationController.fetchAdmin);
+
+    app.get('*', AccueilController.error404);
 };
