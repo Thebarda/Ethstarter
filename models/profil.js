@@ -28,10 +28,10 @@ module.exports.updateProfil = function(idCompte, body, callback) {
 module.exports.getParticipations = function(idCompte, callback){
     db.getConnection(function(err, connection){
       if (err) throw err;
-      var sql2 = "SELECT nomCampagne, montant FROM participation, campagnes, contributeursxcampagne"; 
-      sql2 += " WHERE contributeursxcampagne.idContributeur = participation.idContributeur AND contributeursxcampagne.idCampagne = campagnes.idCampagne"; 
-      sql2 += " AND participation.idContributeur="+idCompte;
-      connection.query(sql2, callback);
+      var sql = "SELECT nomCampagne, montant FROM participation, campagnes, contributeursxcampagne"; 
+      sql += " WHERE contributeursxcampagne.idContributeur = participation.idContributeur AND contributeursxcampagne.idCampagne = campagnes.idCampagne"; 
+      sql += " AND participation.idContributeur="+idCompte;
+      connection.query(sql, callback);
       connection.release();
       
 module.exports.updateProfilEntrepreneur = function(idCompte, body, callback) {
