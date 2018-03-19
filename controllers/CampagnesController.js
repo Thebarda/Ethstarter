@@ -30,13 +30,14 @@ module.exports.afficherCampagne = function(request, response){
                             if (err) throw err;
                             response.nbContribsss = result[0].nbContribsss;
                             console.log("ctrlr : " + idCampagne);
-                            campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
-                                console.log("query ok");
-                                if (e) throw e;
-                                response.isFav = res[0] == null ? 0 : 1; //response.isFav doesn't show on the page for some reason
-                                console.log("isFav? : " + response.isFav); 
-                                response.render("afficherCampagne", response);
-                            });
+                        });
+
+                        campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
+                            console.log("query ok");
+                            if (e) throw e;
+                            response.isFav = res[0] == null ? 0 : 1;
+                            console.log("isFav? : " + response.isFav); 
+                            response.render("afficherCampagne", response);
                         });
                     }else{
                         response.nbContribsss = 0;

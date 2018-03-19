@@ -61,7 +61,9 @@ $(document).ready(function(){
         url: '/gestfavorite',
         method: 'post',
         data: {isFav: 1, currentCamp: $("#currentCamp").text()} 
-      })
+      });
+      $("#favYes").find("i").text('star_border');
+      this.id = 'favNo'; 
     });
 
     $("#favNo").on('click', () => {
@@ -69,6 +71,8 @@ $(document).ready(function(){
         url: '/gestfavorite',
         method: 'post',
         data: {isFav: 0, currentCamp: $("#currentCamp").text()} 
-      })
+      });
+      $("#favNo").find("i").text('star'); 
+      this.id = 'favYes'; 
     });
 });
