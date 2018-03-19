@@ -63,3 +63,12 @@ module.exports.updateValidationContractorAccount = (req, resp) => {
       });
   })
 };
+
+module.exports.notifications = (req, resp) => {
+  resp.title = "Notification";
+  notifModel.fetchNotifications(req.session.idCompte, (err, result) => {
+      resp.notifications = result;
+      resp.notifLength = result.length;
+      resp.render("notifications", resp);
+  });
+};

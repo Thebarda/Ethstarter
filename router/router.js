@@ -46,6 +46,7 @@ module.exports = function (app) {
     app.get('/fetchNbContractorsWaitingForValidation', ProfilController.fetchNbContractorsWaitingForValidation);
     app.get('/contractorsWaiting', ProfilController.fetchContractorsWaitingForValidation);
     app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
+    app.get('/notifications', ProfilController.notifications);
 
     //Administration
     app.get('/administration', AdministrationController.administration);

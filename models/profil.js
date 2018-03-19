@@ -76,3 +76,16 @@ module.exports.fetchValidationEntrepeneur = (idEntrepreneur, callback) => {
       connexion.release();
   });
 };
+
+module.exports.deleteUser = (idUtilisateur, callback) => {
+  db.getConnection((err, connection) => {
+    connection.query("DELETE FROM utilisateur WHERE id="+idUtilisateur, callback);
+    connection.release();
+  });
+};
+module.exports.deleteContractor = (idContractor, callback) => {
+    db.getConnection((err, connection) => {
+        connection.query("DELETE FROM entrepreneur WHERE idUtilisateur="+idContractor, callback);
+        connection.release();
+    });
+};
