@@ -33,9 +33,9 @@ module.exports.updateMontant = function (idCampagne, montant, callback) {
 
 module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
-            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours`, `validated` " +
-            "FROM campagnes WHERE idEntrepreneur=" + idEntrepreneur, callback);
+        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
+        "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
+        "FROM campagnes WHERE idEntrepreneur=" + idEntrepreneur, callback);
         connection.release();
     });
 }; 
@@ -163,9 +163,9 @@ module.exports.addFavorite = (idUser, idCamp, callback) => {
     });
 };
 
-module.exports.remFavorite = (idCamp, idUser, callback) => {
+module.exports.remFavorite = (idUser, idCamp, callback) => {
     db.getConnection((err, co) => {
-        //co.query("DELETE FROM `favoris` WHERE idCampagne = 1249");
+        co.query("DELETE FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser);
         co.release();
     });
 };
@@ -173,5 +173,13 @@ module.exports.remFavorite = (idCamp, idUser, callback) => {
 module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
     db.getConnection((err, co ) => {
         co.query("INSERT INTO commentaires VALUES ('" + idUser + "', '" + idCamp + "','" + commentaires + "')");
+        co.release();
+    });
+}
+module.exports.isFavorite = (idUser, idCamp, callback) => {
+    console.log("mdl : " + idCamp);
+    db.getConnection((e, c) => {
+        c.query("SELECT idCampagne FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser, callback);
+        c.release();
     });
 };

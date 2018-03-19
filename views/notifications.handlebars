@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col s6 offset-s3">
+        <span><h4>Notifications</h4></span>
+        <div class="input-field">
+            <input name='searchNotif' id="search" type="text" onchange="searchFunc(event);">
+            <label for="search">Search</label>
+        </div>
+        {{#ifCond notifLength '==' 0}}
+            <h5>Aucune notifications</h5>
+        {{else}}
+            <ul id="notifications" class="collection">
+                {{#each notifications}}
+                    <li class="collection-item hoverable grey lighten-3 textNotifs"><p>{{this.text}}</p>
+                        <p class="grey-text">Le {{formatDate this.date 'DD/MM/YYYY HH:mm:ss'}}</p></li>
+                {{/each}}
+            </ul>
+        {{/ifCond}}
+    </div>
+</div>
+<script src="/javascripts/searchNotifs.js"></script>

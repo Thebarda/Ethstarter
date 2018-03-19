@@ -39,8 +39,9 @@ module.exports = function (app) {
     app.get('/myfavorites', CampagnesController.favorites);
     app.post('/gestfavorite', CampagnesController.gestFavorite);
     app.get('/mycontributions', CampagnesController.contributed);
-
+    //Commentaire Campagnes
     app.post('/postcomm', CampagnesController.postComm);
+    //app.get('/getcomm', Campagnes.Controller.getComm);
     //Recherche
     app.post('/search', CampagnesController.searchCampaign);
 
@@ -49,7 +50,8 @@ module.exports = function (app) {
     app.get('/modifierProfil', ProfilController.modifierProfil);
     app.get('/fetchNbContractorsWaitingForValidation', ProfilController.fetchNbContractorsWaitingForValidation);
     app.get('/contractorsWaiting', ProfilController.fetchContractorsWaitingForValidation);
-    app.get('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
+    app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
+    app.get('/notifications', ProfilController.notifications);
 
     //Administration
     app.get('/administration', AdministrationController.administration);
