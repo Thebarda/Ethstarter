@@ -67,6 +67,7 @@ $(document).ready(function(){
     });
 
     $("#favbutton").on('click', () => {
+      $("#favbutton").attr("data-tooltip", favText);//attr change doesn't work
       $.ajax({
         url: '/gestfavorite',
         method: 'post',
@@ -78,7 +79,7 @@ $(document).ready(function(){
       favIcon = favStatus == "0" ? "star" : "star_border";
       favText = favStatus == "0" ? "Ajouter en favoris" : "Retirer des favoris"; 
       console.log("ft : " + favText);
-      $("#favbutton").attr("data-tooltip", favText);//attr change doesn't work
       $("#favicon").text(favIcon);
+      console.log("afer");
     });
 });

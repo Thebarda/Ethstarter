@@ -3,7 +3,7 @@
         <div class="card col s8">
             <div class="card-content">
                 {{#ifCond session.isConnected '==' true}}
-                        <a id="favbutton" class="btn-floating btn-large waves-effect waves-light orange left tooltipped" data-position="right" data-delay="50" data-tooltip="I am a tooltip"><i id="favicon" class="material-icons">close</i></a>
+                        <a id="favbutton" class="btn-floating btn-large waves-effect waves-light orange left tooltipped" data-position="right" data-delay="50" data-tooltip="tooltip text placeholder"><i id="favicon" class="material-icons">close</i></a>
                 {{/ifCond}}
                 <p hidden id="currentCamp">{{campagne.idCampagne}}</p>
                 <p hidden id="isFav">{{isFav}}</p>
