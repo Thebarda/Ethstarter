@@ -29,9 +29,10 @@ install:
     - sleep 3
 
 script:
+    #- mocha test/smartContract/
+    - mocha test/unittest/
     - npm start &
     - sleep 5
-    - mocha test/unittest/
     - robot test/robotframework/
 
 notifications:

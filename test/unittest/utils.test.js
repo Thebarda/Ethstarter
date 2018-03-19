@@ -24,5 +24,11 @@ describe("utils", function(){
       it("should return \'\'\'\'", function(){
         assert.equal(utils.escapeSingleQuotes("''''"), "\'\'\'\'");
       });
+      it("should throws an exception for undefined", () => {
+         assert.throws(() => {utils.escapeSingleQuotes(undefined)}, 'Cannot read property');
+      });
+       it("should throws an exception for null", () => {
+           assert.throws(() => {utils.escapeSingleQuotes(null)}, 'Cannot read property');
+       });
    });
 });

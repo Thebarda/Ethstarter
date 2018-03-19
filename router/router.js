@@ -13,7 +13,7 @@ var AdministrationController = require("../controllers/AdministrationController.
 module.exports = function (app) {
 
     // Exemple
-    app.get('/', AccueilController.example);
+    app.get('/', AccueilController.accueil);
 
     // Connexion
     app.get('/Connexion', ConnexionController.connexion);
@@ -36,6 +36,9 @@ module.exports = function (app) {
     app.get('/campaingsWaiting', CampagnesController.campaingsWaiting);
     app.get('/campaignWaiting/:idCampagne', CampagnesController.campaignWaitign);
     app.post('/updateValidationCampaign', CampagnesController.updateValidationCampaign);
+
+    //Recherche
+    app.post('/search', CampagnesController.searchCampaign);
 
     // Profil
     //app.get('/Profil', ProfilController.afficherProfil);

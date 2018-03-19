@@ -30,9 +30,9 @@
                           <li><a href="/Inscription" id="btnInscription" class="btnActive">Inscription</a></li>
                       </ul>
                   {{/if}}
-                <ul id="nav-mobile" class="right"><li><form>  
+                <ul id="nav-mobile" class="right"><li><form method="POST" action="/search">  
                     <div class="searchbar input-field">
-                    <input id="search" type="search" required>
+                    <input id="search" type="search" name="search" required>
                     <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                     <i class="material-icons">close</i>
                     </div>
@@ -52,10 +52,12 @@
               <!--<li><a href="/account/startCrowfunding" class="waves-effect waves-light">Compte</a></li>-->
               <!--end switch account type is connected-->
               {{#ifCond session.typeCompte '==' 2}}
-               <li><a class="subheader"><span class="orange-text" >Entrepreneur</span></a></li>
-                <li><a id="proposerCampagne" href="/creerCampagne" class="waves-effect waves-light"><i class="material-icons">add</i><span class="orange-text">Proposer un projet</span></a></li>
-                <li><a id="mesCampagnes" href="/mycampaigns" class="waves-effect waves-light"><i class="material-icons">search</i><span class="orange-text">Mes Campagnes</span></a></li>
-                <li><div class="divider"></div></li>
+                  {{#ifCond session.entrepreneurValidated '==' 1}}
+                    <li><a class="subheader"><span class="orange-text" >Entrepreneur</span></a></li>
+                    <li><a id="proposerCampagne" href="/creerCampagne" class="waves-effect waves-light"><i class="material-icons">add</i><span class="orange-text">Proposer un projet</span></a></li>
+                    <li><a id="mesCampagnes" href="/mycampaigns" class="waves-effect waves-light"><i class="material-icons">search</i><span class="orange-text">Mes Campagnes</span></a></li>
+                    <li><div class="divider"></div></li>
+                  {{/ifCond}}
               {{/ifCond}}
               {{#ifCond session.typeCompte '==' 0}}
                 <li><a id="validationCampagne" href="/campaingsWaiting" class="waves-effect waves-light"><span id="nbCampaignsWaiting" class="badge"></span>Vérifier campagnes</a></li>
