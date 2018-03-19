@@ -78,3 +78,10 @@ module.exports.fetchAllEntrepreneurs = (callback) => {
         connection.release();
     });
 };
+
+module.exports.fetchValidationEntrepeneur = (idEntrepreneur, callback) => {
+  db.getConnection((err, connexion) => {
+      connexion.query("SELECT validated FROM entrepreneur WHERE idUtilisateur="+idEntrepreneur, callback);
+      connexion.release();
+  });
+};

@@ -70,5 +70,5 @@ module.exports.updateValidationContractorAccount = (req, resp) => {
   console.log('nani')
   profilModel.updateValidationContractorAccount(req.body.id, req.body.validated, (err, result) => {
     resp.render("emptyView", resp);
-  });
-};
+  })
+}
