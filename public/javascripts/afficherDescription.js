@@ -2,6 +2,7 @@ $(document).ready(function(){
     $("#description").html($.parseHTML($("#description").text()));
     $('ul.tabs').tabs();
     $('.modal').modal();
+    $(".commForm").hide();
     $("#submitParticipation").addClass("disabled");
     //on check la contribution
     $("#montantJS").on("change", function(){
@@ -37,6 +38,7 @@ $(document).ready(function(){
            $("#nbContribsss").text(parseInt($("#nbContribsss").text())+1);
        });
     });
+
     $("#approve").on('click', () => {
       $.ajax({
         url: '/updateValidationCampaign',
@@ -46,6 +48,7 @@ $(document).ready(function(){
         location.href="/campaingsWaiting"
       })
     });
+
     $("#unapprove").on('click', () => {
       $.ajax({
         url: '/updateValidationCampaign',
@@ -77,10 +80,24 @@ $(document).ready(function(){
     });
 
     $("#btnComm").on('click', () => {
-      $.ajax({
-        url: '/postcomm',
-        method: 'post',
-        data: {comm: document.getElementById("areaComm").value, currentCamp: $("#currentCamp").text()}
-      });
+      $("#btnComm").hide();
+      $(".commForm").show();
+    });
+
+    $("#btnPost").on('click', () => {
+      
+      var comm = document.getElementById("areaComm").value;
+      if(comm.trim()!==""){
+        $("#btnComm").show();
+        $(".commForm").hide();
+        $.ajax({
+          url: '/postcomm',
+          method: 'post',
+          data: {comm: comm, currentCamp: $("#currentCamp").text()}
+        });
+      }else{
+        $("#error").text("Le champ commentaire doit être rempli!");
+      }
+     
     });
 });

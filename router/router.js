@@ -41,7 +41,6 @@ module.exports = function (app) {
     app.get('/mycontributions', CampagnesController.contributed);
     //Commentaire Campagnes
     app.post('/postcomm', CampagnesController.postComm);
-    //app.get('/getcomm', Campagnes.Controller.getComm);
     //Recherche
     app.post('/search', CampagnesController.searchCampaign);
 

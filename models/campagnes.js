@@ -170,12 +170,6 @@ module.exports.remFavorite = (idUser, idCamp, callback) => {
     });
 };
 
-module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
-    db.getConnection((err, co ) => {
-        co.query("INSERT INTO commentaires VALUES ('" + idUser + "', '" + idCamp + "','" + commentaires + "')");
-        co.release();
-    });
-}
 module.exports.isFavorite = (idUser, idCamp, callback) => {
     console.log("mdl : " + idCamp);
     db.getConnection((e, c) => {
@@ -183,3 +177,26 @@ module.exports.isFavorite = (idUser, idCamp, callback) => {
         c.release();
     });
 };
+
+module.exports.hasContributed = (idUser, idCamp, callback) => {
+    console.log("md2 : " + idCamp);
+    db.getConnection((e, c) => {
+        c.query("SELECT idCampagne FROM contributeursxcampagne WHERE idCampagne = " + idCamp + " AND idContributeur = " + idUser, callback);
+        c.release();
+    });
+};
+
+module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
+    db.getConnection((err, co ) => {
+        co.query("INSERT INTO commentaires VALUES ('" + idUser + "', '" + idCamp + "','" + commentaires + "')");
+        co.release();
+    });
+};
+
+module.exports.getComm = (idCamp,callback) => {
+    console.log("idCampagne :" + idCamp);
+    db.getConnection((e, c) => {
+        c.query("select commentaire as comm,prenom,nom from utilisateur inner join commentaires on utilisateur.id = commentaires.idContributeur where commentaires.idCampagne =" + idCamp , callback);
+        c.release();
+    });
+}

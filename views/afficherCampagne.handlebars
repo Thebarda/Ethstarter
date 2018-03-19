@@ -90,21 +90,34 @@
             </div>
         </div>
     </div>
-    
+     
     <div class="row">
         <div class="col s10">
             <div class="row">
-                <div class="input-field col s10">
-                    <i class="material-icons prefix">comment</i>
-                    <textarea id="areaComm" class="materialize-textarea"></textarea>
-                    <label for="comm">Votre Commentaire</label>
+                {{#ifCond session.isConnected '==' true}}
+                    {{#ifCond hasCont '==' 1}}
+                        <button  id="btnComm" class="btn waves-effect waves-light" name="btnComm">Ecrire Commentaire<i class="material-icons right">edit</i></button>
+                    {{/ifCond}}
+                {{/ifCond}}
+                <div class="commForm">
+                        <div class="input-field col s10">
+                            <i class="material-icons prefix">comment</i>
+                            <textarea id="areaComm" class="materialize-textarea"></textarea>
+                            <label for="comm">Votre Commentaire</label>
+                        </div>
+                            <h5 id="error" class="red-text"></h5>
+                    <button  id="btnPost" class="btn waves-effect waves-light" name="btnPost">Poster Commentaire<i class="material-icons right">send</i></button>
                 </div>
             </div>
-            <button  id="btnComm" class="btn waves-effect waves-light" name="btnComm">Poster
-                <i class="material-icons right">send</i>
-            </button>
         </div>
   </div>
+  {{#each commentaires}}
+    <div class="row">
+        <div class="col s10"><span class="flow-text">{{this.comm}}</span></div>
+        <div class="col s5 offset-s5"><span class="blue-text">{{this.prenom}} {{this.nom}}</span></div>
+        <div class="col s10 divider"></div>
+    </div>
+    {{/each}}
 </div>
 <div id="contribuez" class="modal">
     <div class="modal-content">
