@@ -58,6 +58,13 @@ var job = new CronJob({
 });
 job.start();
 console.log("is job running ? "+job.running);
+
+    //promise test
+    var c = require("./models/campagnes");
+    c.promiseTest();
+    //end test
+
+//Server start
 http.createServer(app).listen(app.get('port'), function() {
     console.log('Serveur Ethstarter test en attente sur le port ' + app.get('port'));
 });

@@ -168,3 +168,8 @@ module.exports.isFavorite = (idUser, idCamp, callback) => {
         c.release();
     });
 };
+
+    //PROMISE TEST
+    module.exports.promiseTest = () => {
+        console.log("--- promise test launch ---");
+    };
