@@ -180,7 +180,7 @@ module.exports.postComm = (req,resp) => {
     var comm = body.comm;
     var currentCamp = body.currentCamp;
     var user = req.session.idCompte;
-    console.log("commentaire: "+ comm + " campagne:" +currentCamp + " user:" + user);
+    console.log("body: " + body +  "commentaire: "+ comm + " campagne:" +currentCamp + " user:" + user);
 
     campagnesModel.addComm(user,currentCamp,comm,(e)=>{
         if(e) throw e;

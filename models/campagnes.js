@@ -188,7 +188,7 @@ module.exports.hasContributed = (idUser, idCamp, callback) => {
 
 module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
     db.getConnection((err, co ) => {
-        co.query("INSERT INTO commentaires VALUES ('" + idUser + "', '" + idCamp + "','" + commentaires + "')");
+        co.query("INSERT INTO commentaires VALUES ('" + idUser + "', '" + idCamp + "','" + commentaires + "')", callback);
         co.release();
     });
 };

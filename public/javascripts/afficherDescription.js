@@ -85,7 +85,6 @@ $(document).ready(function(){
     });
 
     $("#btnPost").on('click', () => {
-      
       var comm = document.getElementById("areaComm").value;
       if(comm.trim()!==""){
         $("#btnComm").show();
@@ -94,10 +93,17 @@ $(document).ready(function(){
           url: '/postcomm',
           method: 'post',
           data: {comm: comm, currentCamp: $("#currentCamp").text()}
+        }).done(function(html){
+          Materialize.toast("Votre commentaire a été posté'");
+          setTimeout(function () {
+            location.href = "/campaign/"+$("#currentCamp").text();
+        }, 2000);
         });
       }else{
         $("#error").text("Le champ commentaire doit être rempli!");
       }
-     
     });
 });
+     
+    
+
