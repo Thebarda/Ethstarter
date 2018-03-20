@@ -165,5 +165,3 @@ module.exports.contributed = (req, resp) => {
         resp.render("afficherLesCampagnes", resp);
     });
 };
-
-
