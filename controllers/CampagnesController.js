@@ -48,6 +48,7 @@ module.exports.afficherCampagne = function(request, response){
         });
     });
 };
+
 module.exports.afficherMesCampagnes = function(request, response){
     idCompte = request.session.idCompte;
     campagnesModel.getMyCampaigns(idCompte,function(err, result){
@@ -57,6 +58,7 @@ module.exports.afficherMesCampagnes = function(request, response){
         response.render("afficherMesCampagnes", response);
     });
 };
+
 module.exports.afficherLesCampagnes = (req, resp)=>{
     campagnesModel.getAllCampaigns((err, res)=>{
         if (err) throw err;
@@ -73,7 +75,6 @@ module.exports.fetchNbCampagnesWaitingForValidation = (req, resp)=>{
     resp.render("emptyView",resp);
   });
 };
-
 
 module.exports.campaingsWaiting = (req, resp) => {
   campagnesModel.fetchCampaignsWaitingForValidation((err, res) => {
@@ -119,7 +120,6 @@ module.exports.updateValidationCampaign = (req, resp) => {
     resp.render("emptyView", resp);
   })
 }
-
 
 module.exports.searchCampaign = (req, resp) => {
     var search = utils.escapeSingleQuotes(req.body.search);
