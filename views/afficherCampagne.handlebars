@@ -111,13 +111,19 @@
             </div>
         </div>
   </div>
-  {{#each commentaires}}
-    <div class="row">
-        <div class="col s10"><span class="flow-text">{{this.comm}}</span></div>
-        <div class="col s5 offset-s5"><span class="blue-text">{{this.prenom}} {{this.nom}}</span></div>
-        <div class="col s10 divider"></div>
+  <div class="card">
+    <div class="card-content">
+        {{#each commentaires}}
+            <div class="row">
+                    
+                    <div class="col s12"><span class="flow-text"><i>{{this.comm}}</i></span></div> 
+                    <div class="col s6 offset-s8"><span class="flow-text blue-text">{{this.prenom}} {{this.nom}}</span></div>
+                    <div class="col s10 divider offset-s1"></div>
+            </div>
+        {{/each}}
     </div>
-    {{/each}}
+    </div>
+
 </div>
 <div id="contribuez" class="modal">
     <div class="modal-content">
