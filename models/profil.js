@@ -1,4 +1,5 @@
 var db = require('./configDb.js');
+var sha256 = require('js-sha256').sha256;
 
 module.exports.getProfilContributeur = function(idCompte, callback) {
     db.getConnection(function (err, connection) {
@@ -19,8 +20,8 @@ module.exports.getProfilEntrepreneur = function(idCompte, callback) {
 module.exports.updateProfil = function(idCompte, body, callback) {
     db.getConnection(function (err, connection) {
         if (err) throw err;
-        var sql = "UPDATE INTO utilisateur set nom=?, prenom=?, mail=?, password=?, addrPubliqueEth=?  WHERE id=?;";
-        connection.query(sql, [body.lastname, body.firstname, body.email, body.mdp, body.address, idCompte], callback);
+        var sql = "UPDATE utilisateur set nom=?, prenom=?, mail=?, password=?, addrPubliqueEth=?  WHERE id=?;";
+        connection.query(sql, [body.lastname, body.firstname, body.email, sha256(body.newPassword), body.address, idCompte], callback);
         connection.release();
     });
 };
@@ -50,7 +51,7 @@ module.exports.delParticipation = function(nomCampagne, idContributeur, callback
 module.exports.updateProfilEntrepreneur = function(idCompte, body, callback) {
     db.getConnection(function (err, connection) {
         if (err) throw err;
-        var sql = "UPDATE INTO entrepreneur SET nomEntreprise=? WHERE idUtilisateur=?;";
+        var sql = "UPDATE entrepreneur SET nomEntreprise=? WHERE idUtilisateur=?;";
         connection.query(sql, [body.nomEntreprise, idCompte], callback);
     });
 };

@@ -45,12 +45,12 @@ module.exports = function (app) {
     app.post('/search', CampagnesController.searchCampaign);
 
     // Profil
-    //app.get('/Profil', ProfilController.afficherProfil);
-    app.get('/modifierProfil', ProfilController.modifierProfil);
+    app.get('/Profil', ProfilController.getProfil);
+    app.post('/modifierProfil', ProfilController.modifierProfil);
     app.get('/Participations', ProfilController.afficherParticipations);
     app.get('/fetchNbContractorsWaitingForValidation', ProfilController.fetchNbContractorsWaitingForValidation);
     app.get('/contractorsWaiting', ProfilController.fetchContractorsWaitingForValidation);
-    app.get('/delParticipation', ProfilController.supprimerParticipation);
+    app.post('/delParticipation', ProfilController.supprimerParticipation);
     app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
     app.get('/notifications', ProfilController.notifications);
 

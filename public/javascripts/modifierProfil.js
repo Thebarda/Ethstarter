@@ -1,8 +1,8 @@
 $(document).ready(function () {
 
     $(".btnEditerProfil").click(function () {
-        var toggled = $('.inputModifierProfil').attr('disabled');
+        var toggled = $('.inputModifierProfil').attr('readonly');
         $('.btnModifierProfil').toggleClass("hide");
-        $('.inputModifierProfil').attr('disabled', toggled ? false:true);
+        $('.inputModifierProfil').attr('readonly', toggled ? false:true);
     });
 });
