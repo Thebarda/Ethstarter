@@ -93,9 +93,3 @@ module.exports.deleteUser = (idUtilisateur, callback) => {
     connection.release();
   });
 };
-module.exports.deleteContractor = (idContractor, callback) => {
-    db.getConnection((err, connection) => {
-        connection.query("DELETE FROM entrepreneur WHERE idUtilisateur="+idContractor, callback);
-        connection.release();
-    });
-};
