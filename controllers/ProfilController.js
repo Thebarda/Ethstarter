@@ -28,14 +28,13 @@ module.exports.modifierProfil = function(request, response) {
     console.log("----------------");
     profilModel.updateProfil(idCompte, body, function(err, result){
         if (err) throw err;
+        if (request.session.typeCompte == 2) {
+            profilModel.updateProfilEntrepreneur(idCompte, body, function(err, result){
+                if (err) throw err;
+            });
+        }
         response.render("afficherProfil", response);
     });
-    if (request.session.typeCompte == 2) {
-        profilModel.updateProfilEntrepreneur(idCompte, body, function(err, result){
-            if (err) throw err;
-            response.render("afficherProfil", response);
-        });
-    }
 };
 
 module.exports.fetchNbContractorsWaitingForValidation = (req, resp)=>{
@@ -71,4 +70,24 @@ module.exports.notifications = (req, resp) => {
       resp.notifLength = result.length;
       resp.render("notifications", resp);
   });
+};
+
+module.exports.deleteUser = (req, resp) => {
+  resp.title = "Ethstarter";
+  profilModel.deleteUser(req.session.idCompte, (err, result) => {
+      req.session.destroy(function(err){
+          if(err){
+              console.log(err);
+              return;
+          }
+          resp.render('emptyView', resp);
+      });
+  });
+};
+
+module.exports.deleteUserModerator = (req, resp) => {
+  resp.title = "Ethstarter";
+    profilModel.deleteUser(req.body.idUser, (err, result) => {
+        resp.render('emptyView', resp);
+    });
 };

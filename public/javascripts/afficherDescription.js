@@ -1,4 +1,14 @@
 $(document).ready(function(){
+    //fill favorite state from the hidden field and construct the button
+    var favStatus = $("#isFav").text();
+    var favIcon = favStatus == "0" ? "star" : "star_border";
+    var favText = favStatus == "0" ? "Ajouter en favoris" : "Retirer des favoris";
+
+    $('.tooltipped').tooltip({delay: 50});
+    $("#favicon").text(favIcon);
+    $("#favbutton").attr("data-tooltip", favText);
+
+    
     $("#description").html($.parseHTML($("#description").text()));
     $('ul.tabs').tabs();
     $('.modal').modal();
@@ -38,47 +48,41 @@ $(document).ready(function(){
            $("#nbContribsss").text(parseInt($("#nbContribsss").text())+1);
        });
     });
-
     $("#approve").on('click', () => {
       $.ajax({
         url: '/updateValidationCampaign',
         method: 'post',
-        data: {validationNumber: 1, descriptionValidation: $("#descriptionValidation").val(), titre:$("#titre").text()}
+        data: {validationNumber: 1, descriptionValidation: $("#descriptionValidation").val()}
       }).done((data) => {
         location.href="/campaingsWaiting"
       })
     });
-
     $("#unapprove").on('click', () => {
       $.ajax({
         url: '/updateValidationCampaign',
         method: 'post',
-        data: {validationNumber: 2, descriptionValidation: $("#descriptionValidation").val(), titre:$("#titre").text()}
+        data: {validationNumber: 2, descriptionValidation: $("#descriptionValidation").val()}
       }).done((data) => {
         location.href="/campaingsWaiting"
       })
     });
 
-    $("#favYes").on('click', () => {
+    $("#favbutton").on('click', () => {
+      $("#favbutton").attr("data-tooltip", favText);//attr change doesn't work
       $.ajax({
         url: '/gestfavorite',
         method: 'post',
-        data: {isFav: 1, currentCamp: $("#currentCamp").text()} 
+        data: {isFav: favStatus, currentCamp: $("#currentCamp").text()} 
       });
-      $("#favYes").find("i").text('star_border');
-      this.id = 'favNo'; 
-    });
 
-    $("#favNo").on('click', () => {
-      $.ajax({
-        url: '/gestfavorite',
-        method: 'post',
-        data: {isFav: 0, currentCamp: $("#currentCamp").text()} 
-      });
-      $("#favNo").find("i").text('star'); 
-      this.id = 'favYes'; 
-    });
+      favStatus = favStatus == 0 ? 1 : 0;
 
+      favIcon = favStatus == "0" ? "star" : "star_border";
+      favText = favStatus == "0" ? "Ajouter en favoris" : "Retirer des favoris"; 
+      console.log("ft : " + favText);
+      $("#favicon").text(favIcon);
+      console.log("afer");
+    });
     $("#btnComm").on('click', () => {
       $("#btnComm").hide();
       $(".commForm").show();
@@ -104,6 +108,3 @@ $(document).ready(function(){
       }
     });
 });
-     
-    
-
