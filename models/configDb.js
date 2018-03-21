@@ -29,16 +29,6 @@ var p = require('promise-mysql').createPool({
     port: '3306'
 });
 
-var testq = "SELECT nom FROM utilisateur WHERE id=51";
-
-p.query(testq).then(function(res){
-    console.log(res);
-}).catch(function(err) {
-    console.log(err);
-});
-
-
-
 module.exports.asq = async (q) => {
     try {
         return await p.query(q);
