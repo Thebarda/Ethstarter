@@ -1,47 +1,74 @@
 <div class="row">
-    <div class="col l7 m10 offset-s1">
-        <h4 class="center-align">Campagnes ajoutées récemment</h4>
-        {{#if campagnes}}
-            {{#each campagnes}}
-                <div class="col s4" id="campagne">
-                    <div class="card hoverable">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator cardImg" src="/images/placeholder2.jpg" />
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">{{nomCampagne}}<i class="material-icons right">expand_less</i></span>
-                            <p><a href="/campaign/{{idCampagne}}">Découvrir</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4 activator">{{nomCampagne}}<i class="material-icons right">expand_more</i></span>
-                            <p>{{descriptionCourte}}</p>
+    {{#ifCond session.typeCompte '==' 2}}
+        <div class="col l8 m10 offset-s">
+            <h4 class="center-align">Campagnes ajoutées récemment</h4>
+            {{#if campagnes}}
+                {{#each campagnes}}
+                    <div class="col s4" id="campagne">
+                        <div class="card hoverable">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator cardImg" src="/images/placeholder2.jpg" />
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{nomCampagne}}<i class="material-icons right">expand_less</i></span>
+                                <p><a href="/campaign/{{idCampagne}}">Découvrir</a></p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4 activator">{{nomCampagne}}<i class="material-icons right">expand_more</i></span>
+                                <p>{{descriptionCourte}}</p>
+                            </div>
                         </div>
                     </div>
+                {{/each}}
+            {{else}}
+                <h5>Pas de campagnes nouvellement crées :(</h5>
+            {{/if}}
+        </div>
+        <div class="col l4 m10">
+            {{#ifCond notifLength '>' -1}}
+                <div class="card black-text grey lighten-3">
+                    <div class="card-content">
+                        <ul class="collection with-header">
+                            <li class="collection-header center-align grey lighten-3"><h5>Notifications</h5></li>
+                        {{#ifCond notifLength '==' 0}}
+                            <li class="collection-item grey lighten-3"><h6>Vous n'avez aucune notification sur les 7 derniers jours</h6></li>
+                        {{else}}
+                            {{#each notifications}}
+                                <li class="collection-item hoverable grey lighten-3"><p>{{this.text}}</p>
+                                    <p class="grey-text">Le {{formatDate this.date 'DD/MM/YYYY HH:mm:ss'}}</p></li>
+                            {{/each}}
+                        {{/ifCond}}
+                        </ul>
+                    </div>
                 </div>
-            {{/each}}
-        {{else}}
-            <h5>Pas de campagnes nouvellement crées :(</h5>
-        {{/if}}
-    </div>
-    <div class="col l4 m10">
-        {{#ifCond notifLength '>' -1}}
-            <div class="card black-text grey lighten-3">
-                <div class="card-content">
-                    <ul class="collection with-header">
-                        <li class="collection-header center-align grey lighten-3"><h5>Notifications</h5></li>
-                    {{#ifCond notifLength '==' 0}}
-                        <li class="collection-item grey lighten-3"><h6>Vous n'avez aucune notification sur les 7 derniers jours</h6></li>
-                    {{else}}
-                        {{#each notifications}}
-                            <li class="collection-item hoverable grey lighten-3"><p>{{this.text}}</p>
-                                <p class="grey-text">Le {{formatDate this.date 'DD/MM/YYYY HH:mm:ss'}}</p></li>
-                        {{/each}}
-                    {{/ifCond}}
-                    </ul>
-                </div>
-            </div>
-        {{/ifCond}}
-    </div>
+            {{/ifCond}}
+        </div>
+    {{else}}
+        <div class="col s10 offset-s1">
+            <h4 class="center-align">Campagnes ajoutées récemment</h4>
+            {{#if campagnes}}
+                {{#each campagnes}}
+                    <div class="col s4" id="campagne">
+                        <div class="card hoverable">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator cardImg" src="/images/placeholder2.jpg" />
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{nomCampagne}}<i class="material-icons right">expand_less</i></span>
+                                <p><a href="/campaign/{{idCampagne}}">Découvrir</a></p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4 activator">{{nomCampagne}}<i class="material-icons right">expand_more</i></span>
+                                <p>{{descriptionCourte}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <h5>Pas de campagnes nouvellement crées :(</h5>
+            {{/if}}
+        </div>
+    {{/ifCond}}
 </div>
 
 <link rel="stylesheet" href="/stylesheets/accueil.css">

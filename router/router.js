@@ -7,6 +7,7 @@ var CampagnesController = require('../controllers/CampagnesController.js');
 var ParticipationController = require('../controllers/ParticipationController.js');
 var ProfilController = require('../controllers/ProfilController.js');
 var AdministrationController = require("../controllers/AdministrationController.js");
+var ContrepartieController = require("../controllers/contrepartiesController");
 
 
 // Routes
@@ -39,6 +40,7 @@ module.exports = function (app) {
     app.get('/myfavorites', CampagnesController.favorites);
     app.post('/gestfavorite', CampagnesController.gestFavorite);
     app.get('/mycontributions', CampagnesController.contributed);
+    app.post('/addContrepartie', ContrepartieController.addContrepartie);
     //Commentaire Campagnes
     app.post('/postcomm', CampagnesController.postComm);
     //Recherche

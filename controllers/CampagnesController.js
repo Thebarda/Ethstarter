@@ -131,7 +131,7 @@ module.exports.updateValidationCampaign = (req, resp) => {
     campagnesModel.updateValidationCampaign(req.session.isLookingCampaign, req.body.validationNumber, tmp, (err, result) => {
         campagnesModel.getCampaignById(req.session.isLookingCampaign, (err, result) => {
             var valid = req.body.validationNumber == 1 ? "a été validé" : "n\'a pas pu être validé";
-            notifModel.addNotification(result[0].idEntrepreneur, "Votre campagne "+req.body.titre+" "+valid, (err, result2) => {
+            notifModel.addNotification(result[0].idEntrepreneur, "Votre campagne "+result[0].nomCampagne+" "+valid, (err, result2) => {
                 resp.render("emptyView", resp);
             });
         });

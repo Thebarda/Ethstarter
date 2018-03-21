@@ -23,10 +23,11 @@ module.exports.validationCampagne = function (request, response) {
             return;
         }
         else {
+            response.response = result.insertId;
             ethstarterContract.addCrowfunding(result.insertId, request.session.addrPubliqueEth, parseInt(body.but), parseInt(body.montantMax));
             var texte = "Votre campagne "+body.nomCampagne+" est en attente de validation";
             notifModel.addNotification(request.session.idCompte, texte, (err, result2) => {
-                response.render("accueil", response);
+                response.render("emptyView", response);
             });
         }
     });
