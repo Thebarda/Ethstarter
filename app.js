@@ -66,7 +66,7 @@ console.log("OK");
 
 //promise test
 const promiseTest = async () => {
-    var res = await db.asq(testq);
+    var res = await db.asq(testq)[0];
     console.log("my favorite user is " + res);
 }
 promiseTest();
