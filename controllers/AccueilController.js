@@ -22,3 +22,8 @@ module.exports.accueil = function(request, response) {
         });
     }
 };
+
+module.exports.error404 = (req,resp) => {
+    resp.title = "Erreur 404";
+    resp.render("error404", resp);
+};

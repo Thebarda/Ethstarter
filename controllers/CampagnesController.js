@@ -71,6 +71,7 @@ module.exports.afficherMesCampagnes = (req, resp) => {
         resp.render("afficherLesCampagnes", resp);
     });
 };
+
 module.exports.afficherLesCampagnes = (req, resp)=>{
     campagnesModel.getAllCampaigns((err, res)=>{
         if (err) throw err;
@@ -87,7 +88,6 @@ module.exports.fetchNbCampagnesWaitingForValidation = (req, resp)=>{
     resp.render("emptyView",resp);
   });
 };
-
 
 module.exports.campaingsWaiting = (req, resp) => {
   campagnesModel.fetchCampaignsWaitingForValidation((err, res) => {
@@ -137,7 +137,6 @@ module.exports.updateValidationCampaign = (req, resp) => {
         });
     });
 }
-
 
 module.exports.searchCampaign = (req, resp) => {
     var search = utils.escapeSingleQuotes(req.body.search);
@@ -196,5 +195,3 @@ module.exports.contributed = (req, resp) => {
         resp.render("afficherLesCampagnes", resp);
     });
 };
-
-
