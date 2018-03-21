@@ -54,9 +54,6 @@ module.exports.afficherStatistiquesCampagnes = function(request, response){
     var idCampagne = request.params.idCampagne;
     campagnesModel.getCampaignById(idCampagne, function(err, result){
         if(err) throw err;
-
-
-
         response.title=result[0].nomCampagne;
         response.campagne = result[0];
         response.pourcentage = (response.campagne.montantActuel/response.campagne.but)*100;
