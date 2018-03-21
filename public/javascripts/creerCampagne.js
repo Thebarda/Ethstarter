@@ -74,4 +74,57 @@ $(document).ready(function () {
         }
     });
 
+    $("#containerCP").append('<div class="CP row">\n' +
+        '                                <h5>Contre-partie</h5>\n' +
+        '                                <div class="input-field col s2">\n' +
+        '                                    <input onkeypress="checkInputOnChange(event)" type="text" id="montantCP" name="montantCP" min="0">\n' +
+        '                                    <label for="montantCP" data-error="wrong" data-success="right">Montant Contre-partie</label>\n' +
+        '                                </div>\n' +
+        '                                <div class="input-field col s9">\n' +
+        '                                    <input onkeypress="checkInputOnChange(event)" type="text" id="cp" name="cp" min="0">\n' +
+        '                                    <label for="cp" data-error="wrong" data-success="right">Contre-partie</label>\n' +
+        '                                </div>\n' +
+        '                                <a onclick="deleteCP(event)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>\n' +
+        '                                <br /><br /><p id="cpError" class="red-text"></p> \n'+
+        '                            </div>');
+    $("#addCP").on('click', () => {
+        $("#containerCP").append('<div class="CP row">\n' +
+            '                                <h5>Contre-partie</h5>\n' +
+            '                                <div class="input-field col s2">\n' +
+            '                                    <input onkeypress="checkInputOnChange(event)" name="montantCP" type="text" id="montantCP" name="montantCP" min="0">\n' +
+            '                                    <label for="montantCP" data-error="wrong" data-success="right">Montant Contre-partie</label>\n' +
+            '                                </div>\n' +
+            '                                <div class="input-field col s9">\n' +
+            '                                    <input onkeypress="checkInputOnChange(event)" name="cp" type="text" id="cp" name="cp" min="0">\n' +
+            '                                    <label for="cp" data-error="wrong" data-success="right">Contre-partie</label>\n' +
+            '                                </div>\n' +
+            '                                <a onclick="deleteCP(event)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>\n' +
+            '                                <br /><br /><p id="cpError" class="red-text"></p> \n'+
+            '                            </div>');
+    });
 });
+
+function deleteCP(e){
+    $(e.target).parent().parent().remove();
+}
+
+function checkInputOnChange(e){
+    switch(e.target.name){
+        case 'montantCP':
+            if(e.target.value === ""){
+                $(e.target).parent().parent().children("#cpError").text("Veuillez remplir le champ du montant de la contre-partie");
+            } else if(isNaN(parseFloat(e.target.value)) || parseFloat(e.target.value) < 0.0) {
+                $(e.target).parent().parent().children("#cpError").text("Le champ 'montant de la contre-partie' doit être positif")
+            } else {
+                $(e.target).parent().parent().children("#cpError").text("");
+            }
+            break;
+        case 'cp':
+            if(e.target.value === ""){
+                $(e.target).parent().parent().children("#cpError").text("Veuillez remplir le chammp de la contre-partie");
+            } else {
+                $(e.target).parent().parent().children("#cpError").text("");
+            }
+            break;
+    }
+}

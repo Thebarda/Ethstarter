@@ -60,6 +60,12 @@
                     <li><div class="divider"></div></li>
                   {{/ifCond}}
               {{/ifCond}}
+              {{#ifCond session.typeCompte '==' 1}}
+                  <li><a class="subheader"><span class="orange-text" >Contributeur</span></a></li>
+                  <li><a id="myfavorites" href="/myfavorites" class="waves-effect waves-light"><i class="material-icons">star_border</i><span class="black-text">Campagnes favorites</span></a></li>
+                  <li><a id="mycontributions" href="/mycontributions" class="waves-effect waves-light"><i class="material-icons">attach_money</i><span class="black-text">Mes contributions</span></a></li>
+                  <li><div class="divider"></div></li>
+              {{/ifCond}}
               {{#ifCond session.typeCompte '==' 0}}
                 <li><a id="validationCampagne" href="/campaingsWaiting" class="waves-effect waves-light"><span id="nbCampaignsWaiting" class="badge"></span>Vérifier campagnes</a></li>
                 <li><a id="validationEntrepreneur" href="/contractorsWaiting" class="waves-effect waves-light"><span id="nbContractorWaiting" class="badge"></span>Vérifier entrepeneurs</a></li>
