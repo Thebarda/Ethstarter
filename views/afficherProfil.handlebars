@@ -2,39 +2,39 @@
         <h1>Votre profil</h1>
         <a class="btn waves-effect waves-light btnModifierProfil btnEditerProfil">Modifier le profil</a>
         <div id="editionProfil" class="col s12">
-            <form method="post" action="/validationModificationProfil">
+            <form method="post" action="/modifierProfil">
                 <div class="input-field col s2 offset-s4">
-                    <input name="lastname" type="text" class="validate inputModifierProfil" value="{{profil.nom}}" disabled>
+                    <input name="lastname" type="text" class="validate inputModifierProfil" value="{{profil.nom}}" readonly="readonly">
                     <label for="lastname">Nom</label>
                 </div>
                 <div class="input-field col s2">
-                    <input name="firstname" type="text" class="validate inputModifierProfil" value="{{profil.prenom}}" disabled>
+                    <input name="firstname" type="text" class="validate inputModifierProfil" value="{{profil.prenom}}" readonly="readonly">
                     <label for="firstname">Prénom</label>
                 </div>
                 <div class="input-field col s2 offset-s4">
-                    <input name="login" type="text" class="validate inputModifierProfil" value="{{profil.login}}" disabled>
+                    <input name="login" type="text" class="validate inputModifierProfil" value="{{profil.login}}" readonly="readonly">
                     <label for="login">Login</label>
                 </div>
                 <div class="input-field col s2">
-                    <input name="email" type="email" class="validate inputModifierProfil" value="{{profil.mail}}" disabled>
+                    <input name="email" type="email" class="validate inputModifierProfil" value="{{profil.mail}}" readonly="readonly">
                     <label for="email">E-mail</label>
                 </div>
                 <div class="input-field col s2 offset-s4">
-                    <input name="oldPassword" type="password" class="validate inputModifierProfil" disabled>
+                    <input name="oldPassword" type="password" class="validate inputModifierProfil" readonly="readonly">
                     <label for="oldPassword">Ancien mot de passe</label>
                 </div>
                 <div class="input-field col s2">
-                    <input name="newPassword" type="password" class="validate inputModifierProfil" disabled>
+                    <input name="newPassword" type="password" class="validate inputModifierProfil" readonly="readonly">
                     <label for="newPassword">Nouveau mot de passe</label>
                 </div>
                 {{#ifCond session.typeCompte '==' 2}}
                     <div class="input-field col s4 offset-s4">
-                        <input name="nomEntreprise" type="text" class="validate inputModifierProfil" value="{{profil.nomEntreprise}}" disabled>
+                        <input name="nomEntreprise" type="text" class="validate inputModifierProfil" value="{{profil.nomEntreprise}}" readonly="readonly">
                         <label for="nomEntreprise">Nom de la société</label>
                     </div>
                 {{/ifCond}}
                 <div class="input-field col s4 offset-s4">
-                    <input name="address" type="text" class="validate inputModifierProfil" value="{{profil.addrPubliqueEth}}" data-length="42" disabled>
+                    <input name="address" type="text" class="validate inputModifierProfil" value="{{profil.addrPubliqueEth}}" data-length="42" readonly="readonly">
                     <label for="address">Adresse publique Ethereum</label>
                 </div>
                 <div class="col s12">
@@ -43,6 +43,65 @@
                 </div>
                 <p class="red-text">{{error}}</p>
             </form>
+        </div>
+        <div>
+            <a class="btn waves-light waves-effect red darken-1 modal-trigger" href="#modalDelete"><i class="material-icons left">delete</i>Supprimer</a>
+        </div>
+    </div>
+    <div id="modalDelete" class="modal">
+        <div class="modal-content">
+            <h4>Supprimer votre compte</h4>
+            <p style="font-size: 1.5vw"><b>Attention ! La suppression de votre compte entraînera la perte de vos données dans notre application !</b></p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Annuler</a>
+            <a id="supprimer" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Supprimer</a>
+        </div>
+    </div>
+    <div id="modalWaitDelete" class="modal">
+        <div class="modal-content">
+            <h5 class="center-align">Suppression du compte</h5>
+            <div class="preloader-wrapper big active center-align">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+
+                <div class="spinner-layer spinner-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="/javascripts/modifierProfil.js"></script>

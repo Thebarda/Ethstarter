@@ -1,5 +1,6 @@
 var Web3 = require("web3");
 var campagneModel = require("../models/campagnes");
+var notifModel = require('../models/notifications');
 var fs = require("fs");
 
 module.exports.checkCrowfunds = function(){
@@ -23,9 +24,11 @@ module.exports.checkCrowfunds = function(){
            var campaignCheck = {startCheckingCampaign: "Starting for campaign "+result[i].idCampagne};
            if(result[i].montantActuel >= result[i].but){
                ethstarter.sendToContributors(result[i].idCampagne);
+               notifModel.addNotification(result[i].idEntrepreneur, "Votre campagne "+result[i].nomCampagne+" a échoué", (err, res) => {});
                campaignCheck.status = "Sended to contributors";
            }else{
                ethstarter.sendToContractor(result[i].idCampagne);
+               notifModel.addNotification(result[i].idEntrepreneur, "Votre campagne "+result[i].nomCampagne+" a réussi. Vous allez être crédité de "+result[i].montantActuel+". Bonne chance", (err, res) => {});
                campaignCheck.status = "Sended to contrator";
            }
            ethstarter.setEstEnCours(result[i].idCampagne, false);

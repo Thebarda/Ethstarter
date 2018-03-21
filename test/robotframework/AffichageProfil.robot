@@ -14,5 +14,15 @@ Test Case
     Input Text    name=login    Romain
     Input Password    name=password    Clavaud
     Click Button    xpath=//input[@value='connexion']
-    Page should contain    Bonjour Romain
-    Click Link    id=btnDeconnexion
+    Click Link  id:btnProfil
+    Element Should Be Disabled  name:lastname
+    Element Should Be Disabled  name:firstname
+    Element Should Be Disabled  name:login
+    Element Should Be Disabled  name:email
+    Element Should Be Disabled  name:nomEntreprise
+    Element Should Be Disabled  name:address
+    Element Should Be Disabled  name:oldPassword
+    Element Should Be Disabled  name:newPassword
+    Page Should Contain     Votre profil
+    Page Should Contain     Modifier le profil
+    Page Should Contain     Supprimer

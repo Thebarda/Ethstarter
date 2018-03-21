@@ -46,3 +46,6 @@ If you want to run functionals tests, please install robotframework and the sele
 Run the project : npm start
 
 Launch tests : robot test/robotframework
+
+# Tests
+This project contains, nowaday, 3 types of tests : unit tests, smart contract tests and functional test

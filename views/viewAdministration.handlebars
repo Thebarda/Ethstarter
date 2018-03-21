@@ -19,7 +19,65 @@
 
             </div>
         </div>
+    </div>
+    <div id="modalDelete" class="modal">
+        <div class="modal-content">
+            <h4>Supprimer votre compte</h4>
+            <p style="font-size: 1.5vw"><b>Attention ! La suppression du compte entraînera la perte des données de l'utilisateur dans notre application !</b></p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Annuler</a>
+            <a onclick="deleteUser()" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Supprimer</a>
+        </div>
+    </div>
+    <div id="modalWaitDelete" class="modal">
+        <div class="modal-content">
+            <h5 class="center-align">Suppression du compte</h5>
+            <div class="preloader-wrapper big active center-align">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+
+                <div class="spinner-layer spinner-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="/javascripts/fetchAdministration.js"></script>
+    <script src="/javascripts/deleteUserModerator.js"></script>
 {{else}}
     <h4 class="center-align">Vous n'avez pas accès à cette page</h4>
 {{/ifCond}}

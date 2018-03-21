@@ -4,7 +4,7 @@ var db = require('./configDb');
 module.exports.getAllCrowfundsThatFinishTodayAndMax = function (callback) {
     db.getConnection(function (err, connection) {
         if (err) throw err;
-        connection.query("SELECT idCampagne, but, montantActuel FROM campagnes WHERE dateLimite LIKE DATE(NOW()) OR montantActuel>=montantMax", callback);
+        connection.query("SELECT idCampagne, but, montantActuel, idEntrepreneur, nomCampagne FROM campagnes WHERE dateLimite LIKE DATE(NOW()) OR montantActuel>=montantMax", callback);
         connection.release();
     });
 };
@@ -33,9 +33,9 @@ module.exports.updateMontant = function (idCampagne, montant, callback) {
 
 module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idEntrepreneur`, `nomCampagne`, " +
-            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours`, `validated` " +
-            "FROM campagnes WHERE idEntrepreneur=" + idEntrepreneur, callback);
+        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
+        "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
+        "FROM campagnes WHERE idEntrepreneur=" + idEntrepreneur, callback);
         connection.release();
     });
 }; 
@@ -54,6 +54,15 @@ module.exports.getAllCampaigns = function (callback) {
         connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
             "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
             "FROM campagnes WHERE validated=1", callback);
+        connection.release();
+    });
+};
+
+module.exports.getLast10Campaigns = function (callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
+            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
+            "FROM campagnes WHERE validated=1 LIMIT 10", callback);
         connection.release();
     });
 };
@@ -168,3 +177,26 @@ module.exports.isFavorite = (idUser, idCamp, callback) => {
         c.release();
     });
 };
+
+module.exports.hasContributed = (idUser, idCamp, callback) => {
+    console.log("md2 : " + idCamp);
+    db.getConnection((e, c) => {
+        c.query("SELECT idCampagne FROM contributeursxcampagne WHERE idCampagne = " + idCamp + " AND idContributeur = " + idUser, callback);
+        c.release();
+    });
+};
+
+module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
+    db.getConnection((err, co ) => {
+        co.query("INSERT INTO commentaires VALUES ('" + idUser + "', '" + idCamp + "','" + commentaires + "')", callback);
+        co.release();
+    });
+};
+
+module.exports.getComm = (idCamp,callback) => {
+    console.log("idCampagne :" + idCamp);
+    db.getConnection((e, c) => {
+        c.query("select commentaire as comm,prenom,nom from utilisateur inner join commentaires on utilisateur.id = commentaires.idContributeur where commentaires.idCampagne =" + idCamp , callback);
+        c.release();
+    });
+}
