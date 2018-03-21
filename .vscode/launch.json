@@ -6,10 +6,31 @@
     "configurations": [
         {
             "type": "node",
+            "request": "attach",
+            "name": "Attach by Process ID",
+            "processId": "${command:PickProcess}"
+        },
+        {
+            "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Nodemon launch",
+            "runtimeExecutable": "${workspaceRoot}/nodemon.sh",
             "program": "${workspaceFolder}/app.js",
-            "runtimeExecutable": "${workspaceFolder}/.vscode/nvm.sh"
-        }
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch app",
+            "program": "${workspaceRoot}/app.js",
+            "runtimeExecutable": "${workspaceRoot}/nvm.sh",
+            "runtimeArgs": [
+                "--debug=1047",
+                "--inspect=1047"
+            ]
+
+        },
     ]
 }

@@ -28,9 +28,9 @@ var p = require('promise-mysql').createPool({
     port: '3306'
 });
 
-p.getConnection().then(function(connection) {
-    connection.query('select `name` from hobbits').then()
-}).catch(function(err) {
-    done(err);
-});
+// p.getConnection().then(function(connection) {
+//     connection.query('select `name` from hobbits').then()
+// }).catch(function(err) {
+//     done(err);
+// });
 
