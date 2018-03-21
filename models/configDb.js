@@ -20,6 +20,7 @@ module.exports.getConnection = function(callback) {
     // PROMISE RELATED CODE BELOW //
     ////////////////////////////////
 
+//async co up
 var p = require('promise-mysql').createPool({
     host: 'vps409515.ovh.net',
     user: 'ethremotedb',
@@ -28,9 +29,21 @@ var p = require('promise-mysql').createPool({
     port: '3306'
 });
 
-// p.getConnection().then(function(connection) {
-//     connection.query('select `name` from hobbits').then()
-// }).catch(function(err) {
-//     done(err);
-// });
+var testq = "SELECT nom FROM utilisateur WHERE id=51";
 
+p.query(testq).then(function(res){
+    console.log(res);
+}).catch(function(err) {
+    console.log(err);
+});
+
+
+
+module.exports.asq = async (q) => {
+    try {
+        return await p.query(q);
+    }
+    catch (e) {
+        console.log(e);
+    }
+}

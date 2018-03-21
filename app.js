@@ -59,6 +59,19 @@ var job = new CronJob({
 job.start();
 console.log("is job running ? "+job.running);
 
+var db = require('./models/configDb');
+var testq = "SELECT nom FROM utilisateur WHERE id=51";
+console.log("OK");
+
+
+//promise test
+const promiseTest = async () => {
+    var res = await db.asq(testq);
+    console.log("my favorite user is " + res);
+}
+promiseTest();
+
+
 //Server start
 http.createServer(app).listen(app.get('port'), function() {
     console.log('Serveur Ethstarter test en attente sur le port ' + app.get('port'));
