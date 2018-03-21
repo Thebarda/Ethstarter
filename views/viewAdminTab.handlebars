@@ -15,7 +15,7 @@
                     <td>{{this.mail}}</td>
                     <td>{{this.login}}</td>
                     <td>
-                        <a class="btn waves-effect waves-light red darken-1"><i class="material-icons left">delete</i>Supprimer</a>
+                        <a onclick="preDeleteUser(event)" class="btn waves-effect waves-light red darken-1 modal-trigger" href="#modalDelete" data-id="{{this.id}}"><i class="material-icons left">delete</i>Supprimer</a>
                     </td>
                 </tr>
             {{/each}}
@@ -38,7 +38,7 @@
                         {{/ifCond}}
                     {{/ifCond}}
                     <td>
-                        <a class="btn waves-effect waves-light red darken-1"><i class="material-icons left">delete</i>Supprimer</a>
+                        <a onclick="preDeleteUser(event)" class="btn waves-effect waves-light red darken-1 modal-trigger" href="#modalDelete" data-id="{{this.id}}"><i class="material-icons left">delete</i>Supprimer</a>
                     </td>
                 </tr>
             {{/each}}
