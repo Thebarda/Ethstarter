@@ -1,9 +1,8 @@
 var campagnesModel = require("../models/campagnes");
 var modelParticipation = require ('../models/participation.js');
 var utils = require("../utils/utils");
-var idCompte;
 
-module.exports.afficherCampagne = function(request, response){
+module.exports.afficherCampagne = async (request, response) => {
     var idCampagne = request.params.idCampagne;
     campagnesModel.getCampaignById(idCampagne, function(err, result){
        if(err) throw err;
@@ -50,7 +49,7 @@ module.exports.afficherCampagne = function(request, response){
 };
 
 module.exports.afficherMesCampagnes = function(request, response){
-    idCompte = request.session.idCompte;
+    var idCompte = request.session.idCompte;
     campagnesModel.getMyCampaigns(idCompte,function(err, result){
         if(err) throw err;
         response.title = "Mes campagnes";
@@ -121,7 +120,7 @@ module.exports.updateValidationCampaign = (req, resp) => {
   })
 }
 
-module.exports.searchCampaign = (req, resp) => {
+/* module.exports.searchCampaign = (req, resp) => {
     var search = utils.escapeSingleQuotes(req.body.search);
     campagnesModel.searchAnyCampaign(search, (e, res)=>{
         if (e) throw e;
@@ -129,16 +128,38 @@ module.exports.searchCampaign = (req, resp) => {
         resp.campagnes = res;
         resp.render("afficherLesCampagnes", resp);
     });
+}; */
+
+//async
+module.exports.searchCampaign = async (req, response) => {
+    var search = utils.escapeSingleQuotes(req.body.search);
+    try {
+        response.campagnes = await campagnesModel.searchAnyCampaign(search);
+        response.title = "Recherche pour " + search;
+        response.render("afficherLesCampagnes", response);
+    }catch (e) {throw e;};    
 };
 
-module.exports.favorites = (req, resp) => {
+
+/* module.exports.favorites = (req, resp) => {
     campagnesModel.favorites(req.session.idCompte, (e, res)=>{
         if (e) throw e;
         resp.title = "Campagnes favorites";
         resp.campagnes = res;
         resp.render("afficherLesCampagnes", resp);
     });
+}; */
+
+//async
+module.exports.favorites = async (req, resp) => {
+    try  {
+    var r = await campagnesModel.favorites(req.session.idCompte);
+    resp.title = "Campagnes favorites";
+    resp.campagnes = r;
+    resp.render("afficherLesCampagnes", resp);
+    } catch (e) {throw e;};
 };
+
 
 module.exports.gestFavorite = (req, resp) => {
     var currentCamp = req.body.currentCamp;

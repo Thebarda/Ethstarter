@@ -10,7 +10,7 @@ var AdministrationController = require("../controllers/AdministrationController.
 
 
 // Routes
-module.exports = function (app) {
+module.exports = async function (app) {
 
     // Exemple
     app.get('/', AccueilController.example);
