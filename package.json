@@ -5,6 +5,8 @@
   "scripts": {
     "start": "node app",
     "test": "mocha test/unittest/",
+    "debug": "node --inspect=5858",
+    "dev": "nodemon --inspect",
     "uiTest": "robot test/robotframework/",
     "build": "mocha"
   },
@@ -35,7 +37,10 @@
     "sleep": "^5.1.1",
     "web3": "^0.20.4",
     "xmlhttprequest": "^1.8.0",
-    "time-stamp": "latest"
+    "time-stamp": "^2.0.0",
+    "mz": "2.7.0",
+    "bluebird": "^3.5.1",
+    "promise-mysql": "^3.2.1"
   },
   "devDependencies": {
     "chai": "*",
