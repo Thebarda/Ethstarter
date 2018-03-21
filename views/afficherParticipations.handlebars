@@ -1,23 +1,25 @@
     <div class="row center-align">
         <h1>Vos contributions</h1>
-        <form class="contribute" method="post" action="/delParticipation">
-            <table class="striped highlight responsive-table">
-                <thead>
-                    <tr>
-                        <th>Nom de la campagne</th>
-                        <th>Montant</th>
-                        <th>Options</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {{#each participation}}
-                    <tr>
-                        <td><input name="_nomCampagne" type="text" value="{{this.nomCampagne}}" disabled></td>
-                        <td><input name="_montant" type="text" value="{{this.montantTot}}" disabled></td>
-                        <td><a class="btn waves-effect waves-light red" id="submit">Supprimer la contribution</a></td>
-                    </tr>
-                {{/each}}
-                </tbody>
-            </table>
-        </form>
+        <div id="afficherParticipations">
+            <form method="post" action="/delParticipation">
+                <table class="striped highlight responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Nom de la campagne</th>
+                            <th>Montant</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each participation}}
+                        <tr>
+                            <td><input name="nomCampagne" type="text" value="{{this.nomCampagne}}" readonly="readonly"></td>
+                            <td><input name="montant" type="text" value="{{this.montantTot}}" readonly="readonly"></td>
+                            <td><input class="btn waves-effect waves-light red" type="submit" value="Supprimer la contribution"></td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </form>
+        </div>
     </div>

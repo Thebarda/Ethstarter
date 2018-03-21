@@ -37,12 +37,12 @@ module.exports.getParticipations = function(idCompte, callback){
     });
 };
       
-module.exports.delParticipation = function(nomCampagne, idContributeur, callback){
+module.exports.delParticipation = function(idCampagne, idContributeur, callback){
     db.getConnection(function(err, connection){
         if (err) throw err;
         var sql = "DELETE FROM participation";
         sql += " WHERE idContributeur ="+idContributeur;
-        sql += " AND idCampagne IN (SELECT idCampagne FROM campagnes WHERE nomCampagne="+nomCampagne+")";
+        sql += " AND idCampagne="+idCampagne+")";
         connection.query(sql, callback);
         connection.release();
     });
