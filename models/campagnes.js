@@ -196,7 +196,16 @@ module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
 module.exports.getComm = (idCamp,callback) => {
     console.log("idCampagne :" + idCamp);
     db.getConnection((e, c) => {
-        c.query("select commentaire as comm,prenom,nom from utilisateur inner join commentaires on utilisateur.id = commentaires.idContributeur where commentaires.idCampagne =" + idCamp , callback);
+        c.query("select commentaire as comm,prenom,nom from utilisateur"+ 
+        " inner join commentaires on utilisateur.id = commentaires.idContributeur"+
+        " where commentaires.idCampagne =" + idCamp , callback);
         c.release();
     });
-}
+};
+module.exports.getNbComm = (idCamp,callback) => {
+    console.log("idCampagne :" + idCamp);
+    db.getConnection((e, c) => {
+        c.query("SELECT COUNT(commentaire) as nbComms from commentaires where idCampagne=" + idCamp , callback);
+        c.release();
+    });
+};
