@@ -5,6 +5,8 @@
   "scripts": {
     "start": "node app",
     "test": "mocha test/unittest/",
+    "debug": "node --inspect=5858 app",
+    "dev": "nodemon app",
     "uiTest": "robot test/robotframework/",
     "build": "mocha"
   },

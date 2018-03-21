@@ -7,30 +7,18 @@
         {
             "type": "node",
             "request": "attach",
-            "name": "Attach by Process ID",
-            "processId": "${command:PickProcess}"
+            "name": "Attach",
+            "processId": "${command:PickProcess}",
+            "restart": true,
         },
         {
             "type": "node",
             "request": "launch",
-            "name": "Nodemon launch",
-            "runtimeExecutable": "${workspaceRoot}/nodemon.sh",
+            "name": "Debug launch",
+            "runtimeExecutable": "${workspaceRoot}/debug.sh",
             "program": "${workspaceFolder}/app.js",
             "restart": true,
-            "console": "integratedTerminal",
-            "internalConsoleOptions": "neverOpen"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch app",
-            "program": "${workspaceRoot}/app.js",
-            "runtimeExecutable": "${workspaceRoot}/nvm.sh",
-            "runtimeArgs": [
-                "--debug=1047",
-                "--inspect=1047"
-            ]
-
+            "port": 5858
         },
     ]
 }
