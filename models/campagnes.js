@@ -181,6 +181,7 @@ module.exports.remFavorite = (idUser, idCamp, callback) => {
     });
 };
 
+
 module.exports.isFavorite = (idUser, idCamp, callback) => {
     console.log("mdl : " + idCamp);
     db.getConnection((e, c) => {
@@ -188,3 +189,8 @@ module.exports.isFavorite = (idUser, idCamp, callback) => {
         c.release();
     });
 };
+
+/* module.exports.isFavorite = async (idUser, idCamp) => {
+    console.log("mdl : " + idCamp);
+    return await db.asq("SELECT idCampagne FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser);
+}; */

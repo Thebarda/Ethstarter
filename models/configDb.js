@@ -33,7 +33,5 @@ module.exports.asq = async (q) => {
     try {
         return await p.query(q);
     }
-    catch (e) {
-        console.log(e);
-    }
+    catch (e) { console.log(e) };
 }

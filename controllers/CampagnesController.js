@@ -38,6 +38,7 @@ module.exports.afficherCampagne = async (request, response) => {
                             console.log("isFav? : " + response.isFav); 
                             response.render("afficherCampagne", response);
                         });
+
                     }else{
                         response.nbContribsss = 0;
                         response.render("afficherCampagne", response);
