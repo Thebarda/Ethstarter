@@ -20,7 +20,7 @@ module.exports.getConnection = function(callback) {
     // PROMISE RELATED CODE BELOW //
     ////////////////////////////////
 
-//async co up
+//async pool
 var p = require('promise-mysql').createPool({
     host: 'vps409515.ovh.net',
     user: 'ethremotedb',

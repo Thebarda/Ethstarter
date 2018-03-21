@@ -44,7 +44,7 @@ module.exports = async function (app) {
 
     //Recherche
     //app.post('/search', CampagnesController.searchCampaign);
-    app.post('/search', await CampagnesController.searchCampaignAsync); //Async search
+    app.post('/search', await CampagnesController.searchCampaign); //Async search
 
     // Profil
     app.get('/Profil', ProfilController.getProfil);

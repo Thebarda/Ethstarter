@@ -136,7 +136,7 @@ module.exports.updateValidationCampaign = (req, resp) => {
     });
 }
 
-module.exports.searchCampaign = (req, resp) => {
+/* module.exports.searchCampaign = (req, resp) => {
     var search = utils.escapeSingleQuotes(req.body.search);
     campagnesModel.searchAnyCampaign(search, (e, res)=>{
         if (e) throw e;
@@ -144,12 +144,12 @@ module.exports.searchCampaign = (req, resp) => {
         resp.campagnes = res;
         resp.render("afficherLesCampagnes", resp);
     });
-};
+}; */
 
-module.exports.searchCampaignAsync = async (req, response) => {
+module.exports.searchCampaign = async (req, response) => {
     var search = utils.escapeSingleQuotes(req.body.search);
     try {
-        response.campagnes = await campagnesModel.searchAnyCampaignAsync(search);
+        response.campagnes = await campagnesModel.searchAnyCampaign(search);
         response.title = "Recherche pour " + search;
         response.render("afficherLesCampagnes", response);
     }

@@ -126,6 +126,7 @@ module.exports.getAllAllCampaigns = function (callback) {
     });
 };
 
+/* //Legacy search function
 module.exports.searchAnyCampaign = (search, callback) => {
     db.getConnection((err, connection) => {
         connection.query("SELECT `idCampagne`, `nomCampagne`, " +
@@ -135,8 +136,9 @@ module.exports.searchAnyCampaign = (search, callback) => {
         connection.release();
     })
 }
+ */
 
-module.exports.searchAnyCampaignAsync = async (search) => {
+module.exports.searchAnyCampaign = async (search) => {
     var query = "SELECT `idCampagne`, `nomCampagne`, " +
     "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " +
     "FROM campagnes  WHERE validated=1 AND `nomCampagne` LIKE '%" + search + 
@@ -144,15 +146,6 @@ module.exports.searchAnyCampaignAsync = async (search) => {
 
     return db.asq(query);
 }
-
-/* //promise test
-var testq = "SELECTTT nom FROM utilisateur WHERE id=51";
-
-const promiseTest = async () => {
-    var res = await db.asq(testq);
-    console.log("my favorite user is " + res[0].nom);
-}
-promiseTest(); */
 
 
 module.exports.favorites = function (idUtilisateur, callback) {
@@ -218,3 +211,13 @@ module.exports.getComm = (idCamp,callback) => {
         c.release();
     });
 }
+
+
+////promise test ////
+var testq = "SELECT nom FROM utilisateur WHERE id=51";
+
+const promiseTest = async () => {
+    var res = await db.asq(testq);
+    console.log("my favorite user is " + res[0].nom);
+}
+promiseTest();
