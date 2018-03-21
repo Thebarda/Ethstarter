@@ -16,9 +16,9 @@ module.exports.getConnection = function(callback) {
 };
 //com
 
-    //////////////////////
-    // ASYNC CODE BELOW //
-    //////////////////////
+    ////////////////////////////////
+    // PROMISE RELATED CODE BELOW //
+    ////////////////////////////////
 
 var p = require('promise-mysql').createPool({
     host: 'vps409515.ovh.net',
