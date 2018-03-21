@@ -11,7 +11,7 @@ var ContrepartieController = require("../controllers/contrepartiesController");
 
 
 // Routes
-module.exports = function (app) {
+module.exports = async function (app) {
 
     // Exemple
     app.get('/', AccueilController.accueil);
@@ -43,8 +43,10 @@ module.exports = function (app) {
     app.post('/addContrepartie', ContrepartieController.addContrepartie);
     //Commentaire Campagnes
     app.post('/postcomm', CampagnesController.postComm);
+
     //Recherche
-    app.post('/search', CampagnesController.searchCampaign);
+    //app.post('/search', CampagnesController.searchCampaign);
+    app.post('/search', await CampagnesController.searchCampaign); //Async search
 
     // Profil
     app.get('/Profil', ProfilController.getProfil);
