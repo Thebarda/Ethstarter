@@ -12,6 +12,7 @@ $(document).ready(function(){
     $("#description").html($.parseHTML($("#description").text()));
     $('ul.tabs').tabs();
     $('.modal').modal();
+    $(".commForm").hide();
     $("#submitParticipation").addClass("disabled");
     //on check la contribution
     $("#montantJS").on("change", function(){
@@ -81,5 +82,29 @@ $(document).ready(function(){
       console.log("ft : " + favText);
       $("#favicon").text(favIcon);
       console.log("afer");
+    });
+    $("#btnComm").on('click', () => {
+      $("#btnComm").hide();
+      $(".commForm").show();
+    });
+
+    $("#btnPost").on('click', () => {
+      var comm = document.getElementById("areaComm").value;
+      if(comm.trim()!==""){
+        $("#btnComm").show();
+        $(".commForm").hide();
+        $.ajax({
+          url: '/postcomm',
+          method: 'post',
+          data: {comm: comm, currentCamp: $("#currentCamp").text()}
+        }).done(function(html){
+          Materialize.toast("Votre commentaire a été posté'");
+          setTimeout(function () {
+            location.href = "/campaign/"+$("#currentCamp").text();
+        }, 2000);
+        });
+      }else{
+        $("#error").text("Le champ commentaire doit être rempli!");
+      }
     });
 });
