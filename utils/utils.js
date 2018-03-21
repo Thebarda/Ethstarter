@@ -19,4 +19,12 @@ module.exports.genUUID = () => {
 
 module.exports.escapeSingleQuotes = (value) => {
   return value.replace("'", "\'");
-}
+};
+
+module.exports.dateFormatMYSQL = (time, date) => {
+    return null;
+};
+
+module.exports.dateFormatFR = (time, date) => {
+    return null;
+};
