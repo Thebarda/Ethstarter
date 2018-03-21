@@ -136,6 +136,24 @@ module.exports.searchAnyCampaign = (search, callback) => {
     })
 }
 
+module.exports.searchAnyCampaignAsync = async (search) => {
+    var query = "SELECT `idCampagne`, `nomCampagne`, " +
+    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " +
+    "FROM campagnes  WHERE validated=1 AND `nomCampagne` LIKE '%" + search + 
+    "%' OR `descriptionCourte` LIKE  '%" + search + "%'";
+
+    return db.asq(query);
+}
+
+/* //promise test
+var testq = "SELECTTT nom FROM utilisateur WHERE id=51";
+
+const promiseTest = async () => {
+    var res = await db.asq(testq);
+    console.log("my favorite user is " + res[0].nom);
+}
+promiseTest(); */
+
 
 module.exports.favorites = function (idUtilisateur, callback) {
     db.getConnection(function (err, connection) {

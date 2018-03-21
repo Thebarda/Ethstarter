@@ -146,6 +146,19 @@ module.exports.searchCampaign = (req, resp) => {
     });
 };
 
+module.exports.searchCampaignAsync = async (req, response) => {
+    var search = utils.escapeSingleQuotes(req.body.search);
+    try {
+        response.campagnes = await campagnesModel.searchAnyCampaignAsync(search);
+        response.title = "Recherche pour " + search;
+        response.render("afficherLesCampagnes", response);
+    }
+    catch (e) {
+        throw e;
+    }    
+}
+
+
 module.exports.favorites = (req, resp) => {
     campagnesModel.favorites(req.session.idCompte, (e, res)=>{
         if (e) throw e;

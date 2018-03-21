@@ -10,7 +10,7 @@ var AdministrationController = require("../controllers/AdministrationController.
 
 
 // Routes
-module.exports = function (app) {
+module.exports = async function (app) {
 
     // Exemple
     app.get('/', AccueilController.accueil);
@@ -41,8 +41,10 @@ module.exports = function (app) {
     app.get('/mycontributions', CampagnesController.contributed);
     //Commentaire Campagnes
     app.post('/postcomm', CampagnesController.postComm);
+
     //Recherche
-    app.post('/search', CampagnesController.searchCampaign);
+    //app.post('/search', CampagnesController.searchCampaign);
+    app.post('/search', await CampagnesController.searchCampaignAsync); //Async search
 
     // Profil
     app.get('/Profil', ProfilController.getProfil);
