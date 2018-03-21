@@ -42,6 +42,7 @@ module.exports.validationConnexion = function(request, response){
                 request.session.addrPubliqueEth=result[0].addrPubliqueEth;
                 request.session.typeCompte = result[0].type;
                 request.session.idCompte = result[0].id;
+                request.session.password = result[0].password;
                 request.session.isConnected = true;
                 if(request.session.typeCompte === 2) {
                     profilModel.fetchValidationEntrepeneur(request.session.idCompte, (err2, result2) => {
