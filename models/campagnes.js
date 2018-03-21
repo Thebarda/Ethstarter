@@ -1,4 +1,3 @@
-
 var db = require('./configDb');
 
 module.exports.getAllCrowfundsThatFinishTodayAndMax = function (callback) {
@@ -121,7 +120,7 @@ module.exports.getAllAllCampaigns = function (callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT `idCampagne`, `nomCampagne`, " +
             "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " +
-            "FROM campagnes  WHERE validated=1", callback);
+            "FROM campagnes", callback);
         connection.release();
     });
 };
