@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(document).ready(function(){
     //fill favorite state from the hidden field and construct the button
     var favStatus = $("#isFav").text();
