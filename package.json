@@ -43,5 +43,8 @@
     "jest": "^22.1.4",
     "mocha": "^5.0.0",
     "nyc": "^11.4.1"
+  },
+  "optionalDependencies": {
+    "chromedriver": "^2.37.0"
   }
 }
