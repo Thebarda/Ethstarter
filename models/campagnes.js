@@ -135,7 +135,7 @@ module.exports.searchAnyCampaign = async (search) => {
     "%' OR `descriptionCourte` LIKE  '%" + search + "%'";
 
     return db.asq(query);
-}
+};
 
 
 /* module.exports.contributed = function (idUtilisateur, callback) {

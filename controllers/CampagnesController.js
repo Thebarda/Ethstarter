@@ -138,7 +138,7 @@ module.exports.searchCampaign = async (req, response) => {
         response.campagnes = await campagnesModel.searchAnyCampaign(search);
         response.title = "Recherche pour " + search;
         response.render("afficherLesCampagnes", response);
-    }catch (e) {throw e;};    
+    } catch (e) { throw e; };    
 };
 
 
@@ -154,11 +154,11 @@ module.exports.searchCampaign = async (req, response) => {
 //async
 module.exports.favorites = async (req, resp) => {
     try  {
-    var r = await campagnesModel.favorites(req.session.idCompte);
-    resp.title = "Campagnes favorites";
-    resp.campagnes = r;
-    resp.render("afficherLesCampagnes", resp);
-    } catch (e) {throw e;};
+        var r = await campagnesModel.favorites(req.session.idCompte);
+        resp.title = "Campagnes favorites";
+        resp.campagnes = r;
+        resp.render("afficherLesCampagnes", resp);
+    } catch (e) { throw e; };
 };
 
 
@@ -179,13 +179,20 @@ module.exports.gestFavorite = (req, resp) => {
     };
 };
 
-module.exports.contributed = (req, resp) => {
+/* module.exports.contributed = (req, resp) => {
     campagnesModel.contributed(req.session.idCompte, (e, res)=>{
         if (e) throw e;
         resp.title = "Mes contributions";
         resp.campagnes = res;
         resp.render("afficherLesCampagnes", resp);
     });
-};
+}; */
 
-//
+module.exports.contributed = async (req, resp) => {
+    try {
+        var r = await campagnesModel.contributed(req.session.idCompte);
+        resp.title = "Mes contributions";
+        resp.campagnes = r; 
+        resp.render("afficherLesCampagnes", resp);
+    } catch (e) {throw e;};   
+};
