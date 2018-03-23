@@ -138,14 +138,21 @@ module.exports.searchAnyCampaign = async (search) => {
 }
 
 
-module.exports.contributed = function (idUtilisateur, callback) {
+/* module.exports.contributed = function (idUtilisateur, callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT campagnes.idCampagne, `nomCampagne`, " + 
         "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
         "FROM campagnes inner join contributeursxcampagne on campagnes.idCampagne=contributeursxcampagne.idCampagne WHERE contributeursxcampagne.idContributeur =" + idUtilisateur, callback);
         connection.release();
     });
-}; 
+};  */
+
+module.exports.contributed = async (idUtilisateur) => {
+    var query = "SELECT campagnes.idCampagne, `nomCampagne`, " + 
+    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
+    "FROM campagnes inner join contributeursxcampagne on campagnes.idCampagne=contributeursxcampagne.idCampagne WHERE contributeursxcampagne.idContributeur =" + idUtilisateur;
+    return db.asq(query);
+};
 
 
 /* module.exports.favorites = function (idUtilisateur, callback) {
@@ -161,7 +168,6 @@ module.exports.favorites = async (idUtilisateur) => {
     var query = "SELECT campagnes.idCampagne, `nomCampagne`, " + 
     "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
     "FROM campagnes inner join favoris on campagnes.idCampagne=favoris.idCampagne WHERE favoris.idUtilisateur =" + idUtilisateur;
-
     return db.asq(query);
 };
 

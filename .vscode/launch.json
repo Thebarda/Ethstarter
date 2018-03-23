@@ -10,14 +10,13 @@
             "name": "Attach",
             "processId": "${command:PickProcess}",
             "restart": true,
-            "port": 9229
         },
         {
             "type": "node",
             "request": "launch",
             "name": "Debug launch",
             "runtimeExecutable": "${workspaceRoot}/debug.sh",
-            "program": "${workspaceFolder}/app.js",
+            //"program": "${workspaceFolder}/app.js",
             "restart": true,
             "port": 5858
         },
