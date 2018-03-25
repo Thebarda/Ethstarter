@@ -68,6 +68,16 @@ module.exports.afficherLesCampagnes = (req, resp)=>{
     });
 };
 
+module.exports.afficherLesCampagnes = async (req, resp) => {
+    try {
+        var r = await campagnesModel.getAllCampaigns();
+        resp.campagnes = r;
+        resp.title = "Toutes les campagnes";
+        resp.render("afficherLesCampagnes", resp);
+    } catch (e) { throw e; }; 
+
+}
+
 module.exports.fetchNbCampagnesWaitingForValidation = (req, resp)=>{
   campagnesModel.fetchNbCampaignsWaitingForValidation((err, res) => {
     if (err) throw err;
