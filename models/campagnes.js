@@ -180,7 +180,7 @@ module.exports.favorites = async (idUtilisateur) => {
 };
 
 
-module.exports.addFavorite = (idUser, idCamp, callback) => {
+/* module.exports.addFavorite = (idUser, idCamp, callback) => {
     db.getConnection((err, co) => {
         co.query("INSERT INTO favoris VALUES ('" + idUser + "', '" + idCamp + "')");
         co.release();
@@ -192,7 +192,18 @@ module.exports.remFavorite = (idUser, idCamp, callback) => {
         co.query("DELETE FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser);
         co.release();
     });
-};
+}; */
+
+
+module.exports.addFavorite = async (user, camp) => {
+    var query = "INSERT INTO favoris VALUES ('" + user + "', '" + camp + "')"
+    db.asq(query);
+}
+
+module.exports.remFavorite = async (user, camp) => {
+    var query = "DELETE FROM favoris WHERE idCampagne = " + camp + " AND idUtilisateur = " + user;
+    db.asq(query);
+}
 
 
 module.exports.isFavorite = (idUser, idCamp, callback) => {

@@ -162,7 +162,7 @@ module.exports.favorites = async (req, resp) => {
 };
 
 
-module.exports.gestFavorite = (req, resp) => {
+/* module.exports.gestFavorite = (req, resp) => {
     var currentCamp = req.body.currentCamp;
     var user = req.session.idCompte;
     if (req.body.isFav == 0) {
@@ -177,10 +177,21 @@ module.exports.gestFavorite = (req, resp) => {
             resp.render("emptyView", resp);
         });
     };
-};
+}; */
 
 
-//
+module.exports.gestFavorite = async (req, resp) => {
+    if (req.body.isFav == 0) {
+        try {
+            await campagnesModel.addFavorite(req.session.idCompte, req.body.currentCamp);
+        } catch (e) { throw e; };
+    }
+    else {
+        try {
+            await campagnesModel.remFavorite(req.session.idCompte, req.body.currentCamp);
+        } catch (e) { throw e; };
+    }
+}
 
 /* module.exports.contributed = (req, resp) => {
     campagnesModel.contributed(req.session.idCompte, (e, res)=>{
