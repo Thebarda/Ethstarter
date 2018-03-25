@@ -75,7 +75,6 @@ module.exports.afficherLesCampagnes = async (req, resp) => {
         resp.title = "Toutes les campagnes";
         resp.render("afficherLesCampagnes", resp);
     } catch (e) { throw e; }; 
-
 }
 
 module.exports.fetchNbCampagnesWaitingForValidation = (req, resp)=>{
