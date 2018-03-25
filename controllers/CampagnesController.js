@@ -59,14 +59,14 @@ module.exports.afficherMesCampagnes = function(request, response){
     });
 };
 
-module.exports.afficherLesCampagnes = (req, resp)=>{
+/* module.exports.afficherLesCampagnes = (req, resp)=>{
     campagnesModel.getAllCampaigns((err, res)=>{
         if (err) throw err;
         resp.title = "Toutes les campagnes";
         resp.campagnes = res;
         resp.render("afficherLesCampagnes", resp);
     });
-};
+}; */
 
 module.exports.afficherLesCampagnes = async (req, resp) => {
     try {
