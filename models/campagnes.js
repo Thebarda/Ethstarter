@@ -49,14 +49,22 @@ module.exports.getCampaignById = function (idCampagne, callback) {
     });
 };
 
-module.exports.getAllCampaigns = function (callback) {
+/* module.exports.getAllCampaigns = function (callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
             "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
             "FROM campagnes WHERE validated=1", callback);
         connection.release();
     });
-};
+}; */
+
+module.exports.getAllCampaigns = async () => {
+    var query = "SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
+    "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
+    "FROM campagnes WHERE validated=1";
+    return db.asq(query);
+}
+
 
 module.exports.getCampaignsInProgress = function (callback) {
     db.getConnection(function (err, connection) {
@@ -172,7 +180,6 @@ module.exports.favorites = async (idUtilisateur) => {
 };
 
 
-
 module.exports.addFavorite = (idUser, idCamp, callback) => {
     db.getConnection((err, co) => {
         co.query("INSERT INTO favoris VALUES ('" + idUser + "', '" + idCamp + "')");
@@ -196,7 +203,9 @@ module.exports.isFavorite = (idUser, idCamp, callback) => {
     });
 };
 
-/* module.exports.isFavorite = async (idUser, idCamp) => {
+
+/* module.exports.isFavorite = (idUser, idCamp) = async () => {
     console.log("mdl : " + idCamp);
-    return await db.asq("SELECT idCampagne FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser);
+    var query = "SELECT idCampagne FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser;
+    return db.asq(query);
 }; */

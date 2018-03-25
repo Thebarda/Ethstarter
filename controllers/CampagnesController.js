@@ -179,6 +179,9 @@ module.exports.gestFavorite = (req, resp) => {
     };
 };
 
+
+//
+
 /* module.exports.contributed = (req, resp) => {
     campagnesModel.contributed(req.session.idCompte, (e, res)=>{
         if (e) throw e;
