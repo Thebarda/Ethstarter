@@ -1,7 +1,7 @@
 var db = require('./configDb');
 
-module.exports.getAll = async (userID) => {
-    var query = "SELECT * FROM dm WHERE idUtilisateur = " + userID;
+module.exports.getAll = async (recipient) => {
+    var query = "SELECT * FROM dm WHERE idUtilisateur = " + recipient;
     return db.asq(query);
 }
 
@@ -10,9 +10,9 @@ module.exports.get = async (messID) => {
     return db.asq(query);   
 }
 
-module.exports.write = async (userID, title, message, timestamp) => {
+module.exports.write = async (sender, title, message, timestamp, recipient) => {
     var query = "INSERT INTO dm VALUES (default," + userID + 
-                "," + title + "," + message + "," + timestamp + ")";
+                "," + title + "," + message + "," + timestamp + "," + recipient + ")";
     db.asq(query);
 }
 
