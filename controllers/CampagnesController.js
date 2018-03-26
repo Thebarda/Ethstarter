@@ -189,7 +189,7 @@ module.exports.favorites = async (req, resp) => {
 }; */
 
 
-module.exports.gestFavorite = async (req, resp) => {
+module.exports.gestFavorite = async (req) => {
     if (req.body.isFav == 0) {
         try {
             await campagnesModel.addFavorite(req.session.idCompte, req.body.currentCamp);

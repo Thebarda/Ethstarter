@@ -11,3 +11,16 @@ module.exports.getAll = async (req, resp) => {
         resp.render("afficherMessages", resp);
     } catch (e) { throw e; }; 
 }
+
+module.exports.write = async (req) => {
+    
+    try {
+        //
+    } catch (e) { throw e; }; 
+}
+
+module.exports.delete = async (req) => {
+    try {
+        await msg.delete(req.body.messID);
+    } catch (e) { throw e; }; 
+}
