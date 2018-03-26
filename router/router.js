@@ -7,6 +7,7 @@ var CampagnesController = require('../controllers/CampagnesController.js');
 var ParticipationController = require('../controllers/ParticipationController.js');
 var ProfilController = require('../controllers/ProfilController.js');
 var AdministrationController = require("../controllers/AdministrationController.js");
+var MessageController = require ("../controllers/MessageController");
 
 
 // Routes
@@ -40,6 +41,12 @@ module.exports = async function (app) {
     app.get('/myfavorites', CampagnesController.favorites);
     app.post('/gestfavorite', CampagnesController.gestFavorite);
     app.get('/mycontributions', CampagnesController.contributed);
+
+    //Messages
+    app.get('/messages', MessageController.getAll);
+    app.post('/messageWrite', MessageController.write);
+    app.post('/messageDelete', MessageController.delete);
+
 
     //Recherche
     app.post('/search', CampagnesController.searchCampaign);
