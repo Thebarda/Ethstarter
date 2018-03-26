@@ -210,13 +210,3 @@ module.exports.getComm = (idCamp,callback) => {
         c.release();
     });
 }
-
-
-////promise test ////
-var testq = "SELECT nom FROM utilisateur WHERE id=51";
-
-const promiseTest = async () => {
-    var res = await db.asq(testq);
-    console.log("my favorite user is " + res[0].nom);
-}
-promiseTest();
