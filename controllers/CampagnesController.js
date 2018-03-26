@@ -2,8 +2,6 @@ var campagnesModel = require("../models/campagnes");
 var modelParticipation = require ('../models/participation.js');
 var utils = require("../utils/utils");
 var notifModel = require('../models/notifications');
-var idCompte;
-
 
 module.exports.afficherCampagne = function(request, response){
     var idCampagne = request.params.idCampagne;
@@ -138,7 +136,7 @@ module.exports.updateValidationCampaign = (req, resp) => {
     });
 }
 
-module.exports.searchCampaign = (req, resp) => {
+/* module.exports.searchCampaign = (req, resp) => {
     var search = utils.escapeSingleQuotes(req.body.search);
     campagnesModel.searchAnyCampaign(search, (e, res)=>{
         if (e) throw e;
@@ -146,7 +144,20 @@ module.exports.searchCampaign = (req, resp) => {
         resp.campagnes = res;
         resp.render("afficherLesCampagnes", resp);
     });
-};
+}; */
+
+module.exports.searchCampaign = async (req, response) => {
+    var search = utils.escapeSingleQuotes(req.body.search);
+    try {
+        response.campagnes = await campagnesModel.searchAnyCampaign(search);
+        response.title = "Recherche pour " + search;
+        response.render("afficherLesCampagnes", response);
+    }
+    catch (e) {
+        throw e;
+    }    
+}
+
 
 module.exports.favorites = (req, resp) => {
     campagnesModel.favorites(req.session.idCompte, (e, res)=>{

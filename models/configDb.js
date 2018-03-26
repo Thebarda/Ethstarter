@@ -20,7 +20,7 @@ module.exports.getConnection = function(callback) {
     // PROMISE RELATED CODE BELOW //
     ////////////////////////////////
 
-//async co up
+//async pool
 var p = require('promise-mysql').createPool({
     host: 'vps409515.ovh.net',
     user: 'ethremotedb',
@@ -28,16 +28,6 @@ var p = require('promise-mysql').createPool({
     database: 'ethstarterDB',
     port: '3306'
 });
-
-var testq = "SELECT nom FROM utilisateur WHERE id=51";
-
-p.query(testq).then(function(res){
-    console.log(res);
-}).catch(function(err) {
-    console.log(err);
-});
-
-
 
 module.exports.asq = async (q) => {
     try {

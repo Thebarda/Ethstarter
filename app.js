@@ -59,17 +59,16 @@ var job = new CronJob({
 job.start();
 console.log("is job running ? "+job.running);
 
+
+/* //promise test
 var db = require('./models/configDb');
 var testq = "SELECT nom FROM utilisateur WHERE id=51";
-console.log("OK");
 
-
-//promise test
 const promiseTest = async () => {
-    var res = await db.asq(testq)[0];
-    console.log("my favorite user is " + res);
+    var res = await db.asq(testq);
+    console.log("my favorite user is " + res[0].nom);
 }
-promiseTest();
+promiseTest(); */
 
 
 //Server start
