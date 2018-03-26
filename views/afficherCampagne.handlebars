@@ -87,14 +87,18 @@
             </div>
         </div>
     </div>
-     
+    <h4>Commentaires</h4>
     <div class="row">
         <div class="col s10">
             <div class="row">
                 {{#ifCond session.isConnected '==' true}}
                     {{#ifCond hasCont '==' 1}}
                         <button  id="btnComm" class="btn waves-effect waves-light" name="btnComm">Ecrire Commentaire<i class="material-icons right">edit</i></button>
+                    {{else}}
+                        <p class="center-align"><b>Vous devez contribuer pour poster un commentaire</b></p>
                     {{/ifCond}}
+                {{else}}
+                    <p class="center-align"><b>Vous devez être connecté pour poster un commentaire</b></p>
                 {{/ifCond}}
                 <div class="commForm">
                         <div class="input-field col s10">
@@ -111,7 +115,7 @@
   <div class="card">
     <div class="card-content">
         {{#each commentaires}}
-            <div class="row">
+            <div class="row hoverable">
                     
                     <div class="col s12"><span class="flow-text"><i>{{this.comm}}</i></span></div> 
                     <div class="col s6 offset-s8"><span class="flow-text blue-text">{{this.prenom}} {{this.nom}}</span></div>

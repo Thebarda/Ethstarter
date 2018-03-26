@@ -5,21 +5,19 @@ Create WebDriver Chrome chrome_options=${options}
 Suite Setup    Open Browser    http://localhost:1047/    chrome
 Suite Teardown    Close Browser
 Library           SeleniumLibrary
-
 *** Variables ***
 ${undefined}    https://www.katalon.com/
 
 *** Test Cases ***
 Test Case
-    Click Link     id=btnConnexion
-    Input Text    name=password    Clavaud
-    Input Password    name=login    Romain
+    Click Link    id=btnConnexion
+    Input Text    name=login    Romain
+    Input Password    name=password    Clavaud
     Click Button    xpath=//input[@value='connexion']
-    Page should contain    Bonjour Romain
-    Go To    http://localhost:1047/campaign/1249
-    Click Link    id=contribute
-    Input Text    id=montantJS    0.01
-    Press Key     id=montantJS    \\9
-    Click Link    id=submitParticipation
-    Press Key     id=montantJS    \\27
-    Location Should Be  http://localhost:1047/campaign/1249
+    Click Link  (//div[@id="campagne"][1]/div/div[2]/p/a)
+    Page Should Contain     mon projet
+    Page Should Contain     Commentaires
+    Click Button    id:btnComm
+    Input Text      id:areaComm     un comm en terre robot framework
+    Click Button    id:btnPost
+    Wait Until Page Contains    un comm en terre robot framework

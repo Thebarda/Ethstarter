@@ -17,7 +17,7 @@ module.exports.afficherCampagne = function(request, response){
         campagnesModel.getComm(idCampagne, function(err,result){
            
             if(err) throw err;
-            response.commentaires = result;
+            response.commentaires = result.reverse();
             console.log("test :" + response.commentaires);
             modelParticipation.getContributeurs(idCampagne, function(err, result){
             if(err) throw err;
