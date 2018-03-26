@@ -100,7 +100,7 @@ module.exports.afficherStatistiquesCampagnes = function(request, response){
                             if (e) throw e;
                             response.hasCont = res[0] == null ? 0 : 1;
                             console.log("hasCont? : " + response.hasCont);
-                            response.render("afficherCampagne", response);
+                            response.render("afficherStatsCampagne", response);
                         });
 
                             campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
