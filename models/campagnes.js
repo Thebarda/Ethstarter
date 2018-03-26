@@ -49,15 +49,6 @@ module.exports.getCampaignById = function (idCampagne, callback) {
     });
 };
 
-/* module.exports.getAllCampaigns = function (callback) {
-    db.getConnection(function (err, connection) {
-        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
-            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
-            "FROM campagnes WHERE validated=1", callback);
-        connection.release();
-    });
-}; */
-
 module.exports.getAllCampaigns = async () => {
     var query = "SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
     "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
@@ -125,16 +116,6 @@ module.exports.getAllAllCampaigns = function (callback) {
     });
 };
 
-/*module.exports.searchAnyCampaign = (search, callback) => {
-    db.getConnection((err, connection) => {
-        connection.query("SELECT `idCampagne`, `nomCampagne`, " +
-        "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " +
-        "FROM campagnes  WHERE validated=1 AND `nomCampagne` LIKE '%" + search + 
-        "%' OR `descriptionCourte` LIKE  '%" + search + "%'", callback);
-        connection.release();
-    })
-}
-*/
 
 module.exports.searchAnyCampaign = async (search) => {
     var query = "SELECT `idCampagne`, `nomCampagne`, " +
@@ -146,15 +127,6 @@ module.exports.searchAnyCampaign = async (search) => {
 };
 
 
-/* module.exports.contributed = function (idUtilisateur, callback) {
-    db.getConnection(function (err, connection) {
-        connection.query("SELECT campagnes.idCampagne, `nomCampagne`, " + 
-        "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
-        "FROM campagnes inner join contributeursxcampagne on campagnes.idCampagne=contributeursxcampagne.idCampagne WHERE contributeursxcampagne.idContributeur =" + idUtilisateur, callback);
-        connection.release();
-    });
-};  */
-
 module.exports.contributed = async (idUtilisateur) => {
     var query = "SELECT campagnes.idCampagne, `nomCampagne`, " + 
     "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
@@ -163,36 +135,12 @@ module.exports.contributed = async (idUtilisateur) => {
 };
 
 
-/* module.exports.favorites = function (idUtilisateur, callback) {
-    db.getConnection(function (err, connection) {
-        connection.query("SELECT campagnes.idCampagne, `nomCampagne`, " + 
-        "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
-        "FROM campagnes inner join favoris on campagnes.idCampagne=favoris.idCampagne WHERE favoris.idUtilisateur =" + idUtilisateur, callback);
-        connection.release();
-    });
-};  */
-
 module.exports.favorites = async (idUtilisateur) => {
     var query = "SELECT campagnes.idCampagne, `nomCampagne`, " + 
     "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
     "FROM campagnes inner join favoris on campagnes.idCampagne=favoris.idCampagne WHERE favoris.idUtilisateur =" + idUtilisateur;
     return db.asq(query);
 };
-
-
-/* module.exports.addFavorite = (idUser, idCamp, callback) => {
-    db.getConnection((err, co) => {
-        co.query("INSERT INTO favoris VALUES ('" + idUser + "', '" + idCamp + "')");
-        co.release();
-    });
-};
-
-module.exports.remFavorite = (idUser, idCamp, callback) => {
-    db.getConnection((err, co) => {
-        co.query("DELETE FROM favoris WHERE idCampagne = " + idCamp + " AND idUtilisateur = " + idUser);
-        co.release();
-    });
-}; */
 
 
 module.exports.addFavorite = async (user, camp) => {
