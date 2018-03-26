@@ -2,6 +2,7 @@ var campagnesModel = require("../models/campagnes");
 var modelParticipation = require ('../models/participation.js');
 var utils = require("../utils/utils");
 var notifModel = require('../models/notifications');
+var graphCampagne = require('../javascript/graphCampagne.js');
 
 module.exports.afficherCampagne = async (request, response) => {
     var idCampagne = request.params.idCampagne;
@@ -61,6 +62,66 @@ module.exports.afficherCampagne = async (request, response) => {
         });
     });
 };
+
+module.exports.afficherStatistiquesCampagnes = function(request, response){
+    var idCampagne = request.params.idCampagne;
+    campagnesModel.getCampaignById(idCampagne, function(err, result){
+        if(err) throw err;
+        response.title=result[0].nomCampagne;
+        response.campagne = result[0];
+        response.pourcentage = (response.campagne.montantActuel/response.campagne.but)*100;
+        response.pourcentageAffiche = ((response.campagne.montantActuel/response.campagne.but)*100)>100?100:response.pourcentage;
+        response.isFinished = parseInt(utils.calculJourRestant(response.campagne.dateLimite)) < 0 ? true : false;
+        response.joursRestants = utils.calculJourRestant(response.campagne.dateLimite);
+        request.session.isLookingCampaign = idCampagne;
+        campagnesModel.getComm(idCampagne, function(err,result){
+
+            if(err) throw err;
+            response.commentaires = result;
+            console.log("test :" + response.commentaires);
+            modelParticipation.getContributeurs(idCampagne, function(err, result){
+                if(err) throw err;
+                response.contributeurs = result;
+                modelParticipation.getNbContributions(idCampagne, function(err, result){
+                    if(err) throw err;
+                    response.nbContributeurs = result[0].nbContributeurs;
+                    campagnesModel.getInfosEntrepreneur(idCampagne, function(err, result){
+                        if(err) throw err;
+                        response.nomEntrepreneur = result[0].nom;
+                        response.prenomEntrepreneur = result[0].prenom;
+                        response.entreprise = result[0].nomEntreprise;
+                        if(request.session.isConnected) {
+                            modelParticipation.getNbContributionsUserConnected(idCampagne, request.session.idCompte, function (err, result) {
+                                if (err) throw err;
+                                response.nbContribsss = result[0].nbContribsss;
+                                console.log("ctrlr : " + idCampagne);
+                            });
+                            campagnesModel.hasContributed(request.session.idCompte,idCampagne, (e, res)=>{
+                                console.log("query ok");
+                            if (e) throw e;
+                            response.hasCont = res[0] == null ? 0 : 1;
+                            console.log("hasCont? : " + response.hasCont);
+                            response.render("afficherStatsCampagne", response);
+                        });
+
+                            campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
+                                console.log("query ok");
+                            if (e) throw e;
+                            response.isFav = res[0] == null ? 0 : 1;
+                            console.log("isFav? : " + response.isFav);
+                        });
+
+                        }else{
+                            response.nbContribsss = 0;
+                            response.render("afficherStatsCampagne", response);
+                        };
+                    });
+                });
+            });
+        });
+    });
+};
+
 module.exports.afficherMesCampagnes = (req, resp) => {
     campagnesModel.getMyCampaigns(req.session.idCompte, (e, res)=>{
         if (e) throw e;

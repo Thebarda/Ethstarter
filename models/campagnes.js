@@ -37,7 +37,16 @@ module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
         "FROM campagnes WHERE idEntrepreneur=" + idEntrepreneur, callback);
         connection.release();
     });
-}; 
+};
+
+module.exports.getDonateurs = function (idCampagne, callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT SUM(montant) AS montants, CONCAT(utilisateur.nom, ' ', utilisateur.prenom) " +
+            "AS nom FROM participation, utilisateur WHERE idCampagne = "+idCampagne+" AND participation.idContributeur = " +
+            "utilisateur.id GROUP BY idContributeur ORDER BY montants DESC", callback);
+        connection.release();
+    });
+};
 
 module.exports.getCampaignById = function (idCampagne, callback) {
     db.getConnection(function (err, connection) {
