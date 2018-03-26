@@ -1,4 +1,5 @@
-var profilModel = require("../models/profil.js");
+var profilController = require("../controllers/ProfilController");
+var profilModel = require("../models/profil");
 var notifModel = require("../models/notifications");
 var sha256 = require('js-sha256').sha256;
 
@@ -42,7 +43,7 @@ module.exports.modifierProfil = function(request, response) {
                 });
             }
         }
-        this.getProfil(request, response);
+        profilController.getProfil(request, response);
     });
 };
 
