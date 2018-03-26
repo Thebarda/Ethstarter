@@ -3,7 +3,7 @@ var modelParticipation = require ('../models/participation.js');
 var utils = require("../utils/utils");
 var notifModel = require('../models/notifications');
 
-module.exports.afficherCampagne = function(request, response){
+module.exports.afficherCampagne = async (request, response) => {
     var idCampagne = request.params.idCampagne;
     campagnesModel.getCampaignById(idCampagne, function(err, result){
        if(err) throw err;
@@ -70,14 +70,14 @@ module.exports.afficherMesCampagnes = (req, resp) => {
     });
 };
 
-module.exports.afficherLesCampagnes = (req, resp)=>{
-    campagnesModel.getAllCampaigns((err, res)=>{
-        if (err) throw err;
+module.exports.afficherLesCampagnes = async (req, resp) => {
+    try {
+        var r = await campagnesModel.getAllCampaigns();
+        resp.campagnes = r;
         resp.title = "Toutes les campagnes";
-        resp.campagnes = res;
         resp.render("afficherLesCampagnes", resp);
-    });
-};
+    } catch (e) { throw e; }; 
+}
 
 module.exports.fetchNbCampagnesWaitingForValidation = (req, resp)=>{
   campagnesModel.fetchNbCampaignsWaitingForValidation((err, res) => {
@@ -136,15 +136,6 @@ module.exports.updateValidationCampaign = (req, resp) => {
     });
 }
 
-/* module.exports.searchCampaign = (req, resp) => {
-    var search = utils.escapeSingleQuotes(req.body.search);
-    campagnesModel.searchAnyCampaign(search, (e, res)=>{
-        if (e) throw e;
-        resp.title = "Recherche pour " + search;
-        resp.campagnes = res;
-        resp.render("afficherLesCampagnes", resp);
-    });
-}; */
 
 module.exports.searchCampaign = async (req, response) => {
     var search = utils.escapeSingleQuotes(req.body.search);
@@ -152,38 +143,33 @@ module.exports.searchCampaign = async (req, response) => {
         response.campagnes = await campagnesModel.searchAnyCampaign(search);
         response.title = "Recherche pour " + search;
         response.render("afficherLesCampagnes", response);
-    }
-    catch (e) {
-        throw e;
-    }    
-}
-
-
-module.exports.favorites = (req, resp) => {
-    campagnesModel.favorites(req.session.idCompte, (e, res)=>{
-        if (e) throw e;
-        resp.title = "Campagnes favorites";
-        resp.campagnes = res;
-        resp.render("afficherLesCampagnes", resp);
-    });
+    } catch (e) { throw e; };    
 };
 
-module.exports.gestFavorite = (req, resp) => {
-    var currentCamp = req.body.currentCamp;
-    var user = req.session.idCompte;
+
+module.exports.favorites = async (req, resp) => {
+    try  {
+        var r = await campagnesModel.favorites(req.session.idCompte);
+        resp.title = "Campagnes favorites";
+        resp.campagnes = r;
+        resp.render("afficherLesCampagnes", resp);
+    } catch (e) { throw e; };
+};
+
+
+module.exports.gestFavorite = async (req) => {
     if (req.body.isFav == 0) {
-        campagnesModel.addFavorite(user,currentCamp, (e)=>{
-            if (e) throw e;
-            resp.render("emptyView", resp);
-        });
+        try {
+            await campagnesModel.addFavorite(req.session.idCompte, req.body.currentCamp);
+        } catch (e) { throw e; };
     }
     else {
-        campagnesModel.remFavorite(user,currentCamp, (e)=>{
-            if (e) throw e;
-            resp.render("emptyView", resp);
-        });
-    };
-};
+        try {
+            await campagnesModel.remFavorite(req.session.idCompte, req.body.currentCamp);
+        } catch (e) { throw e; };
+    }
+}
+
 
 module.exports.postComm = (req,resp) => {
     var body = req.body;
@@ -196,13 +182,14 @@ module.exports.postComm = (req,resp) => {
         if(e) throw e;
         resp.render("emptyView", resp);
     });
-
 };
-module.exports.contributed = (req, resp) => {
-    campagnesModel.contributed(req.session.idCompte, (e, res)=>{
-        if (e) throw e;
+
+
+module.exports.contributed = async (req, resp) => {
+    try {
+        var r = await campagnesModel.contributed(req.session.idCompte);
         resp.title = "Mes contributions";
-        resp.campagnes = res;
+        resp.campagnes = r; 
         resp.render("afficherLesCampagnes", resp);
-    });
+    } catch (e) {throw e;};   
 };

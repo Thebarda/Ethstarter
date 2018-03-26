@@ -1,5 +1,7 @@
 var profilModel = require("../models/profil.js");
 var notifModel = require("../models/notifications");
+var sha256 = require('js-sha256').sha256;
+
 var idCompte;
 
 module.exports.getProfil = function(request, response){
@@ -33,7 +35,14 @@ module.exports.modifierProfil = function(request, response) {
                 if (err) throw err;
             });
         }
-        response.render("afficherProfil", response);
+        if(body.oldPassword != "") {
+            if ((sha256(body.oldPassword) == request.session.password)) {
+                profilModel.updatePassword(idCompte, body, function(err, result){
+                    if (err) throw err;
+                });
+            }
+        }
+        this.getProfil(request, response);
     });
 };
 
