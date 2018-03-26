@@ -7,10 +7,11 @@ var CampagnesController = require('../controllers/CampagnesController.js');
 var ParticipationController = require('../controllers/ParticipationController.js');
 var ProfilController = require('../controllers/ProfilController.js');
 var AdministrationController = require("../controllers/AdministrationController.js");
+var ContrepartieController = require("../controllers/contrepartiesController");
 
 
 // Routes
-module.exports = function (app) {
+module.exports = async function (app) {
 
     // Exemple
     app.get('/', AccueilController.accueil);
@@ -27,7 +28,6 @@ module.exports = function (app) {
     app.get('/Inscription', InscriptionController.inscription);
     app.post('/validationInscriptionContributeur', InscriptionController.validationInscriptionContributeur);
     app.post("/validationInscriptionEntrepreneur", InscriptionController.validationInscriptionEntrepreneur);
-
     //Affichage campagnes
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
     app.get('/campaignStats/:idCampagne', CampagnesController.afficherStatistiquesCampagnes);
@@ -41,9 +41,13 @@ module.exports = function (app) {
     app.get('/myfavorites', CampagnesController.favorites);
     app.post('/gestfavorite', CampagnesController.gestFavorite);
     app.get('/mycontributions', CampagnesController.contributed);
+    app.post('/addContrepartie', ContrepartieController.addContrepartie);
+    //Commentaire Campagnes
+    app.post('/postcomm', CampagnesController.postComm);
 
     //Recherche
-    app.post('/search', CampagnesController.searchCampaign);
+    //app.post('/search', CampagnesController.searchCampaign);
+    app.post('/search', await CampagnesController.searchCampaign); //Async search
 
     // Profil
     app.get('/Profil', ProfilController.getProfil);
@@ -52,6 +56,8 @@ module.exports = function (app) {
     app.get('/contractorsWaiting', ProfilController.fetchContractorsWaitingForValidation);
     app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
     app.get('/notifications', ProfilController.notifications);
+    app.post('/deleteUser', ProfilController.deleteUser);
+    app.post('/deleteUseModerator', ProfilController.deleteUserModerator);
 
     //Administration
     app.get('/administration', AdministrationController.administration);

@@ -1,4 +1,3 @@
-
 var db = require('./configDb');
 
 module.exports.getAllCrowfundsThatFinishTodayAndMax = function (callback) {
@@ -33,9 +32,9 @@ module.exports.updateMontant = function (idCampagne, montant, callback) {
 
 module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idCampagne`,`idEntrepreneur`, `nomCampagne`, " +
-            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours`, `validated` " +
-            "FROM campagnes WHERE idEntrepreneur=" + idEntrepreneur, callback);
+        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
+        "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
+        "FROM campagnes WHERE idEntrepreneur=" + idEntrepreneur, callback);
         connection.release();
     });
 }; 
@@ -121,11 +120,12 @@ module.exports.getAllAllCampaigns = function (callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT `idCampagne`, `nomCampagne`, " +
             "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " +
-            "FROM campagnes  WHERE validated=1", callback);
+            "FROM campagnes", callback);
         connection.release();
     });
 };
 
+/* //Legacy search function
 module.exports.searchAnyCampaign = (search, callback) => {
     db.getConnection((err, connection) => {
         connection.query("SELECT `idCampagne`, `nomCampagne`, " +
@@ -134,6 +134,16 @@ module.exports.searchAnyCampaign = (search, callback) => {
         "%' OR `descriptionCourte` LIKE  '%" + search + "%'", callback);
         connection.release();
     })
+}
+ */
+
+module.exports.searchAnyCampaign = async (search) => {
+    var query = "SELECT `idCampagne`, `nomCampagne`, " +
+    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " +
+    "FROM campagnes  WHERE validated=1 AND `nomCampagne` LIKE '%" + search + 
+    "%' OR `descriptionCourte` LIKE  '%" + search + "%'";
+
+    return db.asq(query);
 }
 
 
@@ -177,3 +187,36 @@ module.exports.isFavorite = (idUser, idCamp, callback) => {
         c.release();
     });
 };
+
+module.exports.hasContributed = (idUser, idCamp, callback) => {
+    console.log("md2 : " + idCamp);
+    db.getConnection((e, c) => {
+        c.query("SELECT idCampagne FROM contributeursxcampagne WHERE idCampagne = " + idCamp + " AND idContributeur = " + idUser, callback);
+        c.release();
+    });
+};
+
+module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
+    db.getConnection((err, co ) => {
+        co.query("INSERT INTO commentaires VALUES ('" + idUser + "', '" + idCamp + "','" + commentaires + "')", callback);
+        co.release();
+    });
+};
+
+module.exports.getComm = (idCamp,callback) => {
+    console.log("idCampagne :" + idCamp);
+    db.getConnection((e, c) => {
+        c.query("select commentaire as comm,prenom,nom from utilisateur inner join commentaires on utilisateur.id = commentaires.idContributeur where commentaires.idCampagne =" + idCamp , callback);
+        c.release();
+    });
+}
+
+
+////promise test ////
+var testq = "SELECT nom FROM utilisateur WHERE id=51";
+
+const promiseTest = async () => {
+    var res = await db.asq(testq);
+    console.log("my favorite user is " + res[0].nom);
+}
+promiseTest();

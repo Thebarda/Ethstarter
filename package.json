@@ -5,15 +5,16 @@
   "scripts": {
     "start": "node app",
     "test": "mocha test/unittest/",
+    "debug": "node --inspect=5858",
+    "dev": "nodemon --inspect",
     "uiTest": "robot test/robotframework/",
     "build": "mocha"
   },
   "dependencies": {
     "async": "latest",
     "body-parser": "~1.18.2",
-    "chart.js": "^2.7.2",
-    "chromedriver": "^2.35.0",
     "cookie-parser": "~1.4.3",
+    "chromedriver": "^2.37.0",
     "cron": "^1.3.0",
     "debug": "~3.1.0",
     "express": "~4.16.2",
@@ -26,17 +27,17 @@
     "moment": "^2.20.1",
     "morgan": "~1.9.0",
     "mysql": "^2.15.0",
-    "mysql2": "^1.5.1",
     "node-gyp": "^3.6.2",
     "nodemon": "^1.14.12",
     "scrypt": "^6.0.3",
     "selenium-webdriver": "^4.0.0-alpha.1",
-    "sequelize": "^4.31.2",
     "serve-favicon": "~2.4.5",
     "sleep": "^5.1.1",
     "web3": "^0.20.4",
     "xmlhttprequest": "^1.8.0",
-    "time-stamp": "latest"
+    "time-stamp": "^2.0.0",
+    "bluebird": "^3.5.1",
+    "promise-mysql": "^3.2.1"
   },
   "devDependencies": {
     "chai": "*",

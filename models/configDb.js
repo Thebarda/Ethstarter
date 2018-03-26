@@ -16,3 +16,24 @@ module.exports.getConnection = function(callback) {
 };
 //com
 
+    ////////////////////////////////
+    // PROMISE RELATED CODE BELOW //
+    ////////////////////////////////
+
+//async pool
+var p = require('promise-mysql').createPool({
+    host: 'vps409515.ovh.net',
+    user: 'ethremotedb',
+    password: 'leblancpresident2020',
+    database: 'ethstarterDB',
+    port: '3306'
+});
+
+module.exports.asq = async (q) => {
+    try {
+        return await p.query(q);
+    }
+    catch (e) {
+        console.log(e);
+    }
+}
