@@ -8,6 +8,7 @@ var ParticipationController = require('../controllers/ParticipationController.js
 var ProfilController = require('../controllers/ProfilController.js');
 var AdministrationController = require("../controllers/AdministrationController.js");
 var ContrepartieController = require("../controllers/contrepartiesController");
+var MessageController = require ("../controllers/MessageController");
 
 
 // Routes
@@ -44,9 +45,13 @@ module.exports = async function (app) {
     //Commentaire Campagnes
     app.post('/postcomm', CampagnesController.postComm);
 
+    //Messages
+    app.get('/messages', MessageController.getAll);
+    app.post('/messageWrite', MessageController.write);
+    app.post('/messageDelete', MessageController.delete);
+
     //Recherche
-    //app.post('/search', CampagnesController.searchCampaign);
-    app.post('/search', await CampagnesController.searchCampaign); //Async search
+    app.post('/search', CampagnesController.searchCampaign); 
 
     // Profil
     app.get('/Profil', ProfilController.getProfil);
