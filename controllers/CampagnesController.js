@@ -59,15 +59,6 @@ module.exports.afficherMesCampagnes = function(request, response){
     });
 };
 
-/* module.exports.afficherLesCampagnes = (req, resp)=>{
-    campagnesModel.getAllCampaigns((err, res)=>{
-        if (err) throw err;
-        resp.title = "Toutes les campagnes";
-        resp.campagnes = res;
-        resp.render("afficherLesCampagnes", resp);
-    });
-}; */
-
 module.exports.afficherLesCampagnes = async (req, resp) => {
     try {
         var r = await campagnesModel.getAllCampaigns();
@@ -130,17 +121,7 @@ module.exports.updateValidationCampaign = (req, resp) => {
   })
 }
 
-/* module.exports.searchCampaign = (req, resp) => {
-    var search = utils.escapeSingleQuotes(req.body.search);
-    campagnesModel.searchAnyCampaign(search, (e, res)=>{
-        if (e) throw e;
-        resp.title = "Recherche pour " + search;
-        resp.campagnes = res;
-        resp.render("afficherLesCampagnes", resp);
-    });
-}; */
 
-//async
 module.exports.searchCampaign = async (req, response) => {
     var search = utils.escapeSingleQuotes(req.body.search);
     try {
@@ -151,16 +132,6 @@ module.exports.searchCampaign = async (req, response) => {
 };
 
 
-/* module.exports.favorites = (req, resp) => {
-    campagnesModel.favorites(req.session.idCompte, (e, res)=>{
-        if (e) throw e;
-        resp.title = "Campagnes favorites";
-        resp.campagnes = res;
-        resp.render("afficherLesCampagnes", resp);
-    });
-}; */
-
-//async
 module.exports.favorites = async (req, resp) => {
     try  {
         var r = await campagnesModel.favorites(req.session.idCompte);
@@ -169,24 +140,6 @@ module.exports.favorites = async (req, resp) => {
         resp.render("afficherLesCampagnes", resp);
     } catch (e) { throw e; };
 };
-
-
-/* module.exports.gestFavorite = (req, resp) => {
-    var currentCamp = req.body.currentCamp;
-    var user = req.session.idCompte;
-    if (req.body.isFav == 0) {
-        campagnesModel.addFavorite(user,currentCamp, (e)=>{
-            if (e) throw e;
-            resp.render("emptyView", resp);
-        });
-    }
-    else {
-        campagnesModel.remFavorite(user,currentCamp, (e)=>{
-            if (e) throw e;
-            resp.render("emptyView", resp);
-        });
-    };
-}; */
 
 
 module.exports.gestFavorite = async (req) => {
@@ -202,14 +155,6 @@ module.exports.gestFavorite = async (req) => {
     }
 }
 
-/* module.exports.contributed = (req, resp) => {
-    campagnesModel.contributed(req.session.idCompte, (e, res)=>{
-        if (e) throw e;
-        resp.title = "Mes contributions";
-        resp.campagnes = res;
-        resp.render("afficherLesCampagnes", resp);
-    });
-}; */
 
 module.exports.contributed = async (req, resp) => {
     try {
