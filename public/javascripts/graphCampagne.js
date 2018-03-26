@@ -1,5 +1,3 @@
-var campagnesModel = require("../models/campagnes");
-
 $(document).ready(function(){
     $.get(campagnesModel.getDonateurs(), function(response) {
         if (!response.length) {

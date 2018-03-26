@@ -2,7 +2,6 @@ var campagnesModel = require("../models/campagnes");
 var modelParticipation = require ('../models/participation.js');
 var utils = require("../utils/utils");
 var notifModel = require('../models/notifications');
-var graphCampagne = require('../javascript/graphCampagne.js');
 
 module.exports.afficherCampagne = async (request, response) => {
     var idCampagne = request.params.idCampagne;
