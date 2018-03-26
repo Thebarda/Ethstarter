@@ -44,8 +44,8 @@ module.exports = async function (app) {
 
     //Messages
     app.get('/messages', MessageController.getAll);
-    //app.post('/messageWrite', MessageController.write);
-    //app.post('/messageDelete', MessageController.delete);
+    app.post('/messageWrite', MessageController.write);
+    app.post('/messageDelete', MessageController.delete);
 
 
     //Recherche

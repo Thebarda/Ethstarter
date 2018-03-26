@@ -13,9 +13,9 @@ module.exports.getAll = async (req, resp) => {
 }
 
 module.exports.write = async (req) => {
-    
+    var timestamp = ts("YYYYMMDDhhmmss");
     try {
-        //
+        await msg.write(req.session.idCompte, req.body.msgTitle, req.body.msgContent, timestamp, req.body.msgRecipient);
     } catch (e) { throw e; }; 
 }
 
