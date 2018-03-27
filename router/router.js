@@ -7,10 +7,12 @@ var CampagnesController = require('../controllers/CampagnesController.js');
 var ParticipationController = require('../controllers/ParticipationController.js');
 var ProfilController = require('../controllers/ProfilController.js');
 var AdministrationController = require("../controllers/AdministrationController.js");
+var ContrepartieController = require("../controllers/contrepartiesController");
+var MessageController = require ("../controllers/MessageController");
 
 
 // Routes
-module.exports = function (app) {
+module.exports = async function (app) {
 
     // Exemple
     app.get('/', AccueilController.accueil);
@@ -29,6 +31,7 @@ module.exports = function (app) {
     app.post("/validationInscriptionEntrepreneur", InscriptionController.validationInscriptionEntrepreneur);
     //Affichage campagnes
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
+    app.get('/campaignStats/:idCampagne', CampagnesController.afficherStatistiquesCampagnes);
     app.post('/participation', ParticipationController.participation);
     app.get('/campaigns/', CampagnesController.afficherLesCampagnes);
     app.get('/fetchNbCampagnesWaitingForValidation', CampagnesController.fetchNbCampagnesWaitingForValidation);
@@ -39,10 +42,17 @@ module.exports = function (app) {
     app.get('/myfavorites', CampagnesController.favorites);
     app.post('/gestfavorite', CampagnesController.gestFavorite);
     app.get('/mycontributions', CampagnesController.contributed);
+    app.post('/addContrepartie', ContrepartieController.addContrepartie);
     //Commentaire Campagnes
     app.post('/postcomm', CampagnesController.postComm);
+
+    //Messages
+    app.get('/messages', MessageController.getAll);
+    app.post('/messageWrite', MessageController.write);
+    app.post('/messageDelete', MessageController.delete);
+
     //Recherche
-    app.post('/search', CampagnesController.searchCampaign);
+    app.post('/search', CampagnesController.searchCampaign); 
 
     // Profil
     app.get('/Profil', ProfilController.getProfil);

@@ -17,4 +17,4 @@ Test Case
     Click Button    xpath=//input[@value='connexion']
     Go To   http://localhost:1047/notifications
     Page Should Contain     Notifications
-    Page Should Contain Element    class:textNotifs  limit=4
+    Page Should Contain Element    class:textNotifs

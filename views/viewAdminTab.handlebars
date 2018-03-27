@@ -50,7 +50,13 @@
                     <td>{{this.montantMax}}</td>
                     <td>{{this.dateLimite}}</td>
                     <td>{{this.descriptionCourte}}</td>
-                    <td>{{this.estEnCours}}</td>
+                    <td>
+                        {{#ifCond this.estEnCours '==' 1}}
+                            Est en cours
+                        {{else}}
+                            N'est pas en cours
+                        {{/ifCond}}
+                    </td>
                     {{#ifCond this.validated '==' 0}}
                         <td>En attente</td>
                     {{else}}
