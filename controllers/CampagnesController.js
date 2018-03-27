@@ -35,23 +35,24 @@ module.exports.afficherCampagne = async (request, response) => {
                                 if (err) throw err;
                                 response.nbContribsss = result[0].nbContribsss;
                                 console.log("ctrlr : " + idCampagne);
-                            });
-                            campagnesModel.hasContributed(request.session.idCompte,idCampagne, (e, res)=>{
-                                console.log("query ok");
-                                if (e) throw e;
-                                response.hasCont = res[0] == null ? 0 : 1;
-                                console.log("hasCont? : " + response.hasCont); 
-                                response.render("afficherCampagne", response);
-                            });
-                            
-                            campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
-                                console.log("query ok");
-                                if (e) throw e;
-                                response.isFav = res[0] == null ? 0 : 1;
-                                console.log("isFav? : " + response.isFav); 
-                            });
-                            
-                        }else{
+
+                                campagnesModel.hasContributed(request.session.idCompte,idCampagne, (e, res)=>{
+                                    console.log("query ok");
+                                    if (e) throw e;
+                                    response.hasCont = res[0] == null ? 0 : 1;
+                                    console.log("hasCont? : " + response.hasCont); 
+
+                                    campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
+                                        console.log("query ok");
+                                        if (e) throw e;
+                                        response.isFav = res[0] == null ? 0 : 1;
+                                        console.log("isFav? : " + response.isFav); 
+                                        response.render("afficherCampagne", response);
+                                    });
+                                });
+                            });    
+                        }
+                        else{
                             response.nbContribsss = 0;
                             response.render("afficherCampagne", response);
                         };
