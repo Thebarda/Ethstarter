@@ -38,7 +38,7 @@ module.exports.supprimerParticipation = function(request, response){
     var idContributeur = request.session.idCompte;
     modelCampagnes.getIdCampagne(nomCampagne, function(err, result){
         if (err) throw err;
-        var idCampagne = result[0];
+        var idCampagne = result;
         profilModel.delParticipation(idCampagne, idContributeur, montant, function(err, result){
             if (err) throw err;
             modelCampagnes.updateMontantActuelCampagne(montant, idCampagne, function(err, result){

@@ -46,7 +46,7 @@ module.exports.updateMontantActuelCampagne = function(montant, nomCampagne, call
 module.exports.getIdCampagne = function(nomCampagne, callback){
     db.getConnection(function(err, connection){
         if (err) throw err;
-        var sql = "SELECT idCampagne FROM campagnes WHERE nomCampagne="+nomCampagne;
+        var sql = "SELECT idCampagne FROM campagnes WHERE nomCampagne=" + nomCampagne;
         connection.query(sql, callback);
         connection.release();
     });

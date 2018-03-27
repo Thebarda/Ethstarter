@@ -1,25 +1,25 @@
     <div class="row center-align">
-        <h1>Vos contributions</h1>
-        <div id="afficherParticipations">
-            <form method="post" action="/delParticipation">
-                <table class="striped highlight responsive-table">
-                    <thead>
-                        <tr>
-                            <th>Nom de la campagne</th>
-                            <th>Montant</th>
-                            <th>Options</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {{#each participation}}
-                        <tr>
-                            <td><input name="nomCampagne" type="text" value="{{this.nomCampagne}}" readonly="readonly"></td>
-                            <td><input name="montant" type="text" value="{{this.montantTot}}" readonly="readonly"></td>
-                            <td><input class="btn waves-effect waves-light red" type="submit" value="Supprimer la contribution"></td>
-                        </tr>
-                    {{/each}}
-                    </tbody>
-                </table>
-            </form>
+        <h1>Vos participations</h1>
+        <div id="afficherParticipations" class="col s12">
+            <table class="striped highlight responsive-table">
+                <thead>
+                    <tr>
+                        <th>Nom de la campagne / Montant</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each participation}}
+                    <tr>
+                        <td>
+                            <form method="post" action="/delParticipation">
+                                <input name="nomCampagne" type="text" value="{{this.nomCampagne}}" readonly="readonly">
+                                <input name="montant" type="text" value="{{this.montantTot}}" readonly="readonly">
+                                <input class="btn waves-light waves-effect red darken-1 modal-trigger" type="submit" value="Supprimer la participation"> 
+                            </form>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>    
         </div>
     </div>
