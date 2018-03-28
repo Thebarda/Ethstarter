@@ -16,13 +16,6 @@ module.exports.insertCampaign = function (data, callback) {
     });
 };
 
-module.exports.addContributeursXCampagne = function (data, callback) {
-    db.getConnection(function (err, connection) {
-        connection.query("INSERT INTO contributeursxcampagne SET ?", data, callback);
-        connection.release();
-    });
-};
-
 module.exports.updateMontant = function (idCampagne, montant, callback) {
     db.getConnection(function (err, connection) {
         connection.query("UPDATE campagnes SET montantActuel=montantActuel+" + montant + " WHERE idCampagne=" + idCampagne, callback);
@@ -147,7 +140,7 @@ module.exports.searchAnyCampaign = async (search) => {
 module.exports.contributed = async (idUtilisateur) => {
     var query = "SELECT campagnes.idCampagne, `nomCampagne`, " + 
     "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
-    "FROM campagnes inner join contributeursxcampagne on campagnes.idCampagne=contributeursxcampagne.idCampagne WHERE contributeursxcampagne.idContributeur =" + idUtilisateur;
+    "FROM campagnes inner join participation on campagnes.idCampagne=participation.idCampagne WHERE participation.idContributeur =" + idUtilisateur;
     return db.asq(query);
 };
 
@@ -182,7 +175,7 @@ module.exports.isFavorite = (idUser, idCamp, callback) => {
 module.exports.hasContributed = (idUser, idCamp, callback) => {
     console.log("md2 : " + idCamp);
     db.getConnection((e, c) => {
-        c.query("SELECT idCampagne FROM contributeursxcampagne WHERE idCampagne = " + idCamp + " AND idContributeur = " + idUser, callback);
+        c.query("SELECT idCampagne FROM participation WHERE idCampagne = " + idCamp + " AND idContributeur = " + idUser, callback);
         c.release();
     });
 };
@@ -215,7 +208,6 @@ module.exports.getNbContreparties =(idCamp,callback) => {
         c.query("SELECT descriptionCP as descCP, montant FROM contrepartiesCampagne where idCampagne=" + idCamp, callback);
         c.release();
     });
-<<<<<<< HEAD
 }
 
 module.exports.getListContreparties = (idCamp,callback) => {
@@ -243,8 +235,3 @@ module.exports.addContrepartieContrib = (idCamp, idContributeur, idContrepartie,
         co.release();
     });
 }
-
-
-=======
-}
->>>>>>> 83109800a091fe845898e11c486edc74527f1305
