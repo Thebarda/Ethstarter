@@ -5,6 +5,7 @@
                 {{#ifCond session.isConnected '==' true}}
                         <a id="favbutton" class="btn-floating btn-large waves-effect waves-light orange left tooltipped" data-position="right" data-delay="50" data-tooltip="tooltip text placeholder"><i id="favicon" class="material-icons">close</i></a>
                 {{/ifCond}}
+                <p hidden id="testConnect">{{session.typeCompte}}</p>
                 <p hidden id="currentCamp">{{campagne.idCampagne}}</p>
                 <p hidden id="isFav">{{isFav}}</p>
                 <h3 class="center-align" id="titre">{{campagne.nomCampagne}}</h3>
@@ -80,6 +81,22 @@
             <br/>
             <div class="card">
                 <div class="card-content left-align">
+                    
+                        <b>Liste Contreparties :</b>
+                        {{#each contreparties}}
+                        <div href="#contribuez" class="contrepartie" id={{this.montant}}>
+                        <div class="waves-effect waves-orange">
+                            <p class="orange-text"><b>Pour {{this.montant}} <img class="img" src="/images/logo-eth.png"  width="25" alt="Logo Eths" /> ou plus</b></p>
+                            <p class="montantPar"><b>{{this.descCP}}</b></p>
+                            <div class="divider"></div>
+                        </div>
+                        </div>
+                        {{/each}}
+                </div>
+            </div>
+            <br/>
+            <div class="card">
+                <div class="card-content left-align">
                     <b>Projet propulsé par :</b>
                     <p>{{nomEntrepreneur}} {{prenomEntrepreneur}}</p>
                     <p>({{entreprise}})</p>
@@ -103,12 +120,11 @@
                             <label for="comm">Votre Commentaire</label>
                         </div>
                             <h5 id="error" class="red-text"></h5>
-                    <button  id="btnPost" class="btn waves-effect waves-light" name="btnPost">Poster Commentaire<i class="material-icons right">send</i></button>
+                    <button id="btnPost" class="btn waves-effect waves-light" name="btnPost">Poster Commentaire<i class="material-icons right">send</i></button>
                 </div>
             </div>
         </div>
   </div>
-  {{nbComms}}
   {{#ifCond nbComms '>' 0}}
   <div class="card">
     <div class="card-content">

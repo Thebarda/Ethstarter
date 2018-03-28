@@ -36,5 +36,6 @@ module.exports.getNbContributionsUserConnected = function(idCampagne, idContribu
            "WHERE c.idCampagne="+idCampagne+" AND c.idContributeur="+idContributeur, callback);
        connection.release();
     });
-}
+};
+
 
