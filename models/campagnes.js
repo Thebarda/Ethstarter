@@ -197,7 +197,54 @@ module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
 module.exports.getComm = (idCamp,callback) => {
     console.log("idCampagne :" + idCamp);
     db.getConnection((e, c) => {
-        c.query("select commentaire as comm,prenom,nom from utilisateur inner join commentaires on utilisateur.id = commentaires.idContributeur where commentaires.idCampagne =" + idCamp , callback);
+        c.query("select commentaire as comm,prenom,nom from utilisateur"+ 
+        " inner join commentaires on utilisateur.id = commentaires.idContributeur"+
+        " where commentaires.idCampagne=" + idCamp , callback);
+        c.release();
+    });
+};
+module.exports.getNbComm = (idCamp,callback) => {
+    db.getConnection((e, c) => {
+        c.query("SELECT COUNT(commentaire) as nbComms from commentaires where idCampagne=" + idCamp , callback);
+        c.release();
+    });
+};
+
+module.exports.getNbContreparties =(idCamp,callback) => {
+    db.getConnection((e,c) => {
+        c.query("SELECT descriptionCP as descCP, montant FROM contrepartiesCampagne where idCampagne=" + idCamp, callback);
+        c.release();
+    });
+<<<<<<< HEAD
+}
+
+module.exports.getListContreparties = (idCamp,callback) => {
+    db.getConnection((e,c) => {
+        c.query("SELECT idContrepartie, descriptionCP as descCP, montant FROM "+ 
+        "contrepartiesCampagne where idCampagne=" + idCamp, callback);
         c.release();
     });
 }
+//0.07
+module.exports.getContrepartiesMaxMontant = (idCamp,montant,callback) => {
+    db.getConnection((err,co) => {
+        
+        co.query("SELECT idContrepartie FROM contrepartiesCampagne where"+
+        " montant = (SELECT max(montant) from contrepartiesCampagne where montant<="
+        + montant + " and idCampagne=" + idCamp +")", callback);
+        co.release();
+    });
+};
+
+module.exports.addContrepartieContrib = (idCamp, idContributeur, idContrepartie,callback) => {
+    db.getConnection((err,co) => {
+        co.query("INSERT INTO contrepartiesContributeur VALUES ("+ idCamp +","+ 
+        idContributeur + ","+ idContrepartie+")", callback);
+        co.release();
+    });
+}
+
+
+=======
+}
+>>>>>>> 83109800a091fe845898e11c486edc74527f1305
