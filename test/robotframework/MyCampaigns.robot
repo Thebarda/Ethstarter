@@ -15,6 +15,5 @@ Test Case
     Input Text    name=login    denied
     Input Password    name=password    denied
     Click Button    xpath=//input[@value='connexion']
-    Click Link    id:btn_menu
-    Click Link    id:mesCampagnes
-    Page Should Contain    denied campaign
+    Go To       http://localhost:1047/mycampaigns
+    Page Should Contain    mon projet

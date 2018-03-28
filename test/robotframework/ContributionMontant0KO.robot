@@ -16,10 +16,10 @@ Test Case
     Input Password    name=login    denied
     Click Button    xpath=//input[@value='connexion']
     Page should contain    Bonjour denied
-    Go To    http://localhost:1047/campaign/1249
+    Go To    http://localhost:1047/campaign/1264
     Click Link    id=contribute
     Input Text    id=montantJS    0
     Press Key     id=montantJS    \\9
     Page should contain    Veuillez saisir un montant supérieur à 0 ether
     Press Key     id=montantJS    \\27
-    Location Should Be  http://localhost:1047/campaign/1249
+    Location Should Be  http://localhost:1047/campaign/1264

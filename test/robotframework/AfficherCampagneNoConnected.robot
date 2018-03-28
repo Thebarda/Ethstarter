@@ -11,7 +11,7 @@ ${undefined}    https://www.katalon.com/
 
 *** Test Cases ***
 Test Case
-    Go To    http://localhost:1047/campaign/1249
+    Go To    http://localhost:1047/campaign/1264
     Page should contain    mon projet
     Element Should Be Visible   id=login
     Element Should Be Visible   id=signup
