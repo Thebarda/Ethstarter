@@ -15,33 +15,40 @@ module.exports.afficherCampagne = async (request, response) => {
         response.joursRestants = utils.calculJourRestant(response.campagne.dateLimite);
         request.session.isLookingCampaign = idCampagne;
         campagnesModel.getComm(idCampagne, function(err,result){
-           
             if(err) throw err;
-            response.commentaires = result.reverse();
-            console.log("test :" + response.commentaires);
-            modelParticipation.getContributeurs(idCampagne, function(err, result){
-            if(err) throw err;
-                response.contributeurs = result;
-                modelParticipation.getNbContributions(idCampagne, function(err, result){
+                result.reverse();
+                response.commentaires = result;
+                campagnesModel.getListContreparties(idCampagne, (e,result)=>{
+                    if(e) throw e;
+                    response.contreparties = result;
+                    modelParticipation.getContributeurs(idCampagne, function(err, result){
                     if(err) throw err;
-                    response.nbContributeurs = result[0].nbContributeurs;
-                    campagnesModel.getInfosEntrepreneur(idCampagne, function(err, result){
-                        if(err) throw err;
-                        response.nomEntrepreneur = result[0].nom;
-                        response.prenomEntrepreneur = result[0].prenom;
-                        response.entreprise = result[0].nomEntreprise;
-                        if(request.session.isConnected) {
-                            modelParticipation.getNbContributionsUserConnected(idCampagne, request.session.idCompte, function (err, result) {
-                                if (err) throw err;
-                                response.nbContribsss = result[0].nbContribsss;
-                                console.log("ctrlr : " + idCampagne);
-
-                                campagnesModel.hasContributed(request.session.idCompte,idCampagne, (e, res)=>{
-                                    console.log("query ok");
-                                    if (e) throw e;
-                                    response.hasCont = res[0] == null ? 0 : 1;
-                                    console.log("hasCont? : " + response.hasCont); 
-
+                        response.contributeurs = result;
+                        modelParticipation.getNbContributions(idCampagne, function(err, result){
+                            if(err) throw err;
+                            response.nbContributeurs = result[0].nbContributeurs;
+                            campagnesModel.getNbComm(idCampagne,function(err,result){
+                                if(err) throw err;
+                                response.nbComms = result[0].nbComms;
+                                console.log("nbComms: " + response);
+                                campagnesModel.getInfosEntrepreneur(idCampagne, function(err, result){
+                                if(err) throw err;
+                                response.nomEntrepreneur = result[0].nom;
+                                response.prenomEntrepreneur = result[0].prenom;
+                                response.entreprise = result[0].nomEntreprise;
+                                if(request.session.isConnected) {
+                                    modelParticipation.getNbContributionsUserConnected(idCampagne, request.session.idCompte, function (err, result) {
+                                        if (err) throw err;
+                                        response.nbContribsss = result[0].nbContribsss;
+                                        console.log("ctrlr : " + idCampagne);
+                                    });
+                                    campagnesModel.hasContributed(request.session.idCompte,idCampagne, (e, res)=>{
+                                        console.log("query ok");
+                                        if (e) throw e;
+                                        response.hasCont = res[0] == null ? 0 : 1;
+                                        console.log("hasCont? : " + response.hasCont); 
+                                        response.render("afficherCampagne", response);
+                                    });
                                     campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
                                         console.log("query ok");
                                         if (e) throw e;
@@ -49,8 +56,7 @@ module.exports.afficherCampagne = async (request, response) => {
                                         console.log("isFav? : " + response.isFav); 
                                         response.render("afficherCampagne", response);
                                     });
-                                });
-                            });    
+                            
                         }
                         else{
                             response.nbContribsss = 0;
@@ -61,6 +67,8 @@ module.exports.afficherCampagne = async (request, response) => {
             });
         });
     });
+});
+});
 };
 
 module.exports.afficherStatistiquesCampagnes = function(request, response){
