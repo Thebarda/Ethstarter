@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node app",
     "test": "mocha test/unittest/",
-    "debug": "node --inspect=5858",
-    "dev": "nodemon --inspect",
+    "debug": "node --inspect=5858 app",
+    "dev": "nodemon --inspect app",
     "uiTest": "robot test/robotframework/",
     "build": "mocha"
   },
@@ -46,5 +46,8 @@
     "jest": "^22.1.4",
     "mocha": "^5.0.0",
     "nyc": "^11.4.1"
+  },
+  "optionalDependencies": {
+    "chromedriver": "^2.37.0"
   }
 }

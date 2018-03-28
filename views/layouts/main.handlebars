@@ -30,13 +30,17 @@
                           <li><a href="/Inscription" id="btnInscription" class="btnActive">Inscription</a></li>
                       </ul>
                   {{/if}}
-                <ul id="nav-mobile" class="right"><li><form method="POST" action="/search">  
-                    <div class="searchbar input-field">
-                    <input id="search" type="search" name="search" required>
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                    </div>
-                </li></form></ul>
+                  <ul id="nav-mobile" class="right">
+                      <li>
+                          <form method="POST" action="/search">
+                              <div class="searchbar input-field">
+                                  <input id="search" type="search" name="search" required>
+                                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                  <i class="material-icons">close</i>
+                              </div>
+                          </form>
+                      </li>
+                  </ul>
               </div>
           </nav>
           <!--stop header band-->
@@ -54,9 +58,11 @@
               {{#ifCond session.typeCompte '==' 2}}
                   {{#ifCond session.entrepreneurValidated '==' 1}}
                     <li><a class="subheader"><span class="orange-text" >Entrepreneur</span></a></li>
-                    <li><a id="proposerCampagne" href="/creerCampagne" class="waves-effect waves-light"><i class="material-icons">add</i><span class="orange-text">Proposer un projet</span></a></li>
-                    <li><a id="mesCampagnes" href="/mycampaigns" class="waves-effect waves-light"><i class="material-icons">search</i><span class="orange-text">Mes Campagnes</span></a></li>
-                    <li><a id="mesNotifs" href="/notifications" class="waves-effect waves-light"><i class="material-icons">notifications</i><span class="orange-text">Notifications</span></a></li>
+                        <li><a id="proposerCampagne" href="/creerCampagne" class="waves-effect waves-light"><i class="material-icons">add</i><span class="black-text">Proposer un projet</span></a></li>
+                        <li><a id="mesCampagnes" href="/mycampaigns" class="waves-effect waves-light"><i class="material-icons">search</i><span class="black-text">Mes Campagnes</span></a></li>
+                        <li><a id="myfavorites" href="/myfavorites" class="waves-effect waves-light"><i class="material-icons">star_border</i><span class="black-text">Campagnes favorites</span></a></li>
+                        <li><a id="mycontributions" href="/mycontributions" class="waves-effect waves-light"><i class="material-icons">attach_money</i><span class="black-text">Mes contributions</span></a></li>
+                        <li><a id="mesNotifs" href="/notifications" class="waves-effect waves-light"><i class="material-icons">notifications</i><span class="black-text">Notifications</span></a></li>
                     <li><div class="divider"></div></li>
                   {{/ifCond}}
               {{/ifCond}}
