@@ -7,7 +7,7 @@ Suite Teardown    Close Browser
 Library           SeleniumLibrary
 
 *** Variables ***
-${undefined}    https://www.katalon.com/
+${undefined}    http://localhost:1047/
 
 *** Test Cases ***
 Test Case
@@ -15,7 +15,6 @@ Test Case
     Input Text    name=login    denied
     Input Password    name=password    denied
     Click Button    xpath=//input[@value='connexion']
-    Go To   http://localhost:1047/creerCampagne
-    Go To   http://localhost:1047/creerCampagne/#submit
-    Click Link    id=submit
-    Page should contain    Tous les champs doivent être remplis
+    Click Link    id:btn_menu
+    Click Link    id:mesCampagnes
+    Page Should Contain    denied campaign

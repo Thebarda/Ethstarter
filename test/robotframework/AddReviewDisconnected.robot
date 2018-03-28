@@ -5,14 +5,13 @@ Create WebDriver Chrome chrome_options=${options}
 Suite Setup    Open Browser    http://localhost:1047/    chrome
 Suite Teardown    Close Browser
 Library           SeleniumLibrary
+
 *** Variables ***
-${undefined}    https://www.katalon.com/
+${undefined}    http://localhost:1047/
 
 *** Test Cases ***
 Test Case
-    Click Link    id=btnConnexion
-    Input Text    name=login    denied
-    Input Password    name=password    denied
-    Click Button    xpath=//input[@value='connexion']
-    Page should contain    Bonjour denied
-    Click Link    id=btnDeconnexion
+    Click Link  (//div[@id="campagne"][1]/div/div[2]/p/a)
+    Page Should Contain     mon projet
+    Page Should Contain     Commentaires
+    Page Should Contain     Vous devez être connecté pour poster un commentaire

@@ -12,13 +12,13 @@ ${undefined}    https://www.katalon.com/
 *** Test Cases ***
 Test Case
     Click Link     id=btnConnexion
-    Input Text    name=password    Clavaud
-    Input Password    name=login    Romain
+    Input Text    name=password    denied
+    Input Password    name=login    denied
     Click Button    xpath=//input[@value='connexion']
-    Page should contain    Bonjour Romain
+    Page should contain    Bonjour denied
     Go To    http://localhost:1047/campaign/1249
     Click Link    id=contribute
-    Input Text    id=montantJS    0.25
+    Input Text    id=montantJS    0.01
     Press Key     id=montantJS    \\9
     Click Link    id=submitParticipation
     Press Key     id=montantJS    \\27

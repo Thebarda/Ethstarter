@@ -16,6 +16,7 @@ module.exports.afficherCampagne = async (request, response) => {
         request.session.isLookingCampaign = idCampagne;
         campagnesModel.getComm(idCampagne, function(err,result){
             if(err) throw err;
+                result.reverse();
                 response.commentaires = result;
                 campagnesModel.getListContreparties(idCampagne, (e,result)=>{
                     if(e) throw e;
