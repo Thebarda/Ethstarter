@@ -11,11 +11,12 @@ ${undefined}    https://www.katalon.com/
 
 *** Test Cases ***
 Test Case
-    Click Link    id=btnConnexion
-    Input Text    name=login    denied
-    Input Password    name=password    denied
+    Click Link     id=btnConnexion
+    Input Text    name=password    contributor
+    Input Password    name=login    contributor
     Click Button    xpath=//input[@value='connexion']
-    Go To   http://localhost:1047/creerCampagne
-    Go To   http://localhost:1047/creerCampagne/#submit
-    Click Link    id=submit
-    Page should contain    Tous les champs doivent être remplis
+    Click Link      id:btnProfil
+    Click Link      class:btnModifierProfil
+    Input Text      name:email  contributor@contrib.com
+    Click Element   //input[@value='Valider']
+    Textfield Should Contain  name:email  contributor@contrib.com
