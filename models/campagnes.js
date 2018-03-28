@@ -215,7 +215,6 @@ module.exports.getNbContreparties =(idCamp,callback) => {
         c.query("SELECT descriptionCP as descCP, montant FROM contrepartiesCampagne where idCampagne=" + idCamp, callback);
         c.release();
     });
-<<<<<<< HEAD
 }
 
 module.exports.getListContreparties = (idCamp,callback) => {
@@ -245,6 +244,3 @@ module.exports.addContrepartieContrib = (idCamp, idContributeur, idContrepartie,
 }
 
 
-=======
-}
->>>>>>> 83109800a091fe845898e11c486edc74527f1305
