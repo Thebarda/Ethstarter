@@ -72,5 +72,8 @@ module.exports = async function (app) {
     //Mail
     app.get('/sendMail', MailController.sendMail);
 
+    //How it works ?
+    app.get('/howitworks', AccueilController.howitworks);
+
     app.get('*', AccueilController.error404);
 };
