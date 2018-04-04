@@ -1,39 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20180404 16:00:29.912" generator="Robot 3.0.2 (Python 2.7.14+ on linux2)">
-<suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/howitworks.robot" id="s1" name="Howitworks">
+<robot generated="20180404 20:18:37.717" generator="Robot 3.0.2 (Python 2.7.14+ on linux2)">
+<suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AccueilConnectedAsContributor.robot" id="s1" name="AccueilConnectedAsContributor">
 <kw type="setup" name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the given ``url``.</doc>
 <arguments>
 <arg>http://localhost:1047/</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20180404 16:00:30.054" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
-<status status="PASS" endtime="20180404 16:00:32.236" starttime="20180404 16:00:30.054"></status>
+<msg timestamp="20180404 20:18:37.842" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180404 20:18:42.709" starttime="20180404 20:18:37.841"></status>
 </kw>
 <test id="s1-t1" name="Test Case">
-<kw name="Go To" library="SeleniumLibrary">
-<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
 <arguments>
-<arg>http://localhost:1047/howitworks</arg>
+<arg>id=btnConnexion</arg>
 </arguments>
-<msg timestamp="20180404 16:00:32.238" level="INFO">Opening url 'http://localhost:1047/howitworks'</msg>
-<status status="PASS" endtime="20180404 16:00:32.535" starttime="20180404 16:00:32.238"></status>
+<msg timestamp="20180404 20:18:42.713" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" endtime="20180404 20:18:43.149" starttime="20180404 20:18:42.711"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>contributor</arg>
+</arguments>
+<msg timestamp="20180404 20:18:43.150" level="INFO">Typing text 'contributor' into text field 'name=login'.</msg>
+<status status="PASS" endtime="20180404 20:18:43.388" starttime="20180404 20:18:43.149"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>contributor</arg>
+</arguments>
+<msg timestamp="20180404 20:18:43.389" level="INFO">Typing password into text field 'name=password'.</msg>
+<status status="PASS" endtime="20180404 20:18:43.601" starttime="20180404 20:18:43.388"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180404 20:18:43.602" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" endtime="20180404 20:18:44.189" starttime="20180404 20:18:43.601"></status>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <doc>Verifies that current page contains ``text``.</doc>
 <arguments>
-<arg>Page en cours de construction</arg>
+<arg>Campagnes ajoutées récemment</arg>
 </arguments>
-<msg timestamp="20180404 16:00:32.572" level="INFO">Current page contains text 'Page en cours de construction'.</msg>
-<status status="PASS" endtime="20180404 16:00:32.572" starttime="20180404 16:00:32.535"></status>
+<msg timestamp="20180404 20:18:44.349" level="INFO">Current page contains text 'Campagnes ajoutées récemment'.</msg>
+<status status="PASS" endtime="20180404 20:18:44.350" starttime="20180404 20:18:44.189"></status>
 </kw>
-<status status="PASS" endtime="20180404 16:00:32.572" critical="yes" starttime="20180404 16:00:32.237"></status>
+<kw name="Element Should Not Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is NOT visible.</doc>
+<arguments>
+<arg>id:notifTitle</arg>
+</arguments>
+<msg timestamp="20180404 20:18:44.371" level="INFO">Element 'id:notifTitle' did not exist.</msg>
+<status status="PASS" endtime="20180404 20:18:44.372" starttime="20180404 20:18:44.350"></status>
+</kw>
+<status status="PASS" endtime="20180404 20:18:44.372" critical="yes" starttime="20180404 20:18:42.710"></status>
 </test>
 <kw type="teardown" name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20180404 16:00:32.637" starttime="20180404 16:00:32.573"></status>
+<status status="PASS" endtime="20180404 20:18:44.441" starttime="20180404 20:18:44.373"></status>
 </kw>
-<status status="PASS" endtime="20180404 16:00:32.637" starttime="20180404 16:00:29.913"></status>
+<status status="PASS" endtime="20180404 20:18:44.441" starttime="20180404 20:18:37.719"></status>
 </suite>
 <statistics>
 <total>
@@ -43,12 +77,12 @@
 <tag>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Howitworks" pass="1">Howitworks</stat>
+<stat fail="0" id="s1" name="AccueilConnectedAsContributor" pass="1">AccueilConnectedAsContributor</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20180404 16:00:29.909" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/howitworks.robot': Non-existing setting '${options}='.</msg>
-<msg timestamp="20180404 16:00:29.909" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/howitworks.robot': Non-existing setting '${options.add_argument}='.</msg>
-<msg timestamp="20180404 16:00:29.909" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/howitworks.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+<msg timestamp="20180404 20:18:37.714" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AccueilConnectedAsContributor.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180404 20:18:37.714" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AccueilConnectedAsContributor.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180404 20:18:37.714" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AccueilConnectedAsContributor.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
 </errors>
 </robot>
