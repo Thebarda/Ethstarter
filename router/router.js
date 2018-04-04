@@ -9,6 +9,7 @@ var ProfilController = require('../controllers/ProfilController.js');
 var AdministrationController = require("../controllers/AdministrationController.js");
 var ContrepartieController = require("../controllers/contrepartiesController");
 var MessageController = require ("../controllers/MessageController");
+var MailController = require("../controllers/MailController");
 
 
 // Routes
@@ -47,7 +48,7 @@ module.exports = async function (app) {
     app.post('/postcomm', CampagnesController.postComm);
 
     //Messages
-    app.get('/messages', MessageController.getAll);
+    app.get('/notifications', MessageController.get);
     app.post('/messageWrite', MessageController.write);
     app.post('/messageDelete', MessageController.delete);
 
@@ -62,13 +63,18 @@ module.exports = async function (app) {
     app.get('/contractorsWaiting', ProfilController.fetchContractorsWaitingForValidation);
     app.post('/delParticipation', ProfilController.supprimerParticipation);
     app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
-    app.get('/notifications', ProfilController.notifications);
     app.post('/deleteUser', ProfilController.deleteUser);
     app.post('/deleteUseModerator', ProfilController.deleteUserModerator);
 
     //Administration
     app.get('/administration', AdministrationController.administration);
     app.get('/fetchAdmin/:type', AdministrationController.fetchAdmin);
+
+    //Mail
+    app.get('/sendMail', MailController.sendMail);
+
+    //How it works ?
+    app.get('/howitworks', AccueilController.howitworks);
 
     app.get('*', AccueilController.error404);
 };

@@ -107,7 +107,49 @@ $(document).ready(function(){
         $("#error").text("Le champ commentaire doit être rempli!");
       }
     });
-   
+    $('.rrssb-buttons').rrssb({
+      // required:
+      title: 'Projet Ethstarter',
+      url: 'https://localhost:1047/campaign/'+ $("#currentCamp").text(),
+  
+      // optional:
+      description: 'A découvrir sur Ethstarter: ',
+      emailBody: 'A découvrir sur Ethstarter: https://localhost:1047/campaign/'+ $("#currentCamp").text()
+    });
+    
+    $("#sendMail").on("click", () => {
+       let subject = $("#subjectEmail").val();
+       let emailBody = $("#textEmail").val();
+       let error = "";
+       if(subject.length <= 0) {
+           error += "Veuillez spécifier un sujet";
+       }
+       if(emailBody.length <= 0) {
+           if(error !== "") {
+               error += " ainsi qu'un corps de mail";
+           } else {
+               error += "Veuillez spécifier un corps de mail";
+           }
+       }
+       if(error !== "") {
+           $("#errorMail").text(error);
+       } else {
+           Materialize.toast('E-Mail en cours d\'envoi', 1500, 'rounded');
+           $("#errorMail").text("");
+           $.ajax({
+              method: 'get',
+              url: '/sendMail',
+              data: {subject: subject, bodyMail: emailBody}
+           }).done((response) => {
+                if(response) {
+                    Materialize.toast('E-mail non envoyé. Vérifiez votre adresse mail', 1500, 'rounded');
+                } else {
+                    Materialize.toast('E-mail envoyé', 1500, 'rounded');
+                    $("#modalMail").modal('close');
+                }
+           });
+       }
+    });
 });
 
 $('.contrepartie').click(function(){

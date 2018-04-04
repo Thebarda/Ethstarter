@@ -11,10 +11,10 @@ ${undefined}    https://www.katalon.com/
 *** Test Cases ***
 Test Case
     Click Link    id=btnConnexion
-    Input Text    name=login    contributor
-    Input Password    name=password    contributor
+    Input Text    name=login    denied
+    Input Password    name=password    denied
     Click Button    xpath=//input[@value='connexion']
     Click Link  (//div[@id="campagne"][1]/div/div[2]/p/a)
-    Page Should Contain     mon projet
-    Page Should Contain     Commentaires
-    Page Should Contain     Vous devez contribuer pour poster un commentaire
+    Click Link  id:btnSendMail
+    Click Link  id:sendMail
+    Wait Until Page Contains    Veuillez spécifier un sujet ainsi qu'un corps de mail

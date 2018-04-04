@@ -34,9 +34,8 @@
                       <li>
                           <form method="POST" action="/search">
                               <div class="searchbar input-field">
-                                  <input id="search" type="search" name="search" required>
-                                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                                  <i class="material-icons">close</i>
+                                  <i class="material-icons prefix">search</i>
+                                  <input id="icon_prefix" type="text" name="search" required>
                               </div>
                           </form>
                       </li>
@@ -55,31 +54,48 @@
               <!--start switch account type is connected-->
               <!--<li><a href="/account/startCrowfunding" class="waves-effect waves-light">Compte</a></li>-->
               <!--end switch account type is connected-->
-              {{#ifCond session.typeCompte '==' 2}}
-                  {{#ifCond session.entrepreneurValidated '==' 1}}
+
+            {{#ifCond session.typeCompte '==' 0}}
+                <li><a class="subheader"><span class="orange-text" >Administrateur</span></a></li>
+                <li><a id="validationCampagne" href="/campaingsWaiting" class="waves-effect waves-light"><span id="nbCampaignsWaiting" class="badge"></span>Vérifier campagnes</a></li>
+                <li><a id="validationEntrepreneur" href="/contractorsWaiting" class="waves-effect waves-light"><span id="nbContractorWaiting" class="badge"></span>Vérifier entrepeneurs</a></li>
+                <li><a id="validation" href="/administration" class="waves-effect waves-light">Administration</a></li>
+                <li><div class="divider"></div></li>
+
+            {{else}}
+
+                {{#ifCond session.typeCompte '==' 2}}
                     <li><a class="subheader"><span class="orange-text" >Entrepreneur</span></a></li>
+                    {{#ifCond session.entrepreneurValidated '==' 1}}
                         <li><a id="proposerCampagne" href="/creerCampagne" class="waves-effect waves-light"><i class="material-icons">add</i><span class="black-text">Proposer un projet</span></a></li>
                         <li><a id="mesCampagnes" href="/mycampaigns" class="waves-effect waves-light"><i class="material-icons">search</i><span class="black-text">Mes Campagnes</span></a></li>
+<<<<<<< HEAD
                         <li><a id="myfavorites" href="/myfavorites" class="waves-effect waves-light"><i class="material-icons">star_border</i><span class="black-text">Campagnes favorites</span></a></li>
                         <li><a id="mycontributions" href="/mycontributions" class="waves-effect waves-light"><i class="material-icons">attach_money</i><span class="black-text">Mes contributions</span></a></li>
                         <li><a id="mesParticipations" href="/Participations"  class="waves-effect waves-light"><i class="material-icons">attach_money</i><span class="black-text">Mes participations</span></a></li>
                         <li><a id="mesNotifs" href="/notifications" class="waves-effect waves-light"><i class="material-icons">notifications</i><span class="black-text">Notifications</span></a></li>
+=======
+                    {{/ifCond}}
+                {{/ifCond}}
+
+                {{#ifCond session.typeCompte '==' 1}}
+                    <li><a class="subheader"><span class="orange-text" >Contributeur</span></a></li>
+                {{/ifCond}}
+
+                {{#if session.isConnected}}
+                    <li><a id="myfavorites" href="/myfavorites" class="waves-effect waves-light"><i class="material-icons">star_border</i><span class="black-text">Campagnes favorites</span></a></li>
+                    <li><a id="mycontributions" href="/mycontributions" class="waves-effect waves-light"><i class="material-icons">attach_money</i><span class="black-text">Mes contributions</span></a></li>
+>>>>>>> 6f8ad650f538c1c684dafab665b69fdf1419e5a5
                     <li><div class="divider"></div></li>
-                  {{/ifCond}}
-              {{/ifCond}}
-              {{#ifCond session.typeCompte '==' 1}}
-                  <li><a class="subheader"><span class="orange-text" >Contributeur</span></a></li>
-                  <li><a id="myfavorites" href="/myfavorites" class="waves-effect waves-light"><i class="material-icons">star_border</i><span class="black-text">Campagnes favorites</span></a></li>
-                  <li><a id="mycontributions" href="/mycontributions" class="waves-effect waves-light"><i class="material-icons">attach_money</i><span class="black-text">Mes contributions</span></a></li>
-                  <li><div class="divider"></div></li>
-              {{/ifCond}}
-              {{#ifCond session.typeCompte '==' 0}}
-                <li><a id="validationCampagne" href="/campaingsWaiting" class="waves-effect waves-light"><span id="nbCampaignsWaiting" class="badge"></span>Vérifier campagnes</a></li>
-                <li><a id="validationEntrepreneur" href="/contractorsWaiting" class="waves-effect waves-light"><span id="nbContractorWaiting" class="badge"></span>Vérifier entrepeneurs</a></li>
-                <li><a id="validation" href="/administration" class="waves-effect waves-light">Administration</a></li>
-              {{/ifCond}}
-              <li><a href="/campaigns" class="waves-effect waves-light">Campagnes de financement</a></li>
-              <li><a href="/howitworks" class="waves-effect waves-light">Comment ça fonctionne ?</a></li>
+                    
+                    <li><a id="mesNotifs" href="/notifications" class="waves-effect waves-light"><i class="material-icons">notifications</i><span class="black-text">Notifications</span></a></li>
+                    <li><a id="mesNotifs" href="/notifications" class="waves-effect waves-light"><i class="material-icons">forum</i><span class="black-text">Envoyer un message privé</span></a></li>
+                    <li><div class="divider"></div></li>
+                {{/if}}    
+            {{/ifCond}}
+
+            <li><a href="/campaigns" class="waves-effect waves-light">Campagnes de financement</a></li>
+            <li><a href="/howitworks" class="waves-effect waves-light">Comment ça fonctionne ?</a></li>
           </ul>
           <!--stop menu-->
           </header>

@@ -115,3 +115,10 @@ module.exports.deleteUser = (idUtilisateur, callback) => {
     connection.release();
   });
 };
+
+module.exports.getMailContractorByCampaign = (idCampaign, callback) => {
+  db.getConnection((err, connection) => {
+     connection.query("SELECT mail FROM utilisateur u INNER JOIN campagnes c ON c.idEntrepreneur=u.id WHERE c.idCampagne="+idCampaign, callback);
+     connection.release();
+  });
+};

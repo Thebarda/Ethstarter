@@ -1,14 +1,19 @@
 var msg = require("../models/message");
+var notif = require("../models/notifications");
 var utils = require("../utils/utils");
 var ts = require("time-stamp");
 
 
-module.exports.getAll = async (req, resp) => {
+module.exports.get = async (req, resp) => {
     try {
-        var r = await msg.getAll(req.session.idCompte);
-        resp.messages = r;
-        resp.title = "Mes messages";
-        resp.render("afficherMessages", resp);
+        var m = await msg.getAll(req.session.idCompte);
+        resp.messages = m;
+
+        var n = await notif.getAll(req.session.idCompte);
+        resp.notifications = n;
+
+        resp.title = "Notifications";
+        resp.render("notifications", resp);
     } catch (e) { throw e; }; 
 }
 
