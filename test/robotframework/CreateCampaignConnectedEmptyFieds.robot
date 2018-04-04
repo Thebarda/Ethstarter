@@ -12,8 +12,8 @@ ${undefined}    https://www.katalon.com/
 *** Test Cases ***
 Test Case
     Click Link    id=btnConnexion
-    Input Text    name=login    Romain
-    Input Password    name=password    Clavaud
+    Input Text    name=login    denied
+    Input Password    name=password    denied
     Click Button    xpath=//input[@value='connexion']
     Go To   http://localhost:1047/creerCampagne
     Go To   http://localhost:1047/creerCampagne/#submit

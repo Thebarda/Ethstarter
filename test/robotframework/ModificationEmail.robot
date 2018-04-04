@@ -12,14 +12,11 @@ ${undefined}    https://www.katalon.com/
 *** Test Cases ***
 Test Case
     Click Link     id=btnConnexion
-    Input Text    name=password    denied
-    Input Password    name=login    denied
+    Input Text    name=password    contributor
+    Input Password    name=login    contributor
     Click Button    xpath=//input[@value='connexion']
-    Page should contain    Bonjour denied
-    Go To    http://localhost:1047/campaign/1264
-    Click Link    id=contribute
-    Input Text    id=montantJS    dsdssdsd
-    Press Key     id=montantJS    \\9
-    Page should contain    Veuillez saisir un montant supérieur à 0 ether
-    Press Key     id=montantJS    \\27
-    Location Should Be  http://localhost:1047/campaign/1264
+    Click Link      id:btnProfil
+    Click Link      class:btnModifierProfil
+    Input Text      name:email  contributor@contrib.com
+    Click Element   //input[@value='Valider']
+    Textfield Should Contain  name:email  contributor@contrib.com

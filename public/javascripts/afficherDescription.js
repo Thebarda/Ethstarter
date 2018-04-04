@@ -87,7 +87,7 @@ $(document).ready(function(){
       $("#btnComm").hide();
       $(".commForm").show();
     });
-
+ 
     $("#btnPost").on('click', () => {
       var comm = document.getElementById("areaComm").value;
       if(comm.trim()!==""){
@@ -107,4 +107,15 @@ $(document).ready(function(){
         $("#error").text("Le champ commentaire doit être rempli!");
       }
     });
+   
+});
+
+$('.contrepartie').click(function(){
+  var testConnect = $("#testConnect").text();
+  if(testConnect=="1" || testConnect=="2" ){
+    var montant = $(this).attr('id');
+    $("#contribuez").modal('open');
+    $("#montantJS").val(montant);
+}
+ 
 });

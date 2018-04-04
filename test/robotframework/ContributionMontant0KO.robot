@@ -12,14 +12,14 @@ ${undefined}    https://www.katalon.com/
 *** Test Cases ***
 Test Case
     Click Link     id=btnConnexion
-    Input Text    name=password    Clavaud
-    Input Password    name=login    Romain
+    Input Text    name=password    denied
+    Input Password    name=login    denied
     Click Button    xpath=//input[@value='connexion']
-    Page should contain    Bonjour Romain
-    Go To    http://localhost:1047/campaign/1249
+    Page should contain    Bonjour denied
+    Go To    http://localhost:1047/campaign/1264
     Click Link    id=contribute
     Input Text    id=montantJS    0
     Press Key     id=montantJS    \\9
     Page should contain    Veuillez saisir un montant supérieur à 0 ether
     Press Key     id=montantJS    \\27
-    Location Should Be  http://localhost:1047/campaign/1249
+    Location Should Be  http://localhost:1047/campaign/1264

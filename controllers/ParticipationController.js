@@ -13,12 +13,29 @@ module.exports.participation = function(request, response){
         modelCampagnes.updateMontant(request.session.isLookingCampaign, _montant, function(err, result){
             if(err) throw err;
             ethstarterContract.addContributorToCrowfund(request.session.isLookingCampaign, request.session.addrPubliqueEth, _montant);
-            modelCampagnes.getCampaignById(request.session.isLookingCampaign, (err, result) => {
-                notifModel.addNotification(result[0].idEntrepreneur, "Nouvelle contribution de "+_montant+" ether pour votre campagne "+result[0].nomCampagne, (err, result2) => {
-                    response.render("emptyView", response);
-                });
+                modelCampagnes.getContrepartiesMaxMontant(request.session.isLookingCampaign,_montant,(err, result) => {
+                    try{
+                        var idContrepartie = result[0].idContrepartie;
+                        modelCampagnes.addContrepartieContrib(request.session.isLookingCampaign,request.session.idCompte,idContrepartie,(err,result)=>{
+                        if(err) throw err;
+                            modelCampagnes.getCampaignById(request.session.isLookingCampaign, (err, result) => {
+                                if(err) throw err;       
+                                    notifModel.addNotification(result[0].idEntrepreneur, "Nouvelle contribution de "+_montant+" ether pour votre campagne "+result[0].nomCampagne, (err, result2) => {
+                                    response.render("emptyView", response);
+                                    });
+                            });
+                        });
+                    }
+                    catch(err){
+                        if(err)
+                            modelCampagnes.getCampaignById(request.session.isLookingCampaign, (err, result) => {
+                            if(err) throw err;       
+                                notifModel.addNotification(result[0].idEntrepreneur, "Nouvelle contribution de "+_montant+" ether pour votre campagne "+result[0].nomCampagne, (err, result2) => {
+                                response.render("emptyView", response);
+                                });
+                            });
+                    }
             });
         });
     });
-
 };
