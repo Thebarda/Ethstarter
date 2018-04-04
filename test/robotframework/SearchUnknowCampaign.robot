@@ -5,13 +5,12 @@ Create WebDriver Chrome chrome_options=${options}
 Suite Setup    Open Browser    http://localhost:1047/    chrome
 Suite Teardown    Close Browser
 Library           SeleniumLibrary
-
 *** Variables ***
 ${undefined}    https://www.katalon.com/
 
 *** Test Cases ***
 Test Case
-    Go To    http://localhost:1047/campaign/1264
-    Page should contain    mon projet
-    Element Should Be Visible   id=login
-    Element Should Be Visible   id=signup
+    Input Text    id:search    ttttttttttt
+    Press Key     id:search    \\13
+    Location Should Be      http://localhost:1047/search
+    Page Should Contain     Aucun résultat
