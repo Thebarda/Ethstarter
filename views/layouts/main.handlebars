@@ -77,11 +77,15 @@
                     <li><a class="subheader"><span class="orange-text" >Contributeur</span></a></li>
                 {{/ifCond}}
 
-                <li><a id="myfavorites" href="/myfavorites" class="waves-effect waves-light"><i class="material-icons">star_border</i><span class="black-text">Campagnes favorites</span></a></li>
-                <li><a id="mycontributions" href="/mycontributions" class="waves-effect waves-light"><i class="material-icons">attach_money</i><span class="black-text">Mes contributions</span></a></li>
-                <li><a id="mesNotifs" href="/notifications" class="waves-effect waves-light"><i class="material-icons">notifications</i><span class="black-text">Notifications</span></a></li>
-                <li><a id="mesNotifs" href="/notifications" class="waves-effect waves-light"><i class="material-icons">forum</i><span class="black-text">Envoyer un message privé</span></a></li>
-                <li><div class="divider"></div></li>
+                {{#if session.isConnected}}
+                    <li><a id="myfavorites" href="/myfavorites" class="waves-effect waves-light"><i class="material-icons">star_border</i><span class="black-text">Campagnes favorites</span></a></li>
+                    <li><a id="mycontributions" href="/mycontributions" class="waves-effect waves-light"><i class="material-icons">attach_money</i><span class="black-text">Mes contributions</span></a></li>
+                    <li><div class="divider"></div></li>
+                    
+                    <li><a id="mesNotifs" href="/notifications" class="waves-effect waves-light"><i class="material-icons">notifications</i><span class="black-text">Notifications</span></a></li>
+                    <li><a id="mesNotifs" href="/notifications" class="waves-effect waves-light"><i class="material-icons">forum</i><span class="black-text">Envoyer un message privé</span></a></li>
+                    <li><div class="divider"></div></li>
+                {{/if}}    
             {{/ifCond}}
 
             <li><a href="/campaigns" class="waves-effect waves-light">Campagnes de financement</a></li>
