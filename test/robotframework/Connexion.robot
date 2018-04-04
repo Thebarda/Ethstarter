@@ -11,8 +11,8 @@ ${undefined}    https://www.katalon.com/
 *** Test Cases ***
 Test Case
     Click Link    id=btnConnexion
-    Input Text    name=login    Romain
-    Input Password    name=password    Clavaud
+    Input Text    name=login    denied
+    Input Password    name=password    denied
     Click Button    xpath=//input[@value='connexion']
-    Page should contain    Bonjour Romain
+    Page should contain    Bonjour denied
     Click Link    id=btnDeconnexion

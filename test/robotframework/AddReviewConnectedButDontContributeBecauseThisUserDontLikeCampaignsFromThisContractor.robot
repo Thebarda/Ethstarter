@@ -5,21 +5,16 @@ Create WebDriver Chrome chrome_options=${options}
 Suite Setup    Open Browser    http://localhost:1047/    chrome
 Suite Teardown    Close Browser
 Library           SeleniumLibrary
-
 *** Variables ***
 ${undefined}    https://www.katalon.com/
 
 *** Test Cases ***
 Test Case
-    Click Link     id=btnConnexion
-    Input Text    name=password    denied
-    Input Password    name=login    denied
+    Click Link    id=btnConnexion
+    Input Text    name=login    Romain
+    Input Password    name=password    Clavaud
     Click Button    xpath=//input[@value='connexion']
-    Page should contain    Bonjour denied
-    Go To    http://localhost:1047/campaign/1264
-    Click Link    id=contribute
-    Input Text    id=montantJS    dsdssdsd
-    Press Key     id=montantJS    \\9
-    Page should contain    Veuillez saisir un montant supérieur à 0 ether
-    Press Key     id=montantJS    \\27
-    Location Should Be  http://localhost:1047/campaign/1264
+    Click Link  (//div[@id="campagne"][1]/div/div[2]/p/a)
+    Page Should Contain     mon projet
+    Page Should Contain     Commentaires
+    Page Should Contain     Vous devez contribuer pour poster un commentaire

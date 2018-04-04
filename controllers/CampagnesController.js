@@ -15,52 +15,59 @@ module.exports.afficherCampagne = async (request, response) => {
         response.joursRestants = utils.calculJourRestant(response.campagne.dateLimite);
         request.session.isLookingCampaign = idCampagne;
         campagnesModel.getComm(idCampagne, function(err,result){
-           
             if(err) throw err;
-            response.commentaires = result;
-            console.log("test :" + response.commentaires);
-            modelParticipation.getContributeurs(idCampagne, function(err, result){
-            if(err) throw err;
-                response.contributeurs = result;
-                modelParticipation.getNbContributions(idCampagne, function(err, result){
+                result.reverse();
+                response.commentaires = result;
+                campagnesModel.getListContreparties(idCampagne, (e,result)=>{
+                    if(e) throw e;
+                    response.contreparties = result;
+                    modelParticipation.getContributeurs(idCampagne, function(err, result){
                     if(err) throw err;
-                    response.nbContributeurs = result[0].nbContributeurs;
-                    campagnesModel.getInfosEntrepreneur(idCampagne, function(err, result){
-                        if(err) throw err;
-                        response.nomEntrepreneur = result[0].nom;
-                        response.prenomEntrepreneur = result[0].prenom;
-                        response.entreprise = result[0].nomEntreprise;
-                        if(request.session.isConnected) {
-                            modelParticipation.getNbContributionsUserConnected(idCampagne, request.session.idCompte, function (err, result) {
-                                if (err) throw err;
-                                response.nbContribsss = result[0].nbContribsss;
-                                console.log("ctrlr : " + idCampagne);
+                        response.contributeurs = result;
+                        modelParticipation.getNbContributions(idCampagne, function(err, result){
+                            if(err) throw err;
+                            response.nbContributeurs = result[0].nbContributeurs;
+                            campagnesModel.getNbComm(idCampagne,function(err,result){
+                                if(err) throw err;
+                                response.nbComms = result[0].nbComms;
+                                console.log("nbComms: " + response);
+                                campagnesModel.getInfosEntrepreneur(idCampagne, function(err, result){
+                                    if(err) throw err;
+                                    response.nomEntrepreneur = result[0].nom;
+                                    response.prenomEntrepreneur = result[0].prenom;
+                                    response.entreprise = result[0].nomEntreprise;
+                                    if(request.session.isConnected) {
+                                        modelParticipation.getNbContributionsUserConnected(idCampagne, request.session.idCompte, function (err, result) {
+                                            if (err) throw err;
+                                            response.nbContribsss = result[0].nbContribsss;
+                                            console.log("ctrlr : " + idCampagne);
+                                        });
+                                        campagnesModel.hasContributed(request.session.idCompte,idCampagne, (e, res)=>{
+                                            console.log("query ok");
+                                            if (e) throw e;
+                                            response.hasCont = res[0] == null ? 0 : 1;
+                                            console.log("hasCont? : " + response.hasCont);
+                                            campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
+                                                console.log("query ok");
+                                                if (e) throw e;
+                                                response.isFav = res[0] == null ? 0 : 1;
+                                                console.log("isFav? : " + response.isFav);
+                                                response.render("afficherCampagne", response);
+                                            });
+                                        });
 
-                                campagnesModel.hasContributed(request.session.idCompte,idCampagne, (e, res)=>{
-                                    console.log("query ok");
-                                    if (e) throw e;
-                                    response.hasCont = res[0] == null ? 0 : 1;
-                                    console.log("hasCont? : " + response.hasCont); 
-
-                                    campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
-                                        console.log("query ok");
-                                        if (e) throw e;
-                                        response.isFav = res[0] == null ? 0 : 1;
-                                        console.log("isFav? : " + response.isFav); 
+                                    }
+                                    else{
+                                        response.nbContribsss = 0;
                                         response.render("afficherCampagne", response);
-                                    });
+                                    }
                                 });
-                            });    
-                        }
-                        else{
-                            response.nbContribsss = 0;
-                            response.render("afficherCampagne", response);
-                        };
+                            });
+                        });
                     });
                 });
             });
         });
-    });
 };
 
 module.exports.afficherStatistiquesCampagnes = function(request, response){
@@ -190,7 +197,7 @@ module.exports.updateValidationCampaign = (req, resp) => {
     campagnesModel.updateValidationCampaign(req.session.isLookingCampaign, req.body.validationNumber, tmp, (err, result) => {
         campagnesModel.getCampaignById(req.session.isLookingCampaign, (err, result) => {
             var valid = req.body.validationNumber == 1 ? "a été validé" : "n\'a pas pu être validé";
-            notifModel.addNotification(result[0].idEntrepreneur, "Votre campagne "+req.body.titre+" "+valid, (err, result2) => {
+            notifModel.addNotification(result[0].idEntrepreneur, "Votre campagne "+result[0].nomCampagne+" "+valid, (err, result2) => {
                 resp.render("emptyView", resp);
             });
         });

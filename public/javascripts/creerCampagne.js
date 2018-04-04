@@ -107,7 +107,7 @@ $(document).ready(function () {
         '                                    <input onkeypress="checkInputOnChange(event)" type="text" id="cp" name="cp" min="0">\n' +
         '                                    <label for="cp" data-error="wrong" data-success="right">Contre-partie</label>\n' +
         '                                </div>\n' +
-        '                                <a onclick="deleteCP(event)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>\n' +
+        '                                <a id="deleteCP" onclick="deleteCP(event)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>\n' +
         '                                <br /><br /><p id="cpErrorMontant" class="red-text"></p> \n'+
         '                                <p id="cpError" class="red-text"></p> \n'+
         '                            </div>');
@@ -122,7 +122,7 @@ $(document).ready(function () {
             '                                    <input onkeypress="checkInputOnChange(event)" name="cp" type="text" id="cp" name="cp" min="0">\n' +
             '                                    <label for="cp" data-error="wrong" data-success="right">Contre-partie</label>\n' +
             '                                </div>\n' +
-            '                                <a onclick="deleteCP(event)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>\n' +
+            '                                <a id="deleteCP" onclick="deleteCP(event)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>\n' +
             '                                <br /><br /><p id="cpErrorMontant" class="red-text"></p> \n'+
             '                                <p id="cpError" class="red-text"></p> \n'+
             '                            </div>');

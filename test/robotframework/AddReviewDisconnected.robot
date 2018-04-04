@@ -7,11 +7,11 @@ Suite Teardown    Close Browser
 Library           SeleniumLibrary
 
 *** Variables ***
-${undefined}    https://www.katalon.com/
+${undefined}    http://localhost:1047/
 
 *** Test Cases ***
 Test Case
-    Go To    http://localhost:1047/campaign/1264
-    Page should contain    mon projet
-    Element Should Be Visible   id=login
-    Element Should Be Visible   id=signup
+    Click Link  (//div[@id="campagne"][1]/div/div[2]/p/a)
+    Page Should Contain     mon projet
+    Page Should Contain     Commentaires
+    Page Should Contain     Vous devez être connecté pour poster un commentaire
