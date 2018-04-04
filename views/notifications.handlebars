@@ -7,14 +7,12 @@
     </div>
 
     <div id="notifications" class="col s6 offset-s3">
-        <div class="input-field">
-            <input name='searchNotif' id="search" type="text" onchange="searchFunc(event);">
-            <label for="search">Rechercher des notifications</label>
-        </div>
+        {{#if notifications}}
+            <div class="input-field">
+                <input name='searchNotif' id="search" type="text" onchange="searchFunc(event);">
+                <label for="search">Rechercher des notifications</label>
+            </div>
 
-        {{#ifCond notifLength '==' 0}}
-            <h5>Aucune notifications</h5>
-        {{else}}
             <ul id="notifications" class="collection">
                 {{#each notifications}}
                     <li class="collection-item hoverable grey lighten-3 textNotifs">
@@ -22,29 +20,32 @@
                         <p class="grey-text">Le {{formatDate this.date 'DD/MM/YYYY HH:mm:ss'}}</p>
                     </li>
                 {{/each}}
-            </ul>
-        {{/ifCond}}
+            </ul>        
+        {{else}}
+            <br>
+            <h5 class="center">Aucune notification</h5>
+        {{/if}}
     </div>
 
     <div id="messages" class="col s6 offset-s3">
-        <div class="input-field">
-            <input name='searchMess' id="search" type="text" onchange="searchMess(event);">
-            <label for="search">Rechercher des messages</label>
-        </div>
+        {{#if messages}}
+            <div class="input-field">
+                <input name='searchMess' id="search" type="text" onchange="searchMess(event);">
+                <label for="search">Rechercher des messages</label>
+            </div>
 
-        {{#ifCond notifLength '==' 0}}
-            <h5>Aucun messages</h5>
-        {{else}}
-            <ul id="notifications" class="collection">
-                {{#each notifications}}
+            <ul id="messages" class="collection">
+                {{#each messages}}
                     <li class="collection-item hoverable grey lighten-3 textNotifs">
-                        <p>{{this.text}}</p>
-                        <p class="grey-text">Le {{formatDate this.date 'DD/MM/YYYY HH:mm:ss'}}</p>
+                        <p>{{this.message}}</p>
+                        <p class="grey-text">Le {{formatDate this.datetime 'DD/MM/YYYY HH:mm:ss'}}</p>
                     </li>
                 {{/each}}
             </ul>
-        {{/ifCond}}
+        {{else}}
+            <br>
+            <h5 class="center">Aucun message</h5>
+        {{/if}}
     </div>
-
 </div>
 <script src="/javascripts/notifications.js"></script>

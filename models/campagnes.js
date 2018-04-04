@@ -57,7 +57,6 @@ module.exports.getAllCampaigns = async () => {
     return db.asq(query);
 }
 
-
 module.exports.getLast10Campaigns = function (callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +

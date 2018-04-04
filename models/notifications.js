@@ -17,6 +17,12 @@ module.exports.fetchNotifications = (idUtilisateur, callback) => {
     });
 };
 
+module.exports.getAll = async (idUtilisateur) => {
+    var query = "SELECT idNotification, text, date, viewed " +
+        "FROM notifications WHERE idUtilisateur=" + idUtilisateur + " ORDER BY idNotification DESC"
+    return db.asq(query);
+}
+
 module.exports.fetchNbNotifications = (idUtilisateur, callback) => {
     db.getConnection((err, connection) => {
         if(err) throw err;
