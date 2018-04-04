@@ -31,20 +31,23 @@ module.exports.afficherParticipations = function(request, response){
     profilModel.getParticipations(idCompte, function(err, result){
         if (err) throw err;
         response.participation=result;
+        result.map((participation)=>{
+            participation.montantTot = participation.montantTot.toFixed(2);
+        })
         response.render("afficherParticipations", response);
     });
 };
 
 module.exports.supprimerParticipation = function(request, response){
-    var montant = request.body.montant;
-    var nomCampagne = request.body.nomCampagne;
+    var _montantTot = request.body.montantTot;
+    var _nomCampagne = request.body.nomCampagne;
     var idContributeur = request.session.idCompte;
-    modelCampagnes.getIdCampagne(nomCampagne, function(err, result){
+    modelCampagnes.getIdCampagne(_nomCampagne, function(err, result){
         if (err) throw err;
-        var idCampagne = result;
-        profilModel.delParticipation(idCampagne, idContributeur, montant, function(err, result){
+        var idCampagne = result[0].idCampagne;
+        profilModel.delParticipation(idCampagne, idContributeur, function(err, result){
             if (err) throw err;
-            modelCampagnes.updateMontantActuelCampagne(montant, idCampagne, function(err, result){
+            modelCampagnes.updateMontantActuelCampagne(_montantTot, idCampagne, function(err, result){
                 if (err) throw err;
                     ethstarterContract.removeContribution(idCampagne, request.session.addrPubliqueEth);
                     response.render("afficherParticipations", response);

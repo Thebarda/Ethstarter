@@ -23,11 +23,11 @@ module.exports.updateMontant = function (idCampagne, montant, callback) {
     });
 };
 
-module.exports.updateMontantActuelCampagne = function(montant, nomCampagne, callback){
+module.exports.updateMontantActuelCampagne = function(_montantTot, idCampagne, callback){
     db.getConnection(function(err, connection){
         if (err) throw err;
         var sql = "UPDATE campagnes SET montantActuel=";
-        sql += "(CASE WHEN montantActuel > 0 THEN montantActuel =montantActuel-1.7";
+        sql += "(CASE WHEN montantActuel > 0 THEN montantActuel =montantActuel-"+_montantTot;
         sql += " WHEN montantActuel < 0 THEN montantActuel=0 ELSE montantActuel END)"; 
         sql += " WHERE idCampagne="+idCampagne;
         connection.query(sql, callback);
@@ -35,10 +35,10 @@ module.exports.updateMontantActuelCampagne = function(montant, nomCampagne, call
     });
 };
 
-module.exports.getIdCampagne = function(nomCampagne, callback){
+module.exports.getIdCampagne = function(_nomCampagne, callback){
     db.getConnection(function(err, connection){
         if (err) throw err;
-        var sql = "SELECT idCampagne FROM campagnes WHERE nomCampagne=" + nomCampagne;
+        var sql = "SELECT idCampagne FROM campagnes WHERE nomCampagne=" + _nomCampagne;
         connection.query(sql, callback);
         connection.release();
     });

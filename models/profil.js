@@ -51,7 +51,7 @@ module.exports.delParticipation = function(idCampagne, idContributeur, callback)
         if (err) throw err;
         var sql = "DELETE FROM participation";
         sql += " WHERE idContributeur =" + idContributeur;
-        sql += " AND idCampagne=" + idCampagne + ")";
+        sql += " AND idCampagne=" + idCampagne;
         connection.query(sql, callback);
         connection.release();
     });
