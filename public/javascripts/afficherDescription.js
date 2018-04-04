@@ -107,7 +107,15 @@ $(document).ready(function(){
         $("#error").text("Le champ commentaire doit être rempli!");
       }
     });
-   
+    $('.rrssb-buttons').rrssb({
+      // required:
+      title: 'Projet Ethstarter',
+      url: 'https://localhost:1047/campaign/'+ $("#currentCamp").text(),
+  
+      // optional:
+      description: 'A découvrir sur Ethstarter: ',
+      emailBody: 'A découvrir sur Ethstarter: https://localhost:1047/campaign/'+ $("#currentCamp").text()
+    });
 });
 
 $('.contrepartie').click(function(){
