@@ -123,10 +123,19 @@
             </div>
             <br/>
             <div class="card">
-                <div class="card-content left-align">
-                    <b>Projet propulsé par :</b>
-                    <p>{{nomEntrepreneur}} {{prenomEntrepreneur}}</p>
-                    <p>({{entreprise}})</p>
+                <div class="card-content">
+                    <div class="row">
+                        <div class="left-align col m6 s12">
+                            <b>Projet propulsé par :</b>
+                            <p>{{nomEntrepreneur}} {{prenomEntrepreneur}}</p>
+                            <p>({{entreprise}})</p>
+                        </div>
+                        {{#ifCond session.isConnected '==' true}}
+                            <div class="center-align col m6 s12">
+                                <a id="btnSendMail" class="waves-effect waves-orange btn-flat blue-text btn-large white modal-trigger" href="#modalMail"><i class="material-icons left">email</i></a>
+                            </div>
+                        {{/ifCond}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -190,7 +199,34 @@
         </form>
     </div>
 </div>
+<<<<<<< HEAD
 <script src="/javascripts/rrssb.js"></script>
+=======
+
+<div id="modalMail" class="modal">
+    <div class="modal-content">
+        <h4>Envoyer un mail à {{nomEntrepreneur}} {{prenomEntrepreneur}}</h4>
+        <div class="input-field col s7">
+            <i class="material-icons prefix">subject</i>
+            <input id="subjectEmail" type="text">
+            <label for="subjectEmail">Sujet</label>
+        </div>
+        <div class="input-field col s7">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="textEmail" class="materialize-textarea"></textarea>
+            <label for="textEmail">Corps du mail</label>
+        </div>
+    </div>
+    <div class="col s7" style="margin-left: 2rem">
+        <p class="red-text" id="errorMail"></p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Annuler</a>
+        <a href="#!" id="sendMail" class="waves-effect waves-green btn-flat"><i class="material-icons left">send</i> Envoyer</a>
+    </div>
+</div>
+
+>>>>>>> e9d8d4aa61301e133f6036e098d7743d588dcc0b
 <script src="/javascripts/afficherDescription.js"></script>
 <link rel="stylesheet" href="/stylesheets/afficherCampagne.css">
 <link rel="stylesheet" href="/stylesheets/rrssb.css">

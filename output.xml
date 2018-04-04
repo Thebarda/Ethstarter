@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180404 16:00:29.912" generator="Robot 3.0.2 (Python 2.7.14+ on linux2)">
+<suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/howitworks.robot" id="s1" name="Howitworks">
+<kw type="setup" name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180404 16:00:30.054" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180404 16:00:32.236" starttime="20180404 16:00:30.054"></status>
+</kw>
+<test id="s1-t1" name="Test Case">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/howitworks</arg>
+</arguments>
+<msg timestamp="20180404 16:00:32.238" level="INFO">Opening url 'http://localhost:1047/howitworks'</msg>
+<status status="PASS" endtime="20180404 16:00:32.535" starttime="20180404 16:00:32.238"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Page en cours de construction</arg>
+</arguments>
+<msg timestamp="20180404 16:00:32.572" level="INFO">Current page contains text 'Page en cours de construction'.</msg>
+<status status="PASS" endtime="20180404 16:00:32.572" starttime="20180404 16:00:32.535"></status>
+</kw>
+<status status="PASS" endtime="20180404 16:00:32.572" critical="yes" starttime="20180404 16:00:32.237"></status>
+</test>
+<kw type="teardown" name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20180404 16:00:32.637" starttime="20180404 16:00:32.573"></status>
+</kw>
+<status status="PASS" endtime="20180404 16:00:32.637" starttime="20180404 16:00:29.913"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Howitworks" pass="1">Howitworks</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20180404 16:00:29.909" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/howitworks.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180404 16:00:29.909" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/howitworks.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180404 16:00:29.909" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/howitworks.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+</errors>
+</robot>

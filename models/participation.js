@@ -21,9 +21,8 @@ module.exports.getContributeurs = function(idCampaign, callback){
 
 module.exports.getNbContributions = function(idCampaign, callback){
     db.getConnection(function(err, connection){
-        connection.query("SELECT COUNT(c.idContributeur) as nbContributeurs FROM participation p "+
-        "INNER JOIN participation c ON c.idContributeur = p.idContributeur "+
-        "WHERE c.idCampagne = "+ idCampaign, callback);
+        connection.query("SELECT COUNT(idContributeur) as nbContributeurs FROM participation "+
+        "WHERE idCampagne = "+ idCampaign, callback);
         connection.release();
     });
 };
