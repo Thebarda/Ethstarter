@@ -39,7 +39,7 @@ module.exports.afficherCampagne = async (request, response) => {
                                     if(request.session.isConnected) {
                                         modelParticipation.getNbContributionsUserConnected(idCampagne, request.session.idCompte, function (err, result) {
                                             if (err) throw err;
-                                            response.nbContribsss = result[0].nbContribsss;
+                                            response.nbContribsss = result[0].nbContribsss ? result[0].nbContribsss : 0;
                                             console.log("ctrlr : " + idCampagne);
                                         });
                                         campagnesModel.hasContributed(request.session.idCompte,idCampagne, (e, res)=>{
