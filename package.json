@@ -35,11 +35,13 @@
     "promise-mysql": "^3.2.1",
     "scrypt": "^6.0.3",
     "selenium-webdriver": "^4.0.0-alpha.1",
+    "sendmail": "^1.4.1",
     "serve-favicon": "~2.4.5",
     "sleep": "^5.1.1",
     "time-stamp": "^2.0.0",
     "web3": "^0.20.4",
-    "xmlhttprequest": "^1.8.0"
+    "xmlhttprequest": "^1.8.0",
+    "rrssb": "^1.14.0"
   },
   "devDependencies": {
     "chai": "*",

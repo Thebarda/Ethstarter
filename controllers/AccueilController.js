@@ -27,3 +27,9 @@ module.exports.error404 = (req,resp) => {
     resp.title = "Erreur 404";
     resp.render("error404", resp);
 };
+
+module.exports.howitworks = (req,resp) => {
+    resp.title = "Comment ça marche ?";
+    resp.render("howitworks", resp);
+};
+
