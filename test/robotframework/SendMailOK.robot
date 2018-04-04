@@ -19,4 +19,3 @@ Test Case
     Input Text  id:subjectEmail     un sujet robotframework
     Input Text  id:textEmail        un corps robotframework
     Click Link  id:sendMail
-    Wait Until Page Contains    E-mail envoyé
