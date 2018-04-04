@@ -9,6 +9,7 @@ var ProfilController = require('../controllers/ProfilController.js');
 var AdministrationController = require("../controllers/AdministrationController.js");
 var ContrepartieController = require("../controllers/contrepartiesController");
 var MessageController = require ("../controllers/MessageController");
+var MailController = require("../controllers/MailController");
 
 
 // Routes
@@ -68,6 +69,12 @@ module.exports = async function (app) {
     //Administration
     app.get('/administration', AdministrationController.administration);
     app.get('/fetchAdmin/:type', AdministrationController.fetchAdmin);
+
+    //Mail
+    app.get('/sendMail', MailController.sendMail);
+
+    //How it works ?
+    app.get('/howitworks', AccueilController.howitworks);
 
     app.get('*', AccueilController.error404);
 };

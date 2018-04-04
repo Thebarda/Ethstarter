@@ -16,59 +16,61 @@ module.exports.afficherCampagne = async (request, response) => {
         request.session.isLookingCampaign = idCampagne;
         campagnesModel.getComm(idCampagne, function(err,result){
             if(err) throw err;
-            result.reverse();
-            response.commentaires = result;
-            campagnesModel.getListContreparties(idCampagne, (e,result)=>{
-                if(e) throw e;
-                response.contreparties = result;
-                modelParticipation.getContributeurs(idCampagne, function(err, result){
+                result.reverse();
+                response.commentaires = result;
+                campagnesModel.getListContreparties(idCampagne, (e,result)=>{
+                    if(e) throw e;
+                    response.contreparties = result;
+                    modelParticipation.getContributeurs(idCampagne, function(err, result){
                     if(err) throw err;
-                    response.contributeurs = result;
-                    modelParticipation.getNbContributions(idCampagne, function(err, result){
-                        if(err) throw err;
-                        response.nbContributeurs = result[0].nbContributeurs;
-                        campagnesModel.getNbComm(idCampagne,function(err,result){
+                        response.contributeurs = result;
+                        modelParticipation.getNbContributions(idCampagne, function(err, result){
                             if(err) throw err;
-                            response.nbComms = result[0].nbComms;
-                            console.log("nbComms: " + response);
-                            campagnesModel.getInfosEntrepreneur(idCampagne, function(err, result){
+                            response.nbContributeurs = result[0].nbContributeurs;
+                            campagnesModel.getNbComm(idCampagne,function(err,result){
                                 if(err) throw err;
-                                response.nomEntrepreneur = result[0].nom;
-                                response.prenomEntrepreneur = result[0].prenom;
-                                response.entreprise = result[0].nomEntreprise;
-                                if(request.session.isConnected) {
-                                    modelParticipation.getNbContributionsUserConnected(idCampagne, request.session.idCompte, function (err, result) {
-                                        if (err) throw err;
-                                        response.nbContribsss = result[0].nbContribsss;
-                                        console.log("ctrlr : " + idCampagne);
-                                    });
-                                    campagnesModel.hasContributed(request.session.idCompte,idCampagne, (e, res)=>{
-                                        console.log("query ok");
-                                        if (e) throw e;
-                                        response.hasCont = res[0] == null ? 0 : 1;
-                                        console.log("hasCont? : " + response.hasCont);
-                                        campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
+                                response.nbComms = result[0].nbComms;
+                                console.log("nbComms: " + response);
+                                campagnesModel.getInfosEntrepreneur(idCampagne, function(err, result){
+                                    if(err) throw err;
+                                    response.nomEntrepreneur = result[0].nom;
+                                    response.prenomEntrepreneur = result[0].prenom;
+                                    response.entreprise = result[0].nomEntreprise;
+                                    if(request.session.isConnected) {
+                                        modelParticipation.getNbContributionsUserConnected(idCampagne, request.session.idCompte, function (err, result) {
+                                            if (err) throw err;
+                                            response.nbContribsss = result[0].nbContribsss ? result[0].nbContribsss : 0;
+                                            console.log("ctrlr : " + idCampagne);
+                                        });
+                                        campagnesModel.hasContributed(request.session.idCompte,idCampagne, (e, res)=>{
                                             console.log("query ok");
                                             if (e) throw e;
-                                            response.isFav = res[0] == null ? 0 : 1;
-                                            console.log("isFav? : " + response.isFav);
-                                            response.render("afficherCampagne", response);
+                                            response.hasCont = res[0] == null ? 0 : 1;
+                                            console.log("hasCont? : " + response.hasCont);
+                                            campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
+                                                console.log("query ok");
+                                                if (e) throw e;
+                                                response.isFav = res[0] == null ? 0 : 1;
+                                                console.log("isFav? : " + response.isFav);
+                                                response.render("afficherCampagne", response);
+                                            });
                                         });
-                                    });
-                                }else{
-                                    response.nbContribsss = 0;
-                                    response.render("afficherCampagne", response);
-                                }
+
+                                    }
+                                    else{
+                                        response.nbContribsss = 0;
+                                        response.render("afficherCampagne", response);
+                                    }
+                                });
                             });
                         });
                     });
                 });
             });
         });
-    });
 };
 
-module.exports.afficherStatistiquesCampagnes = (request, response) =>{
+module.exports.afficherStatistiquesCampagnes = function(request, response){
     var idCampagne = request.params.idCampagne;
     campagnesModel.getCampaignById(idCampagne, function(err, result){
         if(err) throw err;
@@ -80,48 +82,52 @@ module.exports.afficherStatistiquesCampagnes = (request, response) =>{
         response.joursRestants = utils.calculJourRestant(response.campagne.dateLimite);
         request.session.isLookingCampaign = idCampagne;
         campagnesModel.getComm(idCampagne, function(err,result){
+
             if(err) throw err;
-            result.reverse();
             response.commentaires = result;
-            campagnesModel.getListContreparties(idCampagne, (e,result)=>{
-                if(e) throw e;
-                response.contreparties = result;
-                modelParticipation.getContributeurs(idCampagne, function(err, result){
+            console.log("test :" + response.commentaires);
+            modelParticipation.getContributeurs(idCampagne, function(err, result){
+                if(err) throw err;
+                response.contributeurs = result;
+                modelParticipation.getNbContributions(idCampagne, function(err, result){
                     if(err) throw err;
-                    response.contributeurs = result;
-                    modelParticipation.getNbContributions(idCampagne, function(err, result){
+                    response.nbContributeurs = result[0].nbContributeurs;
+                    campagnesModel.getInfosEntrepreneur(idCampagne, function(err, result){
                         if(err) throw err;
-                        response.nbContributeurs = result[0].nbContributeurs;
-                        campagnesModel.getNbComm(idCampagne,function(err,result){
-                            if(err) throw err;
-                            response.nbComms = result[0].nbComms;
-                            console.log("nbComms: " + response);
-                            campagnesModel.getInfosEntrepreneur(idCampagne, function(err, result){
-                                if(err) throw err;
-                                response.nomEntrepreneur = result[0].nom;
-                                response.prenomEntrepreneur = result[0].prenom;
-                                response.entreprise = result[0].nomEntreprise;
-                                response.render("afficherStatsCampagne", response);
+                        response.nomEntrepreneur = result[0].nom;
+                        response.prenomEntrepreneur = result[0].prenom;
+                        response.entreprise = result[0].nomEntreprise;
+                        if(request.session.isConnected) {
+                            modelParticipation.getNbContributionsUserConnected(idCampagne, request.session.idCompte, function (err, result) {
+                                if (err) throw err;
+                                response.nbContribsss = result[0].nbContribsss;
+                                console.log("ctrlr : " + idCampagne);
                             });
+                            campagnesModel.hasContributed(request.session.idCompte,idCampagne, (e, res)=>{
+                                console.log("query ok");
+                            if (e) throw e;
+                            response.hasCont = res[0] == null ? 0 : 1;
+                            console.log("hasCont? : " + response.hasCont);
+                            response.render("afficherStatsCampagne", response);
                         });
+
+                            campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
+                                console.log("query ok");
+                            if (e) throw e;
+                            response.isFav = res[0] == null ? 0 : 1;
+                            console.log("isFav? : " + response.isFav);
+                        });
+
+                        }else{
+                            response.nbContribsss = 0;
+                            response.render("afficherStatsCampagne", response);
+                        };
                     });
                 });
             });
         });
     });
 };
-module.exports.afficherStatistiques = (request, resp) =>{
-    var idCampagne = request.params.idCampagne;
-    campagnesModel.getTop10Donateurs(idCampagne, function(err, result){
-        var myObj=new Array();
-        for(var i = 0; i < result.length; i++){
-            myObj [i]= {"contributeur" : result[i].contributeur, "montant" : result[i].montant};
-        };
-        var myJSON = JSON.stringify(myObj);
-        resp.send(myJSON);
-    });
-};
-
 
 module.exports.afficherMesCampagnes = (req, resp) => {
     campagnesModel.getMyCampaigns(req.session.idCompte, (e, res)=>{
