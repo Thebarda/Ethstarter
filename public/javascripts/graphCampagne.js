@@ -1,47 +1,56 @@
-$(document).ready(function(){
-    function getChart(datas) {
-        console.log(datas);
-        json_encode(datas);
-        console.log(datas);
-        // Bar chart
-        new Chart(document.getElementById("bar-chart"), {
-            type: 'bar',
-            data: {
-                labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-                datasets: [
-                    {
-                        label: "Population (millions)",
-                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                        data: [2478,5267,734,784,433]
-                    }
-                ]
-            },
-            options: {
-                legend: { display: false },
-                title: {
-                    display: true,
-                    text: 'Predicted world population (millions) in 2050'
-                }
-            }
-        });
-    }
+var max = 0;
+var steps = 10;
+var chartData = {};
+var url = document.location.href;
+var idCampagne = url.substring(url.lastIndexOf("/")+1);
 
+var GetChartData = function () {
     $.ajax({
-        url:"/campagnes",
-        method:"post",
-        data:{montant:$("#montantJS").val()}
-    }).done(function(json){
-        console.log("oui" + response);
-        getChart(data);
+        url: "/stats/"+idCampagne,
+        method: 'get',
+        dataType: "json",
+    }).done(function(data){
+        barGraph(data);
     });
-    /*$.get(campagnesModel.getDonateurs(), function(response) {
-        if (!response.length) {
-            console.log('une erreur est survenue');
-            return false;
+};
+
+function barGraph(d) {
+    var c = $('#bar-chart');
+    var contributeurs = new Array();
+    var montant = new Array();
+    for(var i = 0; i < d.length; i++){
+        contributeurs[i] = d[i].contributeur;
+        montant[i] = Math.round(d[i].montant*100)/100;
+    };
+    new Chart(c, {
+        type: 'bar',
+        data: {
+            labels: contributeurs,
+            datasets: [
+                {
+                    label: "Donation (Ethereum)",
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                    data: montant
+                }
+            ]
+        },
+        options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: 'Top donateur'
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
         }
-        console.log("oui" + response);
-        getChart(response);
-    }, 'json');*/
+    });
+}
+
+$(document).ready(function(){
+    GetChartData();
 });
-
-

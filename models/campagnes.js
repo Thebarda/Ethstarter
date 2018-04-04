@@ -32,11 +32,11 @@ module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
     });
 };
 
-module.exports.getDonateurs = function (idCampagne, callback) {
+module.exports.getTop10Donateurs = function (idCampagne, callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT SUM(montant) AS montants, CONCAT(utilisateur.nom, ' ', utilisateur.prenom) " +
-            "AS nom FROM participation, utilisateur WHERE idCampagne = "+idCampagne+" AND participation.idContributeur = " +
-            "utilisateur.id GROUP BY idContributeur ORDER BY montants DESC", callback);
+        connection.query("SELECT SUM(montant) AS montant, CONCAT(utilisateur.nom, ' ', utilisateur.prenom)" +
+            "AS contributeur FROM participation, utilisateur WHERE idCampagne = "+idCampagne+" AND participation.idContributeur = " +
+            "utilisateur.id GROUP BY contributeur ORDER BY montant DESC LIMIT 5", callback);
         connection.release();
     });
 };
