@@ -17,3 +17,7 @@ function searchFunc(e) {
         });
     });
 }
+
+var searchMessage = (e) => {
+    return "SHIIIET"
+}

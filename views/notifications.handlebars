@@ -1,20 +1,50 @@
 <div class="row">
-    <div class="col s6 offset-s3">
-        <span><h4>Notifications</h4></span>
+    <div class="col s12 offset-s3">
+        <ul class="tabs">
+            <li class="tab col s3"><a class="active" href="#notifications">Notifications</a></li>
+            <li class="tab col s3"><a href="#messages">Messages</a></li>
+        </ul>
+    </div>
+
+    <div id="notifications" class="col s6 offset-s3">
         <div class="input-field">
             <input name='searchNotif' id="search" type="text" onchange="searchFunc(event);">
-            <label for="search">Search</label>
+            <label for="search">Rechercher des notifications</label>
         </div>
+
         {{#ifCond notifLength '==' 0}}
             <h5>Aucune notifications</h5>
         {{else}}
             <ul id="notifications" class="collection">
                 {{#each notifications}}
-                    <li class="collection-item hoverable grey lighten-3 textNotifs"><p>{{this.text}}</p>
-                        <p class="grey-text">Le {{formatDate this.date 'DD/MM/YYYY HH:mm:ss'}}</p></li>
+                    <li class="collection-item hoverable grey lighten-3 textNotifs">
+                        <p>{{this.text}}</p>
+                        <p class="grey-text">Le {{formatDate this.date 'DD/MM/YYYY HH:mm:ss'}}</p>
+                    </li>
                 {{/each}}
             </ul>
         {{/ifCond}}
     </div>
+
+    <div id="messages" class="col s6 offset-s3">
+        <div class="input-field">
+            <input name='searchMess' id="search" type="text" onchange="searchMess(event);">
+            <label for="search">Rechercher des messages</label>
+        </div>
+
+        {{#ifCond notifLength '==' 0}}
+            <h5>Aucun messages</h5>
+        {{else}}
+            <ul id="notifications" class="collection">
+                {{#each notifications}}
+                    <li class="collection-item hoverable grey lighten-3 textNotifs">
+                        <p>{{this.text}}</p>
+                        <p class="grey-text">Le {{formatDate this.date 'DD/MM/YYYY HH:mm:ss'}}</p>
+                    </li>
+                {{/each}}
+            </ul>
+        {{/ifCond}}
+    </div>
+
 </div>
 <script src="/javascripts/notifications.js"></script>
