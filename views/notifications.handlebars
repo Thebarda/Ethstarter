@@ -38,7 +38,7 @@
                 {{#each messages}}
                     <li class="collection-item hoverable grey lighten-3 textNotifs">
                         <p>{{this.message}}</p>
-                        <p class="grey-text">Le {{formatDate this.datetime 'DD/MM/YYYY HH:mm:ss'}}</p>
+                        <p class="grey-text">Envoyé par {{this.sender}} le {{formatDate this.datetime 'DD/MM/YYYY HH:mm:ss'}}</p>
                     </li>
                 {{/each}}
             </ul>
