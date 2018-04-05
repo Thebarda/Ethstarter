@@ -1,9 +1,9 @@
-$(document).ready(function(){
+$(document).ready(function () {
     $('.tooltipped').tooltip('enterDelay', 0, 'inDuration', 150);
     $('.tabs').tabs();
     $('.modal').modal();
 
-    $("#sendButton").on("click", function() {
+    $("#sendButton").on("click", function () {
         console.log("Message sent " + $("#messageTitle").val() + "!");
         $.ajax({
             url: '/writeMessage',
@@ -12,11 +12,11 @@ $(document).ready(function(){
                 msgRecipient: "51", //$("#messageRecipient").val(),
                 msgTitle: $("#messageTitle").val(),
                 msgBody: $("#messageBody").val()
-            } 
+            }
         });
-    });  
-    
-    $('.msgdel').click(function(e){
+    });
+
+    $('.msgdel').click(function (e) {
         e.preventDefault();
         var m = $(this).attr("idDM");
         $(this).parent().parent().parent().hide("slow");
@@ -24,42 +24,25 @@ $(document).ready(function(){
         $.ajax({
             url: '/deleteMessage',
             method: 'POST',
-            data: {messageID: m} 
-        });        
+            data: { messageID: m }
+        });
     });
 
-    var autocompData = [
-        "ActionScript",
-        "AppleScript",
-        "Asp",
-        "BASIC",
-        "C",
-        "C++",
-        "Clojure",
-        "COBOL",
-        "ColdFusion",
-        "Erlang",
-        "Fortran",
-        "Groovy",
-        "Haskell",
-        "Java",
-        "JavaScript",
-        "Lisp",
-        "Perl",
-        "PHP",
-        "Python",
-        "Ruby",
-        "Scala",
-        "Scheme"
-    ];
-    $('input.autocomplete').autocomplete({
-        source: autocompData,
-        limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
-        onAutocomplete: function (val) {
-            // Callback function when value is autcompleted.
-        },
-        minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
-    });    
+    $(function () {
+        $('input.autocomplete').autocomplete({
+            data: {
+                "Apple": null,
+                "Microsoft": null,
+                "Google": 'http://placehold.it/250x250'
+            },
+            limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
+            onAutocomplete: function (val) {
+                // Callback function when value is autcompleted.
+            },
+            minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+        });
+    });
+
 });
 
 function searchFunc(e) {
