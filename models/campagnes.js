@@ -235,3 +235,17 @@ module.exports.addContrepartieContrib = (idCamp, idContributeur, idContrepartie,
         co.release();
     });
 }
+
+module.exports.getTrendCampaigns = async () => {
+    var query = "SELECT COUNT(*) AS maxContrib,campagnes.idCampagne,nomCampagne, but"+
+    ", montantActuel, montantMax, dateLimite, descriptionCourte, estEnCours, validated "+
+    "FROM campagnes inner join participation on campagnes.idCampagne = participation.idCampagne "+
+    "where participation.date>=DATE_ADD(NOW(), INTERVAL -5 DAY)"+
+    "GROUP BY participation.idCampagne "+
+    "ORDER BY maxContrib DESC LIMIT 0,10";
+    return db.asq(query);
+}
+
+
+
+

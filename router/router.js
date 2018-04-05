@@ -39,7 +39,7 @@ module.exports = async function (app) {
     app.get('/campaingsWaiting', CampagnesController.campaingsWaiting);
     app.get('/campaignWaiting/:idCampagne', CampagnesController.campaignWaitign);
     app.post('/updateValidationCampaign', CampagnesController.updateValidationCampaign);
-
+    app.get('/trendCampaigns',CampagnesController.afficherTrendCampagnes);
     app.get('/myfavorites', CampagnesController.favorites);
     app.post('/gestfavorite', CampagnesController.gestFavorite);
     app.get('/mycontributions', CampagnesController.contributed);
