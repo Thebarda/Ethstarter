@@ -41,6 +41,23 @@ module.exports.getTop10Donateurs = function (idCampagne, callback) {
     });
 };
 
+module.exports.getDonateursByDate = function (idCampagne, callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT date AS laDate, (SUM(montant) + (SELECT SUM(montant) FROM participation WHERE date < laDate)) AS montant" +
+            " FROM participation WHERE idCampagne = "+idCampagne+
+            " GROUP BY date ORDER BY date", callback);
+        connection.release();
+    });
+};
+
+module.exports.getBut = function (idCampagne, callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT but, montantActuel " +
+            " FROM campagnes WHERE idCampagne = "+idCampagne, callback);
+        connection.release();
+    });
+};
+
 module.exports.getCampaignById = function (idCampagne, callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +

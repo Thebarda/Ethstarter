@@ -114,13 +114,26 @@ module.exports.afficherStatistiquesCampagnes = (request, response) =>{
 };
 module.exports.afficherStatistiques = (request, resp) =>{
     var idCampagne = request.params.idCampagne;
-    campagnesModel.getTop10Donateurs(idCampagne, function(err, result){
-        var myObj=new Array();
-        for(var i = 0; i < result.length; i++){
-            myObj [i]= {"contributeur" : result[i].contributeur, "montant" : result[i].montant};
-        };
-        var myJSON = JSON.stringify(myObj);
-        resp.send(myJSON);
+    campagnesModel.getTop10Donateurs(idCampagne, function(err, result1){
+        campagnesModel.getDonateursByDate(idCampagne, function(err, result2) {
+            campagnesModel.getBut(idCampagne, function(err, result3) {
+                var myObj = new Array();
+                var myObj1 = new Array();
+                var myObj2 = new Array();
+                var myObj3 = result3[0];
+                for (var i = 0; i < result1.length; i++) {
+                    myObj1[i] = {"contributeur": result1[i].contributeur, "montant": result1[i].montant};
+                }
+                for (var j = 0; j < result2.length; j++) {
+                    myObj2[j] = {"date": (new Date(result2[j].laDate)).toDateString(), "montant": result2[j].montant};
+                }
+                myObj[0] = myObj1;
+                myObj[1] = myObj2;
+                myObj[2] = myObj3;
+                var myJSON = JSON.stringify(myObj);
+                resp.send(myJSON);
+            });
+        });
     });
 };
 
