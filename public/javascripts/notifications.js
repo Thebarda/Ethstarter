@@ -3,14 +3,26 @@ $(document).ready(function(){
     $('.tabs').tabs();
     $('.modal').modal();
     
-    $('input.autocompleteMess').autocomplete({
+/*     $('input.autocompleteMess').autocomplete({
         data: {
             "Apple": null,
             "Microsoft": null,
             "Google": 'https://placehold.it/250x250'
         },
-    });
-    
+    });      */ 
+
+    $("#sendButton").on("click", function() {
+        console.log("Message sent " + $("#messageTitle").val() + "!");
+        $.ajax({
+            url: '/writeMessage',
+            method: 'POST',
+            data: {
+                msgRecipient: "51", //$("#messageRecipient").val(),
+                msgTitle: $("#messageTitle").val(),
+                msgBody: $("#messageBody").val()
+            } 
+        });
+    });    
 });
 
 function searchFunc(e) {
@@ -31,17 +43,3 @@ var searchMessage = (e) => {
     return "SHIIIET"
 }
 
-$('#sendButton').click(function() {
-        $(document).ready(function(){
-        console.log("Message sent" + $("#messageTitle").text());
-        $.ajax({
-            url: '/writeMessage',
-            method: 'POST',
-            data: {
-                msgRecipient: $("#messageRecipient").text(),
-                msgBody: $("#messageTitle").text(),
-                msgContent: $("#messageBody").text()
-            } 
-        });
-    });
-});

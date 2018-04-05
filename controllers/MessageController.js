@@ -18,10 +18,11 @@ module.exports.get = async (req, resp) => {
 }
 
 module.exports.write = async (req) => {
-    console.log("title " + req.body.msgTitle)
+    var title = utils.escapeSingleQuotes(req.body.msgTitle);
+    var body = utils.escapeSingleQuotes(req.body.msgBody);
     var timestamp = ts("YYYYMMDDHHmmss");
     try {
-        await msg.write(req.session.idCompte, req.body.msgTitle, req.body.msgContent, timestamp, req.body.msgRecipient);
+        await msg.write(req.session.idCompte, title, body, timestamp, req.body.msgRecipient);
     } catch (e) { throw e; }; 
 }
 
