@@ -49,7 +49,7 @@ module.exports = async function (app) {
     app.post('/postcomm', CampagnesController.postComm);
 
     //Messages
-    app.get('/messages', MessageController.getAll);
+    app.get('/notifications', MessageController.get);
     app.post('/messageWrite', MessageController.write);
     app.post('/messageDelete', MessageController.delete);
 
@@ -62,7 +62,6 @@ module.exports = async function (app) {
     app.get('/fetchNbContractorsWaitingForValidation', ProfilController.fetchNbContractorsWaitingForValidation);
     app.get('/contractorsWaiting', ProfilController.fetchContractorsWaitingForValidation);
     app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
-    app.get('/notifications', ProfilController.notifications);
     app.post('/deleteUser', ProfilController.deleteUser);
     app.post('/deleteUseModerator', ProfilController.deleteUserModerator);
 
