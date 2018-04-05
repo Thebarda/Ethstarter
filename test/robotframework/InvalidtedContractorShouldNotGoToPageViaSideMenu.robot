@@ -16,4 +16,4 @@ Test Case
     Input Password    name=password    Lafarge
     Click Button    xpath=//input[@value='connexion']
     Click Link  btn_menu
-    Page Should Not Contain     Entrepreneur
+    Page Should Not Contain     Proposer un projet
