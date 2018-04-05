@@ -10,7 +10,7 @@ ${undefined}    https://www.katalon.com/
 
 *** Test Cases ***
 Test Case
-    Input Text    id:search    ttttttttttt
-    Press Key     id:search    \\13
+    Input Text    id:icon_prefix    ttttttttttt
+    Press Key     id:icon_prefix    \\13
     Location Should Be      http://localhost:1047/search
     Page Should Contain     Aucun résultat

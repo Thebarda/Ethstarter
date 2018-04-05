@@ -10,7 +10,7 @@ ${undefined}    https://www.katalon.com/
 
 *** Test Cases ***
 Test Case
-    Input Text    id:search    mon
-    Press Key     id:search    \\13
+    Input Text    id:icon_prefix    mon
+    Press Key     id:icon_prefix    \\13
     Location Should Be      http://localhost:1047/search
     Page Should Contain     mon projet
