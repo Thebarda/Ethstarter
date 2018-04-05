@@ -28,6 +28,6 @@ module.exports.write = async (req) => {
 
 module.exports.delete = async (req) => {
     try {
-        await msg.delete(req.body.messID);
+        await msg.delete(req.body.messageID);
     } catch (e) { throw e; }; 
 }

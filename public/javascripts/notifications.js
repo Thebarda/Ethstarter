@@ -22,7 +22,19 @@ $(document).ready(function(){
                 msgBody: $("#messageBody").val()
             } 
         });
-    });    
+    });  
+    
+    $('.msgdel').click(function(e){
+        e.preventDefault();
+        var m = $(this).attr("idDM");
+        $(this).parent().parent().parent().hide("slow");
+
+        $.ajax({
+            url: '/deleteMessage',
+            method: 'POST',
+            data: {messageID: m} 
+        });        
+    });
 });
 
 function searchFunc(e) {
@@ -38,8 +50,3 @@ function searchFunc(e) {
         });
     });
 }
-
-var searchMessage = (e) => {
-    return "SHIIIET"
-}
-

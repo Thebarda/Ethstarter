@@ -12,22 +12,24 @@
 
     <div id="notifications" class="col s6 offset-s3">
         {{#if notifications}}
-        <div class="input-field">
-            <input name='searchNotif' id="searchNotif" type="text" onchange="searchFunc(event);">
-            <label for="search">Rechercher des notifications</label>
-        </div>
+            <div class="input-field">
+                <input name='searchNotif' id="searchNotif" type="text" onchange="searchFunc(event);">
+                <label for="search">Rechercher des notifications</label>
+            </div>
 
-        <ul id="notifications" class="collection">
-            {{#each notifications}}
-            <li class="collection-item hoverable grey lighten-3 textNotifs">
-                <p>{{this.text}}</p>
-                <p class="grey-text">Le {{formatDate this.date 'DD/MM/YYYY HH:mm:ss'}}</p>
-            </li>
-            {{/each}}
-        </ul>
+            <ul id="notifications" class="collection">
+
+                {{#each notifications}}
+                    <li class="collection-item hoverable grey lighten-3 textNotifs">
+                        <p>{{this.text}}</p>
+                        <p class="grey-text">Le {{formatDate this.date 'DD/MM/YYYY HH:mm:ss'}}</p>
+                    </li>
+                {{/each}}
+            </ul>
+
         {{else}}
-        <br>
-        <h5 class="center">Aucune notification</h5>
+            <br>
+            <h5 class="center">Aucune notification</h5>
         {{/if}}
     </div>
 
@@ -44,40 +46,41 @@
                     </div>
                 </div>
             </div>
-        {{#each messages}}
-        <div class="card deep-orange lighten-2">
-            <div class="card-content white-text">
-                <span class="card-title">{{this.title}}
-                    <a class="waves-effect waves-light btn-flat right tooltipped" data-position="top" data-tooltip="Effacer" href="#">
-                        <i class="material-icons">delete</i>
-                    </a>
-                </span>
-                <p>{{this.message}}</p>
-            </div>
-            <div class="card-action">
-                <a class="grey-text">Envoyé par {{this.sendername}} le {{formatDate this.datetime 'DD/MM/YYYY HH:mm:ss'}}</a>
-                <a class="right waves-effect waves-light" href="#">Répondre
-                    <i class="material-icons prefix">send</i>
-                </a>
-            </div>
-            <span id="idDM">{{idDM}}</span>
-        </div>
-        {{/each}} {{else}}
-        <br>
-        <h5 class="center">Aucun message</h5>
+
+            {{#each messages}}
+                <div class="card deep-orange lighten-2">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{this.title}}
+                            <button idDM={{idDM}} class="waves-effect waves-light btn-flat right tooltipped msgdel" data-position="top" data-tooltip="Effacer">
+                                <i class="material-icons">delete</i>
+                            </button>
+                        </span>
+                        <p>{{this.message}}</p>
+                    </div>
+                    <div class="card-action">
+                        <a class="grey-text">Envoyé par {{this.sendername}} le {{formatDate this.datetime 'DD/MM/YYYY'}} à {{formatDate this.datetime 'HH:mm'}}</a>
+                        <a class="right waves-effect waves-light" href="#">Répondre
+                            <i class="material-icons prefix">send</i>
+                        </a>
+                    </div>
+                </div>
+            {{/each}}
+
+        {{else}}
+            <br>
+            <h5 class="center">Aucun message</h5>
         {{/if}}
     </div>
 </div>
 
-<!-- Modal Trigger -->
+
+
 <div class="fixed-action-btn">
     <a class="btn-floating btn-large orange modal-trigger tooltipped" data-position="left" data-tooltip="Envoyer un message privé" href="#writeModal">
         <i class="large material-icons">mode_edit</i>
     </a>
 </div>
 
-
-<!-- Modal Structure -->
 <div id="writeModal" class="modal">
     <div class="modal-content">
         <h6>Envoyer un message privé</h6>
