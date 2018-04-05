@@ -2,20 +2,15 @@ $(document).ready(function(){
     $('.tooltipped').tooltip('enterDelay', 0, 'inDuration', 150);
     $('.tabs').tabs();
     $('.modal').modal();
-    $('.fixed-action-btn').floatingActionButton();
-
-    $('#sendButton').on('click', () => {
-        $.ajax({
-            url: '/writeMessage',
-            method: 'POST',
-            data: {
-                msgRecipient: $("#messageRecipient").text(),
-                msgBody: $("#messageTitle").text(),
-                msgContent: $("#messageBody").text()
-            } 
-        });
-        console.log("Message sent");
+    
+    $('input.autocompleteMess').autocomplete({
+        data: {
+            "Apple": null,
+            "Microsoft": null,
+            "Google": 'https://placehold.it/250x250'
+        },
     });
+    
 });
 
 function searchFunc(e) {
@@ -35,3 +30,18 @@ function searchFunc(e) {
 var searchMessage = (e) => {
     return "SHIIIET"
 }
+
+$('#sendButton').click(function() {
+        $(document).ready(function(){
+        console.log("Message sent" + $("#messageTitle").text());
+        $.ajax({
+            url: '/writeMessage',
+            method: 'POST',
+            data: {
+                msgRecipient: $("#messageRecipient").text(),
+                msgBody: $("#messageTitle").text(),
+                msgContent: $("#messageBody").text()
+            } 
+        });
+    });
+});
