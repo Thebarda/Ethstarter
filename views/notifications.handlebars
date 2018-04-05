@@ -59,5 +59,45 @@
         {{/if}}
     </div>
 </div>
+
+<!-- Modal Trigger -->
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large orange modal-trigger tooltipped" data-position="left" data-tooltip="Envoyer un message privé" href="#writeModal">
+        <i class="large material-icons">mode_edit</i>
+    </a>
+</div>
+
+<!-- Modal Structure -->
+<div id="writeModal" class="modal">
+    <div class="modal-content">
+        <h5>Envoyer un message privé</h5>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="messageRecipient" type="text" class="validate">
+                <label for="messageRecipient">Destinataire</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="messageTitle" type="text" class="validate">
+                <label for="messageTitle">Titre</label>
+            </div>
+
+            <div class="input-field col s12">
+                <textarea id="messageBody" class="materialize-textarea"></textarea>
+                <label for="messageBody">Message</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat right">Annuler</a>
+        <a href="#!" id="sendButton" class="modal-action modal-close waves-effect waves-green btn-flat left">Envoyer</a>
+    </div>
+</div>
+
 <script src="/javascripts/notifications.js"></script>
-<link rel='stylesheet' href='/stylesheets/notifications.css' />
+<link rel='stylesheet' href='/stylesheets/notifications.css'/>

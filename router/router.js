@@ -44,13 +44,14 @@ module.exports = async function (app) {
     app.post('/gestfavorite', CampagnesController.gestFavorite);
     app.get('/mycontributions', CampagnesController.contributed);
     app.post('/addContrepartie', ContrepartieController.addContrepartie);
+    
     //Commentaire Campagnes
     app.post('/postcomm', CampagnesController.postComm);
 
     //Messages
     app.get('/notifications', MessageController.get);
-    app.post('/messageWrite', MessageController.write);
-    app.post('/messageDelete', MessageController.delete);
+    app.post('/writeMessage', MessageController.write);
+    app.post('/deleteMessage', MessageController.delete);
 
     //Recherche
     app.post('/search', CampagnesController.searchCampaign); 
