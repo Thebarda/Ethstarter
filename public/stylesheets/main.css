@@ -38,7 +38,6 @@
 .searchbar {
     height: 40px !important;
     display: inline-block;
-    background-color: gray;
 }
 
 .searchbar i {
@@ -54,6 +53,13 @@
 .searchbar input {
     display: block;
     border: none !important;
+    font-weight: 400;
+}
+
+.searchbar input:focus {
+    display: block;
+    border: none !important;
+    box-shadow: none !important;
     font-weight: 400;
 }
 
