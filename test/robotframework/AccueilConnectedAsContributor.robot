@@ -16,4 +16,4 @@ Test Case
     Input Password    name=password    contributor
     Click Button    xpath=//input[@value='connexion']
     Page Should Contain     Campagnes ajoutées récemment
-    Page Should Not Contain     Notifications
+    Element Should Not Be Visible     id:notifTitle
