@@ -59,7 +59,7 @@
                     </div>
                     <div class="card-action">
                         <a class="grey-text">Envoyé par {{this.sendername}} le {{formatDate this.datetime 'DD/MM/YYYY'}} à {{formatDate this.datetime 'HH:mm'}}</a>
-                        <a name="reply" senderid={{this.sender}} title={{this.title}} sendername={{this.sendername}} class="right waves-effect waves-light modal-trigger replyButton" href="#writeModal">Répondre
+                        <a name="reply" senderid={{this.sender}} title={{this.title}} sendname={{this.sendername}} class="right waves-effect waves-light modal-trigger replyButton" href="#writeModal">Répondre
                             <i class="material-icons prefix">send</i>
                         </a>
                     </div>
@@ -76,14 +76,14 @@
 
 
 <div class="fixed-action-btn">
-    <a class="btn-floating btn-large orange modal-trigger tooltipped" data-position="left" data-tooltip="Envoyer un message privé" href="#writeModal">
+    <a name="launchModal"class="btn-floating btn-large orange modal-trigger tooltipped" data-position="left" data-tooltip="Envoyer un message privé" href="#writeModal">
         <i class="large material-icons">mode_edit</i>
     </a>
 </div>
 
 <div id="writeModal" class="modal">
     <div class="modal-content">
-        <h6>Envoyer un message privé</h6>
+        <h6 id="modalTitle">...</h6>
 
         <div class="row">
             <div class="col s12">

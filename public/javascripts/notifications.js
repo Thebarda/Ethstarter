@@ -35,18 +35,32 @@ $(document).ready(function () {
         e.preventDefault();
 
         var i = $(this).attr("senderid");
-        var s = $(this).attr("sendername");
+        var s = $(this).attr("sendname");
         var t = "RE: " + $(this).attr("title");
 
-        console.log(s,t,i);
-
+        $('#modalTitle').text('Répondre à ' + s);
         $('#userAuto').val(s);
         $('#messageTitle').val(t);
         $('#userAuto').prop('disabled', true);
-        Materialize.updateTextFields();
         $('#messageBody').val('');
+        $('label[for="userAuto"]').hide();
+        Materialize.updateTextFields();
         idReceipient = i;
     });
+
+    $("a[name='launchModal']").click(function(e) {
+        e.preventDefault();
+
+        $('#modalTitle').text('Envoyer un message privé');
+        $('#userAuto').val('');
+        $('#messageTitle').val('');
+        $('#messageBody').val('');
+        $('#userAuto').prop('disabled', false);
+        $('label[for="userAuto"]').show();
+        Materialize.updateTextFields();
+        idReceipient = null;
+    });
+
 
     $(function () {
         $.ajax({
