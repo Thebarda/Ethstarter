@@ -34,9 +34,9 @@ $(document).ready(function () {
             type: 'GET',
             url: '/users',
             success: function (response) {
-                var users, usernull = response;
-/*              Object.keys(usernull).map((x) => usernull[x] = null);
-                console.log(users); */
+                var users = response;
+                //Object.keys(usernull).map((x) => usernull[x] = null);
+                //console.log(users);
 
                 $("#userAuto").autocomplete({
                     data: users,
