@@ -97,12 +97,11 @@ module.exports.list = async (req, resp) => {
     try {
         var dbres = await profilModel.getUsers();
 
-        var r = dbres.map(x => { 
-            var res = {};
-            res[x.name] = x.id;
-            return res;
-        });
+        var r = dbres.reduce((curr, next) => {
+            curr[next.name] = next.id;
+            return curr
+        }, {});
 
-        resp.send(dbres);
+        resp.send(r);
     } catch (e) { throw e; };
 }

@@ -75,20 +75,14 @@ $(document).ready(function () {
             type: 'GET',
             url: '/users',
             success: function (response) {
-                var userList = response;
-
-                var users = {};
-/*              var users = userList.map(x => { 
-                    users[Object.keys(x)] = null;
-                }); */
-
+                var users = response;
                 console.log(users);
 
                 $("#userAuto").autocomplete({
                     data: users,
                     limit: 10, 
                     onAutocomplete: function(val) {
-                        idReceipient = userList[val][1];
+                        idReceipient = users[val];
                     },
                 });
             }
