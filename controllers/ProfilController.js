@@ -95,7 +95,14 @@ module.exports.deleteUserModerator = (req, resp) => {
 
 module.exports.list = async (req, resp) => {
     try {
-        var r = await profilModel.getUsers();
-        resp.send(r);
+        var dbres = await profilModel.getUsers();
+
+        var r = dbres.map(x => { 
+            var res = {};
+            res[x.name] = x.id;
+            return res;
+        });
+
+        resp.send(dbres);
     } catch (e) { throw e; };
 }

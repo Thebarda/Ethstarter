@@ -45,47 +45,50 @@ $(document).ready(function () {
 
 //  https://stackoverflow.com/questions/39883425/materialize-autocomplete-with-dynamic-data-in-jquery-ajax
 
-    var idReceipient;
-    //Autocomplete
+//Autocomplete
 /*     $(function () {
-        $.ajax({
-            type: 'GET',
-            url: 'https://restcountries.eu/rest/v2/all?fields=name',
-            success: function (response) {
-                var countryArray = response;
-                var dataCountry = {};
-                for (var i = 0; i < countryArray.length; i++) {
-                    dataCountry[countryArray[i].name] = i; //countryArray[i].flag or null
-                }
-
-                $("#userAuto").autocomplete({
-                    data: dataCountry,
-                    limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
-                    onAutocomplete: function(val) {
-                        idReceipient = dataCountry[val];
-                    },
-                });
+    $.ajax({
+        type: 'GET',
+        url: 'https://restcountries.eu/rest/v2/all?fields=name',
+        success: function (response) {
+            var countryArray = response;
+            var dataCountry = {};
+            for (var i = 0; i < countryArray.length; i++) {
+                dataCountry[countryArray[i].name] = i; //countryArray[i].flag or null
             }
-        });
-    }); */
+            
+            $("#userAuto").autocomplete({
+                data: dataCountry,
+                limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
+                onAutocomplete: function(val) {
+                    idReceipient = dataCountry[val];
+                },
+            });
+        }
+    });
+}); */
 
 
+    var idReceipient;
     $(function () {
         $.ajax({
             type: 'GET',
             url: '/users',
             success: function (response) {
                 var userList = response;
+
                 var users = {};
-                for (var i = 0; i < userList.length; i++) {
-                    dataCountry[userList[i].name] = i[0]; 
-                }
+/*              var users = userList.map(x => { 
+                    users[Object.keys(x)] = null;
+                }); */
+
+                console.log(users);
 
                 $("#userAuto").autocomplete({
                     data: users,
-                    limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
+                    limit: 10, 
                     onAutocomplete: function(val) {
-                        idReceipient = dataCountry[val][1];
+                        idReceipient = userList[val][1];
                     },
                 });
             }
