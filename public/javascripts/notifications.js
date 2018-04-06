@@ -2,6 +2,9 @@ $(document).ready(function () {
     $('.tooltipped').tooltip('enterDelay', 0, 'inDuration', 150);
     $('.tabs').tabs();
     $('.modal').modal();
+    
+    var idReceipient;
+
 
     $("#sendButton").on("click", function () {
         console.log("Message sent " + $("#messageTitle").val() + "!");
@@ -28,7 +31,22 @@ $(document).ready(function () {
         });
     });
 
-    var idReceipient;
+    $('#replybutton').on('click', function (e){
+        e.preventDefault();
+        alert("clicked");
+
+        var i = $(this).attr("senderid");
+        var s = $(this).attr("sendername");
+        var t = "RE: " + $(this).attr("title");
+
+        console.log(s,t,i);
+
+        $('#userAuto').val(s);
+        $('#messageTitle').val(t);
+        $('#userAuto').prop('disabled', true);
+        idReceipient = i;
+    });
+
     $(function () {
         $.ajax({
             type: 'GET',
