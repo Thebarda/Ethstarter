@@ -65,6 +65,8 @@ module.exports = async function (app) {
     app.post('/deleteUser', ProfilController.deleteUser);
     app.post('/deleteUseModerator', ProfilController.deleteUserModerator);
 
+    app.get('/users', ProfilController.list);
+
     //Administration
     app.get('/administration', AdministrationController.administration);
     app.get('/fetchAdmin/:type', AdministrationController.fetchAdmin);

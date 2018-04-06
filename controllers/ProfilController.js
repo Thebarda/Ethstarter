@@ -92,3 +92,10 @@ module.exports.deleteUserModerator = (req, resp) => {
         resp.render('emptyView', resp);
     });
 };
+
+module.exports.list = async (req, resp) => {
+    try {
+        var r = await profilModel.getUsers();
+        resp.send(r);
+    } catch (e) { throw e; };
+}

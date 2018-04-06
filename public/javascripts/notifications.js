@@ -73,19 +73,19 @@ $(document).ready(function () {
     $(function () {
         $.ajax({
             type: 'GET',
-            url: 'https://restcountries.eu/rest/v2/all?fields=name',
+            url: '/users',
             success: function (response) {
-                var countryArray = response;
-                var dataCountry = {};
-                for (var i = 0; i < countryArray.length; i++) {
-                    dataCountry[countryArray[i].name] = i; //countryArray[i].flag or null
+                var userList = response;
+                var users = {};
+                for (var i = 0; i < userList.length; i++) {
+                    dataCountry[userList[i].name] = i[0]; 
                 }
 
                 $("#userAuto").autocomplete({
-                    data: dataCountry,
+                    data: users,
                     limit: 10, // The max amount of results that can be shown at once. Default: Infinity.
                     onAutocomplete: function(val) {
-                        idReceipient = dataCountry[val];
+                        idReceipient = dataCountry[val][1];
                     },
                 });
             }
