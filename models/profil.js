@@ -102,5 +102,5 @@ module.exports.getMailContractorByCampaign = (idCampaign, callback) => {
 };
 
 module.exports.getUsers = () => {
-    return db.asq("SELECT CONCAT(prenom, ' ', nom), id FROM utilisateur WHERE NOT type = 0");
+    return db.asq("SELECT CONCAT(prenom, ' ', nom) AS name, id FROM utilisateur WHERE NOT type = 0");
 }
