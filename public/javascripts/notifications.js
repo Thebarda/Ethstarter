@@ -9,7 +9,7 @@ $(document).ready(function () {
             url: '/writeMessage',
             method: 'POST',
             data: {
-                msgRecipient: "51", //$("#messageRecipient").val(),
+                msgRecipient: idReceipient,
                 msgTitle: $("#messageTitle").val(),
                 msgBody: $("#messageBody").val()
             }
@@ -75,8 +75,9 @@ $(document).ready(function () {
             type: 'GET',
             url: '/users',
             success: function (response) {
-                var users = response;
-                console.log(users);
+                var users, usernull = response;
+/*                 Object.keys(usernull).map((x) => usernull[x] = null);
+                console.log(users); */
 
                 $("#userAuto").autocomplete({
                     data: users,
