@@ -59,7 +59,7 @@
                     </div>
                     <div class="card-action">
                         <a class="grey-text">Envoyé par {{this.sendername}} le {{formatDate this.datetime 'DD/MM/YYYY'}} à {{formatDate this.datetime 'HH:mm'}}</a>
-                        <a id="replyButton" senderid={{this.sender}} title={{this.title}} sendername={{this.sendername}} class="right waves-effect waves-light modal-trigger replyButton" href="#writeModal">Répondre
+                        <a name="reply" senderid={{this.sender}} title={{this.title}} sendername={{this.sendername}} class="right waves-effect waves-light modal-trigger replyButton" href="#writeModal">Répondre
                             <i class="material-icons prefix">send</i>
                         </a>
                     </div>

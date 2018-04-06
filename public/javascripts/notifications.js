@@ -31,9 +31,8 @@ $(document).ready(function () {
         });
     });
 
-    $('#replybutton').on('click', function (e){
+    $("a[name='reply']").click(function(e) {
         e.preventDefault();
-        alert("clicked");
 
         var i = $(this).attr("senderid");
         var s = $(this).attr("sendername");
@@ -44,6 +43,8 @@ $(document).ready(function () {
         $('#userAuto').val(s);
         $('#messageTitle').val(t);
         $('#userAuto').prop('disabled', true);
+        Materialize.updateTextFields();
+        $('#messageBody').val('');
         idReceipient = i;
     });
 
@@ -65,9 +66,9 @@ $(document).ready(function () {
                 });
             }
         });
-    });
-    
+    });   
 });
+
 
 function searchFunc(e) {
     $(document).ready(() => {
