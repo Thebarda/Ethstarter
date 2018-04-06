@@ -84,32 +84,33 @@
 <div id="writeModal" class="modal">
     <div class="modal-content">
         <h6 id="modalTitle">...</h6>
+        <form id="val" novalidate="novalidate">
+            <div class="row">
+                <div class="col s12">
+                    <div class="input-field col s12">
+                    <i class="material-icons prefix">face</i>
+                    <input name="rcp" type="text" id="userAuto" class="autocomplete" class="validate" required="" aria-required="true">
+                    <label for="userAuto">Chercher un destinataire</label>
+                    </div>
+                </div>
 
-        <div class="row">
-            <div class="col s12">
                 <div class="input-field col s12">
-                <i class="material-icons prefix">face</i>
-                <input type="text" id="userAuto" class="autocomplete">
-                <label for="userAuto">Chercher un destinataire</label>
+                    <input name="ttl" id="messageTitle" type="text" class="validate" required="" aria-required="true">
+                    <label for="messageTitle">Titre</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <textarea name="bdy" id="messageBody" class="materialize-textarea" class="validate" required="" aria-required="true"></textarea>
+                    <label for="messageBody">Message</label>
                 </div>
             </div>
-
-            <div class="input-field col s12">
-                <input id="messageTitle" type="text" class="validate">
-                <label for="messageTitle">Titre</label>
-            </div>
-
-            <div class="input-field col s12">
-                <textarea id="messageBody" class="materialize-textarea"></textarea>
-                <label for="messageBody">Message</label>
-            </div>
-        </div>
+        </form>
     </div>
 
     <div class="divider"></div>
     <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat right">Annuler</a>
-        <a href="#!" id="sendButton" class="modal-action modal-close waves-effect waves-green btn-flat left">Envoyer</a>
+        <a href="#!" id="sendButton" class="waves-effect waves-green btn-flat left">Envoyer</a>
     </div>
 </div>
 

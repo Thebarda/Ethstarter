@@ -5,18 +5,19 @@ $(document).ready(function () {
     
     var idReceipient;
 
-
     $("#sendButton").on("click", function () {
-        console.log("Message sent " + $("#messageTitle").val() + "!");
-        $.ajax({
-            url: '/writeMessage',
-            method: 'POST',
-            data: {
-                msgRecipient: idReceipient,
-                msgTitle: $("#messageTitle").val(),
-                msgBody: $("#messageBody").val()
-            }
-        });
+//        if ($("#val").valid()) {
+            $.ajax({
+                url: '/writeMessage',
+                method: 'POST',
+                data: {
+                    msgRecipient: idReceipient,
+                    msgTitle: $("#messageTitle").val(),
+                    msgBody: $("#messageBody").val()
+                }
+            });
+            $('#writeModal').modal('close');
+//        }
     });
 
     $('.msgdel').click(function (e) {
@@ -61,7 +62,7 @@ $(document).ready(function () {
         idReceipient = null;
     });
 
-
+    //AUTOCOMPLETE FOR USER'S NAME
     $(function () {
         $.ajax({
             type: 'GET',
@@ -80,7 +81,40 @@ $(document).ready(function () {
                 });
             }
         });
-    });   
+    });
+
+/*  //VALIDATOR
+    $.validator.setDefaults({
+        errorClass: 'invalid',
+        validClass: "valid",
+        errorPlacement: function (error, element) {
+            $(element)
+                .closest("form")
+                .find("label[for='" + element.attr("id") + "']")
+                .attr('data-error', error.text());
+        },
+        submitHandler: function (form) {
+            console.log('form ok');
+        }
+    });
+
+    $('#val').validate({ 
+        rules: {
+            rcp: {
+                required: true,
+            },
+            ttl: {
+                required: true,
+            },
+            bdy: {
+                required: true
+            }
+        },
+        submitHandler: function (form) {
+            console.log('valid');
+        }
+    }); */
+
 });
 
 
