@@ -29,7 +29,7 @@ $(document).ready(function () {
     });
 
     $(function () {
-        $('input.autocomplete').autocomplete({
+        $("#userAuto").autocomplete({
             data: {
                 "Apple": null,
                 "Microsoft": null,
