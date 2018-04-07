@@ -62,6 +62,7 @@ $(document).ready(function () {
         idReceipient = null;
     });
 
+
     //SEARCH NOTIF
     $(".notifCard").each(function () {
         var searchData = [
@@ -79,6 +80,18 @@ $(document).ready(function () {
             $(this).toggle(visible);
         });
     });
+
+    $(document).mouseup(function(e){
+        var subject = $("#notifications"); 
+        if(e.target.id != subject.attr('id') && !subject.has(e.target).length) {
+            $("#searchNotif").val("");
+            $(".notifCard").each(function(){
+                $(this).show();
+            });
+            Materialize.updateTextFields();
+        }
+    });
+
 
     //SEARCH MESSAGE
     $(".messCard").each(function () {
@@ -98,6 +111,18 @@ $(document).ready(function () {
             $(this).toggle(visible);
         });
     });
+
+    $(document).mouseup(function(e){
+        var subject = $("#messages"); 
+        if(e.target.id != subject.attr('id') && !subject.has(e.target).length) {
+            $("#searchMess").val("");
+            $(".messCard").each(function(){
+                $(this).show();
+            });
+            Materialize.updateTextFields();
+        }
+    });
+
 
     //AUTOCOMPLETE FOR USER'S NAME
     $(function () {
