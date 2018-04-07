@@ -27,7 +27,7 @@
             <ul id="notifications" class="collection">
                 {{#each notifications}}
                     <li class="notifCard collection-item hoverable grey lighten-3 textNotifs">
-                        <p>{{this.text}}</p>
+                        <p id="notifText">{{this.text}}</p>
                         <p class="grey-text">Le {{formatDate this.date 'DD/MM/YYYY HH:mm:ss'}}</p>
                     </li>
                 {{/each}}

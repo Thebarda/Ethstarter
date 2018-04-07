@@ -62,6 +62,24 @@ $(document).ready(function () {
         idReceipient = null;
     });
 
+    //SEARCH NOTIF
+    $(".notifCard").each(function () {
+        var searchData = [
+            $.trim($(this).find("#notifText").text())
+        ];
+        console.log(searchData);
+        $(this).data("search", searchData.join(" ").toUpperCase());
+    });
+
+    $("#searchNotif").keyup(function () {
+        var val = $.trim(this.value).toUpperCase();
+
+        $(".notifCard").each(function () {
+            var visible = !val || $(this).data("search").indexOf(val) > -1;
+            $(this).toggle(visible);
+        });
+    });
+
     //SEARCH MESSAGE
     $(".messCard").each(function () {
         var searchData = [
@@ -133,10 +151,9 @@ $(document).ready(function () {
             console.log('valid');
         }
     }); */
-
 });
 
-
+/* 
 function searchFunc(e) {
     $(document).ready(() => {
         console.log('salut');
@@ -149,4 +166,4 @@ function searchFunc(e) {
             }
         });
     });
-}
+} */
