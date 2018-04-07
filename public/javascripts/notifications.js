@@ -62,6 +62,25 @@ $(document).ready(function () {
         idReceipient = null;
     });
 
+    //SEARCH MESSAGE
+    $(".messCard").each(function () {
+        var searchData = [
+            $.trim($(this).find("#messTitle").text()),
+            $.trim($(this).find("#messBody").text()),
+            $.trim($(this).find("#messName").text())
+        ];
+        $(this).data("search", searchData.join(" ").toUpperCase());
+    });
+
+    $("#searchMess").keyup(function () {
+        var val = $.trim(this.value).toUpperCase();
+
+        $(".messCard").each(function () {
+            var visible = !val || $(this).data("search").indexOf(val) > -1;
+            $(this).toggle(visible);
+        });
+    });
+
     //AUTOCOMPLETE FOR USER'S NAME
     $(function () {
         $.ajax({
