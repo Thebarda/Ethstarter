@@ -1,0 +1,25 @@
+    <div class="row center-align">
+        <h1>Vos participations</h1>
+        <div id="afficherParticipations" class="col s12">
+            <table class="striped highlight responsive-table">
+                <thead>
+                    <tr>
+                        <th>Nom de la campagne / Montant contribué</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each participation}}
+                    <tr>
+                        <td>
+                            <form method="post" action="/delParticipation">
+                                <input name="nomCampagne" type="text" value="{{this.nomCampagne}}" readonly="readonly">
+                                <input name="montant" type="text" value="{{this.montantTot}}" readonly="readonly">
+                                <input class="btn waves-light waves-effect red darken-1 modal-trigger" type="submit" value="Supprimer la participation">
+                            </form>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>    
+        </div>
+    </div>

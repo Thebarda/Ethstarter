@@ -1,7 +1,9 @@
 var db = require('./configDb');
 
 module.exports.getAll = async (recipient) => {
-    var query = "SELECT * FROM dm WHERE recipient = " + recipient;
+    var query = "SELECT *," +
+    "(SELECT CONCAT(prenom, ' ', nom) FROM utilisateur WHERE id = sender) AS sendername " + 
+    "FROM dm WHERE recipient = " + recipient;
     return db.asq(query);
 }
 

@@ -142,7 +142,7 @@ module.exports.afficherMesCampagnes = (req, resp) => {
         if (e) throw e;
         resp.title = "Mes Campagnes";
         resp.campagnes = res;
-        resp.render("afficherLesCampagnes", resp);
+        resp.render("afficherMesCampagnes", resp);
     });
 };
 
