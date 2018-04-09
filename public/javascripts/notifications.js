@@ -68,7 +68,7 @@ $(document).ready(function () {
         var searchData = [
             $.trim($(this).find("#notifText").text())
         ];
-        console.log(searchData);
+        //console.log(searchData);
         $(this).data("search", searchData.join(" ").toUpperCase());
     });
 
@@ -131,9 +131,13 @@ $(document).ready(function () {
             url: '/users',
             success: function (response) {
                 var users = response;
+                var userid = $("#writeModal").attr("userid");
+                for(var x in users) {
+                    if(users[x] == userid) delete users[x];
+                }
+
                 //Object.keys(usernull).map((x) => usernull[x] = null);
                 //console.log(users);
-
                 $("#userAuto").autocomplete({
                     data: users,
                     limit: 10, 

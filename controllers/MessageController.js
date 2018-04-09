@@ -6,11 +6,13 @@ var ts = require("time-stamp");
 
 module.exports.get = async (req, resp) => {
     try {
+        var userid = req.session.idCompte;
         var m = await msg.getAll(req.session.idCompte);
         resp.messages = m;
 
         var n = await notif.getAll(req.session.idCompte);
         resp.notifications = n;
+        resp.userid = userid;
 
         resp.title = "Notifications";
         resp.render("notifications", resp);
