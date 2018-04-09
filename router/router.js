@@ -58,8 +58,10 @@ module.exports = async function (app) {
     // Profil
     app.get('/Profil', ProfilController.getProfil);
     app.post('/modifierProfil', ProfilController.modifierProfil);
+    app.get('/Participations', ProfilController.afficherParticipations);
     app.get('/fetchNbContractorsWaitingForValidation', ProfilController.fetchNbContractorsWaitingForValidation);
     app.get('/contractorsWaiting', ProfilController.fetchContractorsWaitingForValidation);
+    app.post('/delParticipation', ProfilController.supprimerParticipation);
     app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
     app.post('/deleteUser', ProfilController.deleteUser);
     app.post('/deleteUseModerator', ProfilController.deleteUserModerator);
