@@ -39,7 +39,7 @@ module.exports.getBalance = function () {
 //Fonction qui ajoute une campagne de financement au contrat.
 //Ne surtout pas oublier de mettre le coût en gas, sinon ça met une erreur.
 module.exports.addCrowfunding = function(idCrowfund, addrContractor, goal, montantMax){
-    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    /*var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
     if (montantMax && goal && goal > 0 && montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) {
         try {
             return ethstarter.addCrowfunding(idCrowfund, addrContractor, goal, montantMax, {
@@ -51,11 +51,11 @@ module.exports.addCrowfunding = function(idCrowfund, addrContractor, goal, monta
         }
     } else {
         throw new Error("(montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) : Cette expression ne passe pas");
-    }
+    }*/
 };
 
 module.exports.addContributorToCrowfund = function(idCrowfund, addrContributor, montant){
-    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    /*var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
     var montantWei = web3.toWei(montant, "ether");
     montantWei = parseInt(montantWei);
     if (idCrowfund && web3.isAddress(addrContributor) && montant && montant > 0) {
@@ -66,20 +66,20 @@ module.exports.addContributorToCrowfund = function(idCrowfund, addrContributor, 
         }
     } else {
         throw new Error("(idCrowfund && web3.isAddress(addrContributor) && montant && montant > 0) : Cette expression ne passe pas");
-    }
+    }*/
 };
 
 module.exports.setEstEnCours = function(idCrowfund, estEnCours){
-    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    /*var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
     if(idCrowfund && estEnCours !== null && typeof estEnCours !== 'undefined') {
         return ethstarter.setEstEnCours(idCrowfund, estEnCours, {from: web3.eth.accounts[0], gas: 3000000});
     } else {
         throw new Error("(idCrowfund && estEnCours) : Cette expression ne passe pas");
-    }
+    }*/
 };
 
 module.exports.sendToContributors = function(id){
-    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    /*var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
     if(id) {
         return ethstarter.sendToContributors(id, {from: web3.eth.accounts[0], gas: 3000000});
     } else {
@@ -93,14 +93,14 @@ module.exports.sendToContractor = function(id){
         return ethstarter.sendToContractor(id, {from: web3.eth.accounts[0], gas: 3000000});
     } else {
         throw Error("L'id de la campagne est null ou undefined");
-    }
+    }*/
 };
 
 module.exports.removeContribution = function(idCampagne, addrContributor) {
-    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    /*var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
     if (idCampagne && web3.isAddress(addrContributor)) {
       return ethstarter.removeContribution(idCampagne, addrContributor, {from: addrContributor, gas: 3000000});
     } else {
       throw Error("(idCampagne && web3.isAddress(addrContributor)) : Cette expression ne passe pas");
-    }
+    }*/
 };

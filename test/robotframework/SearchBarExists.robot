@@ -11,4 +11,4 @@ ${undefined}    https://www.katalon.com/
 
 *** Test Cases ***
 Test Case
-  Element Should Be Visible  id=search
+  Element Should Be Visible  id:icon_prefix
