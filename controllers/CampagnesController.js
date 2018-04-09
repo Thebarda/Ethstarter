@@ -142,7 +142,7 @@ module.exports.afficherMesCampagnes = (req, resp) => {
         if (e) throw e;
         resp.title = "Mes Campagnes";
         resp.campagnes = res;
-        resp.render("afficherLesCampagnes", resp);
+        resp.render("afficherMesCampagnes", resp);
     });
 };
 
@@ -152,7 +152,7 @@ module.exports.afficherLesCampagnes = async (req, resp) => {
         resp.campagnes = r;
         resp.title = "Toutes les campagnes";
         resp.render("afficherLesCampagnes", resp);
-    } catch (e) { throw e; }; 
+    } catch (e) { throw e; };
 }
 
 module.exports.fetchNbCampagnesWaitingForValidation = (req, resp)=>{
@@ -219,7 +219,7 @@ module.exports.searchCampaign = async (req, response) => {
         response.campagnes = await campagnesModel.searchAnyCampaign(search);
         response.title = "Recherche pour " + search;
         response.render("afficherLesCampagnes", response);
-    } catch (e) { throw e; };    
+    } catch (e) { throw e; };
 };
 
 
@@ -265,7 +265,7 @@ module.exports.contributed = async (req, resp) => {
     try {
         var r = await campagnesModel.contributed(req.session.idCompte);
         resp.title = "Mes contributions";
-        resp.campagnes = r; 
+        resp.campagnes = r;
         resp.render("afficherLesCampagnes", resp);
-    } catch (e) {throw e;};   
+    } catch (e) {throw e;};
 };

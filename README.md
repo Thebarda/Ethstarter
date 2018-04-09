@@ -1,3 +1,14 @@
+### Note sur le projet
+
+Nous rencontrons actuellement des problèmes avec la blockchain.
+Après démarrage de la blockchain de test avec Ganache CLI, peu de temps après (c'est assez aléatoire), les comptes créés par cette dernière sont 0 ether au lieu d'avoir une valeur supérieur à 90 ether.
+
+Nous avons donc posté une issue sur le Github de Ganache CLI (https://github.com/trufflesuite/ganache-cli/issues/502)
+
+Afin que l'application soit, tout de même, utilisable, nous avons commenté le code qui permet la communication avec le smart contract deployé dans la blockchain de test. 
+
+Avec une blockchain de test fonctionnelle, nous vous confirmons que les tests unitaires concernant la partie du code commentée passent tous.
+
 # Ethstarter
 
 Application web de financement participatif utilisant la crypto-monnaie Ethereum

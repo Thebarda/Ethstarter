@@ -32,6 +32,15 @@ module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
     });
 };
 
+module.exports.getDonateurs = function (idCampagne, callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT SUM(montant) AS montants, CONCAT(utilisateur.nom, ' ', utilisateur.prenom) " +
+            "AS nom FROM participation, utilisateur WHERE idCampagne = "+idCampagne+" AND participation.idContributeur = " +
+            "utilisateur.id GROUP BY idContributeur ORDER BY montants DESC", callback);
+        connection.release();
+    });
+};
+
 module.exports.getTop10Donateurs = function (idCampagne, callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT SUM(montant) AS montant, CONCAT(utilisateur.nom, ' ', utilisateur.prenom)" +
@@ -147,7 +156,7 @@ module.exports.getAllAllCampaigns = function (callback) {
 module.exports.searchAnyCampaign = async (search) => {
     var query = "SELECT `idCampagne`, `nomCampagne`, " +
     "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " +
-    "FROM campagnes  WHERE validated=1 AND `nomCampagne` LIKE '%" + search + 
+    "FROM campagnes  WHERE validated=1 AND `nomCampagne` LIKE '%" + search +
     "%' OR `descriptionCourte` LIKE  '%" + search + "%'";
 
     return db.asq(query);
@@ -155,16 +164,16 @@ module.exports.searchAnyCampaign = async (search) => {
 
 
 module.exports.contributed = async (idUtilisateur) => {
-    var query = "SELECT campagnes.idCampagne, `nomCampagne`, " + 
-    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
+    var query = "SELECT campagnes.idCampagne, `nomCampagne`, " +
+    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " +
     "FROM campagnes inner join participation on campagnes.idCampagne=participation.idCampagne WHERE participation.idContributeur =" + idUtilisateur;
     return db.asq(query);
 };
 
 
 module.exports.favorites = async (idUtilisateur) => {
-    var query = "SELECT campagnes.idCampagne, `nomCampagne`, " + 
-    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
+    var query = "SELECT campagnes.idCampagne, `nomCampagne`, " +
+    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " +
     "FROM campagnes inner join favoris on campagnes.idCampagne=favoris.idCampagne WHERE favoris.idUtilisateur =" + idUtilisateur;
     return db.asq(query);
 };
@@ -207,7 +216,7 @@ module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
 module.exports.getComm = (idCamp,callback) => {
     console.log("idCampagne :" + idCamp);
     db.getConnection((e, c) => {
-        c.query("select commentaire as comm,prenom,nom from utilisateur"+ 
+        c.query("select commentaire as comm,prenom,nom from utilisateur"+
         " inner join commentaires on utilisateur.id = commentaires.idContributeur"+
         " where commentaires.idCampagne=" + idCamp , callback);
         c.release();
@@ -229,7 +238,7 @@ module.exports.getNbContreparties =(idCamp,callback) => {
 
 module.exports.getListContreparties = (idCamp,callback) => {
     db.getConnection((e,c) => {
-        c.query("SELECT idContrepartie, descriptionCP as descCP, montant FROM "+ 
+        c.query("SELECT idContrepartie, descriptionCP as descCP, montant FROM "+
         "contrepartiesCampagne where idCampagne=" + idCamp, callback);
         c.release();
     });
@@ -237,7 +246,7 @@ module.exports.getListContreparties = (idCamp,callback) => {
 //0.07
 module.exports.getContrepartiesMaxMontant = (idCamp,montant,callback) => {
     db.getConnection((err,co) => {
-        
+
         co.query("SELECT idContrepartie FROM contrepartiesCampagne where"+
         " montant = (SELECT max(montant) from contrepartiesCampagne where montant<="
         + montant + " and idCampagne=" + idCamp +")", callback);
@@ -247,7 +256,7 @@ module.exports.getContrepartiesMaxMontant = (idCamp,montant,callback) => {
 
 module.exports.addContrepartieContrib = (idCamp, idContributeur, idContrepartie,callback) => {
     db.getConnection((err,co) => {
-        co.query("INSERT INTO contrepartiesContributeur VALUES ("+ idCamp +","+ 
+        co.query("INSERT INTO contrepartiesContributeur VALUES ("+ idCamp +","+
         idContributeur + ","+ idContrepartie+")", callback);
         co.release();
     });
