@@ -16,6 +16,6 @@ Test Case
     Input Password    name=login    denied
     Click Button    xpath=//input[@value='connexion']
     Page should contain    Bonjour denied
-    Go To    http://localhost:1047/campaign/1264
+    Click Link  (//div[@id="campagne"][1]/div/div[2]/p/a)
     Page should contain    mon projet
     Element Should Be Visible   id=contribute
