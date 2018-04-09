@@ -26,9 +26,9 @@ module.exports.updateMontant = function (idCampagne, montant, callback) {
 module.exports.updateMontantActuelCampagne = function(_montantTot, idCampagne, callback){
     db.getConnection(function(err, connection){
         if (err) throw err;
-        var sql = "UPDATE campagnes SET montantActuel=";
-        sql += "(CASE WHEN montantActuel > 0 THEN montantActuel =montantActuel-"+_montantTot;
-        sql += " WHEN montantActuel < 0 THEN montantActuel=0 ELSE montantActuel END)"; 
+        console.log("MontantTotal:" + _montantTot);
+        console.log("ID:" + idCampagne);
+        var sql = "UPDATE campagnes SET montantActuel=montantActuel-" + _montantTot; 
         sql += " WHERE idCampagne="+idCampagne;
         connection.query(sql, callback);
         connection.release(); 
@@ -38,7 +38,7 @@ module.exports.updateMontantActuelCampagne = function(_montantTot, idCampagne, c
 module.exports.getIdCampagne = function(_nomCampagne, callback){
     db.getConnection(function(err, connection){
         if (err) throw err;
-        var sql = "SELECT idCampagne FROM campagnes WHERE nomCampagne=" + _nomCampagne;
+        var sql = "SELECT idCampagne FROM campagnes WHERE nomCampagne='" + _nomCampagne + "'";
         connection.query(sql, callback);
         connection.release();
     });

@@ -9,7 +9,7 @@
     <div id="notifications" class="col s6 offset-s3">
         {{#if notifications}}
             <div class="input-field">
-                <input name='searchNotif' id="search" type="text" onchange="searchFunc(event);">
+                <input name='searchNotif' id="searchNotif" type="text" onchange="searchFunc(event);">
                 <label for="search">Rechercher des notifications</label>
             </div>
 
@@ -29,19 +29,30 @@
 
     <div id="messages" class="col s6 offset-s3">
         {{#if messages}}
-            <div class="input-field">
-                <input name='searchMess' id="search" type="text" onchange="searchMess(event);">
-                <label for="search">Rechercher des messages</label>
+            <div class="row">
+                <div class="input-field">
+                    <input name='searchMess' id="searchMess" type="text" onchange="searchMess(event);">
+                    <label for="search">Rechercher des messages</label>
+                </div>
             </div>
-
-            <ul id="messages" class="collection">
-                {{#each messages}}
-                    <li class="collection-item hoverable grey lighten-3 textNotifs">
+ 
+            {{#each messages}}
+                <div class="card deep-orange lighten-2">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{this.title}} 
+                            <a class="waves-effect waves-light btn-flat right tooltipped" data-position="top" data-tooltip="Effacer" href="#"><i class="material-icons">delete</i></a>
+                        </span>
                         <p>{{this.message}}</p>
-                        <p class="grey-text">Le {{formatDate this.datetime 'DD/MM/YYYY HH:mm:ss'}}</p>
-                    </li>
-                {{/each}}
-            </ul>
+                    </div>
+                    <div class="card-action">
+                        <a class="grey-text">Envoyé par {{this.sendername}} le {{formatDate this.datetime 'DD/MM/YYYY HH:mm:ss'}}</a>
+                        <a class="right waves-effect waves-light" href="#">Répondre <i class="material-icons prefix">send</i></a>
+
+                        
+                    </div>
+                </div>
+            {{/each}}
+            
         {{else}}
             <br>
             <h5 class="center">Aucun message</h5>
@@ -49,3 +60,4 @@
     </div>
 </div>
 <script src="/javascripts/notifications.js"></script>
+<link rel='stylesheet' href='/stylesheets/notifications.css' />

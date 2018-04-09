@@ -10,5 +10,5 @@ ${undefined}    https://www.katalon.com/
 
 *** Test Cases ***
 Test Case
-    Press Key     id:search    \\13
+    Press Key     id:icon_prefix    \\13
     Location Should Be     http://localhost:1047/

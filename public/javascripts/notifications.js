@@ -1,7 +1,6 @@
 $(document).ready(function(){
-    //Tab management
+    $('.tooltipped').tooltip('enterDelay', 0, 'inDuration', 150);
     $('.tabs').tabs();
-
 });
 
 function searchFunc(e) {

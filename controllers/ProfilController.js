@@ -39,7 +39,7 @@ module.exports.afficherParticipations = function(request, response){
 };
 
 module.exports.supprimerParticipation = function(request, response){
-    var _montantTot = request.body.montantTot;
+    var _montantTot = request.body.montant;
     var _nomCampagne = request.body.nomCampagne;
     var idContributeur = request.session.idCompte;
     modelCampagnes.getIdCampagne(_nomCampagne, function(err, result){
