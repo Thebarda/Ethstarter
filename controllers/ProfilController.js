@@ -1,6 +1,8 @@
 var profilController = require("../controllers/ProfilController");
 var profilModel = require("../models/profil");
 var notifModel = require("../models/notifications");
+var modelCampagnes = require ('../models/campagnes.js');
+var ethstarterContract = require("../smartContract/ethstarterContract");
 var sha256 = require('js-sha256').sha256;
 
 var idCompte;
@@ -23,6 +25,36 @@ module.exports.getProfil = function(request, response){
     }
 };
 
+module.exports.afficherParticipations = function(request, response){
+    response.title="Ethstarter - Participations";
+    idCompte = request.session.idCompte;
+    profilModel.getParticipations(idCompte, function(err, result){
+        if (err) throw err;
+        response.participation=result;
+        result.map((participation)=>{
+            participation.montantTot = participation.montantTot.toFixed(2);
+        })
+        response.render("afficherParticipations", response);
+    });
+};
+
+module.exports.supprimerParticipation = function(request, response){
+    var _montantTot = request.body.montant;
+    var _nomCampagne = request.body.nomCampagne;
+    var idContributeur = request.session.idCompte;
+    modelCampagnes.getIdCampagne(_nomCampagne, function(err, result){
+        if (err) throw err;
+        var idCampagne = result[0].idCampagne;
+        profilModel.delParticipation(idCampagne, idContributeur, function(err, result){
+            if (err) throw err;
+            modelCampagnes.updateMontantActuelCampagne(_montantTot, idCampagne, function(err, result){
+                if (err) throw err;
+                    ethstarterContract.removeContribution(idCampagne, request.session.addrPubliqueEth);
+                    response.render("afficherParticipations", response);
+            });
+        });
+    });
+};
 
 module.exports.modifierProfil = function(request, response) {
     var body = request.body;
@@ -92,3 +124,16 @@ module.exports.deleteUserModerator = (req, resp) => {
         resp.render('emptyView', resp);
     });
 };
+
+module.exports.list = async (req, resp) => {
+    try {
+        var dbres = await profilModel.getUsers();
+
+        var r = dbres.reduce((curr, next) => {
+            curr[next.name] = next.id;
+            return curr
+        }, {});
+
+        resp.send(r);
+    } catch (e) { throw e; };
+}

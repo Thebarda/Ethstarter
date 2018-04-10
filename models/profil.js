@@ -35,6 +35,28 @@ module.exports.updatePassword = function(idCompte, body, callback) {
     });
 };
 
+module.exports.getParticipations = function(idCompte, callback){
+    db.getConnection(function(err, connection){
+      if (err) throw err;
+      var sql = "SELECT nomCampagne, SUM(montant) AS montantTot FROM participation, campagnes"; 
+      sql += " WHERE participation.idCampagne = campagnes.idCampagne"; 
+      sql += " AND participation.idContributeur=" + idCompte + " GROUP BY nomCampagne";
+      connection.query(sql, callback);
+      connection.release();
+    });
+};
+      
+module.exports.delParticipation = function(idCampagne, idContributeur, callback){
+    db.getConnection(function(err, connection){
+        if (err) throw err;
+        var sql = "DELETE FROM participation";
+        sql += " WHERE idContributeur =" + idContributeur;
+        sql += " AND idCampagne=" + idCampagne;
+        connection.query(sql, callback);
+        connection.release();
+    });
+};
+
 module.exports.updateProfilEntrepreneur = function(idCompte, body, callback) {
     db.getConnection(function (err, connection) {
         if (err) throw err;
@@ -100,3 +122,7 @@ module.exports.getMailContractorByCampaign = (idCampaign, callback) => {
      connection.release();
   });
 };
+
+module.exports.getUsers = () => {
+    return db.asq("SELECT CONCAT(prenom, ' ', nom) AS name, id FROM utilisateur WHERE NOT type = 0");
+}

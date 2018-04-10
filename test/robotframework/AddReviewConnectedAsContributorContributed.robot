@@ -11,8 +11,8 @@ ${undefined}    https://www.katalon.com/
 *** Test Cases ***
 Test Case
     Click Link    id=btnConnexion
-    Input Text    name=login    denied
-    Input Password    name=password    denied
+    Input Text    name=login    contributor
+    Input Password    name=password    contributor
     Click Button    xpath=//input[@value='connexion']
     Click Link  (//div[@id="campagne"][1]/div/div[2]/p/a)
     Page Should Contain     mon projet

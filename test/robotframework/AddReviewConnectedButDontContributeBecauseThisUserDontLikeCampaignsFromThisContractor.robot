@@ -11,8 +11,8 @@ ${undefined}    https://www.katalon.com/
 *** Test Cases ***
 Test Case
     Click Link    id=btnConnexion
-    Input Text    name=login    contributor
-    Input Password    name=password    contributor
+    Input Text    name=login    Lafarge
+    Input Password    name=password    Lafarge
     Click Button    xpath=//input[@value='connexion']
     Click Link  (//div[@id="campagne"][1]/div/div[2]/p/a)
     Page Should Contain     mon projet

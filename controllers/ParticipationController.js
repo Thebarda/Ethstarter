@@ -7,7 +7,7 @@ var notifModel = require('../models/notifications');
 module.exports.participation = function(request, response){
     response.title = "Ethstarter - afficherCampagne";
     var _montant = request.body.montant;
-    var data = {idContributeur:request.session.idCompte, montant:_montant, idCampagne: request.session.isLookingCampaign};
+    var data = {idContributeur:request.session.idCompte, montant:_montant, idCampagne: request.session.isLookingCampaign, date: Date()};
     modelParticipation.addParticipation(data, function(err, result){
         if(err) throw err;
         modelCampagnes.updateMontant(request.session.isLookingCampaign, _montant, function(err, result){

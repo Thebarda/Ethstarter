@@ -19,10 +19,10 @@ $(document).ready(function(){
        var ether = $(this).val();
        ether = parseFloat(ether);
         if(isNaN(ether) || ether <= 0.0){
-            $("#error").text("Veuillez saisir un montant supérieur à 0 ether");
+            $("#errorContrib").text("Veuillez saisir un montant supérieur à 0 ether");
             $("#submitParticipation").addClass("disabled");
         }else{
-            $("#error").text("");
+            $("#errorContrib").text("");
             $("#submitParticipation").removeClass("disabled");
         }
     });

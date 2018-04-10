@@ -1,4 +1,8 @@
-.material-icons{
+.material-icons {
     display: inline-flex;
     vertical-align: top;
+}
+
+img.circle {
+    opacity: 0;
 }
