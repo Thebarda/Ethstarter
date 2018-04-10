@@ -199,7 +199,7 @@ module.exports.hasContributed = (idUser, idCamp, callback) => {
 
 module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
     db.getConnection((err, co ) => {
-        co.query("INSERT INTO commentaires VALUES ('" + idUser + "', '" + idCamp + "','" + commentaires + "')", callback);
+        co.query('INSERT INTO commentaires (`idContributeur`, `idCampagne`,`datetime`, `commentaire`) VALUES (' + idUser + ',' + idCamp + ', NOW(),"'+ commentaires + '" )', callback);
         co.release();
     });
 };
@@ -207,7 +207,7 @@ module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
 module.exports.getComm = (idCamp,callback) => {
     console.log("idCampagne :" + idCamp);
     db.getConnection((e, c) => {
-        c.query("select commentaire as comm,prenom,nom from utilisateur"+ 
+        c.query("select commentaire as comm,prenom,nom,datetime from utilisateur"+ 
         " inner join commentaires on utilisateur.id = commentaires.idContributeur"+
         " where commentaires.idCampagne=" + idCamp , callback);
         c.release();
