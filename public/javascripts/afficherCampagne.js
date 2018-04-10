@@ -157,6 +157,7 @@ $('.contrepartie').click(function(){
     var montant = $(this).attr('id');
     $("#contribuez").modal('open');
     $("#montantJS").val(montant);
+    $("#submitParticipation").removeClass("disabled");
 }
  
 });

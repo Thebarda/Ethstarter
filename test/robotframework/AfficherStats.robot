@@ -15,7 +15,7 @@ Test Case
     Input Password    name=password    denied
     Click Button    xpath=//input[@value='connexion']
     Go To   http://localhost:1047/mycampaigns
-    Go To   http://localhost:1047/campaignStats/1264
+    Go To   http://localhost:1047/campaignStats/1384
     Element Should Be Visible   id:bar-chart
     Element Should Be Visible   id:line-chart
     Element Should Be Visible   id:doughnut-chart
