@@ -17,6 +17,6 @@ Test Case
     Click Button    xpath=//input[@value='connexion']
     Go To   http://localhost:1047/notifications
     Page Should Contain     Notifications
-    Input Text  name=searchNotif   campagne
-    Page Should Contain     Votre campagne mon projet a été validé
-    Page Should Contain     Votre campagne mon projet est en attente de validation
+    Input Text  id=searchNotif   campagne
+    Page Should Contain     mon projet
+    Page Should Contain     mon projet
