@@ -8,7 +8,7 @@ module.exports.minerContrat = function() {
     var content = fs.readFileSync("./contractAddress.json");
     var jsonContent = JSON.parse(content);
 
-    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:42669"));
     ethstarterContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_id","type":"uint256"},{"name":"_addrContractor","type":"address"},{"name":"_goal","type":"uint256"},{"name":"_maxGoal","type":"uint256"}],"name":"addCrowfunding","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_idCampagne","type":"uint256"},{"name":"_addrContributor","type":"address"}],"name":"removeContribution","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"uint256"},{"name":"_estEnCours","type":"bool"}],"name":"setEstEnCours","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"uint256"}],"name":"sendToContributors","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"nbCrowfundings","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"crowfundings","outputs":[{"name":"addrContractor","type":"address"},{"name":"goal","type":"uint256"},{"name":"maxGoal","type":"uint256"},{"name":"amount","type":"uint256"},{"name":"nbContributors","type":"uint256"},{"name":"estEnCours","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"uint256"}],"name":"sendToContractor","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_idCrowfundig","type":"uint256"}],"name":"addContributor","outputs":[],"payable":true,"stateMutability":"payable","type":"function"}]);
     if(jsonContent.contractAddress==="") {
         ethstarter = ethstarterContract.new(
@@ -39,7 +39,7 @@ module.exports.getBalance = function () {
 //Fonction qui ajoute une campagne de financement au contrat.
 //Ne surtout pas oublier de mettre le coût en gas, sinon ça met une erreur.
 module.exports.addCrowfunding = function(idCrowfund, addrContractor, goal, montantMax){
-    /*var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:42669"));
     if (montantMax && goal && goal > 0 && montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) {
         try {
             return ethstarter.addCrowfunding(idCrowfund, addrContractor, goal, montantMax, {
@@ -51,11 +51,11 @@ module.exports.addCrowfunding = function(idCrowfund, addrContractor, goal, monta
         }
     } else {
         throw new Error("(montantMax > goal && web3.isAddress(addrContractor) && idCrowfund) : Cette expression ne passe pas");
-    }*/
+    }
 };
 
 module.exports.addContributorToCrowfund = function(idCrowfund, addrContributor, montant){
-    /*var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:42669"));
     var montantWei = web3.toWei(montant, "ether");
     montantWei = parseInt(montantWei);
     if (idCrowfund && web3.isAddress(addrContributor) && montant && montant > 0) {
@@ -66,20 +66,20 @@ module.exports.addContributorToCrowfund = function(idCrowfund, addrContributor, 
         }
     } else {
         throw new Error("(idCrowfund && web3.isAddress(addrContributor) && montant && montant > 0) : Cette expression ne passe pas");
-    }*/
+    }
 };
 
 module.exports.setEstEnCours = function(idCrowfund, estEnCours){
-    /*var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:42669"));
     if(idCrowfund && estEnCours !== null && typeof estEnCours !== 'undefined') {
         return ethstarter.setEstEnCours(idCrowfund, estEnCours, {from: web3.eth.accounts[0], gas: 3000000});
     } else {
         throw new Error("(idCrowfund && estEnCours) : Cette expression ne passe pas");
-    }*/
+    }
 };
 
 module.exports.sendToContributors = function(id){
-    /*var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:42669"));
     if(id) {
         return ethstarter.sendToContributors(id, {from: web3.eth.accounts[0], gas: 3000000});
     } else {
@@ -88,19 +88,19 @@ module.exports.sendToContributors = function(id){
 };
 
 module.exports.sendToContractor = function(id){
-    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:42669"));
     if(id) {
         return ethstarter.sendToContractor(id, {from: web3.eth.accounts[0], gas: 3000000});
     } else {
         throw Error("L'id de la campagne est null ou undefined");
-    }*/
+    }
 };
 
 module.exports.removeContribution = function(idCampagne, addrContributor) {
-    /*var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:42669"));
     if (idCampagne && web3.isAddress(addrContributor)) {
       return ethstarter.removeContribution(idCampagne, addrContributor, {from: addrContributor, gas: 3000000});
     } else {
       throw Error("(idCampagne && web3.isAddress(addrContributor)) : Cette expression ne passe pas");
-    }*/
+    }
 };
