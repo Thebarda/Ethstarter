@@ -5,7 +5,7 @@ let web3 = null;
 let accounts = null;
 describe("send to contributors", () => {
     before(() => {
-        web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+        web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:42669"));
         accounts = web3.eth.accounts;
         ethstarterSmartContract.minerContrat();
     });

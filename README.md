@@ -9,6 +9,8 @@ Afin que l'application soit, tout de même, utilisable, nous avons commenté le 
 
 Avec une blockchain de test fonctionnelle, nous vous confirmons que les tests unitaires concernant la partie du code commentée passent tous.
 
+EDIT : Nous avons trouvé une solution. Si tout se passe bien, nous fermerons l'issue le 11-12 Avril 2018
+
 # Ethstarter
 
 Application web de financement participatif utilisant la crypto-monnaie Ethereum
