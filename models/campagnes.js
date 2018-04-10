@@ -23,27 +23,6 @@ module.exports.updateMontant = function (idCampagne, montant, callback) {
     });
 };
 
-module.exports.updateMontantActuelCampagne = function(_montantTot, idCampagne, callback){
-    db.getConnection(function(err, connection){
-        if (err) throw err;
-        console.log("MontantTotal:" + _montantTot);
-        console.log("ID:" + idCampagne);
-        var sql = "UPDATE campagnes SET montantActuel=montantActuel-" + _montantTot; 
-        sql += " WHERE idCampagne="+idCampagne;
-        connection.query(sql, callback);
-        connection.release(); 
-    });
-};
-
-module.exports.getIdCampagne = function(_nomCampagne, callback){
-    db.getConnection(function(err, connection){
-        if (err) throw err;
-        var sql = "SELECT idCampagne FROM campagnes WHERE nomCampagne='" + _nomCampagne + "'";
-        connection.query(sql, callback);
-        connection.release();
-    });
-};
-
 module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
@@ -53,11 +32,28 @@ module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
     });
 };
 
-module.exports.getDonateurs = function (idCampagne, callback) {
+module.exports.getTop10Donateurs = function (idCampagne, callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT SUM(montant) AS montants, CONCAT(utilisateur.nom, ' ', utilisateur.prenom) " +
-            "AS nom FROM participation, utilisateur WHERE idCampagne = "+idCampagne+" AND participation.idContributeur = " +
-            "utilisateur.id GROUP BY idContributeur ORDER BY montants DESC", callback);
+        connection.query("SELECT SUM(montant) AS montant, CONCAT(utilisateur.nom, ' ', utilisateur.prenom)" +
+            "AS contributeur FROM participation, utilisateur WHERE idCampagne = "+idCampagne+" AND participation.idContributeur = " +
+            "utilisateur.id GROUP BY contributeur ORDER BY montant DESC LIMIT 5", callback);
+        connection.release();
+    });
+};
+
+module.exports.getDonateursByDate = function (idCampagne, callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT date AS laDate, (SUM(montant) + (SELECT SUM(montant) FROM participation WHERE date < laDate)) AS montant" +
+            " FROM participation WHERE idCampagne = "+idCampagne+
+            " GROUP BY date ORDER BY date", callback);
+        connection.release();
+    });
+};
+
+module.exports.getBut = function (idCampagne, callback) {
+    db.getConnection(function (err, connection) {
+        connection.query("SELECT but, montantActuel " +
+            " FROM campagnes WHERE idCampagne = "+idCampagne, callback);
         connection.release();
     });
 };
@@ -256,3 +252,37 @@ module.exports.addContrepartieContrib = (idCamp, idContributeur, idContrepartie,
         co.release();
     });
 }
+
+module.exports.getTrendCampaigns = async () => {
+    var query = "SELECT COUNT(*) AS maxContrib,campagnes.idCampagne,nomCampagne, but"+
+    ", montantActuel, montantMax, dateLimite, descriptionCourte, estEnCours, validated "+
+    "FROM campagnes inner join participation on campagnes.idCampagne = participation.idCampagne "+
+    "where participation.date>=DATE_ADD(NOW(), INTERVAL -5 DAY)"+
+    "GROUP BY participation.idCampagne "+
+    "ORDER BY maxContrib DESC LIMIT 0,10";
+    return db.asq(query);
+}
+
+
+
+
+module.exports.updateMontantActuelCampagne = function(_montantTot, idCampagne, callback){
+    db.getConnection(function(err, connection){
+        if (err) throw err;
+        console.log("MontantTotal:" + _montantTot);
+        console.log("ID:" + idCampagne);
+        var sql = "UPDATE campagnes SET montantActuel=montantActuel-" + _montantTot;
+        sql += " WHERE idCampagne="+idCampagne;
+        connection.query(sql, callback);
+        connection.release();
+    });
+};
+
+module.exports.getIdCampagne = function(_nomCampagne, callback){
+    db.getConnection(function(err, connection){
+        if (err) throw err;
+        var sql = "SELECT idCampagne FROM campagnes WHERE nomCampagne='" + _nomCampagne + "'";
+        connection.query(sql, callback);
+        connection.release();
+    });
+};

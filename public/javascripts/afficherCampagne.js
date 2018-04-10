@@ -1,7 +1,7 @@
 $(document).ready(function(){
     //fill favorite state from the hidden field and construct the button
     var favStatus = $("#isFav").text();
-    var favIcon = favStatus == "0" ? "star" : "star_border";
+    var favIcon = favStatus == "0" ? "favorite_border" : "favorite";
     var favText = favStatus == "0" ? "Ajouter en favoris" : "Retirer des favoris";
 
     $('.tooltipped').tooltip({delay: 50});
@@ -68,7 +68,6 @@ $(document).ready(function(){
     });
 
     $("#favbutton").on('click', () => {
-      $("#favbutton").attr("data-tooltip", favText);//attr change doesn't work
       $.ajax({
         url: '/gestfavorite',
         method: 'post',
@@ -77,12 +76,12 @@ $(document).ready(function(){
 
       favStatus = favStatus == 0 ? 1 : 0;
 
-      favIcon = favStatus == "0" ? "star" : "star_border";
+      favIcon = favStatus == "0" ? "favorite_border" : "favorite";
       favText = favStatus == "0" ? "Ajouter en favoris" : "Retirer des favoris"; 
-      console.log("ft : " + favText);
       $("#favicon").text(favIcon);
-      console.log("afer");
+      $("#favbutton").tooltip('hide').attr("data-tooltip", favText).tooltip('show');
     });
+
     $("#btnComm").on('click', () => {
       $("#btnComm").hide();
       $(".commForm").show();

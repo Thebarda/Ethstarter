@@ -70,7 +70,7 @@ module.exports.afficherCampagne = async (request, response) => {
         });
 };
 
-module.exports.afficherStatistiquesCampagnes = function(request, response){
+module.exports.afficherStatistiquesCampagnes = (request, response) =>{
     var idCampagne = request.params.idCampagne;
     campagnesModel.getCampaignById(idCampagne, function(err, result){
         if(err) throw err;
@@ -82,48 +82,56 @@ module.exports.afficherStatistiquesCampagnes = function(request, response){
         response.joursRestants = utils.calculJourRestant(response.campagne.dateLimite);
         request.session.isLookingCampaign = idCampagne;
         campagnesModel.getComm(idCampagne, function(err,result){
-
             if(err) throw err;
+            result.reverse();
             response.commentaires = result;
-            console.log("test :" + response.commentaires);
+            campagnesModel.getListContreparties(idCampagne, (e,result)=>{
+                if(e) throw e;
+            response.contreparties = result;
             modelParticipation.getContributeurs(idCampagne, function(err, result){
                 if(err) throw err;
                 response.contributeurs = result;
                 modelParticipation.getNbContributions(idCampagne, function(err, result){
                     if(err) throw err;
                     response.nbContributeurs = result[0].nbContributeurs;
-                    campagnesModel.getInfosEntrepreneur(idCampagne, function(err, result){
+                    campagnesModel.getNbComm(idCampagne,function(err,result){
                         if(err) throw err;
-                        response.nomEntrepreneur = result[0].nom;
-                        response.prenomEntrepreneur = result[0].prenom;
-                        response.entreprise = result[0].nomEntreprise;
-                        if(request.session.isConnected) {
-                            modelParticipation.getNbContributionsUserConnected(idCampagne, request.session.idCompte, function (err, result) {
-                                if (err) throw err;
-                                response.nbContribsss = result[0].nbContribsss;
-                                console.log("ctrlr : " + idCampagne);
-                            });
-                            campagnesModel.hasContributed(request.session.idCompte,idCampagne, (e, res)=>{
-                                console.log("query ok");
-                            if (e) throw e;
-                            response.hasCont = res[0] == null ? 0 : 1;
-                            console.log("hasCont? : " + response.hasCont);
+                        response.nbComms = result[0].nbComms;
+                        console.log("nbComms: " + response);
+                        campagnesModel.getInfosEntrepreneur(idCampagne, function(err, result){
+                            if(err) throw err;
+                            response.nomEntrepreneur = result[0].nom;
+                            response.prenomEntrepreneur = result[0].prenom;
+                            response.entreprise = result[0].nomEntreprise;
                             response.render("afficherStatsCampagne", response);
                         });
-
-                            campagnesModel.isFavorite(request.session.idCompte,idCampagne, (e, res)=>{
-                                console.log("query ok");
-                            if (e) throw e;
-                            response.isFav = res[0] == null ? 0 : 1;
-                            console.log("isFav? : " + response.isFav);
-                        });
-
-                        }else{
-                            response.nbContribsss = 0;
-                            response.render("afficherStatsCampagne", response);
-                        };
                     });
                 });
+            });
+        });
+        });
+    });
+};
+module.exports.afficherStatistiques = (request, resp) =>{
+    var idCampagne = request.params.idCampagne;
+    campagnesModel.getTop10Donateurs(idCampagne, function(err, result1){
+        campagnesModel.getDonateursByDate(idCampagne, function(err, result2) {
+            campagnesModel.getBut(idCampagne, function(err, result3) {
+                var myObj = new Array();
+                var myObj1 = new Array();
+                var myObj2 = new Array();
+                var myObj3 = result3[0];
+                for (var i = 0; i < result1.length; i++) {
+                    myObj1[i] = {"contributeur": result1[i].contributeur, "montant": result1[i].montant};
+                }
+                for (var j = 0; j < result2.length; j++) {
+                    myObj2[j] = {"date": (new Date(result2[j].laDate)).toDateString(), "montant": result2[j].montant};
+                }
+                myObj[0] = myObj1;
+                myObj[1] = myObj2;
+                myObj[2] = myObj3;
+                var myJSON = JSON.stringify(myObj);
+                resp.send(myJSON);
             });
         });
     });
@@ -134,7 +142,7 @@ module.exports.afficherMesCampagnes = (req, resp) => {
         if (e) throw e;
         resp.title = "Mes Campagnes";
         resp.campagnes = res;
-        resp.render("afficherLesCampagnes", resp);
+        resp.render("afficherMesCampagnes", resp);
     });
 };
 
@@ -146,7 +154,14 @@ module.exports.afficherLesCampagnes = async (req, resp) => {
         resp.render("afficherLesCampagnes", resp);
     } catch (e) { throw e; }; 
 }
-
+module.exports.afficherTrendCampagnes = async(req, resp) => {
+    try {
+    var r = await campagnesModel.getTrendCampaigns();
+    resp.campagnes = r;
+    resp.title = "Campagnes Tendances";
+    resp.render("afficherLesCampagnes", resp);
+} catch (e) { throw e; }; 
+}
 module.exports.fetchNbCampagnesWaitingForValidation = (req, resp)=>{
   campagnesModel.fetchNbCampaignsWaitingForValidation((err, res) => {
     if (err) throw err;

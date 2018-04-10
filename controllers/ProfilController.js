@@ -124,3 +124,16 @@ module.exports.deleteUserModerator = (req, resp) => {
         resp.render('emptyView', resp);
     });
 };
+
+module.exports.list = async (req, resp) => {
+    try {
+        var dbres = await profilModel.getUsers();
+
+        var r = dbres.reduce((curr, next) => {
+            curr[next.name] = next.id;
+            return curr
+        }, {});
+
+        resp.send(r);
+    } catch (e) { throw e; };
+}
