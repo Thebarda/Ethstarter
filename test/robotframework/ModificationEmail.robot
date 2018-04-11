@@ -12,11 +12,13 @@ ${undefined}    https://www.katalon.com/
 *** Test Cases ***
 Test Case
     Click Link     id=btnConnexion
-    Input Text    name=password    contributor
-    Input Password    name=login    contributor
+    Input Text    name=password    toto
+    Input Password    name=login    Toto
     Click Button    xpath=//input[@value='connexion']
     Click Link      id:btnProfil
     Click Link      class:btnModifierProfil
-    Input Text      name:email  contributor@contrib.com
+    Input Text      name:email  toto@toto.com
+    Input Password  name:oldPassword    toto
+    Input Password  name:newPassword    toto
     Click Element   //input[@value='Valider']
-    Textfield Should Contain  name:email  contributor@contrib.com
+    Textfield Should Contain  name:email  toto@toto.com
