@@ -18,7 +18,7 @@ module.exports.genUUID = () => {
 };
 
 module.exports.escapeSingleQuotes = (value) => {
-  return value.replace("'", "\'");
+  return value.replace(new RegExp("'","g"), "\'");
 };
 
 module.exports.dateFormatMYSQL = (time, date) => {
