@@ -160,7 +160,7 @@ module.exports.afficherTrendCampagnes = async(req, resp) => {
     resp.campagnes = r;
     resp.title = "Campagnes Tendances";
     resp.render("afficherLesCampagnes", resp);
-} catch (e) { throw e; }; 
+    } catch (e) { throw e; }; 
 }
 module.exports.fetchNbCampagnesWaitingForValidation = (req, resp)=>{
   campagnesModel.fetchNbCampaignsWaitingForValidation((err, res) => {
