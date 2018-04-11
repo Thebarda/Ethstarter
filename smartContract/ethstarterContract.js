@@ -72,7 +72,11 @@ module.exports.addContributorToCrowfund = function(idCrowfund, addrContributor, 
 module.exports.setEstEnCours = function(idCrowfund, estEnCours){
     var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:42669"));
     if(idCrowfund && estEnCours !== null && typeof estEnCours !== 'undefined') {
-        return ethstarter.setEstEnCours(idCrowfund, estEnCours, {from: web3.eth.accounts[0], gas: 3000000});
+        try{
+            return ethstarter.setEstEnCours(idCrowfund, estEnCours, {from: web3.eth.accounts[0], gas: 3000000});
+        }catch(err){
+            throw new Error(err);
+        }
     } else {
         throw new Error("(idCrowfund && estEnCours) : Cette expression ne passe pas");
     }
@@ -81,7 +85,11 @@ module.exports.setEstEnCours = function(idCrowfund, estEnCours){
 module.exports.sendToContributors = function(id){
     var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:42669"));
     if(id) {
-        return ethstarter.sendToContributors(id, {from: web3.eth.accounts[0], gas: 3000000});
+        try{
+            return ethstarter.sendToContributors(id, {from: web3.eth.accounts[0], gas: 3000000});
+        }catch(err){
+            throw new Error(err);
+        }
     } else {
         throw Error("L'id de la campagne est null ou undefined");
     }
@@ -90,7 +98,11 @@ module.exports.sendToContributors = function(id){
 module.exports.sendToContractor = function(id){
     var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:42669"));
     if(id) {
-        return ethstarter.sendToContractor(id, {from: web3.eth.accounts[0], gas: 3000000});
+        try {
+            return ethstarter.sendToContractor(id, {from: web3.eth.accounts[0], gas: 3000000});
+        }catch(err){
+            throw new Error(err);
+        }
     } else {
         throw Error("L'id de la campagne est null ou undefined");
     }
@@ -99,7 +111,11 @@ module.exports.sendToContractor = function(id){
 module.exports.removeContribution = function(idCampagne, addrContributor) {
     var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:42669"));
     if (idCampagne && web3.isAddress(addrContributor)) {
-      return ethstarter.removeContribution(idCampagne, addrContributor, {from: addrContributor, gas: 3000000});
+        try{
+            return ethstarter.removeContribution(idCampagne, addrContributor, {from: addrContributor, gas: 3000000});
+        }catch(err){
+            throw new Error(err);
+        }
     } else {
       throw Error("(idCampagne && web3.isAddress(addrContributor)) : Cette expression ne passe pas");
     }
