@@ -1,18 +1,19 @@
     <div class="row center-align">
-        <h1>Votre profil</h1>
+        <h1>Votre profil</h1> <div id="profileType" class="hide">{{profil.type}}</div>
         <a class="btn waves-effect waves-light btnModifierProfil btnEditerProfil">Modifier le profil</a>
+        <a class="btn waves-light waves-effect red darken-1 modal-trigger" href="#modalDelete"><i class="material-icons left">delete</i>Supprimer</a>
         <div id="editionProfil" class="col s12">
             <form method="post" action="/modifierProfil">
                 <div class="input-field col s2 offset-s4">
-                    <input name="lastname" type="text" class="validate inputModifierProfil" value="{{profil.nom}}" readonly="readonly">
+                    <input name="lastname" type="text" class="validate inputModifierProfilContributor " value="{{profil.nom}}" readonly="readonly">
                     <label for="lastname">Nom</label>
                 </div>
                 <div class="input-field col s2">
-                    <input name="firstname" type="text" class="validate inputModifierProfil" value="{{profil.prenom}}" readonly="readonly">
+                    <input name="firstname" type="text" class="validate inputModifierProfilContributor" value="{{profil.prenom}}" readonly="readonly">
                     <label for="firstname">Prénom</label>
                 </div>
                 <div class="input-field col s2 offset-s4">
-                    <input name="login" type="text" class="validate inputModifierProfil" value="{{profil.login}}" readonly="readonly">
+                    <input name="login" type="text" class="validate" value="{{profil.login}}" readonly="readonly">
                     <label for="login">Login</label>
                 </div>
                 <div class="input-field col s2">
@@ -29,7 +30,7 @@
                 </div>
                 {{#ifCond session.typeCompte '==' 2}}
                     <div class="input-field col s4 offset-s4">
-                        <input name="nomEntreprise" type="text" class="validate inputModifierProfil" value="{{profil.nomEntreprise}}" readonly="readonly">
+                        <input name="nomEntreprise" type="text" class="validate" value="{{profil.nomEntreprise}}" readonly="readonly">
                         <label for="nomEntreprise">Nom de la société</label>
                     </div>
                 {{/ifCond}}
@@ -43,9 +44,6 @@
                 </div>
                 <p class="red-text">{{error}}</p>
             </form>
-        </div>
-        <div>
-            <a class="btn waves-light waves-effect red darken-1 modal-trigger" href="#modalDelete"><i class="material-icons left">delete</i>Supprimer</a>
         </div>
     </div>
     <div id="modalDelete" class="modal">
