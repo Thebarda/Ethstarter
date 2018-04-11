@@ -6,20 +6,24 @@ var ethstarterContract = require("../smartContract/ethstarterContract");
 var sha256 = require('js-sha256').sha256;
 
 var idCompte;
+var compteType;
 
 module.exports.getProfil = function(request, response){
     response.title="Ethstarter - profil";
     idCompte = request.session.idCompte;
+    compteType = request.session.typeCompte;
     if (request.session.typeCompte == 1) {
         profilModel.getProfilContributeur(idCompte, function(err, result){
             if (err) throw err;
             response.profil = result[0];
+            response.profil.type = compteType;
             response.render("afficherProfil", response);
         });
     }else{
         profilModel.getProfilEntrepreneur(idCompte, function (err, result) {
             if (err) throw err;
             response.profil = result[0];
+            response.profil.type = compteType;
             response.render("afficherProfil", response);
         });
     }
@@ -61,26 +65,36 @@ module.exports.supprimerParticipation = function(request, response){
 
 module.exports.modifierProfil = function(request, response) {
     var body = request.body;
+    var password = request.session.password;
     console.log("----- Body -----");
     console.log(body);
     console.log("----------------");
     profilModel.updateProfil(idCompte, body, function(err, result){
         if (err) throw err;
-        if (request.session.typeCompte == 2) {
+        if (compteType == 2) {
             profilModel.updateProfilEntrepreneur(idCompte, body, function(err, result){
                 if (err) throw err;
+                profilController.updatePassword (request, response, idCompte, body, password);
             });
+        }else{
+            profilController.updatePassword (request, response);
         }
-        if(body.oldPassword != "") {
-            if ((sha256(body.oldPassword) == request.session.password)) {
-                profilModel.updatePassword(idCompte, body, function(err, result){
-                    if (err) throw err;
-                });
-            }
-        }
-        profilController.getProfil(request, response);
     });
 };
+
+
+module.exports.updatePassword = function(request, response, idCompte, body, password) {
+    if(body.oldPassword != "") {
+        if ((sha256(body.oldPassword) === password)) {
+            profilModel.updatePassword(idCompte, body, function (err, result) {
+                if (err) throw err;
+                profilController.getProfil(request, response);
+            });
+        }
+    }else{
+        profilController.getProfil(request, response);
+    }
+}
 
 module.exports.fetchNbContractorsWaitingForValidation = (req, resp)=>{
   profilModel.fetchNbContractorsWaitingForValidation((err, res) => {
