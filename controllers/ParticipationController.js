@@ -3,11 +3,12 @@ var modelCampagnes = require ('../models/campagnes.js');
 var modelParticipation = require ('../models/participation.js');
 var ethstarterContract = require("../smartContract/ethstarterContract");
 var notifModel = require('../models/notifications');
+var ts = require("time-stamp");
 
 module.exports.participation = function(request, response){
     response.title = "Ethstarter - afficherCampagne";
     var _montant = request.body.montant;
-    var data = {idContributeur:request.session.idCompte, montant:_montant, idCampagne: request.session.isLookingCampaign, date: Date()};
+    var data = {idContributeur:request.session.idCompte, montant:_montant, idCampagne: request.session.isLookingCampaign, date: ts("YYYYMMDDHHmmss")};
     modelParticipation.addParticipation(data, function(err, result){
         if(err) throw err;
         modelCampagnes.updateMontant(request.session.isLookingCampaign, _montant, function(err, result){
