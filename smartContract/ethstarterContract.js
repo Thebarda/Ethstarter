@@ -114,7 +114,8 @@ module.exports.removeContribution = function(idCampagne, addrContributor) {
         try{
             return ethstarter.removeContribution(idCampagne, addrContributor, {from: addrContributor, gas: 3000000});
         }catch(err){
-            throw new Error(err);
+            // Cette ligne est commenté car une issue relate un bug de la part Error: VM Exception while processing transaction: revert
+            //Throw new Error(err)
         }
     } else {
       throw Error("(idCampagne && web3.isAddress(addrContributor)) : Cette expression ne passe pas");
