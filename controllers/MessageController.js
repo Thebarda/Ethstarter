@@ -1,6 +1,5 @@
 var msg = require("../models/message");
 var notif = require("../models/notifications");
-var utils = require("../utils/utils");
 var ts = require("time-stamp");
 
 
@@ -20,8 +19,8 @@ module.exports.get = async (req, resp) => {
 }
 
 module.exports.write = async (req) => {
-    var title = utils.escapeSingleQuotes(req.body.msgTitle);
-    var body = utils.escapeSingleQuotes(req.body.msgBody);
+    var title = req.body.msgTitle;
+    var body = req.body.msgBody;
     var timestamp = ts("YYYYMMDDHHmmss");
     try {
         await msg.write(req.session.idCompte, title, body, timestamp, req.body.msgRecipient);
