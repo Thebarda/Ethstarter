@@ -42,6 +42,7 @@ module.exports.supprimerParticipation = function(request, response){
     var _montantTot = request.body.montant;
     var _nomCampagne = request.body.nomCampagne;
     var idContributeur = request.session.idCompte;
+    console.log(request.session.addrPubliqueEth);
     modelCampagnes.getIdCampagne(_nomCampagne, function(err, result){
         if (err) throw err;
         var idCampagne = result[0].idCampagne;
