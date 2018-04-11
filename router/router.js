@@ -40,18 +40,19 @@ module.exports = async function (app) {
     app.get('/campaingsWaiting', CampagnesController.campaingsWaiting);
     app.get('/campaignWaiting/:idCampagne', CampagnesController.campaignWaitign);
     app.post('/updateValidationCampaign', CampagnesController.updateValidationCampaign);
-
+    app.get('/trendCampaigns',CampagnesController.afficherTrendCampagnes);
     app.get('/myfavorites', CampagnesController.favorites);
     app.post('/gestfavorite', CampagnesController.gestFavorite);
     app.get('/mycontributions', CampagnesController.contributed);
     app.post('/addContrepartie', ContrepartieController.addContrepartie);
+    
     //Commentaire Campagnes
     app.post('/postcomm', CampagnesController.postComm);
 
     //Messages
     app.get('/notifications', MessageController.get);
-    app.post('/messageWrite', MessageController.write);
-    app.post('/messageDelete', MessageController.delete);
+    app.post('/writeMessage', MessageController.write);
+    app.post('/deleteMessage', MessageController.delete);
 
     //Recherche
     app.post('/search', CampagnesController.searchCampaign); 
@@ -66,6 +67,8 @@ module.exports = async function (app) {
     app.post('/updateValidationContractorAccount', ProfilController.updateValidationContractorAccount);
     app.post('/deleteUser', ProfilController.deleteUser);
     app.post('/deleteUseModerator', ProfilController.deleteUserModerator);
+
+    app.get('/users', ProfilController.list);
 
     //Administration
     app.get('/administration', AdministrationController.administration);

@@ -23,4 +23,4 @@ Test Case
     Press Key     id=montantJS    \\27
     Go To   http://localhost:1047/Participations
     Click Element   xpath=//form[1]/i
-    Wait Until Page Contains    Nom de la campagne / Montant contribué
+    Page Should Contain     Vos participations

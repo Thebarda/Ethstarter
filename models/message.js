@@ -13,8 +13,8 @@ module.exports.get = async (messID) => {
 }
 
 module.exports.write = async (sender, title, message, timestamp, recipient) => {
-    var query = "INSERT INTO dm VALUES (default," + sender + 
-                "," + title + "," + message + "," + timestamp + "," + recipient + ")";
+    var query = "INSERT INTO dm VALUES (default, " + sender + 
+                ", '" + title + "', '" + message + "', " + timestamp + ", " + recipient + ")";
     db.asq(query);
 }
 

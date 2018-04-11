@@ -208,7 +208,7 @@ module.exports.hasContributed = (idUser, idCamp, callback) => {
 
 module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
     db.getConnection((err, co ) => {
-        co.query("INSERT INTO commentaires VALUES ('" + idUser + "', '" + idCamp + "','" + commentaires + "')", callback);
+        co.query('INSERT INTO commentaires (`idContributeur`, `idCampagne`,`datetime`, `commentaire`) VALUES (' + idUser + ',' + idCamp + ', NOW(),"'+ commentaires + '" )', callback);
         co.release();
     });
 };
@@ -216,7 +216,7 @@ module.exports.addComm = (idUser,idCamp,commentaires,callback) => {
 module.exports.getComm = (idCamp,callback) => {
     console.log("idCampagne :" + idCamp);
     db.getConnection((e, c) => {
-        c.query("select commentaire as comm,prenom,nom from utilisateur"+
+        c.query("select commentaire as comm,prenom,nom,datetime from utilisateur"+
         " inner join commentaires on utilisateur.id = commentaires.idContributeur"+
         " where commentaires.idCampagne=" + idCamp , callback);
         c.release();
@@ -261,3 +261,36 @@ module.exports.addContrepartieContrib = (idCamp, idContributeur, idContrepartie,
         co.release();
     });
 }
+module.exports.getTrendCampaigns = async () => {
+    var query = "SELECT COUNT(*) AS maxContrib,campagnes.idCampagne,nomCampagne, but"+
+    ", montantActuel, montantMax, dateLimite, descriptionCourte, estEnCours, validated "+
+    "FROM campagnes inner join participation on campagnes.idCampagne = participation.idCampagne "+
+    "where participation.date>=DATE_ADD(NOW(), INTERVAL -5 DAY)"+
+    "GROUP BY participation.idCampagne "+
+    "ORDER BY maxContrib DESC LIMIT 0,10";
+    return db.asq(query);
+}
+
+
+
+
+module.exports.updateMontantActuelCampagne = function(_montantTot, idCampagne, callback){
+    db.getConnection(function(err, connection){
+        if (err) throw err;
+        console.log("MontantTotal:" + _montantTot);
+        console.log("ID:" + idCampagne);
+        var sql = "UPDATE campagnes SET montantActuel=montantActuel-" + _montantTot;
+        sql += " WHERE idCampagne="+idCampagne;
+        connection.query(sql, callback);
+        connection.release();
+    });
+};
+
+module.exports.getIdCampagne = function(_nomCampagne, callback){
+    db.getConnection(function(err, connection){
+        if (err) throw err;
+        var sql = "SELECT idCampagne FROM campagnes WHERE nomCampagne='" + _nomCampagne + "'";
+        connection.query(sql, callback);
+        connection.release();
+    });
+};

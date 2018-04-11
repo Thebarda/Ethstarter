@@ -154,7 +154,14 @@ module.exports.afficherLesCampagnes = async (req, resp) => {
         resp.render("afficherLesCampagnes", resp);
     } catch (e) { throw e; };
 }
-
+module.exports.afficherTrendCampagnes = async(req, resp) => {
+    try {
+    var r = await campagnesModel.getTrendCampaigns();
+    resp.campagnes = r;
+    resp.title = "Campagnes Tendances";
+    resp.render("afficherLesCampagnes", resp);
+} catch (e) { throw e; }; 
+}
 module.exports.fetchNbCampagnesWaitingForValidation = (req, resp)=>{
   campagnesModel.fetchNbCampaignsWaitingForValidation((err, res) => {
     if (err) throw err;
