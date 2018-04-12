@@ -9,8 +9,11 @@ module.exports.afficherCampagne = async (request, response) => {
        if(err) throw err;
         response.title=result[0].nomCampagne;
         response.campagne = result[0];
-        response.pourcentage = (response.campagne.montantActuel/response.campagne.but)*100;
-        response.pourcentageAffiche = ((response.campagne.montantActuel/response.campagne.but)*100)>100?100:response.pourcentage;
+
+        var prcnt = (response.campagne.montantActuel/response.campagne.but)*100;
+        prcnt = Math.round( prcnt * 10 ) / 10;
+        response.pourcentage = prcnt.toFixed(1);
+        response.pourcentageAffiche = (prcnt>100)?100:response.pourcentage;
         response.isFinished = parseInt(utils.calculJourRestant(response.campagne.dateLimite)) < 0 ? true : false;
         response.joursRestants = utils.calculJourRestant(response.campagne.dateLimite);
         request.session.isLookingCampaign = idCampagne;
@@ -185,8 +188,10 @@ module.exports.campaignWaitign = function(request, response){
        if(err) throw err;
         response.title=result[0].nomCampagne;
         response.campagne = result[0];
-        response.pourcentage = (response.campagne.montantActuel/response.campagne.but)*100;
-        response.pourcentageAffiche = ((response.campagne.montantActuel/response.campagne.but)*100)>100?100:response.pourcentage;
+        var prcnt = (response.campagne.montantActuel/response.campagne.but)*100;
+        prcnt = Math.round( prcnt * 10 ) / 10;
+        response.pourcentage = "hrllo" + prcnt.toFixed(1);
+        response.pourcentageAffiche = (prcnt>100)?100:response.pourcentage;
         response.joursRestants = utils.calculJourRestant(response.campagne.dateLimite);
         request.session.isLookingCampaign = idCampagne;
         modelParticipation.getContributeurs(idCampagne, function(err, result){
