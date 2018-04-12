@@ -84,15 +84,15 @@
                               <br/>
                               <a id="contribute" class="waves-effect waves-light btn-large modal-trigger disabled" href="#contribuez">Contribuez</a>
                           {{else}}
-                              <p>{{joursRestants}} jours restants</p>
+                              <p><i class="material-icons prefix">access_time</i><span>{{joursRestants}} jours restants</span></p>
                               <br/>
                               <a class="waves-effect waves-light btn-large modal-trigger blue" id="contribute" href="#contribuez">Contribuez</a>
                           {{/ifCond}}
                           <br/>
                           <p>Vous avez contribué <b id="nbContribsss">{{nbContribsss}}</b> fois à ce projet</p>
                       {{else}}
-                          <p>{{joursRestants}} jours restants</p>
-                          <p></p>
+                          <p><i class="material-icons prefix">access_time</i><span>{{joursRestants}} jours restants</span></p>
+                          <br/>
                           <a id="login" class="waves-effect waves-light btn-large blue col s12" href="/Connexion">Connectez-vous</a>
                           <p class="center-align">---OU---</p>
                           <a id="signup" class="waves-effect waves-light btn-large blue" href="/Inscription">Inscrivez-vous</a>
