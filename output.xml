@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180411 15:54:53.863" generator="Robot 3.0.2 (Python 2.7.14+ on linux2)">
+<suite source="/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AddRemoveCampaignFavorite.robot" id="s1" name="AddRemoveCampaignFavorite">
+<kw type="setup" name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20180411 15:54:54.031" level="INFO">Opening browser 'chrome' to base url 'http://localhost:1047/'.</msg>
+<status status="PASS" endtime="20180411 15:54:58.582" starttime="20180411 15:54:54.031"></status>
+</kw>
+<test id="s1-t1" name="Test Case">
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id=btnConnexion</arg>
+</arguments>
+<msg timestamp="20180411 15:54:58.587" level="INFO">Clicking link 'id=btnConnexion'.</msg>
+<status status="PASS" endtime="20180411 15:54:59.110" starttime="20180411 15:54:58.585"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=login</arg>
+<arg>Toto</arg>
+</arguments>
+<msg timestamp="20180411 15:54:59.111" level="INFO">Typing text 'Toto' into text field 'name=login'.</msg>
+<status status="PASS" endtime="20180411 15:54:59.272" starttime="20180411 15:54:59.110"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>toto</arg>
+</arguments>
+<msg timestamp="20180411 15:54:59.272" level="INFO">Typing password into text field 'name=password'.</msg>
+<status status="PASS" endtime="20180411 15:54:59.398" starttime="20180411 15:54:59.272"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//input[@value='connexion']</arg>
+</arguments>
+<msg timestamp="20180411 15:54:59.399" level="INFO">Clicking button 'xpath=//input[@value='connexion']'.</msg>
+<status status="PASS" endtime="20180411 15:54:59.954" starttime="20180411 15:54:59.398"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>(//div[@id="campagne"][1]/div/div[2]/p/a)</arg>
+</arguments>
+<msg timestamp="20180411 15:54:59.955" level="INFO">Clicking link '(//div[@id="campagne"][1]/div/div[2]/p/a)'.</msg>
+<status status="PASS" endtime="20180411 15:55:01.682" starttime="20180411 15:54:59.955"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id:favbutton</arg>
+</arguments>
+<msg timestamp="20180411 15:55:01.683" level="INFO">Clicking link 'id:favbutton'.</msg>
+<status status="PASS" endtime="20180411 15:55:01.790" starttime="20180411 15:55:01.683"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/myfavorites</arg>
+</arguments>
+<msg timestamp="20180411 15:55:01.790" level="INFO">Opening url 'http://localhost:1047/myfavorites'</msg>
+<status status="PASS" endtime="20180411 15:55:02.245" starttime="20180411 15:55:01.790"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>mon projet</arg>
+</arguments>
+<msg timestamp="20180411 15:55:02.277" level="INFO">Current page contains text 'mon projet'.</msg>
+<status status="PASS" endtime="20180411 15:55:02.277" starttime="20180411 15:55:02.245"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/</arg>
+</arguments>
+<msg timestamp="20180411 15:55:02.278" level="INFO">Opening url 'http://localhost:1047/'</msg>
+<status status="PASS" endtime="20180411 15:55:02.562" starttime="20180411 15:55:02.277"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>(//div[@id="campagne"][1]/div/div[2]/p/a)</arg>
+</arguments>
+<msg timestamp="20180411 15:55:02.562" level="INFO">Clicking link '(//div[@id="campagne"][1]/div/div[2]/p/a)'.</msg>
+<status status="PASS" endtime="20180411 15:55:04.086" starttime="20180411 15:55:02.562"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>id:favbutton</arg>
+</arguments>
+<msg timestamp="20180411 15:55:04.087" level="INFO">Clicking link 'id:favbutton'.</msg>
+<status status="PASS" endtime="20180411 15:55:04.182" starttime="20180411 15:55:04.086"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>http://localhost:1047/myfavorites</arg>
+</arguments>
+<msg timestamp="20180411 15:55:04.182" level="INFO">Opening url 'http://localhost:1047/myfavorites'</msg>
+<status status="PASS" endtime="20180411 15:55:04.490" starttime="20180411 15:55:04.182"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Aucun résultat :(</arg>
+</arguments>
+<msg timestamp="20180411 15:55:04.535" level="INFO">Current page contains text 'Aucun résultat :('.</msg>
+<status status="PASS" endtime="20180411 15:55:04.535" starttime="20180411 15:55:04.490"></status>
+</kw>
+<status status="PASS" endtime="20180411 15:55:04.536" critical="yes" starttime="20180411 15:54:58.583"></status>
+</test>
+<kw type="teardown" name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20180411 15:55:04.601" starttime="20180411 15:55:04.538"></status>
+</kw>
+<status status="PASS" endtime="20180411 15:55:04.601" starttime="20180411 15:54:53.864"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="AddRemoveCampaignFavorite" pass="1">AddRemoveCampaignFavorite</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20180411 15:54:53.858" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AddRemoveCampaignFavorite.robot': Non-existing setting '${options}='.</msg>
+<msg timestamp="20180411 15:54:53.858" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AddRemoveCampaignFavorite.robot': Non-existing setting '${options.add_argument}='.</msg>
+<msg timestamp="20180411 15:54:53.858" level="ERROR">Error in file '/home/mojann/WebstormProjects/Ethstarter/test/robotframework/AddRemoveCampaignFavorite.robot': Non-existing setting 'Create WebDriver Chrome chrome_options=${options}'.</msg>
+</errors>
+</robot>

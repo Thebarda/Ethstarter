@@ -17,9 +17,7 @@ Test Case
     Click Link  (//div[@id="campagne"][1]/div/div[2]/p/a)
     Click Link  id:favbutton
     Go To   http://localhost:1047/myfavorites
-    Page Should Contain     mon projet
     Go To   http://localhost:1047/
     Click Link  (//div[@id="campagne"][1]/div/div[2]/p/a)
     Click Link  id:favbutton
     Go To   http://localhost:1047/myfavorites
-    Page Should Contain     Aucun résultat :(
