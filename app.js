@@ -13,6 +13,11 @@ var checkCrowfunds = require("./smartContract/checkCrowfunds");
 var app = express();
 var ethstarterContract = require("./smartContract/ethstarterContract");
 
+//file upload mgmt
+const upload = require('express-fileupload');
+app.use(upload());
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('port', 1047);
 app.set('views', path.join(__dirname, 'views'));
