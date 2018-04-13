@@ -24,9 +24,9 @@
                 <h5>Pas de campagnes nouvellement crées :(</h5>
             {{/if}}
         </div>
-        <div class="col l4 m10">
+        <div class="col l3 m10 right">
             {{#ifCond notifLength '>' -1}}
-                <div class="card black-text grey lighten-3">
+
                     <div class="card-content">
                         <ul class="collection with-header">
                             <li class="collection-header center-align grey lighten-3"><h5 id="notifTitle">Notifications</h5></li>
@@ -40,7 +40,6 @@
                         {{/ifCond}}
                         </ul>
                     </div>
-                </div>
             {{/ifCond}}
         </div>
     {{else}}
