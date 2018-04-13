@@ -4,7 +4,7 @@ const notifModel = require('../models/notifications');
 const utils = require("../utils/utils");
 
 
-module.exports.example = function(request, response) {
+module.exports.createForm = function(request, response) {
     response.title = "Ethstarter - Projet";
     response.render("creercampagne", response);
 };
@@ -14,7 +14,7 @@ module.exports.validationCampagne = function (request, response) {
     response.title = "Ethstarter - Création campagne";
     var body = request.body;
     body.idEntrepreneur = request.session.idCompte;
-    body.image = "DUMMY PATH";
+    //body.image = "DUMMY PATH";
     body.validated = 0;
 
     createModels.insertCampaign(body, function (err, result) {
