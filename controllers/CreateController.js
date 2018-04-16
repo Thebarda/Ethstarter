@@ -17,20 +17,22 @@ module.exports.validationCampagne = function (request, response) {
     body.validated = 0;
     
     //img handling ---- todo : file upload constrains (see express fileup doc)
-    if (!body.coverimg) console.log("file was not upladed - front end");
-    var coverimg = body.coverimg;
-    if (coverimg.mimetype != "image/jpeg" || 
-        coverimg.mimetype != "image/bmp" ||
-        coverimg.mimetype != "image/png")
-            console.log("FUCK OFF"); //check for correct file type 
+    var coverimg = request.files.coverimg;
+    if (!coverimg) console.log("file was not upladed - front end");
+    if (coverimg.mimetype != "image/jpeg" && 
+        coverimg.mimetype != "image/bmp" &&
+        coverimg.mimetype != "image/png") console.log("FUCK OFF"); //check for correct file type 
 
     var UUIDname = "mock";
     var extRegex = /\.[0-9a-z]+$/i; 
     var ext = coverimg.name.match(extRegex);
-    body.image = UUIDname + ext; //HAS TO CHANGE, USING UUID
+    var filename = "mock" + ext[0];
+    body.image = filename;
 
-    coverimg.mv('../public/images/uploads/' + UUIDname + ext , function(err) { //USE A PROMISE
+    //coverimg.mv('../public/images/uploads/' + filename, function(err) { //USE A PROMISE
+    coverimg.mv(filename, function(err) { //USE A PROMISE
         if (err) return err;
+        console.log("UPLOADED");
 
         createModels.insertCampaign(body, function (err, result) {
             if (err) {
