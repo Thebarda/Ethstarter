@@ -54,23 +54,42 @@ $(document).ready(function () {
                     $('.modal').modal('open');
                     $("#error").text("");
 
-                    var form = $('formUpload')[0]; 
-                    var file = new FormData(form);
+                    var fd = new FormData();
+                    fd.append('nomCampagne', titreCampagne);
+                    fd.append('description', description);
+                    fd.append('descriptionCourte', descriptionCourte);
+                    fd.append('dateLimite', datepicker);
+                    fd.append('but', objectif);
+                    fd.append('estEnCours', 1);
+                    fd.append('montantActuel', 0);
+                    fd.append('montantMax', objectifMax);
+
+                    var img = $('#coverimg')[0].files[0];
+                    fd.append('coverimg', img); 
 
                     $.ajax({
-                        url: "/validationCampagne",
+                        url: '/validationCampagne',
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        type: 'POST',
+                        success: function(d){
+                          alert(d);
+                        }
+
+/*                      url: "/validationCampagne",
                         method: "post",
                         data: {
                             nomCampagne: titreCampagne,
-                            description: description,
+                            descriptionCourte: description,
                             descriptionCourte: descriptionCourte,
                             dateLimite: datepicker,
                             but: objectif,
                             estEnCours: 1,
                             montantActuel: 0,
                             montantMax: objectifMax,
-                            files: file
-                        }
+                        } */
+
                       }).done(function (html) {
                           var idCampagne = $(html).filter("#emptyView").text();
                           $(".CP").each(function () {

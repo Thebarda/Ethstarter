@@ -17,9 +17,14 @@ module.exports.validationCampagne = function (request, response) {
     body.validated = 0;
     
     //img handling ---- todo : file upload constrains (see express fileup doc)
-    if (!request.files) console.log("file was not upladed - front end");
-    var coverimg = request.files.coverimg;
-    if (coverimg.mimetype != "image/jpeg0") console.log("FUCK OFF"); //check for correct file type 
+    console.log("FD - " + body.descriptionCourte);
+
+    if (!body.coverimg) console.log("file was not upladed - front end");
+    var coverimg = body.coverimg;
+    if (coverimg.mimetype != "image/jpeg" || 
+        coverimg.mimetype != "image/bmp" ||
+        coverimg.mimetype != "image/png")
+            console.log("FUCK OFF"); //check for correct file type 
 
     var UUIDname = "mock";
     var extRegex = /\.[0-9a-z]+$/i; 
