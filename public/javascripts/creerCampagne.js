@@ -64,7 +64,7 @@ $(document).ready(function () {
                     fd.append('montantActuel', 0);
                     fd.append('montantMax', objectifMax);
 
-                    var img = $('#coverimg')[0].files[0];
+                    var img = $('#coverimg')[0];
                     fd.append('coverimg', img); 
 
                     $.ajax({

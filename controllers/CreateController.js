@@ -17,8 +17,6 @@ module.exports.validationCampagne = function (request, response) {
     body.validated = 0;
     
     //img handling ---- todo : file upload constrains (see express fileup doc)
-    console.log("FD - " + body.descriptionCourte);
-
     if (!body.coverimg) console.log("file was not upladed - front end");
     var coverimg = body.coverimg;
     if (coverimg.mimetype != "image/jpeg" || 
