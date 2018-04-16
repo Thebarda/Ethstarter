@@ -64,8 +64,12 @@ $(document).ready(function () {
                     fd.append('montantActuel', 0);
                     fd.append('montantMax', objectifMax);
 
-                    var img = $('#coverimg')[0];
+                    var img = $('#coverimg')[0].files[0];
                     fd.append('coverimg', img); 
+
+                    for (var p of fd) {
+                        console.log(p);
+                    }
 
                     $.ajax({
                         url: '/validationCampagne',
