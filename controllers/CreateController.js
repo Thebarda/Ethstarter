@@ -29,24 +29,24 @@ module.exports.validationCampagne = function (request, response) {
     var filename = "mock" + ext[0];
     body.image = filename;
 
-    //coverimg.mv('../public/images/uploads/' + filename, function(err) { //USE A PROMISE
-    coverimg.mv(filename, function(err) { //USE A PROMISE
-        if (err) return err;
-        console.log("UPLOADED");
-
-        createModels.insertCampaign(body, function (err, result) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            else {
-                response.response = result.insertId;
-                ethstarterContract.addCrowfunding(result.insertId, request.session.addrPubliqueEth, parseInt(body.but), parseInt(body.montantMax));
-                var texte = "Votre campagne "+body.nomCampagne+" est en attente de validation";
-                notifModel.addNotification(request.session.idCompte, texte, (err, result2) => {
+    createModels.insertCampaign(body, function (err, result) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        else {
+            response.response = result.insertId;
+            ethstarterContract.addCrowfunding(result.insertId, request.session.addrPubliqueEth, parseInt(body.but), parseInt(body.montantMax));
+            var texte = "Votre campagne "+body.nomCampagne+" est en attente de validation";
+            notifModel.addNotification(request.session.idCompte, texte, (err, result2) => {
+            
+                //  ../public/images/uploads/' + filename
+                coverimg.mv(filename, function(err) { //USE A PROMISE
+                    if (err) return err;
+                    console.log("UPLOADED");
                     response.render("emptyView", response);
-                });
-            }
-        });
+                });    
+            });
+        }
     });
 }

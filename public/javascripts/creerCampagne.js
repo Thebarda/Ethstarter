@@ -76,10 +76,7 @@ $(document).ready(function () {
                         data: fd,
                         processData: false,
                         contentType: false,
-                        type: 'POST',
-                        success: function(d){
-                          alert(d);
-                        }
+                        type: 'POST'
 
 /*                      url: "/validationCampagne",
                         method: "post",
