@@ -4,7 +4,8 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'), //pour récupérer les résultats des post
     http = require('http'),
-    path = require('path');
+    path = require('path'),
+    upload = require('express-fileupload');
 var async = require('async');
 var readline = require('readline');
 var fs = require('fs');
@@ -13,9 +14,7 @@ var checkCrowfunds = require("./smartContract/checkCrowfunds");
 var app = express();
 var ethstarterContract = require("./smartContract/ethstarterContract");
 
-//file upload mgmt
-const upload = require('express-fileupload');
-app.use(upload());
+
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -46,6 +45,8 @@ app.set('view engine', 'handlebars'); //nom de l'extension des fichiers
 var handlebars  = require('./helpers/handlebars.js')(exphbs); //emplacement des helpers
 // helpers : extensions d'handlebars
 
+//file upload mgmt
+app.use(upload());
 
 app.engine('handlebars', handlebars.engine);
 

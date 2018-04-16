@@ -50,22 +50,27 @@ $(document).ready(function () {
                           }
                       }
                   });
-                  if(!errorCP) {
-                      $('.modal').modal('open');
-                      $("#error").text("");
-                      $.ajax({
-                          url: "/validationCampagne",
-                          method: "post",
-                          data: {
-                              nomCampagne: titreCampagne,
-                              description: description,
-                              descriptionCourte: descriptionCourte,
-                              dateLimite: datepicker,
-                              but: objectif,
-                              estEnCours: 1,
-                              montantActuel: 0,
-                              montantMax: objectifMax
-                          }
+                if(!errorCP) {
+                    $('.modal').modal('open');
+                    $("#error").text("");
+
+                    var form = $('formUpload')[0]; 
+                    var file = new FormData(form);
+
+                    $.ajax({
+                        url: "/validationCampagne",
+                        method: "post",
+                        data: {
+                            nomCampagne: titreCampagne,
+                            description: description,
+                            descriptionCourte: descriptionCourte,
+                            dateLimite: datepicker,
+                            but: objectif,
+                            estEnCours: 1,
+                            montantActuel: 0,
+                            montantMax: objectifMax,
+                            files: file
+                        }
                       }).done(function (html) {
                           var idCampagne = $(html).filter("#emptyView").text();
                           $(".CP").each(function () {
