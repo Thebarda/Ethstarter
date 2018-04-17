@@ -1,12 +1,5 @@
-$(function() {
-/*     $('.card').hover(
-        function() {
-            $(this).find('> .card-image > img.activator').click();
-        }, function() {
-            $(this).find('> .card-reveal > .card-title').click();
-        }
-    );  */
-
+$(document).ready(function(){
+/* 
     $(".card").mouseenter(function(e){
         if ($(this).find('> .card-reveal').length) {
             if ($(e.target).is($('.card .activator')) || $(e.target).is($('.card .activator i')) ) {
@@ -36,7 +29,10 @@ $(function() {
                     $(this).css({ display: 'none'});
                 }
             });
+    }); */
+
+    $(".card").click(function(){
+        var link = $('#link').attr('href');
+        window.location.href = link;
     });
-
 });
-

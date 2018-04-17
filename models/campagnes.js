@@ -3,7 +3,7 @@ var db = require('./configDb');
 module.exports.getAllCrowfundsThatFinishTodayAndMax = function (callback) {
     db.getConnection(function (err, connection) {
         if (err) throw err;
-        connection.query("SELECT idCampagne, but, montantActuel, idEntrepreneur, nomCampagne FROM campagnes WHERE dateLimite LIKE DATE(NOW()) OR montantActuel>=montantMax", callback);
+        connection.query("SELECT idCampagne, but, montantActuel, idEntrepreneur, image, nomCampagne FROM campagnes WHERE dateLimite LIKE DATE(NOW()) OR montantActuel>=montantMax", callback);
         connection.release();
     });
 };
@@ -25,8 +25,8 @@ module.exports.updateMontant = function (idCampagne, montant, callback) {
 
 module.exports.getMyCampaigns = function (idEntrepreneur, callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
-        "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
+        connection.query("SELECT idCampagne, idEntrepreneur, nomCampagne, " +
+        "but, montantActuel, dateLimite, description, descriptionCourte, image, estEnCours " +
         "FROM campagnes WHERE idEntrepreneur=" + idEntrepreneur, callback);
         connection.release();
     });
