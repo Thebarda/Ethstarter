@@ -61,7 +61,7 @@ module.exports.getBut = function (idCampagne, callback) {
 module.exports.getCampaignById = function (idCampagne, callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
-            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours`, `validated` " +
+            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours, `image`, `validated` " +
             "FROM campagnes WHERE idCampagne=" + idCampagne, callback);
         connection.release();
     });
@@ -137,7 +137,7 @@ module.exports.updateValidationCampaign = (idCampaign, validationNumber, descrip
 module.exports.getAllAllCampaigns = function (callback) {
     db.getConnection(function (err, connection) {
         connection.query("SELECT `idCampagne`, `nomCampagne`, " +
-            "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " +
+            "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours` ,`image`, validated " +
             "FROM campagnes", callback);
         connection.release();
     });
@@ -146,7 +146,7 @@ module.exports.getAllAllCampaigns = function (callback) {
 
 module.exports.searchAnyCampaign = async (search) => {
     var query = "SELECT `idCampagne`, `nomCampagne`, " +
-    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " +
+    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, `image`, validated " +
     "FROM campagnes  WHERE validated=1 AND `nomCampagne` LIKE '%" + search + 
     "%' OR `descriptionCourte` LIKE  '%" + search + "%'";
 
@@ -156,7 +156,7 @@ module.exports.searchAnyCampaign = async (search) => {
 
 module.exports.contributed = async (idUtilisateur) => {
     var query = "SELECT campagnes.idCampagne, `nomCampagne`, " + 
-    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
+    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, `image`, validated " + 
     "FROM campagnes inner join participation on campagnes.idCampagne=participation.idCampagne WHERE participation.idContributeur =" + idUtilisateur;
     return db.asq(query);
 };
@@ -164,7 +164,7 @@ module.exports.contributed = async (idUtilisateur) => {
 
 module.exports.favorites = async (idUtilisateur) => {
     var query = "SELECT campagnes.idCampagne, `nomCampagne`, " + 
-    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, validated " + 
+    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, `image`, validated " + 
     "FROM campagnes inner join favoris on campagnes.idCampagne=favoris.idCampagne WHERE favoris.idUtilisateur =" + idUtilisateur;
     return db.asq(query);
 };
@@ -255,7 +255,7 @@ module.exports.addContrepartieContrib = (idCamp, idContributeur, idContrepartie,
 
 module.exports.getTrendCampaigns = async () => {
     var query = "SELECT COUNT(*) AS maxContrib,campagnes.idCampagne,nomCampagne, but"+
-    ", montantActuel, montantMax, dateLimite, descriptionCourte, estEnCours, validated "+
+    ", montantActuel, montantMax, dateLimite, descriptionCourte, image, estEnCours, validated "+
     "FROM campagnes inner join participation on campagnes.idCampagne = participation.idCampagne "+
     "where participation.date>=DATE_ADD(NOW(), INTERVAL -5 DAY)"+
     "GROUP BY participation.idCampagne "+
