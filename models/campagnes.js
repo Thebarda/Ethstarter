@@ -60,16 +60,16 @@ module.exports.getBut = function (idCampagne, callback) {
 
 module.exports.getCampaignById = function (idCampagne, callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
-            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `estEnCours, `image`, `validated` " +
+        connection.query("SELECT idCampagne, idEntrepreneur, nomCampagne, " +
+            "but, montantActuel, dateLimite, description, descriptionCourte, estEnCours, image, validated " +
             "FROM campagnes WHERE idCampagne=" + idCampagne, callback);
         connection.release();
     });
 };
 
 module.exports.getAllCampaigns = async () => {
-    var query = "SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
-    "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
+    var query = "SELECT idCampagne, idEntrepreneur, nomCampagne, " +
+    "but, montantActuel, dateLimite, description, descriptionCourte, estEnCours, image, validated " +
     "FROM campagnes WHERE validated=1";
     return db.asq(query);
 }
@@ -77,18 +77,18 @@ module.exports.getAllCampaigns = async () => {
 
 module.exports.getLast10Campaigns = function (callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
-            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
-            "FROM campagnes WHERE validated=1 LIMIT 10", callback);
+        connection.query("SELECT idCampagne, idEntrepreneur, nomCampagne, " +
+        "but, montantActuel, dateLimite, description, descriptionCourte, estEnCours, image, validated " +
+        "FROM campagnes WHERE validated=1 LIMIT 10", callback);
         connection.release();
     });
 };
 
 module.exports.getCampaignsInProgress = function (callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
-            "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
-            "FROM campagnes WHERE estEnCours=1 AND validated=1", callback);
+        connection.query("SELECT idCampagne, idEntrepreneur, nomCampagne, " +
+        "but, montantActuel, dateLimite, description, descriptionCourte, estEnCours, image, validated " +
+        "FROM campagnes WHERE estEnCours=1 AND validated=1", callback);
         connection.release();
     });
 };
@@ -120,9 +120,9 @@ module.exports.fetchNbCampaignsWaitingForValidation = (callback) => {
 
 module.exports.fetchCampaignsWaitingForValidation = (callback) => {
   db.getConnection(function (err, connection) {
-      connection.query("SELECT `idCampagne`, `idEntrepreneur`, `nomCampagne`, " +
-          "`but`, `montantActuel`, `dateLimite`, `description`, `descriptionCourte`, `image`, `estEnCours` " +
-          "FROM campagnes WHERE validated=0", callback);
+      connection.query("SELECT idCampagne, idEntrepreneur, nomCampagne, " +
+      "but, montantActuel, dateLimite, description, descriptionCourte, estEnCours, image, validated " +
+      "FROM campagnes WHERE validated=0", callback);
       connection.release();
   });
 }
@@ -136,19 +136,19 @@ module.exports.updateValidationCampaign = (idCampaign, validationNumber, descrip
 
 module.exports.getAllAllCampaigns = function (callback) {
     db.getConnection(function (err, connection) {
-        connection.query("SELECT `idCampagne`, `nomCampagne`, " +
-            "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours` ,`image`, validated " +
-            "FROM campagnes", callback);
+        connection.query("SELECT idCampagne, idEntrepreneur, nomCampagne, " +
+        "but, montantActuel, dateLimite, description, descriptionCourte, estEnCours, image, validated " +
+        "FROM campagnes", callback);
         connection.release();
     });
 };
 
 
 module.exports.searchAnyCampaign = async (search) => {
-    var query = "SELECT `idCampagne`, `nomCampagne`, " +
-    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, `image`, validated " +
-    "FROM campagnes  WHERE validated=1 AND `nomCampagne` LIKE '%" + search + 
-    "%' OR `descriptionCourte` LIKE  '%" + search + "%'";
+    var query = "SELECT idCampagne, idEntrepreneur, nomCampagne, " +
+    "but, montantActuel, dateLimite, description, descriptionCourte, estEnCours, image, validated " +
+    "FROM campagnes WHERE validated=1 AND nomCampagne LIKE '%" + search + 
+    "%' OR descriptionCourte LIKE  '%" + search + "%'";
 
     return db.asq(query);
 };
@@ -156,7 +156,7 @@ module.exports.searchAnyCampaign = async (search) => {
 
 module.exports.contributed = async (idUtilisateur) => {
     var query = "SELECT campagnes.idCampagne, `nomCampagne`, " + 
-    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, `image`, validated " + 
+    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, image, validated " + 
     "FROM campagnes inner join participation on campagnes.idCampagne=participation.idCampagne WHERE participation.idContributeur =" + idUtilisateur;
     return db.asq(query);
 };
@@ -164,7 +164,7 @@ module.exports.contributed = async (idUtilisateur) => {
 
 module.exports.favorites = async (idUtilisateur) => {
     var query = "SELECT campagnes.idCampagne, `nomCampagne`, " + 
-    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, `image`, validated " + 
+    "`but`, `montantActuel`, montantMax, `dateLimite`, `descriptionCourte`, `estEnCours`, image, validated " + 
     "FROM campagnes inner join favoris on campagnes.idCampagne=favoris.idCampagne WHERE favoris.idUtilisateur =" + idUtilisateur;
     return db.asq(query);
 };
