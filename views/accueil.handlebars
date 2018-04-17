@@ -7,11 +7,11 @@
                     <div class="col s4" id="campagne">
                         <div class="card hoverable">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator cardImg" src="/images/placeholder2.jpg" />
+                                <img class="activator cardImg" src="/images/uploads/{{image}}" />
                             </div>
                             <div class="card-content">
                                 <span class="card-title activator grey-text text-darken-4">{{nomCampagne}}<i class="material-icons right">expand_less</i></span>
-                                <p><a href="/campaign/{{idCampagne}}">Découvrir</a></p>
+                                <p><a id="link" href="/campaign/{{idCampagne}}">Découvrir</a></p>
                             </div>
                             <div class="card-reveal">
                                 <span class="card-title grey-text text-darken-4 activator">{{nomCampagne}}<i class="material-icons right">expand_more</i></span>
@@ -50,11 +50,11 @@
                     <div class="col s4" id="campagne">
                         <div class="card hoverable">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator cardImg" src="/images/placeholder2.jpg" />
+                                <img class="activator cardImg" src="/images/uploads/{{image}}" />
                             </div>
                             <div class="card-content">
                                 <span class="card-title activator grey-text text-darken-4">{{nomCampagne}}<i class="material-icons right">expand_less</i></span>
-                                <p><a href="/campaign/{{idCampagne}}">Découvrir</a></p>
+                                <p><a id="link" href="/campaign/{{idCampagne}}">Découvrir</a></p>
                             </div>
                             <div class="card-reveal">
                                 <span class="card-title grey-text text-darken-4 activator">{{nomCampagne}}<i class="material-icons right">expand_more</i></span>
@@ -70,6 +70,7 @@
     {{/ifCond}}
 </div>
 
+<script src="/javascripts/campaignCard.js"></script>
 <link rel="stylesheet" href="/stylesheets/accueil.css">
 <link rel="stylesheet" href="/stylesheets/afficherLesCampagnes.css">
 <script src="/javascripts/accueil.js"></script>

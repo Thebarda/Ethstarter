@@ -1,6 +1,5 @@
 $(document).ready(function(){
-/* 
-    $(".card").mouseenter(function(e){
+//    $(".card").mouseenter(function(e){
         if ($(this).find('> .card-reveal').length) {
             if ($(e.target).is($('.card .activator')) || $(e.target).is($('.card .activator i')) ) {
                 // Make Reveal animate up
@@ -11,13 +10,14 @@ $(document).ready(function(){
                         queue: false, 
                         easing: 'easeInOutQuad'
                     });
+                }
             }
-        }
-    
-        $('.card-reveal').closest('.card').css('overflow', 'hidden');
-    
-    });
-    
+            
+            $('.card-reveal').closest('.card').css('overflow', 'hidden');
+            
+//        });
+        
+/* 
     $(".card").mouseleave(function(){
         $(this).find('.card-reveal').velocity(
             {translateY: 0}, 
