@@ -23,7 +23,9 @@ $(document).ready(function () {
     $('.msgdel').click(function (e) {
         e.preventDefault();
         var m = $(this).attr("idDM");
-        $(this).parent().parent().parent().hide("slow");
+        $(this).parent().parent().parent().hide("slow", function() {
+            $(this).remove()
+        });
         
         
         $.ajax({
@@ -31,7 +33,6 @@ $(document).ready(function () {
             method: 'POST',
             data: { messageID: m }
         });
-        $(this).parent().parent().parent().remove();
     });
 
     $("a[name='reply']").click(function(e) {
