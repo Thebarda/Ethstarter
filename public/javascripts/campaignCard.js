@@ -32,7 +32,7 @@ $(document).ready(function(){
     }); */
 
     $(".card").click(function(){
-        var link = $('#link').attr('href');
+        var link = $(this).find("[href]").attr('href');
         window.location.href = link;
     });
 });
