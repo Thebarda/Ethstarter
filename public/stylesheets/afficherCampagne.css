@@ -1,3 +1,13 @@
 .idisplayInline{
     display: inline;
 }
+
+.parallax-container {
+    height: 400px;
+}
+
+#titre {
+    position: absolute;
+    bottom: 0;
+    margin-left: 1em;
+}

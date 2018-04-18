@@ -4,6 +4,7 @@ $(document).ready(function(){
     var favIcon = favStatus == "0" ? "favorite_border" : "favorite";
     var favText = favStatus == "0" ? "Ajouter en favoris" : "Retirer des favoris";
 
+    $('.parallax').parallax();
     $('.tooltipped').tooltip({delay: 50});
     $("#favicon").text(favIcon);
     $("#favbutton").attr("data-tooltip", favText);
