@@ -4,7 +4,7 @@ var utils = require("../utils/utils");
 module.exports.getAll = async (recipient) => {
     var query = "SELECT *," +
     "(SELECT CONCAT(prenom, ' ', nom) FROM utilisateur WHERE id = sender) AS sendername " + 
-    "FROM dm WHERE recipient = " + recipient;
+    "FROM dm WHERE recipient = " + recipient + " ORDER BY datetime DESC";
     return db.asq(query);
 }
 
