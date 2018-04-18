@@ -23,8 +23,11 @@ $(document).ready(function () {
     $('.msgdel').click(function (e) {
         e.preventDefault();
         var m = $(this).attr("idDM");
-        $(this).parent().parent().parent().hide("slow");
-
+        $(this).parent().parent().parent().hide("slow", function() {
+            $(this).remove()
+        });
+        
+        
         $.ajax({
             url: '/deleteMessage',
             method: 'POST',
