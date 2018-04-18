@@ -24,12 +24,14 @@ $(document).ready(function () {
         e.preventDefault();
         var m = $(this).attr("idDM");
         $(this).parent().parent().parent().hide("slow");
-
+        
+        
         $.ajax({
             url: '/deleteMessage',
             method: 'POST',
             data: { messageID: m }
         });
+        $(this).parent().parent().parent().remove();
     });
 
     $("a[name='reply']").click(function(e) {
