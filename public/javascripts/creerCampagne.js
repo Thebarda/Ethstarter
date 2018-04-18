@@ -50,22 +50,47 @@ $(document).ready(function () {
                           }
                       }
                   });
-                  if(!errorCP) {
-                      $('.modal').modal('open');
-                      $("#error").text("");
-                      $.ajax({
-                          url: "/validationCampagne",
-                          method: "post",
-                          data: {
-                              nomCampagne: titreCampagne,
-                              description: description,
-                              descriptionCourte: descriptionCourte,
-                              dateLimite: datepicker,
-                              but: objectif,
-                              estEnCours: 1,
-                              montantActuel: 0,
-                              montantMax: objectifMax
-                          }
+                if(!errorCP) {
+                    $('.modal').modal('open');
+                    $("#error").text("");
+
+                    var fd = new FormData();
+                    fd.append('nomCampagne', titreCampagne);
+                    fd.append('description', description);
+                    fd.append('descriptionCourte', descriptionCourte);
+                    fd.append('dateLimite', datepicker);
+                    fd.append('but', objectif);
+                    fd.append('estEnCours', 1);
+                    fd.append('montantActuel', 0);
+                    fd.append('montantMax', objectifMax);
+
+                    var img = $('#coverimg')[0].files[0];
+                    fd.append('coverimg', img); 
+
+                    for (var p of fd) {
+                        console.log(p);
+                    }
+
+                    $.ajax({
+                        url: '/validationCampagne',
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        type: 'POST'
+
+/*                      url: "/validationCampagne",
+                        method: "post",
+                        data: {
+                            nomCampagne: titreCampagne,
+                            descriptionCourte: description,
+                            descriptionCourte: descriptionCourte,
+                            dateLimite: datepicker,
+                            but: objectif,
+                            estEnCours: 1,
+                            montantActuel: 0,
+                            montantMax: objectifMax,
+                        } */
+
                       }).done(function (html) {
                           var idCampagne = $(html).filter("#emptyView").text();
                           $(".CP").each(function () {

@@ -9,7 +9,19 @@
     height: 20vw;
 }
 
-/* .card-title {
-    background-color: #FF8800;
-} */
 
+.card {
+    overflow-y: hidden;
+}
+
+.card .card-image ~ .card-reveal {
+    display: block;
+    transform: translateY(0%);
+    pointer-events: none;
+    transition: transform 0.3s;
+}
+
+.card .card-image:active ~ .card-reveal, .card .card-image:hover ~ .card-reveal {
+    display: block;
+    transform: translateY(calc(-100% - 1px));
+}

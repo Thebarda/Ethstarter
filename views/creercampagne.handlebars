@@ -3,7 +3,7 @@
         {{#ifCond session.entrepreneurValidated '==' 1}}
         <div class="container">
             <div class="row">
-                <form class="col s12 " id="form">
+                <form class="col s12 " id="form" encType="multipart/form-data">
                     <div class="row">
                         <div class="input-field col s6 offset-s3">
                             <input id="titreCampagne" name="titreCampagne" type="text" class="required">
@@ -12,8 +12,16 @@
                     </div>
 
                     <div class="row">
-                    <div class="row">
-                    </div>
+
+                        <div class="col s3">
+                            Image :
+                        </div>
+                        <div class="col s9">
+                                <input type="file" id="coverimg" name="coverimg">
+                        </div>
+
+                        <br>
+
                         <div class="col s3">
                             Description Rapide :
                         </div>
@@ -136,9 +144,9 @@
     {{/ifCond}}
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+{{!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="http://cdn.wysibb.com/js/jquery.wysibb.min.js"></script>
+<script src="http://cdn.wysibb.com/js/jquery.wysibb.min.js"></script> --}}
 
 
 <script src="/javascripts/creerCampagne.js"></script>

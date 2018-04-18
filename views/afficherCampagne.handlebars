@@ -1,4 +1,10 @@
+<div class="parallax-container">
+    <div class="parallax"><img src="/images/uploads/{{campagne.image}}" ></div>
+    <h3 class="left-align white-text" id="titre">{{campagne.nomCampagne}}</h3>
+</div>
+
 <div id="campagneContainer" class="center-align rightBuffer">
+
     <div class="row">
         <div class="card col s8">
             <div class="card-content">
@@ -8,7 +14,6 @@
                 <p hidden id="testConnect">{{session.typeCompte}}</p>
                 <p hidden id="currentCamp">{{campagne.idCampagne}}</p>
                 <p hidden id="isFav">{{isFav}}</p>
-                <h3 class="center-align" id="titre">{{campagne.nomCampagne}}</h3>
                 <div class="row">
                     <div class="col s12">
                         <ul class="tabs">
