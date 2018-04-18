@@ -18,10 +18,10 @@ module.exports.validationCampagne = function (request, response) {
     body.image = "placeholder2.jpg"
     
     //img handling ---- todo : file upload constrains (see express fileup doc)
-    var coverimg = request.files.coverimg;
     var accepted = true;
-
-    if (coverimg){
+ 
+    if (request.files.coverimg){
+        var coverimg = request.files.coverimg;
         var extRegex = /\.[0-9a-z]+$/i; 
         var ext = coverimg.name.match(extRegex);
         var filename = utils.genUUID() + ext[0];
@@ -44,7 +44,7 @@ module.exports.validationCampagne = function (request, response) {
             var texte = "Votre campagne "+body.nomCampagne+" est en attente de validation";
             notifModel.addNotification(request.session.idCompte, texte, (err, result2) => {
             
-                if (accepted && coverimg) {
+                if (accepted && request.files.coverimg) {
                     coverimg.mv("public/images/uploads/" + filename, function(err) {
                         if (err) return err;
                         console.log("UPLOADED");
