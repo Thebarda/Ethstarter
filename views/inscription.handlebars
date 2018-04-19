@@ -39,7 +39,7 @@
         </form>
     </div>
     <div id="tab-swipe-entrepreneur" class="col s12">
-        <form method="post" action="/validationInscriptionEntrepreneur" enctype="multipart/form-data">
+        <form id="entForm" method="post" action="/validationInscriptionEntrepreneur" enctype="multipart/form-data">
             <div class="input-field col s2 offset-s4">
                 <input name="lastname" type="text" class="validate" required>
                 <label for="lastname">Nom</label>
@@ -71,7 +71,7 @@
             <div class="file-field input-field col s4 offset-s4">
                 <div class="btn">
                     <span>Pièce d'identité</span>
-                    <input type="file" name="image" accept="image/*">
+                    <input type="file" id="ppic" name="ppic">
                 </div>
                 <div class="file-path-wrapper">
                     <input class="file-path validate" type="text" required>

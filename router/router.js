@@ -27,9 +27,12 @@ module.exports = async function (app) {
     app.get('/mycampaigns', CampagnesController.afficherMesCampagnes);
     app.get('/creerCampagne', CreateController.createForm);
     app.post('/validationCampagne',CreateController.validationCampagne);
+
+    //Inscription
     app.get('/Inscription', InscriptionController.inscription);
     app.post('/validationInscriptionContributeur', InscriptionController.validationInscriptionContributeur);
     app.post("/validationInscriptionEntrepreneur", InscriptionController.validationInscriptionEntrepreneur);
+
     //Affichage campagnes
     app.get('/campaign/:idCampagne', CampagnesController.afficherCampagne);
     app.get('/campaignStats/:idCampagne', CampagnesController.afficherStatistiquesCampagnes);

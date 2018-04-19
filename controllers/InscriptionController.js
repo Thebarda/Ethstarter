@@ -39,7 +39,34 @@ module.exports.validationInscriptionContributeur=function(request, response){
     }
 }
 
-module.exports.validationInscriptionEntrepreneur=function(request, response){
+module.exports.validationInscriptionEntrepreneur = (request, response) => {
+    if(utils.isAddress(request.body.address)) {
+        modelInscription.valide(request.body, function (err, result) {
+            if (err) throw err;
+            if (result.length != 0) {
+                response.error = "Login incorrect";
+                response.render("inscription", response);
+            }
+            else {
+                modelInscription.inscrire(request.body, function (err, result) {
+                    modelInscription.inscrireEntrepreneur(result.insertId, "IMG PATH HERE", function (err, result2) {
+                        if (err) throw err;
+                        notifModel.addNotification(result.insertId, "Vous êtes en attente de validation ", (err, result2) => {
+                            response.render("connexion", response);
+                        });
+                    });
+                });
+            }
+        });
+    }
+    else {
+        response.title="Ethstarter - inscription";
+        response.error = "Adresse publique incorrecte";
+        response.render("inscription", response);
+    }
+}
+
+module.exports.validationInscriptionEntrepreneurOLD=function(request, response){
     var form = new formidable.IncomingForm();
     form.parse(request, function (err, fields, files) {
         var nomEntreprise = fields.nomEntreprise;
