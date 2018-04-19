@@ -22,17 +22,19 @@ module.exports.validationInscriptionContributeur=function(request, response){
                 console.log(err);
                 return;
             }
-            if (result.length != 0) {
-                response.error = "Login incorrect";
-                response.render("inscription", response);
-            } else {
+            if (result[0].rescount == 0) {
                 modelInscription.inscrire(body, function (err, result) {
                     if (err) throw err;
                     response.render("connexion", response);
                 });
+            } 
+            else {
+                response.error = "Login incorrect";
+                response.render("inscription", response);
             }
         });
-    }else{
+    }
+    else{
         response.title="Ethstarter - inscription";
         response.error = "Adresse publique incorrecte";
         response.render("inscription", response);
@@ -63,7 +65,9 @@ module.exports.validationInscriptionEntrepreneur = (request, response) => {
             if (err) throw err;
 
             if (result[0].rescount == 0) {
+                console.log("addr ok & login OK");
                 modelInscription.inscrire(request.body, function (err, result) {
+                    console.log("inscr OK");
                     if (err) throw err;
 
                     modelInscription.inscrireEntrepreneur(result.insertId, nomEntreprise, imgdb, function (err, result2) {
