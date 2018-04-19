@@ -7,7 +7,7 @@ module.exports.calculJourRestant = function (dateLimite) {
 };
 
 module.exports.isAddress = function (addr) {
-    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:8545"));
+    var web3 = new Web3(new Web3.providers.HttpProvider("http://vps409515.ovh.net:42669"));
     return web3.isAddress(addr);
 };
 
