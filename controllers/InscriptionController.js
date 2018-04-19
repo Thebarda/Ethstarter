@@ -43,7 +43,6 @@ module.exports.validationInscriptionContributeur=function(request, response){
 
 module.exports.validationInscriptionEntrepreneur = (request, response) => {
     //img handling ---- todo : file upload constrains (see express fileup doc)
-
     var imgdb = "placeholder2.jpg"
     var accepted = true;
     
@@ -60,23 +59,23 @@ module.exports.validationInscriptionEntrepreneur = (request, response) => {
     }
     else { console.log("file was not upladed - front end") }
 
+    request.body.type = 2;
     if(utils.isAddress(request.body.address)) {
         modelInscription.valide(request.body, function (err, result) {
             if (err) throw err;
 
             if (result[0].rescount == 0) {
-                console.log("addr ok & login OK");
                 modelInscription.inscrire(request.body, function (err, result) {
                     console.log("inscr OK");
                     if (err) throw err;
 
-                    modelInscription.inscrireEntrepreneur(result.insertId, nomEntreprise, imgdb, function (err, result2) {
+                    modelInscription.inscrireEntrepreneur(result.insertId, request.body.nomEntreprise, imgdb, function (err, result2) {
                         if (err) throw err;
                         
                         notifModel.addNotification(result.insertId, "Vous êtes en attente de validation ", (err, result2) => {
 
                             if (accepted && request.files.pi) {
-                                coverimg.mv("public/PIpics/" + filename, function(err) {
+                                img.mv("public/PIpics/" + filename, function(err) {
                                     if (err) return err;
                                     console.log("UPLOADED");
                                     response.render("connexion", response);
