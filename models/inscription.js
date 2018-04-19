@@ -5,11 +5,11 @@ var sha256 = require('js-sha256').sha256;
 
 module.exports.valide = function(body, callback){
     db.getConnection(function(err, connexion){
-        if(!err){
-            var sql = "SELECT COUNT(id) FROM utilisateur WHERE login='" + body.login + "';";
-            connexion.query(sql, callback);
-            connexion.release();
-        }
+        if (err) throw err;
+        
+        var sql = "SELECT COUNT(id) AS rescount FROM utilisateur WHERE login='" + body.login + "'";
+        connexion.query(sql, callback);
+        connexion.release();
     });
 }
 

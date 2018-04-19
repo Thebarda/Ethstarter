@@ -1,9 +1,9 @@
 var modelInscription = require('../models/inscription.js');
 var utils = require("../utils/utils");
 var notifModel = require('../models/notifications');
-var fs = require('fs');
-var formidable = require('formidable');
-var fs = require('fs-extra');
+//var fs = require('fs');
+//var formidable = require('formidable');
+//var fs = require('fs-extra');
 
 module.exports.inscription=function(request, response){
     response.title="Ethstarter - inscription";
@@ -61,12 +61,16 @@ module.exports.validationInscriptionEntrepreneur = (request, response) => {
     if(utils.isAddress(request.body.address)) {
         modelInscription.valide(request.body, function (err, result) {
             if (err) throw err;
-            if (result.length == 0) {
+
+            if (result[0].rescount == 0) {
                 modelInscription.inscrire(request.body, function (err, result) {
+                    if (err) throw err;
+
                     modelInscription.inscrireEntrepreneur(result.insertId, nomEntreprise, imgdb, function (err, result2) {
                         if (err) throw err;
+                        
                         notifModel.addNotification(result.insertId, "Vous êtes en attente de validation ", (err, result2) => {
-                            
+
                             if (accepted && request.files.pi) {
                                 coverimg.mv("public/PIpics/" + filename, function(err) {
                                     if (err) return err;
@@ -89,13 +93,13 @@ module.exports.validationInscriptionEntrepreneur = (request, response) => {
     }
     else {
         response.title="Ethstarter - inscription";
-        response.error = "Adresse publique incorrecte";
+        response.error = "Adresse publique ou Login incorrect";
         response.render("inscription", response);
     }
 }
 
 
-module.exports.validationInscriptionEntrepreneurOLD=function(request, response){
+/* module.exports.validationInscriptionEntrepreneurOLD=function(request, response){
     var form = new formidable.IncomingForm();
     form.parse(request, function (err, fields, files) {
         var nomEntreprise = fields.nomEntreprise;
@@ -137,4 +141,4 @@ module.exports.validationInscriptionEntrepreneurOLD=function(request, response){
             response.render("inscription", response);
         }  
     });
-}  
+}   */
